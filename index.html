@@ -1,1 +1,1710 @@
-Parts Mtaani Preorders
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Pre-order auto parts for multiple vehicles — source genuine OEM & aftermarket parts across Kenya.">
+  <meta property="og:title" content="Pre-Order Auto Parts | PartsMtaani">
+  <meta property="og:description" content="Source genuine auto parts for multiple vehicles with quality verification and warranty — delivered across Kenya.">
+  <title>Pre-Order Parts | PartsMtaani</title>
+  <!-- UIkit 3.23.11 CSS + JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/css/uikit.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/js/uikit-icons.min.js"></script>
+  <!-- Google Fonts fallback -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
+  <link rel="icon" href="favicon.svg">
+  <style>
+    /* ============================================
+       ROOT VARIABLES (Design System)
+       ============================================ */
+    :root {
+      --orange: #FF4500;           /* Primary brand color */
+      --orange-dark: #d93b00;      /* Darker orange for hover states */
+      --success: #26C485;          /* Success green - highlights, active states */
+      --info: #118AB2;             /* Info blue - guarantee/refund step */
+      --black: #0e0e0e;            /* Dark background for footer/banner */
+      --ink: #1c1c1c;              /* Primary text color */
+      --mid: #444;                 /* Secondary text color */
+      --muted: #6b6b6b;            /* Muted text / labels */
+      --line: #e8e8e8;             /* Border / divider color */
+      --bg: #fafaf9;               /* Light background for alternating sections */
+      --white: #ffffff;            /* White background */
+    }
+    
+    /* ============================================
+       CUSTOM FONTS (BDOGrotesk - 7 weights)
+       ============================================ */
+    @font-face {
+      font-family: 'BDOGrotesk';
+      src: url('/assets/webfonts/BDOGrotesk-Regular.woff2') format('woff2');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'BDOGrotesk';
+      src: url('/assets/webfonts/BDOGrotesk-Bold.woff2') format('woff2');
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'BDOGrotesk';
+      src: url('/assets/webfonts/BDOGrotesk-ExtraBold.woff2') format('woff2');
+      font-weight: 800;
+      font-style: normal;
+    }
+
+    /* ============================================
+       GLOBAL RESET & BASE STYLES
+       ============================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--ink);
+      font-family: 'BDOGrotesk', 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+    }
+
+    /* Typography */
+    h1, h2 {
+      font-family: 'Outfit', 'BDOGrotesk', sans-serif;
+      text-transform: none;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    h3, h4, h5, h6 {
+      font-family: 'BDOGrotesk', 'Inter', sans-serif;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+    }
+    /* h1: hero headline — Outfit at display size */
+    h1 {
+      font-size: clamp(40px, 5.2vw, 70px);
+      line-height: 1.02;
+      letter-spacing: 0.0em;
+    }
+    /* h2: section headings */
+    h2 {
+      font-size: clamp(26px, 3.2vw, 42px);
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
+    .label {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* Layout containers */
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 80px 0; }
+    .section-alt { background: var(--bg); }
+    .divider { height: 1px; background: var(--line); }
+
+    /* ============================================
+       NAVBAR (Sticky header)
+       ============================================ */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      max-width: 1140px; margin: 0 auto; padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 20px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .logo-img { height: 36px; width: auto; display: block; object-fit: contain; }
+    .logo-sub {
+      font-family: 'BDOGrotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.2;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    .nav-links li { display: inline-block; }
+    .nav-links a {
+      font-family: 'BDOGrotesk', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--mid);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-links svg {
+      width: 15px;
+      height: 15px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
+      flex-shrink: 0;
+      position: relative;
+      top: -1px;
+    }
+    .btn-nav {
+      background: var(--orange) !important;
+      color: #fff !important;
+      padding: 9px 20px !important;
+      font-weight: 700 !important;
+      font-size: 11px !important;
+      border-radius: 2px;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+    .btn-nav:hover { background: var(--orange-dark) !important; }
+    .nav-hamburger {
+      display: none;
+      background: none;
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      cursor: pointer;
+      color: var(--ink);
+      border-radius: 4px;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        border-bottom: 1px solid var(--line);
+        padding: 18px 24px;
+        gap: 16px;
+        align-items: flex-start;
+        z-index: 99;
+        margin: 0;
+      }
+      .nav-hamburger { display: block; }
+    }
+
+    /* ============================================
+       BUTTONS
+       ============================================ */
+    .btn-primary { background: var(--orange); color: #fff; padding: 14px 28px; border: none; border-radius: 2px; font-weight: 700; font-size: 12px; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; }
+    .btn-primary:hover { background: var(--orange-dark); }
+    .btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--line); padding: 14px 28px; border-radius: 2px; font-weight: 700; font-size: 12px; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; }
+    .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
+
+    /* ============================================
+       HERO SECTION (with right-side image overlay)
+       ============================================ */
+    #hero {
+      position: relative;
+      padding: 80px 0 72px;
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+    }
+    #hero::before {
+      content: "";
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 52%;
+      background-image: url('assets/img/hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      pointer-events: none;
+      z-index: 0;
+    }
+    #hero::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 52%;
+      background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.6) 38%, rgba(255,255,255,0) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    #hero .wrap { position: relative; z-index: 2; }
+    .hero-grid { display: grid; grid-template-columns: 1fr 400px; gap: 60px; align-items: center; }
+    .hero-tag { background: none; border: none; font-size: 11px; font-weight: 700; letter-spacing: 0.16em; color: var(--orange); margin-bottom: 12px; padding: 0; text-transform: uppercase; display: inline-block; font-family: 'BDOGrotesk', sans-serif; }
+    .hero-desc { font-size: 17px; line-height: 1.75; color: var(--mid); margin-top: 20px; }
+    .hero-stats { display: flex; gap: 32px; margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--line); }
+    .hero-stat-num { font-size: 30px; font-weight: 800; color: var(--black); line-height: 1; font-family: 'Outfit', 'BDOGrotesk', sans-serif; letter-spacing: 0.02em; }
+    .hero-stat-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
+    .hero-card { background: var(--white); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
+    .hero-card-header { background: var(--black); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
+    .hero-card-header span { font-size: 10px; font-weight: 600; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em; }
+    .dot-row { display: flex; gap: 6px; }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; }
+    .dot-y { background: #ffbd2e; }
+    .dot-g { background: #28c840; }
+    .hero-card-body { padding: 18px; display: flex; flex-direction: column; gap: 8px; }
+    .hc-row { background: var(--bg); border: 1px solid var(--line); border-radius: 4px; padding: 10px 14px; }
+    .hc-label { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+    .hc-val { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .hc-status { background: #fff3ee; border: 1px solid #ffd4c4; border-radius: 4px; padding: 8px 12px; font-size: 11px; font-weight: 700; color: var(--orange); text-transform: uppercase; }
+
+    /* ============================================
+       CATEGORIES SLIDER (UIkit Slider component)
+       ============================================ */
+    .categories-section { padding: 40px 0; background: var(--white); }
+    .category-slide { text-align: center; padding: 24px 16px; transition: all 0.2s ease; cursor: pointer; }
+    .category-slide:hover { transform: translateY(-4px); }
+    .category-icon { width: 80px; height: 80px; margin: 0 auto 16px; background: linear-gradient(135deg, #fff5f0 0%, #fff0e8 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); transition: all 0.2s ease; }
+    .category-slide:hover .category-icon { border-color: var(--orange); background: #fff3ee; box-shadow: 0 8px 20px rgba(255,69,0,0.12); }
+    .category-icon svg { width: 32px; height: 32px; stroke: var(--orange); stroke-width: 1.5; fill: none; }
+    .category-name { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink); margin-top: 8px; }
+    .uk-slidenav { width: 36px; height: 36px; background: var(--white); border: 1px solid var(--line); border-radius: 50%; color: var(--ink); transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
+    .uk-slidenav:hover { background: var(--orange); border-color: var(--orange); color: white; }
+    /* Keep arrows outside slider container overflow */
+    .categories-slider-wrap { position: relative; padding: 0 48px; }
+    .categories-slider-wrap .uk-slidenav-previous { position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
+    .categories-slider-wrap .uk-slidenav-next     { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
+    @media (max-width: 768px) {
+      .categories-slider-wrap { padding: 0 36px; }
+      .category-icon { width: 64px; height: 64px; }
+      .category-icon svg { width: 26px; height: 26px; }
+      .category-name { font-size: 10px; }
+    }
+
+    /* ============================================
+       SOURCING FEE BANNER (4-step tree with guarantee)
+       Colors: Orange (default), Success #26C485 (active), Info #118AB2 (guarantee)
+       ============================================ */
+    .fee-banner {
+      background: linear-gradient(150deg, #0d1f1a 0%, #0a1628 55%, #0d1f2e 100%);
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .fee-banner::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(38,196,133,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 10% 80%, rgba(17,138,178,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .fee-banner .wrap { position: relative; z-index: 2; }
+    .fee-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 72px; align-items: start; }
+    @media (max-width: 860px) { .fee-inner { grid-template-columns: 1fr; gap: 48px; } }
+    .fee-left h2 { color: #fff; font-size: clamp(26px, 3.4vw, 42px); margin-bottom: 16px; }
+    .fee-left p { font-size: 15px; color: rgba(255,255,255,0.78); line-height: 1.8; }
+    .fee-left p strong { color: #fff; font-weight: 700; }
+    
+    /* ── Enterprise process rail ──────────────────────── */
+    .fee-inner { align-items: start; }
+
+    /* Stat pills below headline */
+    .fee-stats-row {
+      display: flex;
+      gap: 0;
+      margin-top: 36px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .fee-stat {
+      flex: 1;
+      padding: 16px 20px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    .fee-stat:last-child { border-right: none; }
+    .fee-stat-val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .fee-stat-val span { color: #26C485; }
+    .fee-stat-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.42);
+    }
+
+    /* Process rail */
+    .fee-process-rail {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .fee-process-item {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 0;
+      position: relative;
+    }
+    /* Vertical connector line through number column */
+    .fee-process-item:not(:last-child) .fee-proc-num-col::after {
+      content: "";
+      position: absolute;
+      left: 27px;
+      top: 52px;
+      bottom: -1px;
+      width: 2px;
+      background: rgba(255,255,255,0.08);
+    }
+    .fee-proc-num-col {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 4px;
+      overflow: visible;
+    }
+    .fee-proc-circle {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s;
+    }
+    .fee-process-item.is-active .fee-proc-circle {
+      border-color: #26C485;
+      background: rgba(38,196,133,0.12);
+      box-shadow: 0 0 0 6px rgba(38,196,133,0.08);
+    }
+    .fee-process-item.is-guarantee .fee-proc-circle {
+      border-color: rgba(91,196,232,0.6);
+      background: rgba(17,138,178,0.12);
+    }
+    .fee-proc-circle svg {
+      width: 18px; height: 18px;
+      stroke: rgba(255,255,255,0.5);
+      stroke-width: 1.75; fill: none;
+    }
+    .fee-process-item.is-active .fee-proc-circle svg { stroke: #26C485; }
+    .fee-process-item.is-guarantee .fee-proc-circle svg { stroke: #5bc4e8; }
+
+    .fee-proc-content {
+      padding: 2px 0 32px 20px;
+    }
+    .fee-process-item:last-child .fee-proc-content { padding-bottom: 0; }
+    .fee-proc-eyebrow {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .fee-process-item.is-active .fee-proc-eyebrow { color: #26C485; }
+    .fee-process-item.is-guarantee .fee-proc-eyebrow { color: #5bc4e8; }
+    .fee-proc-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+      margin-bottom: 6px;
+      letter-spacing: 0.01em;
+    }
+    .fee-proc-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      margin: 0;
+    }
+    .fee-process-item.is-active .fee-proc-desc,
+    .fee-process-item.is-guarantee .fee-proc-desc { color: rgba(255,255,255,0.68); }
+    .fee-proc-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 9px;
+      border-radius: 20px;
+      background: rgba(38,196,133,0.15);
+      color: #26C485;
+      border: 1px solid rgba(38,196,133,0.35);
+      margin-left: 2px;
+    }
+    .fee-proc-tag.blue { background: rgba(17,138,178,0.15); color: #5bc4e8; border-color: rgba(17,138,178,0.35); }
+
+    /* legacy aliases kept for any stray references */
+    .step-chip { display:none; }
+    .step-chip-blue { display:none; }
+
+    /* Utility classes */
+    .text-success { color: var(--success); }
+    .text-info { color: var(--info); }
+
+    /* ============================================
+       MULTI-VEHICLE ORDER FORM (Dynamic JavaScript)
+       ============================================ */
+    .form-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 36px; margin-top: 48px; }
+    @media (max-width: 900px) { .form-layout { grid-template-columns: 1fr; } }
+    
+    .form-card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+    .form-sec-head { display: flex; align-items: center; gap: 12px; padding: 16px 24px; background: var(--bg); border-bottom: 1px solid var(--line); }
+    .form-sec-num { width: 26px; height: 26px; background: var(--orange); color: #fff; font-size: 12px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .form-sec-head h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; margin: 0; color: var(--black); }
+    .form-body { padding: 24px; }
+    
+    /* Step indicator (Contact → Vehicle & Parts) */
+    .step-indicator {
+      display: flex;
+      gap: 32px;
+      margin-bottom: 24px;
+      padding: 16px 24px 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .step-dot {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'BDOGrotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--muted);
+      text-transform: uppercase;
+      padding-bottom: 12px;
+      border-bottom: 2px solid transparent;
+    }
+    .step-dot.active {
+      color: var(--orange);
+      border-bottom-color: var(--orange);
+    }
+    .step-dot .step-icon {
+      width: 28px;
+      height: 28px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
+    }
+    .step-dot.completed .step-icon { stroke: var(--success); }
+    
+    /* Vehicle card styling */
+    .vehicle-card {
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      margin-bottom: 24px;
+      overflow: hidden;
+    }
+    .vehicle-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      cursor: pointer;
+    }
+    .vehicle-title { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .vehicle-badge { font-size: 10px; color: var(--muted); }
+    .remove-vehicle { background: none; border: none; color: #999; cursor: pointer; font-size: 18px; padding: 0 8px; }
+    .remove-vehicle:hover { color: var(--orange); }
+    .vehicle-content { padding: 20px; display: none; }
+    .vehicle-content.open { display: block; }
+    
+    /* Part item styling */
+    .part-item {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      margin-bottom: 16px;
+      padding: 16px;
+    }
+    .part-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+    }
+    .part-title { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--orange); }
+    .remove-part { background: none; border: none; color: #999; cursor: pointer; font-size: 16px; }
+    .remove-part:hover { color: var(--orange); }
+    
+    /* Image upload area */
+    .part-images {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--line);
+    }
+    .image-upload-zone {
+      border: 2px dashed var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+      background: var(--bg);
+      cursor: pointer;
+      transition: all 0.2s;
+      margin-bottom: 12px;
+    }
+    .image-upload-zone:hover { border-color: var(--orange); background: #fff8f5; }
+    .image-upload-zone svg { width: 24px; height: 24px; stroke: var(--orange); }
+    .image-upload-zone p { font-size: 11px; color: var(--muted); margin-top: 6px; }
+    .image-preview-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+    .preview-img {
+      position: relative;
+      width: 60px;
+      height: 60px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 2px solid var(--line);
+    }
+    .preview-img img { width: 100%; height: 100%; object-fit: cover; }
+    .delete-img {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      width: 20px;
+      height: 20px;
+      background: var(--orange);
+      color: white;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      cursor: pointer;
+      border: none;
+    }
+    .delete-img:hover { background: var(--orange-dark); }
+    
+    /* Form fields */
+    .field { margin-bottom: 14px; }
+    .field-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 540px) { .field-2 { grid-template-columns: 1fr; } }
+    label { display: block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 4px; color: var(--ink); }
+    label .req { color: var(--orange); }
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px 12px;
+      font-family: inherit;
+      font-size: 13px;
+      background: var(--white);
+    }
+    input:focus, select:focus, textarea:focus { border-color: var(--orange); outline: none; box-shadow: 0 0 0 3px rgba(255,69,0,0.08); }
+    
+    .add-btn {
+      background: transparent;
+      border: 1px dashed var(--line);
+      border-radius: 6px;
+      padding: 10px;
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+    .add-btn:hover { border-color: var(--orange); color: var(--orange); }
+    
+    .submit-btn { background: var(--orange); color: #fff; padding: 14px 28px; border: none; border-radius: 4px; font-weight: 700; cursor: pointer; text-transform: uppercase; font-size: 12px; letter-spacing: 0.08em; }
+    .submit-btn:hover { background: var(--orange-dark); }
+    .submit-note { font-size: 11px; color: var(--muted); line-height: 1.5; }
+    .success-msg { display: none; background: #eef6ee; border-left: 4px solid var(--success); padding: 14px; border-radius: 6px; margin-bottom: 20px; font-size: 13px; color: #1e5a1f; }
+    
+    /* Payment card (right sidebar) — light with border */
+    .payment-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+      position: sticky;
+      top: 88px;
+    }
+    .payment-card-header {
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+      padding: 16px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .payment-card-header-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .payment-logos {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .mpesa-logo {
+      height: 32px;
+      width: auto;
+      display: block;
+      filter: none;
+      opacity: 1;
+    }
+    .paypal-logo {
+      height: 30px;
+      width: auto;
+      display: block;
+      opacity: 0.9;
+      cursor: pointer;
+      position: relative;
+    }
+    /* PayPal tooltip on hover */
+    .paypal-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+    .paypal-tooltip {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 10px);
+      right: 0;
+      background: var(--black);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.5;
+      padding: 9px 12px;
+      border-radius: 6px;
+      white-space: nowrap;
+      max-width: 210px;
+      white-space: normal;
+      z-index: 10;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+      pointer-events: none;
+    }
+    .paypal-tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%; right: 12px;
+      border: 6px solid transparent;
+      border-top-color: var(--black);
+    }
+    .paypal-wrap:hover .paypal-tooltip { display: block; }
+    .payment-card-body { padding: 20px 22px 22px; }
+    .payment-step-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .payment-paybill {
+      background: #f4faf8;
+      border: 1px solid #c8eee2;
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .payment-paybill-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .payment-paybill-value {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--ink);
+      letter-spacing: 0.04em;
+      font-family: 'Outfit', 'BDOGrotesk', sans-serif;
+      line-height: 1;
+    }
+    .payment-paybill-icon {
+      width: 38px;
+      height: 38px;
+      background: rgba(38,196,133,0.12);
+      border: 1px solid rgba(38,196,133,0.28);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .payment-paybill-icon svg {
+      width: 18px;
+      height: 18px;
+      stroke: #1aaa72;
+      stroke-width: 1.6;
+      fill: none;
+    }
+    .payment-account {
+      background: #f6f8fb;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 13px 18px;
+      margin-bottom: 16px;
+    }
+    .payment-account-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .payment-account-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .payment-account-value-row {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--mid);
+    }
+    .payment-account-value-row svg {
+      width: 14px; height: 14px;
+      stroke: var(--muted);
+      stroke-width: 1.75;
+      fill: none;
+      flex-shrink: 0;
+    }
+    .support-phone-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .support-number {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .support-number .label-small {
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 3px;
+    }
+    .support-number a {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .support-number a:hover { color: var(--orange); }
+    
+    /* ============================================
+       FOOTER (Professional layout with icons)
+       ============================================ */
+    footer {
+      background: var(--black);
+      color: #888;
+      padding: 48px 0 32px;
+      margin-top: 0;
+    }
+    .footer-centered {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .footer-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #222;
+    }
+    .footer-social-left {
+      flex: 1;
+      min-width: 140px;
+    }
+    .footer-social-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .social-icons {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .social-icons a {
+      color: #666;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .social-icons a:hover {
+      color: var(--orange);
+      transform: translateY(-2px);
+    }
+    .social-icons svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+      stroke: none;
+    }
+    .footer-contact-center {
+      flex: 2;
+      text-align: center;
+    }
+    .footer-contact-center .contact-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .contact-item svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--orange);
+      stroke-width: 1.5;
+      fill: none;
+      flex-shrink: 0;
+    }
+    .contact-item a {
+      color: #888;
+      text-decoration: none;
+      transition: color 0.2s;
+      font-size: 13px;
+    }
+    .contact-item a:hover { color: var(--orange); }
+    .tax-pin {
+      font-size: 11px;
+      color: #555;
+      margin-top: 8px;
+    }
+    .footer-refund-right {
+      flex: 1;
+      text-align: right;
+      min-width: 140px;
+    }
+    .refund-link {
+      font-family: 'BDOGrotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      display: inline-block;
+    }
+    .refund-link a {
+      color: var(--orange);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: gap 0.2s;
+    }
+    .refund-link a:hover { gap: 12px; }
+    .refund-link svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--orange);
+      stroke-width: 2;
+      fill: none;
+    }
+    .footer-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 11px;
+    }
+    .copyright {
+      color: #555;
+    }
+    .footer-legal-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-legal-links a {
+      color: #666;
+      text-decoration: none;
+      transition: color 0.2s;
+      font-size: 11px;
+    }
+    .footer-legal-links a:hover { color: var(--orange); }
+    
+    /* ============================================
+       FAQ SECTION (Accordion)
+       ============================================ */
+    /* FAQ section layout — image left via ::before, same pattern as hero */
+    #faq {
+      position: relative;
+      overflow: hidden;
+      background: var(--white);
+    }
+    #faq::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 42%;
+      background-image: url('assets/img/hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      pointer-events: none;
+      z-index: 0;
+    }
+    #faq::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 42%;
+      background: linear-gradient(to left, #ffffff 0%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0) 100%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    #faq .wrap { position: relative; z-index: 2; }
+    .faq-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .faq-left { padding-top: 8px; }
+    .faq-left h2 { margin-bottom: 12px; }
+    .faq-left p  { font-size: 15px; color: var(--mid); line-height: 1.7; margin-top: 12px; }
+    /* Mobile: expand image to full-width wash behind content, like hero */
+    @media (max-width: 860px) {
+      #faq::before {
+        top: 0; left: 0; right: 0; bottom: 0;
+        width: 100%;
+        opacity: 0.13;
+      }
+      #faq::after {
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.92) 60%);
+      }
+      .faq-inner { grid-template-columns: 1fr; gap: 32px; }
+    }
+    .faq-list { max-width: 100%; margin: 0; }
+    .faq-item { border-bottom: 1px solid var(--line); }
+    .faq-q {
+      width: 100%; background: none; border: none;
+      padding: 20px 0;
+      display: flex; justify-content: space-between; align-items: center;
+      font-size: 14px; font-weight: 700; color: var(--ink);
+      cursor: pointer; text-align: left;
+      text-transform: uppercase; letter-spacing: 0.03em;
+      font-family: 'BDOGrotesk', 'Inter', sans-serif;
+      transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--orange); }
+    .faq-icon {
+      flex-shrink: 0;
+      margin-left: 16px;
+      width: 22px; height: 22px;
+      border: 1.5px solid var(--line);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.25s;
+      position: relative;
+    }
+    .faq-icon::before,
+    .faq-icon::after {
+      content: "";
+      position: absolute;
+      background: var(--orange);
+      border-radius: 2px;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .faq-icon::before { width: 10px; height: 1.5px; }
+    .faq-icon::after  { width: 1.5px; height: 10px; }
+    .faq-item.open .faq-icon { border-color: var(--orange); background: var(--orange); }
+    .faq-item.open .faq-icon::before { background: #fff; }
+    .faq-item.open .faq-icon::after  { background: #fff; transform: rotate(90deg); opacity: 0; }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease, padding 0.25s ease;
+      font-size: 14px; color: var(--muted); line-height: 1.75;
+      padding: 0;
+    }
+    .faq-a strong { color: var(--orange); }
+    .faq-item.open .faq-a {
+      max-height: 300px;
+      padding-bottom: 22px;
+    }
+    
+    /* ============================================
+       RESPONSIVE BREAKPOINTS
+       ============================================ */
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      #hero::before, #hero::after { width: 100%; opacity: 0.18; }
+    }
+    @media (max-width: 768px) {
+      .footer-top-row {
+        flex-direction: column;
+        gap: 32px;
+        align-items: center;
+        text-align: center;
+      }
+      .footer-social-left { text-align: center; }
+      .footer-refund-right { text-align: center; }
+      .contact-item { justify-content: center; }
+      .footer-bottom-row {
+        flex-direction: column;
+        text-align: center;
+      }
+      .footer-legal-links {
+        justify-content: center;
+      }
+      .step-indicator { gap: 16px; }
+      .step-dot { font-size: 9px; }
+      .step-dot .step-icon { width: 22px; height: 22px; }
+    }
+    @media (max-width: 700px) {
+      .fee-inner { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ============================================
+     NAVIGATION BAR
+     ============================================ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="#">
+      <img class="logo-img" src="assets/img/logo.svg" alt="PartsMtaani" onerror="this.style.display='none'">
+      <span class="logo-sub">pre-order<br>portal</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="https://partsmtaani.com/marketplace" target="_blank">Visit Marketplace</a></li>
+      <li><a href="#sourcing-fee">Sourcing Fee</a></li>
+      <li><a href="#faq">FAQs</a></li>
+      <li><a href="#order-form" class="btn-nav">Order Now</a></li>
+    </ul>
+    <button class="nav-hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ============================================
+     HERO SECTION
+     ============================================ -->
+<section id="hero">
+  <div class="wrap"><div class="hero-grid"><div><span class="hero-tag">Pre-Order Portal</span><h1>Can't Find The Right Part <em style="font-style:normal;color:var(--orange)">Locally?</em></h1><p class="hero-desc">Submit a pre-order for one or multiple vehicles. We source genuine OEM &amp; quality aftermarket parts anywhere in Kenya.</p><div class="hero-actions"><a href="#order-form" class="btn-primary">Place a Pre-Order →</a><a href="#faq" class="btn-outline">View FAQs</a></div><div class="hero-stats"><div><div class="hero-stat-num">7–14</div><div class="hero-stat-label">Days avg. lead time</div></div><div><div class="hero-stat-num">6 Mo.</div><div class="hero-stat-label">Warranty</div></div><div><div class="hero-stat-num">100%</div><div class="hero-stat-label">Verified authenticity</div></div></div></div><div class="hero-card"><div class="hero-card-header"><div class="dot-row"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></div><span>Sample Request</span></div><div class="hero-card-body"><div class="hc-row"><div class="hc-label">Vehicle</div><div class="hc-val">Toyota Land Cruiser Prado · 2015</div></div><div class="hc-row"><div class="hc-label">Part</div><div class="hc-val">Front Differential Assembly</div></div><div class="hc-status">OEM Available &mdash; Est. 7&ndash;10 days</div></div></div></div></div></div></div>
+</section>
+
+<!-- ============================================
+     CATEGORIES SLIDER SECTION
+     ============================================ -->
+
+<!-- ============================================
+     SOURCING FEE SECTION (4-step tree with guarantee)
+     Step 2 is active (success color), Step 4 is guarantee (info blue #118AB2)
+     ============================================ -->
+<section id="sourcing-fee" class="fee-banner">
+  <div class="wrap">
+    <div class="fee-inner">
+      <div class="fee-left">
+        <div class="label" style="color:rgba(255,255,255,0.6); letter-spacing:0.18em;">How The Fee Works</div>
+        <h2>A Deposit, Not An Extra Cost</h2>
+        <p>The <strong>30% sourcing fee</strong> is credited directly toward your final invoice — it is a commitment deposit that funds our sourcing operation and guarantees your place in the queue.</p>
+        <p style="margin-top: 14px; color:rgba(255,255,255,0.65);">If we cannot locate your part within the agreed timeframe, you receive a <strong style="color:#fff;">100% full refund</strong> — no deductions, no delays.</p>
+        <div class="fee-stats-row">
+          <div class="fee-stat">
+            <div class="fee-stat-val"><span>30</span>%</div>
+            <div class="fee-stat-label">Deposit rate</div>
+          </div>
+          <div class="fee-stat">
+            <div class="fee-stat-val"><span>100</span>%</div>
+            <div class="fee-stat-label">Refund guarantee</div>
+          </div>
+          <div class="fee-stat">
+            <div class="fee-stat-val">7–14</div>
+            <div class="fee-stat-label">Day lead time</div>
+          </div>
+        </div>
+      </div>
+      <div class="fee-process-rail">
+
+        <!-- Step 1 -->
+        <div class="fee-process-item">
+          <div class="fee-proc-num-col">
+            <div class="fee-proc-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="10" cy="10" r="7"/><path d="M21 21l-6 -6"/></svg>
+            </div>
+          </div>
+          <div class="fee-proc-content">
+            <div class="fee-proc-eyebrow">Step 01</div>
+            <div class="fee-proc-title">Market Assessment</div>
+            <p class="fee-proc-desc">We query live supplier networks to establish an accurate market price and verify availability before any commitment is made.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 — active -->
+        <div class="fee-process-item is-active">
+          <div class="fee-proc-num-col">
+            <div class="fee-proc-circle" style="position:relative;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="3"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="7" y1="15" x2="7.01" y2="15"/><line x1="11" y1="15" x2="13" y2="15"/></svg>
+              <span style="
+                position:absolute;
+                bottom:-9px;
+                left:50%;
+                transform:translateX(-50%);
+                white-space:nowrap;
+                font-size:8px;
+                font-weight:700;
+                letter-spacing:0.08em;
+                text-transform:uppercase;
+                padding:2px 7px;
+                border-radius:20px;
+                background:rgba(38,196,133,0.18);
+                color:#26C485;
+                border:1px solid rgba(38,196,133,0.4);
+                line-height:1.4;
+              ">Applied</span>
+            </div>
+          </div>
+          <div class="fee-proc-content">
+            <div class="fee-proc-eyebrow">Step 02</div>
+            <div class="fee-proc-title">Pay 30% Sourcing Deposit</div>
+            <p class="fee-proc-desc">Via M-Pesa Paybill <strong style="color:rgba(255,255,255,0.88)">4048209</strong>. This deposit is deducted from your final balance — it is not an additional charge.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="fee-process-item">
+          <div class="fee-proc-num-col">
+            <div class="fee-proc-circle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5"/></svg>
+            </div>
+          </div>
+          <div class="fee-proc-content">
+            <div class="fee-proc-eyebrow">Step 03</div>
+            <div class="fee-proc-title">Part Located &amp; Confirmed</div>
+            <p class="fee-proc-desc">Authenticity is verified and a final confirmed price is shared. You approve before any remaining balance is due.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 — guarantee -->
+        <div class="fee-process-item is-guarantee">
+          <div class="fee-proc-num-col">
+            <div class="fee-proc-circle" style="position:relative;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/><path d="M9 12l2 2l4 -4"/></svg>
+              <span style="
+                position:absolute;
+                bottom:-9px;
+                left:50%;
+                transform:translateX(-50%);
+                white-space:nowrap;
+                font-size:8px;
+                font-weight:700;
+                letter-spacing:0.08em;
+                text-transform:uppercase;
+                padding:2px 7px;
+                border-radius:20px;
+                background:rgba(17,138,178,0.18);
+                color:#5bc4e8;
+                border:1px solid rgba(17,138,178,0.4);
+                line-height:1.4;
+              ">Protected</span>
+            </div>
+          </div>
+          <div class="fee-proc-content">
+            <div class="fee-proc-eyebrow">Guarantee</div>
+            <div class="fee-proc-title">100% Refund If We Can't Deliver</div>
+            <p class="fee-proc-desc">Cannot source your part within the agreed timeline? Your entire deposit is returned in full — no deductions, no delays, no questions.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ============================================
+     ORDER FORM SECTION (Multi-vehicle, multi-part with images)
+     ============================================ -->
+<section id="order-form" class="section section-alt">
+  <div class="wrap"><div class="label">Submit Your Request</div><h2>Place a Pre-Order</h2><p style="color:var(--muted); margin-top:10px;">Add one or multiple vehicles. For each vehicle, add the parts you need. You can upload images for each part.</p>
+    <div class="form-layout"><div><div id="success-msg" class="success-msg"><strong>Request received!</strong> We'll contact you within 4 hours.</div>
+    <form id="preorder-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_subject" value="Multi-Vehicle Pre-Order Request">
+      <div class="form-card">
+        <!-- Step indicator -->
+        <div class="step-indicator">
+          <div class="step-dot active" id="step1-dot"><svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></svg>Contact</div>
+          <div class="step-dot" id="step2-dot"><svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5"/></svg>Vehicle &amp; Parts</div>
+        </div>
+        <!-- Step 1: Contact Details -->
+        <div id="step-1" class="step-container">
+          <div class="form-sec-head"><div class="form-sec-num">1</div><h4>Your Contact Details</h4></div>
+          <div class="form-body">
+            <div class="field-2"><div class="field"><label>Full Name <span class="req">*</span></label><input type="text" id="full_name" name="full_name" required></div><div class="field"><label>Phone <span class="req">*</span></label><input type="tel" id="phone" name="phone" required></div></div>
+            <div class="field-2"><div class="field"><label>Email <span class="req">*</span></label><input type="email" id="email" name="email" required></div><div class="field"><label>Delivery Location <span class="req">*</span></label><input type="text" id="location" name="delivery_location" required></div></div>
+            <div class="uk-text-right"><button type="button" class="next-btn" onclick="goToStep(2)" style="background:var(--orange); color:#fff; border:none; padding:10px 24px; border-radius:4px; font-weight:700; cursor:pointer;">Continue →</button></div>
+          </div>
+        </div>
+        <!-- Step 2: Vehicles & Parts (dynamic) -->
+        <div id="step-2" class="step-container" style="display:none">
+          <div class="form-sec-head"><div class="form-sec-num">2</div><h4>Vehicles &amp; Parts</h4></div>
+          <div class="form-body">
+            <div id="vehicles-container"></div>
+            <button type="button" class="add-btn" onclick="addVehicle()">+ Add Another Vehicle</button>
+            <div class="uk-flex uk-flex-between" style="margin-top: 24px;">
+              <button type="button" class="back-btn" onclick="goToStep(1)" style="background:transparent; border:1px solid var(--line); padding:10px 24px; border-radius:4px; font-weight:700; cursor:pointer;">← Back</button>
+              <button type="submit" class="submit-btn">Submit Pre-Order →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form></div>
+    
+    <!-- Payment sidebar -->
+    <div>
+      <div class="payment-card">
+        <div class="payment-card-header">
+          <span class="payment-card-header-label">Payment Method</span>
+          <div class="payment-logos">
+            <img src="assets/img/mpesa.svg" alt="M-Pesa" class="mpesa-logo" onerror="this.style.display='none'">
+            <div class="paypal-wrap">
+              <svg class="paypal-logo" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-label="PayPal">
+                <path fill="#003087" d="M7.076 21.337H2.47a.641.641 0 0 1-.633-.74L4.944.901C5.026.382 5.474 0 5.998 0h7.46c2.57 0 4.578.543 5.69 1.81 1.01 1.15 1.304 2.42 1.012 4.287-.023.143-.047.288-.077.437-.983 5.05-4.349 6.797-8.647 6.797h-2.19c-.524 0-.968.382-1.05.9l-1.12 7.106zm14.146-14.42a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.59 3.025-2.566 6.082-8.558 6.082H9.828l-1.167 7.387H12.9c.459 0 .85-.334.923-.787l.038-.193.733-4.647.047-.256a.932.932 0 0 1 .92-.789h.58c3.76 0 6.705-1.528 7.563-5.948.362-1.856.175-3.407-.682-4.562z"/>
+                <path fill="#009cde" d="M19.78 7.386a3.35 3.35 0 0 0-.607-.541c-.013.076-.026.175-.041.254-.59 3.025-2.566 6.082-8.558 6.082H7.953l-1.167 7.387H11.024c.459 0 .85-.334.923-.787l.038-.193.733-4.647.047-.256a.932.932 0 0 1 .92-.789h.58c3.76 0 6.705-1.528 7.563-5.948.362-1.856.175-3.407-.682-4.562z" opacity=".6"/>
+              </svg>
+              <div class="paypal-tooltip">Please contact us first before making a PayPal payment.</div>
+            </div>
+          </div>
+        </div>
+        <div class="payment-card-body">
+          <div class="payment-step-label">M-Pesa Payment Details</div>
+          <div class="payment-paybill" id="paybill-row" onclick="copyPaybill()" title="Click to copy paybill number" style="cursor:pointer; user-select:none; transition: background 0.2s;">
+            <div>
+              <div class="payment-paybill-label">Paybill Number</div>
+              <div class="payment-paybill-value">4048209</div>
+            </div>
+            <div class="payment-paybill-icon" id="paybill-copy-icon">
+              <svg id="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"/></svg>
+              <svg id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none;stroke:#1aaa72;"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l9 -9"/></svg>
+            </div>
+          </div>
+          <div id="copy-toast" style="display:none; font-size:10px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:#1aaa72; margin:-4px 0 10px; text-align:right; padding-right:4px;">✓ Copied!</div>
+          <div class="payment-account">
+            <div class="payment-account-label">Account Number</div>
+            <div class="payment-account-value-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z"/><line x1="9" y1="9" x2="10" y2="9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg>
+              <span>Your Invoice No.</span>
+            </div>
+          </div>
+          <div class="support-number">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;stroke:var(--muted);flex-shrink:0;"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>
+            <div>
+              <span class="label-small">Support Line</span>
+              <div class="support-phone-row"><a href="tel:+254119873011">011 987 3011</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- ============================================
+     FAQ SECTION
+     ============================================ -->
+<section id="faq" class="section">
+  <div class="wrap"><div class="faq-inner"><div class="faq-left"><div class="label">Common Questions</div><h2>Frequently Asked Questions</h2><p>Everything you need to know about how pre-ordering works, sourcing fees, and our guarantee.</p></div><div><div class="faq-list"><div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does the sourcing fee work?<span class="faq-icon"></span></button><div class="faq-a">The 30% sourcing fee is applied directly toward your final payment — it's not an extra charge. If we can't find your part, you get a 100% refund.</div></div><div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I order for multiple vehicles?<span class="faq-icon"></span></button><div class="faq-a">Yes! Add as many vehicles as needed. Each vehicle can have multiple parts with images.</div></div><div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Lead times?<span class="faq-icon"></span></button><div class="faq-a">Typically 7–14 business days.</div></div><div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What if you can't find my part?<span class="faq-icon"></span></button><div class="faq-a">If we cannot source your part within the agreed timeframe, your entire sourcing fee is fully refunded — no questions asked.</div></div></div></div></div></div>
+</section>
+
+<!-- ============================================
+     FOOTER (Professional with social icons, contact center, refund link)
+     ============================================ -->
+<footer>
+  <div class="footer-centered">
+    <div class="footer-top-row">
+      <!-- Left: Social Media Icons -->
+      <div class="footer-social-left">
+        <div class="footer-social-label">Follow Us</div>
+        <div class="social-icons">
+          <a href="#" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="#" target="_blank" aria-label="X (Twitter)"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg></a>
+          <a href="#" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a href="#" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+        </div>
+      </div>
+      <!-- Center: Pre-Order Support Contact -->
+      <div class="footer-contact-center">
+        <div class="contact-label">Pre-Order Support</div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>
+          <a href="tel:+254119873011">011 987 3011</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+          <a href="/cdn-cgi/l/email-protection#552527303a2731302726152534272126382134343b3c7b363a38"><span class="__cf_email__" data-cfemail="2d5d5f48425f49485f5e6d5d4c5f595e40594c4c4344034e4240">[email&#160;protected]</span></a>
+        </div>
+        <div class="tax-pin">Tax PIN: P051234567Z</div>
+      </div>
+      <!-- Right: Refund Link with external arrow -->
+      <div class="footer-refund-right">
+        <div class="refund-link">
+          <a href="#" target="_blank">
+            Request a refund
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="17" y1="7" x2="7" y2="17"/><polyline points="8 7 17 7 17 16"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Bottom row: Copyright + Legal links -->
+    <div class="footer-bottom-row">
+      <div class="copyright">© 2026 PartsMtaani. All rights reserved. Staydate Holdings Limited.</div>
+      <div class="footer-legal-links">
+        <a href="#">View extended terms</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================
+     JAVASCRIPT (Dynamic form handling)
+     ============================================ -->
+<script>
+  // ── Copy Paybill Number to Clipboard ──
+  function copyPaybill() {
+    const paybill = '4048209';
+    navigator.clipboard.writeText(paybill).then(() => {
+      const copyIcon  = document.getElementById('icon-copy');
+      const checkIcon = document.getElementById('icon-check');
+      const toast     = document.getElementById('copy-toast');
+      const row       = document.getElementById('paybill-row');
+      copyIcon.style.display  = 'none';
+      checkIcon.style.display = 'block';
+      toast.style.display     = 'block';
+      row.style.background    = '#edfaf4';
+      row.style.borderColor   = '#a3e8cc';
+      let t = setTimeout(() => {
+        copyIcon.style.display  = 'block';
+        checkIcon.style.display = 'none';
+        toast.style.display     = 'none';
+        row.style.background    = '';
+        row.style.borderColor   = '';
+      }, 2200);
+    }).catch(() => {
+      // Fallback for browsers without clipboard API
+      const ta = document.createElement('textarea');
+      ta.value = '4048209';
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.focus(); ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+    });
+  }
+
+  // ── Global helpers (must be global for inline onclick attributes) ──
+
+  function toggleFaq(btn) {
+    const item = btn.closest('.faq-item');
+    const open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+    if (!open) item.classList.add('open');
+  }
+
+  // ── State (module-level so all functions share it) ──
+  let vehicleCount = 1;
+  let partCounters = {1: 1};
+  let partImages = {};
+
+  function goToStep(step) {
+    const step1 = document.getElementById('step-1');
+    const step2 = document.getElementById('step-2');
+    const dot1  = document.getElementById('step1-dot');
+    const dot2  = document.getElementById('step2-dot');
+    if (step === 1) {
+      step1.style.display = 'block';
+      step2.style.display = 'none';
+      dot1.classList.add('active');
+      dot2.classList.remove('active');
+    } else {
+      const fullName = document.getElementById('full_name').value.trim();
+      const phone    = document.getElementById('phone').value.trim();
+      const email    = document.getElementById('email').value.trim();
+      const location = document.getElementById('location').value.trim();
+      if (!fullName || !phone || !email || !location) {
+        alert('Please fill in all required contact fields (Name, Phone, Email, Location) before continuing.');
+        return;
+      }
+      step1.style.display = 'none';
+      step2.style.display = 'block';
+      dot1.classList.remove('active');
+      dot2.classList.add('active');
+      dot1.classList.add('completed');
+    }
+    document.getElementById('order-form').scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+
+  function addVehicle() {
+    vehicleCount++;
+    partCounters[vehicleCount] = 1;
+    renderVehicles();
+  }
+
+  function removeVehicle(vehicleId) {
+    delete partCounters[vehicleId];
+    Object.keys(partImages).forEach(key => {
+      if (key.startsWith(vehicleId + '_')) delete partImages[key];
+    });
+    vehicleCount--;
+    renderVehicles();
+  }
+
+  function addPart(vehicleId) {
+    partCounters[vehicleId]++;
+    renderVehicles();
+  }
+
+  function removePart(vehicleId, partIdx) {
+    const key = `${vehicleId}_${partIdx + 1}`;
+    delete partImages[key];
+    const partsContainer = document.getElementById(`parts-${vehicleId}`);
+    if (partsContainer) {
+      const parts = partsContainer.querySelectorAll('.part-item');
+      if (parts.length > 1) {
+        parts[partIdx].remove();
+        partCounters[vehicleId]--;
+        const newImages = {};
+        let newIdx = 1;
+        for (let p = 1; p <= partCounters[vehicleId] + 1; p++) {
+          const oldKey = `${vehicleId}_${p}`;
+          if (p !== partIdx + 1 && partImages[oldKey]) {
+            newImages[`${vehicleId}_${newIdx}`] = partImages[oldKey];
+            newIdx++;
+          }
+        }
+        Object.assign(partImages, newImages);
+      }
+    }
+  }
+
+  function handleImageUpload(vehicleId, partId, input) {
+    const files = Array.from(input.files);
+    const key = `${vehicleId}_${partId}`;
+    if (!partImages[key]) partImages[key] = [];
+    partImages[key] = [...partImages[key], ...files];
+    renderImagePreview(vehicleId, partId);
+    input.value = '';
+  }
+
+  function deleteImage(vehicleId, partId, imgIndex) {
+    const key = `${vehicleId}_${partId}`;
+    if (partImages[key]) {
+      partImages[key].splice(imgIndex, 1);
+      if (partImages[key].length === 0) delete partImages[key];
+      renderImagePreview(vehicleId, partId);
+    }
+  }
+
+  function renderImagePreview(vehicleId, partId) {
+    const container = document.getElementById(`preview-${vehicleId}-${partId}`);
+    if (!container) return;
+    const key = `${vehicleId}_${partId}`;
+    const images = partImages[key] || [];
+    container.innerHTML = '';
+    images.forEach((file, idx) => {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const div = document.createElement('div');
+        div.className = 'preview-img';
+        div.innerHTML = `<img src="${e.target.result}" alt="part image"><button type="button" class="delete-img" onclick="deleteImage(${vehicleId}, ${partId}, ${idx})">&times;</button>`;
+        container.appendChild(div);
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function renderParts(vehicleId) {
+    let partsHtml = '';
+    for (let p = 1; p <= partCounters[vehicleId]; p++) {
+      partsHtml += `<div class="part-item" id="part-item-${vehicleId}-${p}">
+        <div class="part-header">
+          <span class="part-title">Part ${p}</span>
+          ${partCounters[vehicleId] > 1 ? `<button type="button" class="remove-part" onclick="removePart(${vehicleId}, ${p-1})">&times;</button>` : ''}
+        </div>
+        <div class="field"><label>Part Name / Description <span class="req">*</span></label><input type="text" name="vehicle_${vehicleId}_part_${p}_name" placeholder="e.g., Front Differential Assembly" required></div>
+        <div class="field-2">
+          <div class="field"><label>OEM Part Number</label><input type="text" name="vehicle_${vehicleId}_part_${p}_number" placeholder="e.g., 41110-60280"></div>
+          <div class="field"><label>Condition</label><select name="vehicle_${vehicleId}_part_${p}_condition"><option value="">Any</option><option>New OEM</option><option>New Aftermarket</option><option>Refurbished</option></select></div>
+        </div>
+        <div class="field-2">
+          <div class="field"><label>Budget (KSh)</label><input type="text" name="vehicle_${vehicleId}_part_${p}_budget" placeholder="e.g., 45000-60000"></div>
+          <div class="field"><label>Urgency</label><select name="vehicle_${vehicleId}_part_${p}_urgency"><option value="">Select</option><option>Urgent (ASAP)</option><option>Within 1 week</option><option>Within 2 weeks</option><option>No rush</option></select></div>
+        </div>
+        <div class="field"><label>Notes / Reference</label><textarea name="vehicle_${vehicleId}_part_${p}_notes" rows="2" placeholder="Any additional details..."></textarea></div>
+        <div class="part-images">
+          <div class="image-upload-zone" onclick="document.getElementById('file-input-${vehicleId}-${p}').click()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg>
+            <p><strong>Upload reference images</strong> (JPG/PNG)</p>
+            <input type="file" id="file-input-${vehicleId}-${p}" accept="image/*" multiple style="display:none" onchange="handleImageUpload(${vehicleId}, ${p}, this)">
+          </div>
+          <div class="image-preview-row" id="preview-${vehicleId}-${p}"></div>
+        </div>
+      </div>`;
+    }
+    return partsHtml;
+  }
+
+  function renderVehicles() {
+    const container = document.getElementById('vehicles-container');
+    if (!container) return;
+    let html = '';
+    for (let v = 1; v <= vehicleCount; v++) {
+      html += `<div class="vehicle-card" data-vehicle="${v}">
+        <div class="vehicle-header" onclick="toggleVehicle(${v})">
+          <div><span class="vehicle-title">Vehicle ${v}</span><span class="vehicle-badge"> — click to expand</span></div>
+          ${v > 1 ? `<button type="button" class="remove-vehicle" onclick="event.stopPropagation(); removeVehicle(${v})">&times;</button>` : ''}
+        </div>
+        <div class="vehicle-content" id="vehicle-content-${v}">
+          <div class="field-2">
+            <div class="field"><label>Make <span class="req">*</span></label><input type="text" name="vehicle_${v}_make" placeholder="e.g., Toyota" required></div>
+            <div class="field"><label>Model <span class="req">*</span></label><input type="text" name="vehicle_${v}_model" placeholder="e.g., Land Cruiser" required></div>
+          </div>
+          <div class="field-2">
+            <div class="field"><label>Year</label><input type="text" name="vehicle_${v}_year" placeholder="e.g., 2015"></div>
+            <div class="field"><label>Engine Code</label><input type="text" name="vehicle_${v}_engine" placeholder="e.g., 1GR-FE"></div>
+          </div>
+          <div class="field"><label>VIN / Chassis (optional)</label><input type="text" name="vehicle_${v}_vin" placeholder="Helps with accurate matching"></div>
+          <div style="margin-top:16px;margin-bottom:12px;"><span style="font-size:11px;font-weight:700;text-transform:uppercase;">Parts Needed</span></div>
+          <div id="parts-${v}">${renderParts(v)}</div>
+          <button type="button" class="add-btn" onclick="addPart(${v})" style="margin-top:8px;">+ Add Part</button>
+        </div>
+      </div>`;
+    }
+    container.innerHTML = html;
+    const firstContent = document.getElementById('vehicle-content-1');
+    if (firstContent) firstContent.classList.add('open');
+    for (let v = 1; v <= vehicleCount; v++) {
+      for (let p = 1; p <= partCounters[v]; p++) {
+        renderImagePreview(v, p);
+      }
+    }
+  }
+
+  function toggleVehicle(vehicleId) {
+    const content = document.getElementById(`vehicle-content-${vehicleId}`);
+    if (content) content.classList.toggle('open');
+  }
+
+  // ── Init on DOM ready ──
+  document.addEventListener('DOMContentLoaded', function() {
+    renderVehicles();
+
+    const form = document.getElementById('preorder-form');
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = form.querySelector('.submit-btn');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      const formData = new FormData(form);
+      for (const [key, files] of Object.entries(partImages)) {
+        files.forEach((file, idx) => formData.append(`images_${key}_${idx}`, file));
+      }
+      try {
+        const res = await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+        if (res.ok) {
+          document.getElementById('success-msg').style.display = 'block';
+          form.reset();
+          vehicleCount = 1;
+          partCounters = {1: 1};
+          partImages = {};
+          renderVehicles();
+          goToStep(1);
+          setTimeout(() => {
+            const msg = document.getElementById('success-msg');
+            if (msg) msg.style.display = 'none';
+          }, 6000);
+        } else {
+          alert('Something went wrong. Please try again or contact us directly.');
+        }
+      } catch (err) {
+        alert('Network error. Please check your connection and try again.');
+      } finally {
+        btn.textContent = 'Submit Pre-Order →';
+        btn.disabled = false;
+      }
+    });
+  });
+</script>
+</body>
+</html>
