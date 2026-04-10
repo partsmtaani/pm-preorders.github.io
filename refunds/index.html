@@ -15,7 +15,9 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- ============================================================
+     NAVBAR
+     ============================================================ -->
 <nav class="nav">
   <div class="nav-inner">
     <a href="/" class="logo">
@@ -23,11 +25,18 @@
       <span class="logo-sub">PartsMtaani</span>
     </a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><rect x="10" y="12" width="4" height="4" rx=".5"/></svg>Home</a></li>
-      <li><a href="/#sourcing-fee">How It Works</a></li>
-      <li><a href="/terms/">Terms</a></li>
-      <li><a href="/privacy/">Privacy</a></li>
-      <li><a href="/#order-form" class="btn-nav">Pre-Order Parts →</a></li>
+      <li>
+        <a href="/">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><rect x="10" y="12" width="4" height="4" rx=".5"/></svg>
+          Home
+        </a>
+      </li>
+      <li><a href="/#how-it-works">How It Works</a></li>
+      <li><a href="/terms.html">Terms</a></li>
+      <li><a href="/privacy.html">Privacy</a></li>
+      <li>
+        <a href="/#order" class="btn-nav">Pre-Order Parts →</a>
+      </li>
     </ul>
     <button class="nav-hamburger" aria-label="Menu">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -35,116 +44,297 @@
   </div>
 </nav>
 
-<!-- PAGE HERO -->
+<!-- ============================================================
+     PAGE HERO
+     ============================================================ -->
 <section class="page-hero">
   <div class="wrap">
     <div class="page-hero-inner">
-      <div class="breadcrumb"><a href="/">Home</a><span class="breadcrumb-sep">/</span><span>Refund Request</span></div>
+      <div class="breadcrumb">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">/</span>
+        <span>Refund Request</span>
+      </div>
       <div class="label">Customer Support</div>
       <h1>Request a Refund</h1>
       <p style="font-size:16px;color:var(--mid);max-width:580px;margin-top:12px;">Something went wrong? Fill in the form below and our team will review your request and respond within 5 business days.</p>
-      <div class="page-hero-meta"><span>Response within 5 business days</span><span>Refunds processed within 7 business days of approval</span></div>
+      <div class="page-hero-meta">
+        <span>Response within 5 business days</span>
+        <span>Refunds processed within 7 business days of approval</span>
+      </div>
     </div>
   </div>
 </section>
+
 <div class="divider"></div>
 
-<!-- REFUND FORM -->
+<!-- ============================================================
+     REFUND FORM LAYOUT
+     ============================================================ -->
 <div class="wrap">
   <div class="refund-layout">
+
+    <!-- LEFT: Form -->
     <div>
+      <!-- Success banner (shown after submit) -->
       <div class="success-banner" id="success-banner">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2l4 -4"/></svg>
+        <svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2l4 -4"/></svg>
         <h3>Refund Request Received</h3>
-        <p>We've received your request and will be in touch within 5 business days.</p>
+        <p>We've received your request and will be in touch within 5 business days. Please check your email and phone for updates.</p>
       </div>
+
       <form id="refund-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+        <!-- Hidden field to identify form type -->
         <input type="hidden" name="_subject" value="PartsMtaani Refund Request">
         <input type="hidden" name="form_type" value="refund">
+
+        <!-- Section 1: Order Details -->
         <div class="form-card" style="margin-bottom:24px;">
-          <div class="form-card-head"><div class="form-card-num">1</div><h3>Order Details</h3></div>
+          <div class="form-card-head">
+            <div class="form-card-num">1</div>
+            <h3>Order Details</h3>
+          </div>
           <div class="form-card-body">
             <div class="field-2">
-              <div class="field"><label for="invoice_no">Invoice / Order Number <span class="req">*</span></label><input type="text" id="invoice_no" name="invoice_no" placeholder="e.g., PM-2026-00142" required></div>
-              <div class="field"><label for="order_date">Order Date <span class="req">*</span></label><input type="date" id="order_date" name="order_date" required></div>
+              <div class="field">
+                <label for="invoice_no">Invoice / Order Number <span class="req">*</span></label>
+                <input type="text" id="invoice_no" name="invoice_no" placeholder="e.g., PM-2026-00142" required>
+              </div>
+              <div class="field">
+                <label for="order_date">Order Date <span class="req">*</span></label>
+                <input type="date" id="order_date" name="order_date" required>
+              </div>
             </div>
             <div class="field-2">
-              <div class="field"><label for="amount_paid">Amount Paid (KSh) <span class="req">*</span></label><input type="number" id="amount_paid" name="amount_paid" placeholder="e.g., 15000" min="0" required></div>
-              <div class="field"><label for="mpesa_ref">M-Pesa / Payment Reference</label><input type="text" id="mpesa_ref" name="mpesa_ref" placeholder="e.g., QKD3A9XZ12"></div>
+              <div class="field">
+                <label for="amount_paid">Amount Paid (KSh) <span class="req">*</span></label>
+                <input type="number" id="amount_paid" name="amount_paid" placeholder="e.g., 15000" min="0" required>
+              </div>
+              <div class="field">
+                <label for="mpesa_ref">M-Pesa / Payment Reference</label>
+                <input type="text" id="mpesa_ref" name="mpesa_ref" placeholder="e.g., QKD3A9XZ12">
+              </div>
             </div>
-            <div class="field"><label for="part_description">Part(s) Ordered <span class="req">*</span></label><input type="text" id="part_description" name="part_description" placeholder="e.g., Front Differential Assembly — Toyota Land Cruiser 200" required></div>
+            <div class="field">
+              <label for="part_description">Part(s) Ordered <span class="req">*</span></label>
+              <input type="text" id="part_description" name="part_description" placeholder="e.g., Front Differential Assembly — Toyota Land Cruiser 200" required>
+            </div>
           </div>
         </div>
+
+        <!-- Section 2: Your Contact -->
         <div class="form-card" style="margin-bottom:24px;">
-          <div class="form-card-head"><div class="form-card-num">2</div><h3>Your Contact Details</h3></div>
+          <div class="form-card-head">
+            <div class="form-card-num">2</div>
+            <h3>Your Contact Details</h3>
+          </div>
           <div class="form-card-body">
             <div class="field-2">
-              <div class="field"><label for="full_name">Full Name <span class="req">*</span></label><input type="text" id="full_name" name="full_name" placeholder="As used on the order" required></div>
-              <div class="field"><label for="phone">Phone Number <span class="req">*</span></label><input type="tel" id="phone" name="phone" placeholder="07XX XXX XXX" required></div>
+              <div class="field">
+                <label for="full_name">Full Name <span class="req">*</span></label>
+                <input type="text" id="full_name" name="full_name" placeholder="As used on the order" required>
+              </div>
+              <div class="field">
+                <label for="phone">Phone Number <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" placeholder="07XX XXX XXX" required>
+              </div>
             </div>
-            <div class="field"><label for="email">Email Address <span class="req">*</span></label><input type="email" id="email" name="email" placeholder="you@example.com" required></div>
+            <div class="field">
+              <label for="email">Email Address <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required>
+            </div>
           </div>
         </div>
+
+        <!-- Section 3: Reason -->
         <div class="form-card" style="margin-bottom:24px;">
-          <div class="form-card-head"><div class="form-card-num">3</div><h3>Reason for Refund</h3></div>
+          <div class="form-card-head">
+            <div class="form-card-num">3</div>
+            <h3>Reason for Refund</h3>
+          </div>
           <div class="form-card-body">
-            <div class="field"><label for="refund_reason">Reason <span class="req">*</span></label><select id="refund_reason" name="refund_reason" required><option value="">Select a reason</option><option value="part_not_found">Part could not be sourced</option><option value="wrong_part">Wrong part supplied</option><option value="damaged_on_arrival">Part arrived damaged</option><option value="not_as_described">Part not as described</option><option value="duplicate_payment">Duplicate payment made</option><option value="order_cancelled">Order cancelled before sourcing began</option><option value="other">Other</option></select></div>
-            <div class="field"><label for="details">Describe the Issue <span class="req">*</span></label><textarea id="details" name="details" rows="4" placeholder="Please provide as much detail as possible..." required></textarea></div>
-            <div class="field"><label for="refund_amount">Amount You Are Claiming (KSh) <span class="req">*</span></label><input type="number" id="refund_amount" name="refund_amount" placeholder="e.g., 15000" min="0" required></div>
+            <div class="field">
+              <label for="refund_reason">Reason <span class="req">*</span></label>
+              <select id="refund_reason" name="refund_reason" required>
+                <option value="">Select a reason</option>
+                <option value="part_not_found">Part could not be sourced</option>
+                <option value="wrong_part">Wrong part supplied</option>
+                <option value="damaged_on_arrival">Part arrived damaged</option>
+                <option value="not_as_described">Part not as described / wrong spec</option>
+                <option value="duplicate_payment">Duplicate payment made</option>
+                <option value="order_cancelled">Order cancelled before sourcing began</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="details">Describe the Issue <span class="req">*</span></label>
+              <textarea id="details" name="details" rows="4" placeholder="Please provide as much detail as possible — what you ordered, what happened, and what outcome you expect." required></textarea>
+            </div>
+            <div class="field">
+              <label for="refund_amount">Amount You Are Claiming (KSh) <span class="req">*</span></label>
+              <input type="number" id="refund_amount" name="refund_amount" placeholder="e.g., 15000" min="0" required>
+            </div>
           </div>
         </div>
+
+        <!-- Section 4: Bank Details for Refund -->
         <div class="form-card" style="margin-bottom:28px;">
-          <div class="form-card-head"><div class="form-card-num">4</div><h3>Refund Payment Details</h3></div>
+          <div class="form-card-head">
+            <div class="form-card-num">4</div>
+            <h3>Refund Payment Details</h3>
+          </div>
           <div class="form-card-body">
-            <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Approved refunds are returned to the original payment method where possible, or via M-Pesa.</p>
-            <div class="field"><label for="refund_method">Preferred Refund Method <span class="req">*</span></label><select id="refund_method" name="refund_method" required onchange="toggleRefundFields(this.value)"><option value="">Select method</option><option value="mpesa">M-Pesa</option><option value="bank">Bank Transfer</option><option value="original">Return to original payment method</option></select></div>
-            <div id="mpesa-fields" style="display:none;">
-              <div class="field"><label for="mpesa_number">M-Pesa Phone Number <span class="req">*</span></label><input type="tel" id="mpesa_number" name="mpesa_number" placeholder="07XX XXX XXX"></div>
-              <div class="field"><label for="mpesa_name">Registered M-Pesa Name <span class="req">*</span></label><input type="text" id="mpesa_name" name="mpesa_name" placeholder="Name on M-Pesa account"></div>
+            <p style="font-size:13px;color:var(--muted);margin-bottom:20px;">Approved refunds are returned to the original payment method where possible, or via M-Pesa. Please confirm your preferred method below.</p>
+            <div class="field">
+              <label for="refund_method">Preferred Refund Method <span class="req">*</span></label>
+              <select id="refund_method" name="refund_method" required onchange="toggleRefundFields(this.value)">
+                <option value="">Select method</option>
+                <option value="mpesa">M-Pesa</option>
+                <option value="bank">Bank Transfer</option>
+                <option value="original">Return to original payment method</option>
+              </select>
             </div>
+            <!-- M-Pesa fields -->
+            <div id="mpesa-fields" style="display:none;">
+              <div class="field">
+                <label for="mpesa_number">M-Pesa Phone Number <span class="req">*</span></label>
+                <input type="tel" id="mpesa_number" name="mpesa_number" placeholder="07XX XXX XXX">
+              </div>
+              <div class="field">
+                <label for="mpesa_name">Registered M-Pesa Name <span class="req">*</span></label>
+                <input type="text" id="mpesa_name" name="mpesa_name" placeholder="Name on M-Pesa account">
+              </div>
+            </div>
+            <!-- Bank fields -->
             <div id="bank-fields" style="display:none;">
               <div class="field-2">
-                <div class="field"><label for="bank_name">Bank Name <span class="req">*</span></label><input type="text" id="bank_name" name="bank_name" placeholder="e.g., Equity Bank"></div>
-                <div class="field"><label for="account_name">Account Name <span class="req">*</span></label><input type="text" id="account_name" name="account_name" placeholder="Name on account"></div>
+                <div class="field">
+                  <label for="bank_name">Bank Name <span class="req">*</span></label>
+                  <input type="text" id="bank_name" name="bank_name" placeholder="e.g., Equity Bank">
+                </div>
+                <div class="field">
+                  <label for="account_name">Account Name <span class="req">*</span></label>
+                  <input type="text" id="account_name" name="account_name" placeholder="Name on account">
+                </div>
               </div>
-              <div class="field"><label for="account_number">Account Number <span class="req">*</span></label><input type="text" id="account_number" name="account_number" placeholder="e.g., 0123456789"></div>
+              <div class="field">
+                <label for="account_number">Account Number <span class="req">*</span></label>
+                <input type="text" id="account_number" name="account_number" placeholder="e.g., 0123456789">
+              </div>
             </div>
           </div>
         </div>
+
+        <!-- Declaration + Submit -->
         <div style="margin-bottom:16px;">
           <label style="display:flex;align-items:flex-start;gap:12px;cursor:pointer;">
             <input type="checkbox" id="declaration" name="declaration" required style="margin-top:4px;flex-shrink:0;accent-color:var(--orange);">
-            <span style="font-size:13px;color:var(--mid);line-height:1.6;">I confirm that the information provided is accurate and complete.</span>
+            <span style="font-size:13px;color:var(--mid);line-height:1.6;">
+              I confirm that the information provided is accurate and complete. I understand that PartsMtaani may contact me to verify the claim, and that providing false information may result in my request being denied.
+            </span>
           </label>
         </div>
+
         <button type="submit" class="submit-btn" id="submit-btn">Submit Refund Request →</button>
       </form>
     </div>
+
+    <!-- RIGHT: Sidebar -->
     <aside class="refund-sidebar">
+
       <div class="info-card">
         <div class="info-card-label">What Happens Next</div>
-        <div class="info-item"><div class="info-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></div><div class="info-item-text"><strong>Confirmation Email</strong>You'll receive an acknowledgement within 24 hours.</div></div>
-        <div class="info-item"><div class="info-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><div class="info-item-text"><strong>Review (5 business days)</strong>Our team reviews your claim.</div></div>
-        <div class="info-item"><div class="info-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"/></svg></div><div class="info-item-text"><strong>Decision</strong>We'll notify you of the outcome.</div></div>
+        <div class="info-item">
+          <div class="info-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+          </div>
+          <div class="info-item-text">
+            <strong>Confirmation Email</strong>
+            You'll receive an acknowledgement within 24 hours.
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <div class="info-item-text">
+            <strong>Review (5 business days)</strong>
+            Our team reviews your claim and may contact you for more information.
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 17.75l-6.172 3.245l1.179 -6.873l-5 -4.867l6.9 -1l3.086 -6.253l3.086 6.253l6.9 1l-5 4.867l1.179 6.873z"/></svg>
+          </div>
+          <div class="info-item-text">
+            <strong>Decision</strong>
+            We'll notify you of the outcome. Approved refunds are processed within 7 business days.
+          </div>
+        </div>
       </div>
+
       <div class="info-card">
         <div class="info-card-label">Refund Policy Summary</div>
-        <div class="info-item"><div class="info-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 12l5 5l9 -9"/></svg></div><div class="info-item-text"><strong>100% refund</strong>If we cannot source your part.</div></div>
-        <div class="info-item"><div class="info-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 12l5 5l9 -9"/></svg></div><div class="info-item-text"><strong>Full refund or replacement</strong>If we supply the wrong part due to our error.</div></div>
-        <div class="info-item"><div class="info-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><circle cx="12" cy="12" r="9"/><path d="M12 9v4m0 4h.01"/></svg></div><div class="info-item-text"><strong>Sourcing fee not refundable</strong>If you cancel after sourcing has begun.</div></div>
-        <a href="/terms/#sourcing-fee" style="display:block;margin-top:12px;font-size:12px;font-weight:700;color:var(--orange);text-decoration:none;">Read Full Policy →</a>
+        <div class="info-item">
+          <div class="info-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l9 -9"/></svg>
+          </div>
+          <div class="info-item-text">
+            <strong>100% refund</strong>
+            If we cannot source your part.
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l9 -9"/></svg>
+          </div>
+          <div class="info-item-text">
+            <strong>Full refund or replacement</strong>
+            If we supply the wrong part due to our error.
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 9v4m0 4h.01"/><circle cx="12" cy="12" r="9"/></svg>
+          </div>
+          <div class="info-item-text">
+            <strong>Sourcing fee not refundable</strong>
+            If you cancel after sourcing has begun. See our <a href="/terms.html#sourcing-fee">Terms</a> for details.
+          </div>
+        </div>
+        <a href="/terms.html#warranty" style="display:block;margin-top:12px;font-size:12px;font-weight:700;color:var(--orange);text-decoration:none;letter-spacing:0.04em;text-transform:uppercase;">Read Full Policy →</a>
       </div>
+
       <div class="info-card">
         <div class="info-card-label">Need to Talk First?</div>
-        <div class="info-item"><div class="info-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg></div><div class="info-item-text"><strong>Call Us</strong><a href="tel:+254119873011" style="color:var(--orange);">011 987 3011</a></div></div>
-        <div class="info-item"><div class="info-item-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></div><div class="info-item-text"><strong>Email</strong><a href="mailto:support@partsmtaani.co.ke" style="color:var(--orange);">support@partsmtaani.co.ke</a></div></div>
-        <p style="font-size:12px;color:var(--muted);margin-top:12px;">Support hours: Mon–Fri, 8am–6pm. Sat, 9am–2pm.</p>
+        <div class="info-item">
+          <div class="info-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>
+          </div>
+          <div class="info-item-text">
+            <strong>Call Us</strong>
+            <a href="tel:+254119873011" style="color:var(--orange);text-decoration:none;">011 987 3011</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-item-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+          </div>
+          <div class="info-item-text">
+            <strong>Email</strong>
+            <a href="mailto:support@partsmtaani.co.ke" style="color:var(--orange);text-decoration:none;">support@partsmtaani.co.ke</a>
+          </div>
+        </div>
+        <p style="font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;">Support hours: Mon–Fri, 8am–6pm. Sat, 9am–2pm.</p>
       </div>
+
     </aside>
   </div>
 </div>
 
-<!-- FOOTER -->
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
 <footer>
   <div class="footer-centered">
     <div class="footer-top-row">
@@ -159,21 +349,96 @@
       </div>
       <div class="footer-contact-center">
         <div class="contact-label">Pre-Order Support</div>
-        <div class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg><a href="tel:+254119873011">011 987 3011</a></div>
-        <div class="contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg><a href="mailto:support@partsmtaani.com">support@partsmtaani.co.ke</a></div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>
+          <a href="tel:+254119873011">011 987 3011</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+          <a href="mailto:support@partsmtaani.co.ke">support@partsmtaani.co.ke</a>
+        </div>
         <div class="tax-pin">Tax PIN: P051234567Z</div>
       </div>
       <div class="footer-refund-right">
-        <div class="refund-link"><a href="/refund/" style="color:var(--orange)!important;">You're here<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M5 12l5 5l9 -9"/></svg></a></div>
+        <div class="refund-link">
+          <a href="/refund.html" style="color:var(--orange)!important;">
+            You're here
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l9 -9"/></svg>
+          </a>
+        </div>
       </div>
     </div>
     <div class="footer-bottom-row">
       <div class="copyright">© 2026 PartsMtaani. All rights reserved. Staydate Holdings Limited.</div>
-      <div class="footer-legal-links"><a href="/terms/">Terms of Service</a><a href="/privacy/">Privacy</a></div>
+      <div class="footer-legal-links">
+        <a href="/terms.html">Terms of Service</a>
+        <a href="/privacy.html">Privacy</a>
+      </div>
     </div>
   </div>
 </footer>
 
-<script src="/assets/js/scripts.js"></script>
+<script src="/assets/js/site.js"></script>
+<script>
+  // ── Refund method field toggling ──────────────────────────────
+  function toggleRefundFields(value) {
+    document.getElementById('mpesa-fields').style.display = value === 'mpesa' ? 'block' : 'none';
+    document.getElementById('bank-fields').style.display  = value === 'bank'  ? 'block' : 'none';
+
+    // Conditionally require sub-fields
+    ['mpesa_number','mpesa_name'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.required = (value === 'mpesa');
+    });
+    ['bank_name','account_name','account_number'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.required = (value === 'bank');
+    });
+  }
+
+  // ── Form submission ───────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('refund-form');
+    const btn  = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      // Basic client-side check
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      btn.textContent = 'Submitting…';
+      btn.disabled = true;
+
+      const formData = new FormData(form);
+
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (res.ok) {
+          form.style.display = 'none';
+          const banner = document.getElementById('success-banner');
+          banner.style.display = 'block';
+          window.scrollTo({ top: banner.offsetTop - 100, behavior: 'smooth' });
+        } else {
+          btn.textContent = 'Submit Refund Request →';
+          btn.disabled = false;
+          alert('Something went wrong. Please try again or contact us directly on 011 987 3011.');
+        }
+      } catch (err) {
+        btn.textContent = 'Submit Refund Request →';
+        btn.disabled = false;
+        alert('Network error. Please check your connection and try again.');
+      }
+    });
+  });
+</script>
 </body>
 </html>
