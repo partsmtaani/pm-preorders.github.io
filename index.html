@@ -322,19 +322,16 @@
       z-index: 0;
     }
     /* Gradient: heavy #293132 top, fades to transparent bottom — reveals image only at base */
-    .fee-banner::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to bottom,
-        #293132 0%,
-        #293132 30%,
-        rgba(41,49,50,0.94) 55%,
-        rgba(41,49,50,0.72) 75%,
-        rgba(41,49,50,0.30) 90%,
-        rgba(41,49,50,0.08) 100%
-      );
+	.fee-banner::after {
+	  background: linear-gradient(
+		to bottom,
+		#1a3330 0%,
+		rgba(26,51,48,0.95) 30%,
+		rgba(26,66,55,0.82) 55%,
+		rgba(38,196,133,0.45) 78%,
+		rgba(38,196,133,0.18) 90%,
+		rgba(38,196,133,0.04) 100%
+	  );
       pointer-events: none;
       z-index: 1;
     }
