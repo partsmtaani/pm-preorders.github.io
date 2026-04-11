@@ -261,19 +261,21 @@
     .hero-stats { display: flex; gap: 32px; margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--line); }
     .hero-stat-num { font-size: 30px; font-weight: 800; color: var(--black); line-height: 1; font-family: 'Outfit', 'BDOGrotesk', sans-serif; letter-spacing: 0.02em; }
     .hero-stat-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
-    .hero-card { background: var(--white); border: 1px solid var(--line); border-radius: 0; overflow: hidden; box-shadow: 0 12px 32px rgba(0,0,0,0.08); }
-    .hero-card-header { background: var(--black); padding: 12px 20px; display: flex; justify-content: space-between; align-items: center; }
-    .hero-card-header span { font-size: 10px; font-weight: 600; color: #aaa; text-transform: uppercase; letter-spacing: 0.1em; }
-    .dot-row { display: flex; gap: 6px; }
-    .dot { width: 10px; height: 10px; border-radius: 50%; }
-    .dot-r { background: #ff5f57; }
-    .dot-y { background: #ffbd2e; }
-    .dot-g { background: #28c840; }
-    .hero-card-body { padding: 18px; display: flex; flex-direction: column; gap: 8px; }
-    .hc-row { background: var(--bg); border: 1px solid var(--line); border-radius: 0; padding: 10px 14px; }
-    .hc-label { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
-    .hc-val { font-size: 14px; font-weight: 600; color: var(--ink); }
-    .hc-status { background: #fff3ee; border: 1px solid #ffd4c4; border-radius: 0; padding: 8px 12px; font-size: 11px; font-weight: 700; color: var(--orange); text-transform: uppercase; }
+    .hero-card { background: var(--white); border: 1px solid var(--line); border-radius: 10px; overflow: visible; box-shadow: 0 8px 40px rgba(0,0,0,0.10); }
+    .hero-card-header { background: var(--white); padding: 18px 22px 14px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: flex-start; }
+    .hero-card-title { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .hero-card-badge { display: inline-flex; align-items: center; gap: 5px; background: #edfaf4; border: 1px solid #b6ecd5; border-radius: 20px; padding: 3px 10px; font-size: 10px; font-weight: 700; color: #1aaa72; letter-spacing: 0.06em; text-transform: uppercase; }
+    .hero-card-badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: #26C485; display: inline-block; }
+    .hero-card-body { padding: 18px 22px; display: flex; flex-direction: column; gap: 10px; }
+    .hc-row { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .hc-row-left {}
+    .hc-label { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+    .hc-val { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+    .hc-icon { width: 32px; height: 32px; background: #fff3ee; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .hc-icon svg { width: 15px; height: 15px; stroke: var(--orange); stroke-width: 1.75; fill: none; }
+    .hc-status { background: linear-gradient(135deg, #edfaf4 0%, #f0fdf8 100%); border: 1px solid #b6ecd5; border-radius: 8px; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; }
+    .hc-status-text { font-size: 12px; font-weight: 700; color: #1a7a52; }
+    .hc-status-detail { font-size: 10px; color: #2aaa72; font-weight: 600; background: rgba(38,196,133,0.12); padding: 3px 9px; border-radius: 20px; }
 
     /* ============================================
        CATEGORIES SLIDER (UIkit Slider component)
@@ -308,27 +310,30 @@
       position: relative;
       overflow: hidden;
     }
-    /* Full background image layer */
+    /* Full background image — positioned toward bottom so it peeks through */
     .fee-banner::before {
       content: "";
       position: absolute;
       inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d7cdcc' fill-opacity='0.78' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
       background-size: cover;
-      background-position: left;
+      background-position: center bottom;
       pointer-events: none;
       z-index: 0;
     }
-    /* Gradient overlay for readability */
+    /* Gradient: heavy #293132 top, fades to transparent bottom — reveals image only at base */
     .fee-banner::after {
       content: "";
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        135deg,
-        rgba(10,22,40,0.97) 0%,
-        rgba(10,22,40,0.88) 45%,
-        rgba(10,22,40,0.72) 100%
+        to bottom,
+        #293132 0%,
+        #293132 30%,
+        rgba(41,49,50,0.94) 55%,
+        rgba(41,49,50,0.72) 75%,
+        rgba(41,49,50,0.30) 90%,
+        rgba(41,49,50,0.08) 100%
       );
       pointer-events: none;
       z-index: 1;
@@ -349,7 +354,7 @@
       gap: 0;
       margin-top: 36px;
       border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 0;
+      border-radius: 8px;
       overflow: hidden;
     }
     .fee-stat {
@@ -471,7 +476,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       padding: 2px 7px;
-      border-radius: 0;
+      border-radius: 20px;
       background: rgba(38,196,133,0.1);
       color: #26C485;
       border: 1px solid rgba(38,196,133,0.2);
@@ -493,9 +498,9 @@
     .form-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 36px; margin-top: 48px; }
     @media (max-width: 900px) { .form-layout { grid-template-columns: 1fr; } }
     
-    .form-card { background: var(--white); border: 1px solid var(--line); border-radius: 0; overflow: hidden; }
+    .form-card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
     .form-sec-head { display: flex; align-items: center; gap: 12px; padding: 16px 24px; background: var(--bg); border-bottom: 1px solid var(--line); }
-    .form-sec-num { width: 26px; height: 26px; background: var(--orange); color: #fff; font-size: 12px; font-weight: 700; border-radius: 0; display: flex; align-items: center; justify-content: center; }
+    .form-sec-num { width: 26px; height: 26px; background: var(--orange); color: #fff; font-size: 12px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .form-sec-head h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; margin: 0; color: var(--black); }
     .form-body { padding: 24px; }
     
@@ -537,7 +542,7 @@
     .vehicle-card {
       background: var(--bg);
       border: 1px solid var(--line);
-      border-radius: 0;
+      border-radius: 8px;
       margin-bottom: 24px;
       overflow: hidden;
     }
@@ -561,7 +566,7 @@
     .part-item {
       background: var(--white);
       border: 1px solid var(--line);
-      border-radius: 0;
+      border-radius: 6px;
       margin-bottom: 16px;
       padding: 16px;
     }
@@ -585,7 +590,7 @@
     }
     .image-upload-zone {
       border: 2px dashed var(--line);
-      border-radius: 0;
+      border-radius: 6px;
       padding: 12px;
       text-align: center;
       background: var(--bg);
@@ -606,7 +611,7 @@
       position: relative;
       width: 60px;
       height: 60px;
-      border-radius: 0;
+      border-radius: 6px;
       overflow: hidden;
       border: 2px solid var(--line);
     }
@@ -619,7 +624,7 @@
       height: 20px;
       background: var(--orange);
       color: white;
-      border-radius: 0;
+      border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -638,7 +643,7 @@
     input, select, textarea {
       width: 100%;
       border: 1px solid var(--line);
-      border-radius: 0;
+      border-radius: 6px;
       padding: 10px 12px;
       font-family: inherit;
       font-size: 13px;
@@ -649,7 +654,7 @@
     .add-btn {
       background: transparent;
       border: 1px dashed var(--line);
-      border-radius: 0;
+      border-radius: 6px;
       padding: 10px;
       width: 100%;
       text-align: center;
@@ -662,20 +667,24 @@
     }
     .add-btn:hover { border-color: var(--orange); color: var(--orange); }
     
-    .submit-btn { background: var(--orange); color: #fff; padding: 14px 28px; border: none; border-radius: 0; font-weight: 700; cursor: pointer; text-transform: uppercase; font-size: 12px; letter-spacing: 0.08em; }
+    .submit-btn { background: var(--orange); color: #fff; padding: 14px 28px; border: none; border-radius: 4px; font-weight: 700; cursor: pointer; text-transform: uppercase; font-size: 12px; letter-spacing: 0.08em; }
     .submit-btn:hover { background: var(--orange-dark); }
     .submit-note { font-size: 11px; color: var(--muted); line-height: 1.5; }
-    .success-msg { display: none; background: #eef6ee; border-left: 4px solid var(--success); padding: 14px; border-radius: 0; margin-bottom: 20px; font-size: 13px; color: #1e5a1f; }
+    .success-msg { display: none; background: #eef6ee; border-left: 4px solid var(--success); padding: 14px; border-radius: 6px; margin-bottom: 20px; font-size: 13px; color: #1e5a1f; }
     
     /* Payment card (right sidebar) — flat, no radius */
     .payment-card {
       background: var(--white);
-      border-radius: 0;
-      overflow: hidden;
+      border-radius: 8px;
+      overflow: visible;
       border: 1px solid var(--line);
       box-shadow: none;
       position: sticky;
       top: 88px;
+    }
+    /* Clip inner content but not the header (for tooltip) */
+    .payment-card-body {
+      padding: 20px 22px 22px;
     }
     .payment-card-header {
       background: var(--bg);
@@ -684,6 +693,9 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      border-radius: 8px 8px 0 0;
+      position: relative;
+      overflow: visible;
     }
     .payment-card-header-label {
       font-size: 10px;
@@ -720,30 +732,30 @@
     }
     .paypal-tooltip {
       display: none;
-      position: absolute;
-      bottom: calc(100% + 10px);
-      right: 0;
+      position: fixed;
       background: var(--black);
       color: #fff;
       font-size: 11px;
       font-weight: 500;
       line-height: 1.5;
-      padding: 9px 12px;
+      padding: 10px 14px;
       border-radius: 6px;
-      white-space: nowrap;
-      max-width: 210px;
+      width: 200px;
       white-space: normal;
-      z-index: 10;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+      z-index: 9999;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.22);
       pointer-events: none;
+      transform: translateX(-50%) translateY(calc(-100% - 12px));
     }
     .paypal-tooltip::after {
       content: "";
       position: absolute;
-      top: 100%; right: 12px;
+      top: 100%; left: 50%;
+      transform: translateX(-50%);
       border: 6px solid transparent;
       border-top-color: var(--black);
     }
+    .paypal-wrap { position: relative; display: inline-flex; align-items: center; }
     .paypal-wrap:hover .paypal-tooltip { display: block; }
     .payment-card-body { padding: 20px 22px 22px; }
     .payment-step-label {
@@ -757,7 +769,7 @@
     .payment-paybill {
       background: #f4faf8;
       border: 1px solid #c8eee2;
-      border-radius: 0;
+      border-radius: 8px;
       padding: 14px 18px;
       margin-bottom: 10px;
       display: flex;
@@ -785,7 +797,7 @@
       height: 38px;
       background: rgba(38,196,133,0.12);
       border: 1px solid rgba(38,196,133,0.28);
-      border-radius: 0;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -800,7 +812,7 @@
     .payment-account {
       background: #f6f8fb;
       border: 1px solid var(--line);
-      border-radius: 0;
+      border-radius: 8px;
       padding: 13px 18px;
       margin-bottom: 16px;
     }
@@ -833,19 +845,20 @@
       flex-shrink: 0;
     }
     .support-number {
-      background: var(--black);
-      border-radius: 0 0 12px 12px;
-      margin: 16px -22px -22px -22px;
-      padding: 18px 22px;
+      border-top: 1px solid var(--line);
+      margin-top: 4px;
+      padding: 16px 0 0;
       display: flex;
       align-items: center;
       gap: 14px;
+      width: 100%;
     }
     .support-number-icon {
-      width: 40px;
-      height: 40px;
-      background: rgba(255,255,255,0.06);
-      border-radius: 0;
+      width: 42px;
+      height: 42px;
+      background: #fff3ee;
+      border: 1px solid #ffd4c4;
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -858,37 +871,40 @@
       stroke-width: 1.6;
       fill: none;
     }
+    .support-number-text { flex: 1; min-width: 0; }
     .support-number .label-small {
       font-size: 9px;
       letter-spacing: 0.14em;
-      color: rgba(255,255,255,0.35);
+      color: var(--muted);
       text-transform: uppercase;
       display: block;
       margin-bottom: 3px;
       font-weight: 700;
     }
     .support-number a {
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 800;
-      color: #fff;
+      color: var(--ink);
       text-decoration: none;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.01em;
       font-family: 'Outfit', 'BDOGrotesk', sans-serif;
       transition: color 0.2s;
       line-height: 1;
+      display: block;
     }
     .support-number a:hover { color: var(--orange); }
     .support-number-badge {
-      margin-left: auto;
       font-size: 8px;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #26C485;
-      background: rgba(38,196,133,0.1);
-      border: 1px solid rgba(38,196,133,0.2);
-      padding: 4px 8px;
+      color: #1aaa72;
+      background: #edfaf4;
+      border: 1px solid #b6ecd5;
+      padding: 4px 9px;
+      border-radius: 20px;
       white-space: nowrap;
+      flex-shrink: 0;
     }
     
     /* ============================================
@@ -1200,7 +1216,7 @@
      HERO SECTION
      ============================================ -->
 <section id="hero">
-  <div class="wrap"><div class="hero-grid"><div><h1>Can't Find The Right Part <em style="font-style:normal;color:var(--orange)">Locally?</em></h1><p class="hero-desc">Submit a pre-order for one or multiple vehicles. We source genuine OEM &amp; quality aftermarket parts anywhere in Kenya.</p><div class="hero-actions"><a href="#order-form" class="btn-primary">Place a Pre-Order →</a><a href="#faq" class="btn-outline">View FAQs</a></div><div class="hero-stats"><div><div class="hero-stat-num">7–14</div><div class="hero-stat-label">Days avg. lead time</div></div><div><div class="hero-stat-num">6 Mo.</div><div class="hero-stat-label">Warranty</div></div><div><div class="hero-stat-num">100%</div><div class="hero-stat-label">Verified authenticity</div></div></div></div><div class="hero-card"><div class="hero-card-header"><div class="dot-row"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></div><span>Sample Request</span></div><div class="hero-card-body"><div class="hc-row"><div class="hc-label">Vehicle</div><div class="hc-val">Toyota Land Cruiser Prado · 2015</div></div><div class="hc-row"><div class="hc-label">Part</div><div class="hc-val">Front Differential Assembly</div></div><div class="hc-status">OEM Available &mdash; Est. 7&ndash;10 days</div></div></div></div></div></div></div>
+  <div class="wrap"><div class="hero-grid"><div><h1>Can't Find The Right Part <em style="font-style:normal;color:var(--orange)">Locally?</em></h1><p class="hero-desc">Submit a pre-order for one or multiple vehicles. We source genuine OEM &amp; quality aftermarket parts anywhere in Kenya.</p><div class="hero-actions"><a href="#order-form" class="btn-primary">Place a Pre-Order →</a><a href="#faq" class="btn-outline">View FAQs</a></div><div class="hero-stats"><div><div class="hero-stat-num">7–14</div><div class="hero-stat-label">Days avg. lead time</div></div><div><div class="hero-stat-num">6 Mo.</div><div class="hero-stat-label">Warranty</div></div><div><div class="hero-stat-num">100%</div><div class="hero-stat-label">Verified authenticity</div></div></div></div><div class="hero-card"><div class="hero-card-header"><span class="hero-card-title">Sample Pre-Order Request</span><span class="hero-card-badge">Live Tracking</span></div><div class="hero-card-body"><div class="hc-row"><div class="hc-row-left"><div class="hc-label">Vehicle</div><div class="hc-val">Toyota Land Cruiser Prado · 2015</div></div><div class="hc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5"/></svg></div></div><div class="hc-row"><div class="hc-row-left"><div class="hc-label">Part Requested</div><div class="hc-val">Front Differential Assembly</div></div><div class="hc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 10h3v-3l-3.5 -3.5a6 6 0 0 1 8 8l6 6a2 2 0 0 1 -3 3l-6 -6a6 6 0 0 1 -8 -8l3.5 3.5"/></svg></div></div><div class="hc-status"><span class="hc-status-text">✓ OEM Part Available</span><span class="hc-status-detail">Est. 7–10 days</span></div></div></div></div></div></div></div>
 </section>
 
 <!-- ============================================
@@ -1373,9 +1389,9 @@
             <div class="support-number-icon">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 4h4l2 5l-2.5 1.5a11 11 0 0 0 5 5l1.5 -2.5l5 2v4a2 2 0 0 1 -2 2a16 16 0 0 1 -15 -15a2 2 0 0 1 2 -2"/></svg>
             </div>
-            <div>
+            <div class="support-number-text">
               <span class="label-small">Enterprise Hotline</span>
-              <div><a href="tel:+254119873011">011 987 3011</a></div>
+              <a href="tel:+254119873011">011 987 3011</a>
             </div>
             <span class="support-number-badge">Live</span>
           </div>
@@ -1713,6 +1729,23 @@
         btn.disabled = false;
       }
     });
+  });
+
+  // ── PayPal tooltip — fixed positioning to avoid overflow clipping ──
+  document.addEventListener('DOMContentLoaded', function() {
+    const paypalWrap = document.querySelector('.paypal-wrap');
+    const tooltip = document.querySelector('.paypal-tooltip');
+    if (paypalWrap && tooltip) {
+      paypalWrap.addEventListener('mouseenter', function() {
+        const rect = paypalWrap.getBoundingClientRect();
+        tooltip.style.left = (rect.left + rect.width / 2) + 'px';
+        tooltip.style.top = rect.top + 'px';
+        tooltip.style.display = 'block';
+      });
+      paypalWrap.addEventListener('mouseleave', function() {
+        tooltip.style.display = 'none';
+      });
+    }
   });
 </script>
 </body>
