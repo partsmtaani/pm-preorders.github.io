@@ -3,351 +3,292 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="PartsMtaani Terms of Service — including restricted and prohibited items we are unable to source or ship.">
-  <title>Terms of Service | PartsMtaani</title>
+  <meta name="description" content="Terms and conditions governing the use of PartsMtaani's pre-order sourcing service.">
+  <title>Terms &amp; Conditions | PartsMtaani</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/css/uikit.min.css">
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/js/uikit.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/js/uikit-icons.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/styles.css">
-  <link rel="icon" href="/favicon.svg">
+  <link rel="icon" href="favicon.svg">
+  <style>
+    :root {
+      --orange: #FF4500;
+      --orange-dark: #d93b00;
+      --success: #26C485;
+      --info: #118AB2;
+      --black: #0e0e0e;
+      --ink: #1c1c1c;
+      --mid: #444;
+      --muted: #6b6b6b;
+      --line: #e8e8e8;
+      --bg: #fafaf9;
+      --white: #ffffff;
+    }
+    @font-face { font-family: 'BDOGrotesk'; src: url('/assets/webfonts/BDOGrotesk-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; }
+    @font-face { font-family: 'BDOGrotesk'; src: url('/assets/webfonts/BDOGrotesk-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; }
+    @font-face { font-family: 'BDOGrotesk'; src: url('/assets/webfonts/BDOGrotesk-ExtraBold.woff2') format('woff2'); font-weight: 800; font-style: normal; }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--ink); font-family: 'BDOGrotesk', 'Inter', sans-serif; font-size: 16px; line-height: 1.65; }
+    h1, h2 { font-family: 'BDOGrotesk', sans-serif; text-transform: none; font-weight: 700; letter-spacing: 0.01em; }
+    h3, h4, h5, h6 { font-family: 'BDOGrotesk', 'Inter', sans-serif; text-transform: uppercase; letter-spacing: -0.01em; }
+    h1 { font-size: clamp(32px, 4vw, 52px); line-height: 1.05; }
+    h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02em; }
+    .label { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; }
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+    .nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--line); }
+    .nav-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 20px; }
+    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+    .logo-img { height: 36px; width: auto; display: block; object-fit: contain; }
+    .logo-sub { font-family: 'BDOGrotesk', sans-serif; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.2; }
+    .nav-links { display: flex; align-items: center; gap: 28px; padding: 0; margin: 0; list-style: none; }
+    .nav-links li { display: inline-block; }
+    .nav-links a { font-family: 'BDOGrotesk', sans-serif; font-size: 12px; font-weight: 700; color: var(--mid); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-links svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; position: relative; top: -1px; }
+    .btn-nav { background: var(--orange) !important; color: #fff !important; padding: 9px 20px !important; font-weight: 700 !important; font-size: 11px !important; border-radius: 2px; transition: background 0.2s; white-space: nowrap; }
+    .btn-nav:hover { background: var(--orange-dark) !important; }
+    .nav-hamburger { display: none; background: none; border: 1px solid var(--line); padding: 8px 10px; cursor: pointer; color: var(--ink); border-radius: 4px; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); padding: 18px 24px; gap: 16px; align-items: flex-start; z-index: 99; margin: 0; }
+      .nav-hamburger { display: block; }
+    }
+
+    .page-hero { padding: 72px 0 56px; border-bottom: 1px solid var(--line); background: var(--bg); }
+    .page-hero .label { margin-bottom: 14px; }
+    .page-hero h1 { margin-bottom: 16px; }
+    .page-hero .meta { font-size: 13px; color: var(--muted); }
+    .page-hero .meta strong { color: var(--ink); font-weight: 600; }
+
+    .doc-layout { display: grid; grid-template-columns: 220px 1fr; gap: 60px; padding: 64px 0 96px; align-items: start; }
+    @media (max-width: 860px) { .doc-layout { grid-template-columns: 1fr; gap: 40px; } }
+
+    .doc-nav { position: sticky; top: 88px; }
+    .doc-nav-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+    .doc-nav ul { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
+    .doc-nav ul li a { display: block; padding: 7px 16px; font-size: 12px; font-weight: 600; color: var(--muted); text-decoration: none; transition: color 0.2s, border-color 0.2s; border-left: 2px solid transparent; margin-left: -1px; }
+    .doc-nav ul li a:hover { color: var(--orange); border-left-color: var(--orange); }
+    @media (max-width: 860px) { .doc-nav { display: none; } }
+
+    .doc-body { max-width: 720px; }
+    .doc-section { margin-bottom: 52px; }
+    .doc-section:last-child { margin-bottom: 0; }
+    .doc-section h3 { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; }
+    .doc-section h4 { font-size: 16px; font-weight: 700; color: var(--black); text-transform: none; letter-spacing: 0; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
+    .doc-section p { font-size: 14px; color: var(--mid); line-height: 1.8; margin-bottom: 14px; }
+    .doc-section p:last-child { margin-bottom: 0; }
+    .doc-section ul { padding: 0; margin: 0 0 14px 0; list-style: none; }
+    .doc-section ul li { font-size: 14px; color: var(--mid); line-height: 1.75; padding: 5px 0 5px 20px; position: relative; }
+    .doc-section ul li::before { content: ""; position: absolute; left: 0; top: 14px; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); opacity: 0.5; }
+    .doc-section strong { color: var(--ink); font-weight: 600; }
+
+    .notice-box { background: var(--bg); border: 1px solid var(--line); border-left: 3px solid var(--orange); border-radius: 4px; padding: 16px 20px; margin-bottom: 14px; }
+    .notice-box p { margin: 0; font-size: 13px; }
+
+    footer { background: var(--black); color: #888; padding: 48px 0 32px; }
+    .footer-centered { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+    .footer-top-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid #222; }
+    .footer-social-left { flex: 1; min-width: 140px; }
+    .footer-social-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 16px; }
+    .social-icons { display: flex; gap: 20px; align-items: center; }
+    .social-icons a { color: #666; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; }
+    .social-icons a:hover { color: var(--orange); transform: translateY(-2px); }
+    .social-icons svg { width: 20px; height: 20px; fill: currentColor; stroke: none; }
+    .footer-contact-center { flex: 2; text-align: center; }
+    .footer-contact-center .contact-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 16px; }
+    .contact-item { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; }
+    .contact-item svg { width: 16px; height: 16px; stroke: var(--orange); stroke-width: 1.5; fill: none; flex-shrink: 0; }
+    .contact-item a { color: #888; text-decoration: none; transition: color 0.2s; font-size: 13px; }
+    .contact-item a:hover { color: var(--orange); }
+    .tax-pin { font-size: 11px; color: #555; margin-top: 8px; }
+    .footer-refund-right { flex: 1; text-align: right; min-width: 140px; }
+    .refund-link { font-family: 'BDOGrotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: inline-block; }
+    .refund-link a { color: var(--orange); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s; }
+    .refund-link a:hover { gap: 12px; }
+    .refund-link svg { width: 16px; height: 16px; stroke: var(--orange); stroke-width: 2; fill: none; }
+    .footer-bottom-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; font-size: 11px; }
+    .copyright { color: #555; }
+    .footer-legal-links { display: flex; gap: 24px; }
+    .footer-legal-links a { color: #666; text-decoration: none; transition: color 0.2s; font-size: 11px; }
+    .footer-legal-links a:hover { color: var(--orange); }
+    @media (max-width: 768px) {
+      .footer-top-row { flex-direction: column; gap: 32px; align-items: center; text-align: center; }
+      .footer-social-left { text-align: center; }
+      .footer-refund-right { text-align: center; }
+      .contact-item { justify-content: center; }
+      .footer-bottom-row { flex-direction: column; text-align: center; }
+      .footer-legal-links { justify-content: center; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ============================================================
-     NAVBAR
-     ============================================================ -->
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="logo">
-      <img src="/assets/img/logo.svg" alt="PartsMtaani" class="logo-img" onerror="this.style.display='none'">
-      <span class="logo-sub">PartsMtaani</span>
+    <a class="logo" href="/">
+      <img class="logo-img" src="assets/img/logo.svg" alt="PartsMtaani" onerror="this.style.display='none'">
+      <span class="logo-sub">pre-order<br>portal</span>
     </a>
     <ul class="nav-links" id="nav-links">
-      <li>
-        <a href="/">
-          <svg viewBox="0 0 24 24"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l-2 0l9 -9l9 9l-2 0"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7"/><rect x="10" y="12" width="4" height="4" rx=".5"/></svg>
-          Home
-        </a>
-      </li>
-      <li>
-        <a href="/#how-it-works">How It Works</a>
-      </li>
-      <li>
-        <a href="/#faq">FAQ</a>
-      </li>
-      <li>
-        <a href="/refund.html">Refund Policy</a>
-      </li>
-      <li>
-        <a href="/#order" class="btn-nav">Pre-Order Parts →</a>
-      </li>
+      <li><a href="https://partsmtaani.com/marketplace" target="_blank">Visit Marketplace<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="17" y1="7" x2="7" y2="17"/><polyline points="8 7 17 7 17 16"/></svg></a></li>
+      <li><a href="/#sourcing-fee">Sourcing Fee</a></li>
+      <li><a href="/#faq">FAQs</a></li>
+      <li><a href="/#order-form" class="btn-nav">Order Now</a></li>
     </ul>
-    <button class="nav-hamburger" aria-label="Menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <button class="nav-hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
     </button>
   </div>
 </nav>
 
-<!-- ============================================================
-     PAGE HERO
-     ============================================================ -->
-<section class="page-hero">
+<div class="page-hero">
   <div class="wrap">
-    <div class="page-hero-inner">
-      <div class="breadcrumb">
-        <a href="/">Home</a>
-        <span class="breadcrumb-sep">/</span>
-        <span>Terms of Service</span>
-      </div>
-      <div class="label">Legal</div>
-      <h1>Terms of Service</h1>
-      <p style="font-size:16px;color:var(--mid);max-width:580px;margin-top:12px;">Please read these terms carefully before placing a pre-order. By using PartsMtaani you agree to everything below.</p>
-      <div class="page-hero-meta">
-        <span>Effective: 1 January 2026</span>
-        <span>Last updated: 10 April 2026</span>
-        <span>Governed by the laws of Kenya</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ============================================================
-     CONTENT
-     ============================================================ -->
-<div class="wrap">
-  <div class="prose-layout">
-
-    <!-- TOC -->
-    <aside class="prose-toc">
-      <div class="prose-toc-label">On This Page</div>
-      <ul>
-        <li><a href="#definitions">Definitions</a></li>
-        <li><a href="#service">The Service</a></li>
-        <li><a href="#preorders">Pre-Orders & Payment</a></li>
-        <li><a href="#sourcing-fee">Sourcing Fee</a></li>
-        <li><a href="#delivery">Delivery</a></li>
-        <li><a href="#warranty">Warranty & Returns</a></li>
-        <li><a href="#restricted">Restricted Items</a></li>
-        <li><a href="#liability">Liability</a></li>
-        <li><a href="#data">Data & Privacy</a></li>
-        <li><a href="#changes">Changes to Terms</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </aside>
-
-    <!-- Prose body -->
-    <article class="prose">
-
-      <div class="prose-section" id="definitions">
-        <h2>1. Definitions</h2>
-        <p>In these Terms, the following words have the meanings assigned to them:</p>
-        <ul>
-          <li><strong>"PartsMtaani"</strong>, <strong>"we"</strong>, <strong>"us"</strong>, or <strong>"our"</strong> refers to PartsMtaani, a trading brand of <strong>Staydate Holdings Limited</strong>, incorporated in Kenya (PIN: P051234567Z).</li>
-          <li><strong>"Platform"</strong> means the PartsMtaani website at partsmtaani.co.ke and all associated pages.</li>
-          <li><strong>"Customer"</strong> or <strong>"you"</strong> means any person who submits a pre-order or uses the Platform.</li>
-          <li><strong>"Pre-Order"</strong> means a sourcing request submitted by a Customer for one or more auto parts.</li>
-          <li><strong>"Sourcing Fee"</strong> means the 30% commitment deposit charged at the time of pre-order confirmation.</li>
-          <li><strong>"Part"</strong> means any automotive component, assembly, or accessory sourced by PartsMtaani on behalf of a Customer.</li>
-        </ul>
-      </div>
-
-      <div class="prose-section" id="service">
-        <h2>2. The Service</h2>
-        <p>PartsMtaani is an auto parts sourcing and pre-order marketplace. We source genuine OEM and aftermarket parts from verified suppliers across Kenya and internationally on your behalf. We do <strong>not</strong> maintain a physical retail inventory; all parts are sourced to order.</p>
-        <p>Use of the Platform is available to individuals aged 18 years and above, and to duly registered businesses. By submitting a pre-order you confirm that you are 18 or over, or are acting on behalf of a registered business entity.</p>
-        <div class="callout">
-          <p><strong>Important:</strong> PartsMtaani acts as a sourcing agent, not as a direct seller of parts. Title to goods passes from the supplier directly to the Customer upon full payment.</p>
-        </div>
-      </div>
-
-      <div class="prose-section" id="preorders">
-        <h2>3. Pre-Orders & Payment</h2>
-        <h3>3.1 Placing a Pre-Order</h3>
-        <p>A pre-order is placed when you complete and submit the order form on the Platform. Submission constitutes an offer to purchase. PartsMtaani reserves the right to accept or decline any pre-order at its sole discretion.</p>
-        <h3>3.2 Order Confirmation</h3>
-        <p>An order is confirmed only when PartsMtaani sends you a written confirmation (via email or WhatsApp) along with a sourcing invoice. Verbal acknowledgements do not constitute confirmation.</p>
-        <h3>3.3 Payment Methods</h3>
-        <p>We accept payment via M-Pesa (Paybill 4048209) and bank transfer. PayPal payments are accepted only after prior written agreement with our support team. All prices are quoted in Kenya Shillings (KES) unless otherwise stated. We are not responsible for currency conversion losses on international transfers.</p>
-        <h3>3.4 Price Changes</h3>
-        <p>Quoted prices are estimates based on prevailing market rates and exchange rates at the time of quoting. Final prices may vary due to supplier pricing changes, import duty fluctuations, or foreign exchange movements. We will notify you of any material price change before requiring additional payment.</p>
-      </div>
-
-      <div class="prose-section" id="sourcing-fee">
-        <h2>4. Sourcing Fee</h2>
-        <p>A non-refundable sourcing fee of <strong>30% of the quoted part value</strong> is charged upon order confirmation. This fee:</p>
-        <ul>
-          <li>Covers our sourcing labour, supplier communications, and import-related logistics costs.</li>
-          <li>Is credited in full toward your final invoice — it is not an additional charge on top of the part price.</li>
-          <li>Is fully refunded if PartsMtaani is unable to source the requested part within the agreed timeframe.</li>
-          <li>Is <strong>not</strong> refunded if you cancel after sourcing has commenced (see Clause 5 for lead times).</li>
-        </ul>
-        <div class="callout green">
-          <p><strong>Our guarantee:</strong> If we cannot find your part, you receive a 100% refund of the sourcing fee, no questions asked. Refunds are processed within 5 business days.</p>
-        </div>
-      </div>
-
-      <div class="prose-section" id="delivery">
-        <h2>5. Delivery</h2>
-        <h3>5.1 Lead Times</h3>
-        <p>Standard sourcing lead time is <strong>7–14 business days</strong> for locally available parts. Internationally sourced parts may take 21–45 business days. Lead times are estimates and may vary due to supplier availability, customs clearance, or logistics delays outside our control.</p>
-        <h3>5.2 Delivery Coverage</h3>
-        <p>We deliver across Kenya. Delivery charges are quoted separately based on weight, dimensions, and destination. Parts can also be collected from our Nairobi staging point by prior arrangement.</p>
-        <h3>5.3 Risk of Loss</h3>
-        <p>Risk of loss or damage transfers to you upon handover to the delivery agent or upon collection. We strongly recommend you inspect parts at the point of delivery and document any visible damage before signing for receipt.</p>
-        <h3>5.4 Force Majeure</h3>
-        <p>PartsMtaani is not liable for delays caused by events outside our reasonable control, including but not limited to customs holds, supplier strikes, floods, or government restrictions on imports.</p>
-      </div>
-
-      <div class="prose-section" id="warranty">
-        <h2>6. Warranty & Returns</h2>
-        <h3>6.1 Part Warranty</h3>
-        <p>New OEM parts carry the original manufacturer's warranty where applicable. New aftermarket parts carry a minimum 90-day warranty against manufacturing defects. Refurbished parts carry a 30-day warranty unless otherwise stated.</p>
-        <h3>6.2 Warranty Exclusions</h3>
-        <p>Warranties do not cover defects arising from: incorrect installation, misuse, accident, modification, wear and tear, or failure to use the part for its intended application.</p>
-        <h3>6.3 Returns Process</h3>
-        <p>To initiate a return, submit a refund request via our <a href="/refund.html">Refund Request form</a> within 14 days of delivery. Parts must be returned in their original condition and packaging. PartsMtaani will assess the claim and respond within 5 business days of receipt of the returned part.</p>
-        <h3>6.4 Wrong Part Supplied</h3>
-        <p>If PartsMtaani supplies an incorrect part due to our error, we will replace it at no additional cost or issue a full refund at your discretion. You must notify us within 7 days of delivery.</p>
-      </div>
-
-      <!-- ======================================================
-           RESTRICTED ITEMS
-           ====================================================== -->
-      <div class="prose-section" id="restricted">
-        <h2>7. Restricted &amp; Prohibited Items</h2>
-        <p>PartsMtaani is a legitimate automotive parts sourcing service. We do not source, ship, or facilitate the acquisition of the following categories of items. Pre-orders for restricted items will be rejected and any payment received will be refunded in full.</p>
-
-        <div class="callout">
-          <p>This list is not exhaustive. PartsMtaani reserves the right to refuse any item we reasonably believe falls outside legitimate vehicle repair and maintenance use.</p>
-        </div>
-
-        <h3>7.1 Stolen or Counterfeit Parts</h3>
-        <p>We will not source parts that we have reason to believe are stolen, counterfeit, or of disputed origin. All parts must come from traceable, legitimate supply chains. Customers who provide false VINs, chassis numbers, or ownership documentation to facilitate sourcing of stolen components may be reported to the relevant authorities.</p>
-
-        <h3>7.2 Regulated &amp; Safety-Critical Modifications</h3>
-        <p>We do not source parts that are classified as illegal vehicle modifications under Kenya's Traffic Act (Cap. 403) or NTSA regulations, including:</p>
-        <div class="restricted-grid">
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Underbody nitrous kits
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Illegal window tint film
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Unmarked / no-cert tyres
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            OBD2 cloning / mileage tools
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Siren / emergency light kits
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Police/military-only parts
-          </div>
-        </div>
-
-        <h3>7.3 Emissions & Environmental</h3>
-        <p>We do not source parts that remove or disable legally required emissions control systems, including:</p>
-        <div class="restricted-grid">
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Catalytic converter delete pipes
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            EGR delete kits
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            DPF removal kits
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            O2 sensor eliminators
-          </div>
-        </div>
-
-        <h3>7.4 Weapons &amp; Security</h3>
-        <p>We do not source any item that is or could be used as a weapon, or that can be repurposed to harm persons or circumvent vehicle security for theft purposes:</p>
-        <div class="restricted-grid">
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Bump keys / key programmers
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Relay attack amplifiers
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            OBD port bypass tools
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            RAM raid protection rams
-          </div>
-        </div>
-
-        <h3>7.5 Hazardous Materials</h3>
-        <p>We are unable to ship the following due to Kenya Civil Aviation Authority (KCAA) air-freight restrictions and Kenya Revenue Authority (KRA) import requirements for hazardous goods:</p>
-        <div class="restricted-grid">
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Airbag inflator modules (standalone)
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Loose lithium EV battery cells
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Bulk refrigerant gas (>10kg)
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Asbestos-containing brake pads
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Pressurised fuel tanks (unfitted)
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Pyrotechnic seatbelt pretensioners
-          </div>
-        </div>
-
-        <h3>7.6 Import-Restricted Items</h3>
-        <p>Certain parts require additional import licensing or are outright banned from import into Kenya. We do not source:</p>
-        <div class="restricted-grid">
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Used tyres (EAC ban)
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Right-hand drive conversion kits for LHD-only markets
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Uncertified LPG conversion kits
-          </div>
-          <div class="restricted-tag">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-            Parts from sanctioned countries / entities
-          </div>
-        </div>
-
-        <h3>7.7 Non-Automotive Items</h3>
-        <p>PartsMtaani sources automotive parts only. We do not source general merchandise, electronics, clothing, tools unrelated to vehicle servicing, or any item that is not a direct component of a road-going vehicle.</p>
-      </div>
-
-      <div class="prose-section" id="liability">
-        <h2>8. Liability</h2>
-        <p>To the fullest extent permitted by Kenyan law, PartsMtaani's liability for any claim arising from a pre-order shall not exceed the total amount paid by you for the specific order giving rise to the claim.</p>
-        <p>We are not liable for: indirect or consequential losses; loss of profits; vehicle downtime; costs of alternative transport; or damage arising from incorrect part installation by a third party.</p>
-        <p>Nothing in these Terms limits or excludes our liability for death or personal injury caused by our negligence, or for fraudulent misrepresentation.</p>
-      </div>
-
-      <div class="prose-section" id="data">
-        <h2>9. Data & Privacy</h2>
-        <p>We collect and process your personal data in accordance with our <a href="/privacy.html">Privacy Policy</a> and the Kenya Data Protection Act, 2019. By using the Platform you consent to such processing. We do not sell your personal data to third parties.</p>
-      </div>
-
-      <div class="prose-section" id="changes">
-        <h2>10. Changes to These Terms</h2>
-        <p>We may update these Terms from time to time. Material changes will be communicated via email to registered customers at least 14 days before taking effect. Continued use of the Platform after that date constitutes acceptance of the updated Terms.</p>
-      </div>
-
-      <div class="prose-section" id="contact">
-        <h2>11. Contact & Governing Law</h2>
-        <p>These Terms are governed by the laws of the Republic of Kenya. Any dispute that cannot be resolved amicably shall be referred to the courts of Nairobi.</p>
-        <p>For questions about these Terms, please contact us:</p>
-        <ul>
-          <li><strong>Phone:</strong> 011 987 3011</li>
-          <li><strong>Email:</strong> support@partsmtaani.co.ke</li>
-          <li><strong>Address:</strong> Staydate Holdings Limited, Nairobi, Kenya</li>
-        </ul>
-      </div>
-
-    </article>
+    <div class="label">Legal</div>
+    <h1>Terms &amp; Conditions</h1>
+    <p class="meta">Last updated: <strong>1 January 2026</strong> &nbsp;·&nbsp; Effective for all orders placed from this date</p>
   </div>
 </div>
 
-<!-- ============================================================
-     FOOTER
-     ============================================================ -->
+<div class="wrap">
+  <div class="doc-layout">
+
+    <aside class="doc-nav">
+      <div class="doc-nav-label">On this page</div>
+      <ul>
+        <li><a href="#s1">Definitions</a></li>
+        <li><a href="#s2">Service Description</a></li>
+        <li><a href="#s3">Placing an Order</a></li>
+        <li><a href="#s4">Sourcing Fee</a></li>
+        <li><a href="#s5">Pricing &amp; Payment</a></li>
+        <li><a href="#s6">Delivery</a></li>
+        <li><a href="#s7">Warranty</a></li>
+        <li><a href="#s8">Limitation of Liability</a></li>
+        <li><a href="#s9">Intellectual Property</a></li>
+        <li><a href="#s10">Governing Law</a></li>
+        <li><a href="#s11">Changes to Terms</a></li>
+        <li><a href="#s12">Contact</a></li>
+      </ul>
+    </aside>
+
+    <div class="doc-body">
+
+      <div class="notice-box">
+        <p>Please read these terms carefully before placing a pre-order. By submitting a pre-order request you agree to be bound by these terms in their entirety.</p>
+      </div>
+
+      <div class="doc-section" id="s1">
+        <h3>01</h3>
+        <h4>Definitions</h4>
+        <p>In these Terms and Conditions, the following definitions apply:</p>
+        <ul>
+          <li><strong>"PartsMtaani"</strong>, <strong>"we"</strong>, <strong>"us"</strong> or <strong>"our"</strong> refers to Parts Mtaani, a business registered in Kenya (Tax PIN: P051234567Z).</li>
+          <li><strong>"Customer"</strong>, <strong>"you"</strong> or <strong>"your"</strong> refers to any person submitting a pre-order request through this portal.</li>
+          <li><strong>"Pre-Order"</strong> means a request submitted via the pre-order portal for PartsMtaani to source specified automotive parts on the Customer's behalf.</li>
+          <li><strong>"Sourcing Fee"</strong> means the non-refundable commitment fee paid upfront to activate a pre-order, except where PartsMtaani is unable to source the requested part.</li>
+          <li><strong>"Part(s)"</strong> means any automotive component, assembly or accessory specified in a Pre-Order.</li>
+        </ul>
+      </div>
+
+      <div class="doc-section" id="s2">
+        <h3>02</h3>
+        <h4>Service Description</h4>
+        <p>PartsMtaani operates a pre-order sourcing service for automotive parts across Kenya. We act as an intermediary, sourcing OEM and quality aftermarket parts from verified suppliers on behalf of customers who have been unable to locate the required parts through conventional retail channels.</p>
+        <p>We do not maintain a physical stock of parts. All parts are sourced to order following the receipt of a valid Pre-Order and the associated Sourcing Fee.</p>
+      </div>
+
+      <div class="doc-section" id="s3">
+        <h3>03</h3>
+        <h4>Placing an Order</h4>
+        <p>A Pre-Order is initiated when you submit a completed pre-order form via this portal. Submission of a form does not constitute a binding contract. A binding agreement is formed only upon:</p>
+        <ul>
+          <li>Receipt and confirmation of your Pre-Order by PartsMtaani; and</li>
+          <li>Receipt of the applicable Sourcing Fee payment.</li>
+        </ul>
+        <p>You are responsible for the accuracy of all information provided in the Pre-Order, including vehicle specifications, part numbers and condition preferences. PartsMtaani will not be liable for sourcing incorrect parts arising from inaccurate customer-supplied information.</p>
+        <p>We reserve the right to decline any Pre-Order at our sole discretion without stating a reason.</p>
+      </div>
+
+      <div class="doc-section" id="s4">
+        <h3>04</h3>
+        <h4>Sourcing Fee</h4>
+        <p>A non-refundable Sourcing Fee is charged per Pre-Order to cover the cost of supplier research, verification and initial procurement activities. The current fee schedule is published on the homepage and may be updated from time to time.</p>
+        <p>The Sourcing Fee is <strong>fully refundable</strong> in one circumstance only: where PartsMtaani is unable to source the requested part within the agreed lead time. In all other cases, the Sourcing Fee is retained regardless of whether the Customer proceeds to purchase the sourced part.</p>
+        <p>Payment of the Sourcing Fee must be made via M-Pesa to the published Paybill number before sourcing activity commences.</p>
+      </div>
+
+      <div class="doc-section" id="s5">
+        <h3>05</h3>
+        <h4>Pricing &amp; Payment</h4>
+        <p>Budget estimates provided at the time of Pre-Order submission are indicative only. Final pricing for sourced parts is confirmed upon completion of sourcing and communicated to the Customer before any further payment is required.</p>
+        <p>The Customer is under no obligation to purchase a sourced part if the confirmed price exceeds their stated budget, however the Sourcing Fee will not be refunded in such cases.</p>
+        <p>Full payment for sourced parts is due prior to delivery. PartsMtaani accepts M-Pesa and other payment methods as communicated at the time of invoicing.</p>
+      </div>
+
+      <div class="doc-section" id="s6">
+        <h3>06</h3>
+        <h4>Delivery</h4>
+        <p>Typical lead times are 7–14 business days from confirmation of a Pre-Order. Lead times are estimates and may vary based on part availability, supplier location and logistics. PartsMtaani will notify the Customer of any material delays.</p>
+        <p>Delivery is available across Kenya. Delivery charges are calculated at the point of invoicing based on the Customer's specified delivery location.</p>
+        <p>Risk of loss or damage passes to the Customer upon delivery. PartsMtaani recommends inspecting all parts at the point of delivery before signing for receipt.</p>
+      </div>
+
+      <div class="doc-section" id="s7">
+        <h3>07</h3>
+        <h4>Warranty</h4>
+        <p>All parts sourced through PartsMtaani carry a six-month warranty against manufacturing defects from the date of delivery, subject to the following conditions:</p>
+        <ul>
+          <li>The part has been installed by a qualified mechanic in accordance with the manufacturer's specifications.</li>
+          <li>The defect is not attributable to misuse, accident, neglect, unauthorised modification or normal wear and tear.</li>
+          <li>The Customer provides proof of purchase and a written description of the defect within the warranty period.</li>
+        </ul>
+        <p>Warranty claims are handled at our discretion through repair, replacement or refund of the part value. The Sourcing Fee and any delivery charges are excluded from warranty remedies.</p>
+      </div>
+
+      <div class="doc-section" id="s8">
+        <h3>08</h3>
+        <h4>Limitation of Liability</h4>
+        <p>To the fullest extent permitted by Kenyan law, PartsMtaani's total liability to any Customer in connection with a Pre-Order shall not exceed the total amount paid by that Customer for the specific order giving rise to the claim.</p>
+        <p>PartsMtaani is not liable for any indirect, consequential, incidental or special losses including but not limited to loss of profit, loss of use, vehicle downtime or costs of repair arising from delays or part defects.</p>
+        <p>Nothing in these terms limits liability for fraud, death or personal injury caused by our negligence.</p>
+      </div>
+
+      <div class="doc-section" id="s9">
+        <h3>09</h3>
+        <h4>Intellectual Property</h4>
+        <p>All content on this portal, including text, graphics, logos, and design elements, is the property of PartsMtaani or its content suppliers and is protected under Kenyan intellectual property law. Unauthorised reproduction or use is prohibited.</p>
+      </div>
+
+      <div class="doc-section" id="s10">
+        <h3>10</h3>
+        <h4>Governing Law</h4>
+        <p>These Terms and Conditions are governed by and construed in accordance with the laws of Kenya. Any disputes arising under these terms shall be subject to the exclusive jurisdiction of the courts of Kenya.</p>
+      </div>
+
+      <div class="doc-section" id="s11">
+        <h3>11</h3>
+        <h4>Changes to Terms</h4>
+        <p>PartsMtaani reserves the right to amend these Terms and Conditions at any time. Updated terms will be published on this page with a revised effective date. Continued use of the pre-order portal following publication of changes constitutes acceptance of the revised terms.</p>
+      </div>
+
+      <div class="doc-section" id="s12">
+        <h3>12</h3>
+        <h4>Contact</h4>
+        <p>For questions regarding these terms, please contact us:</p>
+        <ul>
+          <li>Phone: <strong>011 987 3011</strong></li>
+          <li>Email: <strong>orders@partsmtaani.com</strong></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="footer-centered">
     <div class="footer-top-row">
@@ -357,6 +298,7 @@
           <a href="#" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
           <a href="#" target="_blank" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
           <a href="#" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg></a>
+          <a href="#" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
           <a href="#" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
         </div>
       </div>
@@ -368,29 +310,22 @@
         </div>
         <div class="contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
-          <a href="mailto:support@partsmtaani.co.ke">support@partsmtaani.co.ke</a>
+          <a href="mailto:orders@partsmtaani.com">orders@partsmtaani.com</a>
         </div>
         <div class="tax-pin">Tax PIN: P051234567Z</div>
       </div>
       <div class="footer-refund-right">
         <div class="refund-link">
-          <a href="/refund.html">
-            Request a refund
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="17" y1="7" x2="7" y2="17"/><polyline points="8 7 17 7 17 16"/></svg>
-          </a>
+          <a href="refunds.html">Request a refund <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="17" y1="7" x2="7" y2="17"/><polyline points="8 7 17 7 17 16"/></svg></a>
         </div>
       </div>
     </div>
     <div class="footer-bottom-row">
-      <div class="copyright">© 2026 PartsMtaani. All rights reserved. Staydate Holdings Limited.</div>
-      <div class="footer-legal-links">
-        <a href="/terms.html">Terms of Service</a>
-        <a href="/privacy.html">Privacy</a>
-      </div>
+      <div class="copyright">© 2026 Parts Mtaani.</div>
+      <div class="footer-legal-links"><a href="terms.html">View extended terms</a><a href="privacy.html">Privacy</a></div>
     </div>
   </div>
 </footer>
 
-<script src="/assets/js/site.js"></script>
 </body>
 </html>
