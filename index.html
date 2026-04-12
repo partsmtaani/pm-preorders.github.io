@@ -51,6 +51,7 @@
     .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
     .logo-img { height: 36px; width: auto; display: block; object-fit: contain; }
     .logo-sub { font-family: 'BDOGrotesk', sans-serif; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.2; }
+    .logo-slash { width: 1px; height: 32px; background: var(--line); transform: rotate(20deg); flex-shrink: 0; margin: 0 2px; }
     .nav-links { display: flex; align-items: center; gap: 28px; padding: 0; margin: 0; list-style: none; }
     .nav-links li { display: inline-block; }
     .nav-links a { font-family: 'BDOGrotesk', sans-serif; font-size: 12px; font-weight: 700; color: var(--mid); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; }
@@ -346,6 +347,7 @@
   <div class="nav-inner">
     <a class="logo" href="#">
       <img class="logo-img" src="assets/img/logo.svg" alt="PartsMtaani" onerror="this.style.display='none'">
+      <span class="logo-slash"></span>
       <span class="logo-sub">pre-order<br>portal</span>
     </a>
     <ul class="nav-links" id="nav-links">
