@@ -617,19 +617,19 @@
         </div>
         <div class="contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
-          <a href="mailto:hello@partsmtaani.com">hello@partsmtaani.com</a>
+          <a href="/cdn-cgi/l/email-protection#6d05080101022d1d0c1f191e00190c0c0304430e0200"><span class="__cf_email__" data-cfemail="7b131e1717143b0b1a090f08160f1a1a151255181416">[email&#160;protected]</span></a>
         </div>
         <div class="tax-pin">Tax PIN: P051234567Z</div>
       </div>
       <div class="footer-refund-right">
         <div class="refund-link">
-          <a href="#" target="_blank">Request a refund <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="17" y1="7" x2="7" y2="17"/><polyline points="8 7 17 7 17 16"/></svg></a>
+          <a href="/refunds/">Request a refund <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="17" y1="7" x2="7" y2="17"/><polyline points="8 7 17 7 17 16"/></svg></a>
         </div>
       </div>
     </div>
     <div class="footer-bottom-row">
       <div class="copyright">© 2026 Parts Mtaani.</div>
-      <div class="footer-legal-links"><a href="#">View extended terms</a><a href="#">Privacy</a></div>
+      <div class="footer-legal-links"><a href="/terms/">Terms &amp; Conditions</a><a href="/privacy/">Privacy</a></div>
     </div>
   </div>
 </footer>
@@ -637,7 +637,7 @@
 <!-- Global toast -->
 <div id="copy-toast">✓ Paybill number copied</div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // ── Copy Paybill ──
   function copyPaybill() {
     navigator.clipboard.writeText('4048209').then(showCopyFeedback).catch(() => {
@@ -853,11 +853,4 @@
           form.reset(); vehicleCount = 1; partCounters = {1:1}; partImages = {};
           renderVehicles(); goToStep(1);
           setTimeout(() => { const m = document.getElementById('success-msg'); if(m) m.style.display='none'; }, 6000);
-        } else { alert('Something went wrong. Please try again or contact us directly.'); }
-      } catch { alert('Network error. Please check your connection and try again.'); }
-      finally { btn.textContent = 'Submit Pre-Order →'; btn.disabled = false; }
-    });
-  });
-</script>
-</body>
-</html>
+        } else { alert('Something went wrong. Please try aga

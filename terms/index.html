@@ -4,6 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Terms and conditions governing the use of PartsMtaani's pre-order sourcing service.">
+  <meta property="og:title" content="Terms &amp; Conditions | PartsMtaani">
   <title>Terms &amp; Conditions | PartsMtaani</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/css/uikit.min.css">
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/js/uikit.min.js"></script>
@@ -11,7 +12,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.svg">
+  <link rel="icon" href="../favicon.svg">
   <style>
     :root {
       --orange: #FF4500;
@@ -26,9 +27,9 @@
       --bg: #fafaf9;
       --white: #ffffff;
     }
-    @font-face { font-family: 'BDOGrotesk'; src: url('/assets/webfonts/BDOGrotesk-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; }
-    @font-face { font-family: 'BDOGrotesk'; src: url('/assets/webfonts/BDOGrotesk-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; }
-    @font-face { font-family: 'BDOGrotesk'; src: url('/assets/webfonts/BDOGrotesk-ExtraBold.woff2') format('woff2'); font-weight: 800; font-style: normal; }
+    @font-face { font-family: 'BDOGrotesk'; src: url('../assets/webfonts/BDOGrotesk-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; }
+    @font-face { font-family: 'BDOGrotesk'; src: url('../assets/webfonts/BDOGrotesk-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; }
+    @font-face { font-family: 'BDOGrotesk'; src: url('../assets/webfonts/BDOGrotesk-ExtraBold.woff2') format('woff2'); font-weight: 800; font-style: normal; }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -36,7 +37,6 @@
     h1, h2 { font-family: 'BDOGrotesk', sans-serif; text-transform: none; font-weight: 700; letter-spacing: 0.01em; }
     h3, h4, h5, h6 { font-family: 'BDOGrotesk', 'Inter', sans-serif; text-transform: uppercase; letter-spacing: -0.01em; }
     h1 { font-size: clamp(32px, 4vw, 52px); line-height: 1.05; }
-    h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02em; }
     .label { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; }
     .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
@@ -59,11 +59,17 @@
       .nav-hamburger { display: block; }
     }
 
-    .page-hero { padding: 72px 0 56px; border-bottom: 1px solid var(--line); background: var(--bg); }
+    .page-hero { position: relative; padding: 72px 0 60px; border-bottom: 1px solid var(--line); overflow: hidden; }
+    .page-hero::before { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 48%; background-image: url('../assets/img/hero-bg.jpg'); background-size: cover; background-position: center; pointer-events: none; z-index: 0; }
+    .page-hero::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 48%; background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.55) 40%, rgba(255,255,255,0) 100%); pointer-events: none; z-index: 1; }
+    .page-hero .wrap { position: relative; z-index: 2; }
     .page-hero .label { margin-bottom: 14px; }
-    .page-hero h1 { margin-bottom: 16px; }
-    .page-hero .meta { font-size: 13px; color: var(--muted); }
+    .page-hero .meta { font-size: 13px; color: var(--muted); margin-top: 14px; }
     .page-hero .meta strong { color: var(--ink); font-weight: 600; }
+    @media (max-width: 860px) {
+      .page-hero::before { width: 100%; opacity: 0.12; }
+      .page-hero::after { width: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.95) 60%); }
+    }
 
     .doc-layout { display: grid; grid-template-columns: 220px 1fr; gap: 60px; padding: 64px 0 96px; align-items: start; }
     @media (max-width: 860px) { .doc-layout { grid-template-columns: 1fr; gap: 40px; } }
@@ -71,7 +77,7 @@
     .doc-nav { position: sticky; top: 88px; }
     .doc-nav-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
     .doc-nav ul { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
-    .doc-nav ul li a { display: block; padding: 7px 16px; font-size: 12px; font-weight: 600; color: var(--muted); text-decoration: none; transition: color 0.2s, border-color 0.2s; border-left: 2px solid transparent; margin-left: -1px; }
+    .doc-nav ul li a { display: block; padding: 7px 16px; font-size: 12px; font-weight: 600; color: var(--muted); text-decoration: none; transition: color 0.2s, border-left-color 0.2s; border-left: 2px solid transparent; margin-left: -1px; }
     .doc-nav ul li a:hover { color: var(--orange); border-left-color: var(--orange); }
     @media (max-width: 860px) { .doc-nav { display: none; } }
 
@@ -86,9 +92,8 @@
     .doc-section ul li { font-size: 14px; color: var(--mid); line-height: 1.75; padding: 5px 0 5px 20px; position: relative; }
     .doc-section ul li::before { content: ""; position: absolute; left: 0; top: 14px; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); opacity: 0.5; }
     .doc-section strong { color: var(--ink); font-weight: 600; }
-
     .notice-box { background: var(--bg); border: 1px solid var(--line); border-left: 3px solid var(--orange); border-radius: 4px; padding: 16px 20px; margin-bottom: 14px; }
-    .notice-box p { margin: 0; font-size: 13px; }
+    .notice-box p { margin: 0; font-size: 13px; color: var(--mid); }
 
     footer { background: var(--black); color: #888; padding: 48px 0 32px; }
     .footer-centered { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
@@ -131,7 +136,7 @@
 <nav class="nav">
   <div class="nav-inner">
     <a class="logo" href="/">
-      <img class="logo-img" src="assets/img/logo.svg" alt="PartsMtaani" onerror="this.style.display='none'">
+      <img class="logo-img" src="../assets/img/logo.svg" alt="PartsMtaani" onerror="this.style.display='none'">
       <span class="logo-sub">pre-order<br>portal</span>
     </a>
     <ul class="nav-links" id="nav-links">
@@ -189,7 +194,7 @@
           <li><strong>"PartsMtaani"</strong>, <strong>"we"</strong>, <strong>"us"</strong> or <strong>"our"</strong> refers to Parts Mtaani, a business registered in Kenya (Tax PIN: P051234567Z).</li>
           <li><strong>"Customer"</strong>, <strong>"you"</strong> or <strong>"your"</strong> refers to any person submitting a pre-order request through this portal.</li>
           <li><strong>"Pre-Order"</strong> means a request submitted via the pre-order portal for PartsMtaani to source specified automotive parts on the Customer's behalf.</li>
-          <li><strong>"Sourcing Fee"</strong> means the non-refundable commitment fee paid upfront to activate a pre-order, except where PartsMtaani is unable to source the requested part.</li>
+          <li><strong>"Sourcing Fee"</strong> means the 30% commitment deposit paid upfront to activate a pre-order, which is credited toward the final invoice.</li>
           <li><strong>"Part(s)"</strong> means any automotive component, assembly or accessory specified in a Pre-Order.</li>
         </ul>
       </div>
@@ -204,11 +209,7 @@
       <div class="doc-section" id="s3">
         <h3>03</h3>
         <h4>Placing an Order</h4>
-        <p>A Pre-Order is initiated when you submit a completed pre-order form via this portal. Submission of a form does not constitute a binding contract. A binding agreement is formed only upon:</p>
-        <ul>
-          <li>Receipt and confirmation of your Pre-Order by PartsMtaani; and</li>
-          <li>Receipt of the applicable Sourcing Fee payment.</li>
-        </ul>
+        <p>A Pre-Order is initiated when you submit a completed pre-order form via this portal. Submission of a form does not constitute a binding contract. A binding agreement is formed only upon receipt and confirmation of your Pre-Order by PartsMtaani, and receipt of the applicable Sourcing Fee payment.</p>
         <p>You are responsible for the accuracy of all information provided in the Pre-Order, including vehicle specifications, part numbers and condition preferences. PartsMtaani will not be liable for sourcing incorrect parts arising from inaccurate customer-supplied information.</p>
         <p>We reserve the right to decline any Pre-Order at our sole discretion without stating a reason.</p>
       </div>
@@ -216,16 +217,14 @@
       <div class="doc-section" id="s4">
         <h3>04</h3>
         <h4>Sourcing Fee</h4>
-        <p>A non-refundable Sourcing Fee is charged per Pre-Order to cover the cost of supplier research, verification and initial procurement activities. The current fee schedule is published on the homepage and may be updated from time to time.</p>
+        <p>A 30% Sourcing Fee is charged per Pre-Order and applied directly toward your final invoice — it is a commitment deposit, not an additional charge. Payment must be made via M-Pesa to Paybill <strong>4048209</strong> before sourcing activity commences.</p>
         <p>The Sourcing Fee is <strong>fully refundable</strong> in one circumstance only: where PartsMtaani is unable to source the requested part within the agreed lead time. In all other cases, the Sourcing Fee is retained regardless of whether the Customer proceeds to purchase the sourced part.</p>
-        <p>Payment of the Sourcing Fee must be made via M-Pesa to the published Paybill number before sourcing activity commences.</p>
       </div>
 
       <div class="doc-section" id="s5">
         <h3>05</h3>
         <h4>Pricing &amp; Payment</h4>
-        <p>Budget estimates provided at the time of Pre-Order submission are indicative only. Final pricing for sourced parts is confirmed upon completion of sourcing and communicated to the Customer before any further payment is required.</p>
-        <p>The Customer is under no obligation to purchase a sourced part if the confirmed price exceeds their stated budget, however the Sourcing Fee will not be refunded in such cases.</p>
+        <p>Budget estimates provided at Pre-Order submission are indicative only. Final pricing is confirmed upon completion of sourcing and communicated to the Customer before any further payment is required. The Customer is under no obligation to purchase if the confirmed price exceeds their stated budget; however the Sourcing Fee will not be refunded in such cases.</p>
         <p>Full payment for sourced parts is due prior to delivery. PartsMtaani accepts M-Pesa and other payment methods as communicated at the time of invoicing.</p>
       </div>
 
@@ -233,8 +232,7 @@
         <h3>06</h3>
         <h4>Delivery</h4>
         <p>Typical lead times are 7–14 business days from confirmation of a Pre-Order. Lead times are estimates and may vary based on part availability, supplier location and logistics. PartsMtaani will notify the Customer of any material delays.</p>
-        <p>Delivery is available across Kenya. Delivery charges are calculated at the point of invoicing based on the Customer's specified delivery location.</p>
-        <p>Risk of loss or damage passes to the Customer upon delivery. PartsMtaani recommends inspecting all parts at the point of delivery before signing for receipt.</p>
+        <p>Delivery is available across Kenya. Delivery charges are calculated at the point of invoicing based on the Customer's specified delivery location. Risk of loss or damage passes to the Customer upon delivery.</p>
       </div>
 
       <div class="doc-section" id="s7">
@@ -252,15 +250,14 @@
       <div class="doc-section" id="s8">
         <h3>08</h3>
         <h4>Limitation of Liability</h4>
-        <p>To the fullest extent permitted by Kenyan law, PartsMtaani's total liability to any Customer in connection with a Pre-Order shall not exceed the total amount paid by that Customer for the specific order giving rise to the claim.</p>
-        <p>PartsMtaani is not liable for any indirect, consequential, incidental or special losses including but not limited to loss of profit, loss of use, vehicle downtime or costs of repair arising from delays or part defects.</p>
-        <p>Nothing in these terms limits liability for fraud, death or personal injury caused by our negligence.</p>
+        <p>To the fullest extent permitted by Kenyan law, PartsMtaani's total liability to any Customer shall not exceed the total amount paid by that Customer for the specific order giving rise to the claim.</p>
+        <p>PartsMtaani is not liable for any indirect, consequential, incidental or special losses including loss of profit, loss of use, vehicle downtime or costs of repair arising from delays or part defects. Nothing in these terms limits liability for fraud, death or personal injury caused by our negligence.</p>
       </div>
 
       <div class="doc-section" id="s9">
         <h3>09</h3>
         <h4>Intellectual Property</h4>
-        <p>All content on this portal, including text, graphics, logos, and design elements, is the property of PartsMtaani or its content suppliers and is protected under Kenyan intellectual property law. Unauthorised reproduction or use is prohibited.</p>
+        <p>All content on this portal, including text, graphics, logos and design elements, is the property of PartsMtaani or its content suppliers and is protected under Kenyan intellectual property law. Unauthorised reproduction or use is prohibited.</p>
       </div>
 
       <div class="doc-section" id="s10">
@@ -278,11 +275,7 @@
       <div class="doc-section" id="s12">
         <h3>12</h3>
         <h4>Contact</h4>
-        <p>For questions regarding these terms, please contact us:</p>
-        <ul>
-          <li>Phone: <strong>011 987 3011</strong></li>
-          <li>Email: <strong>orders@partsmtaani.com</strong></li>
-        </ul>
+        <p>For questions regarding these terms, please contact us by phone on <strong>011 987 3011</strong> or by email at <strong>orders@partsmtaani.com</strong>.</p>
       </div>
 
     </div>
@@ -316,16 +309,21 @@
       </div>
       <div class="footer-refund-right">
         <div class="refund-link">
-          <a href="refunds.html">Request a refund <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="17" y1="7" x2="7" y2="17"/><polyline points="8 7 17 7 17 16"/></svg></a>
+          <a href="/refunds/">Request a refund <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="17" y1="7" x2="7" y2="17"/><polyline points="8 7 17 7 17 16"/></svg></a>
         </div>
       </div>
     </div>
     <div class="footer-bottom-row">
       <div class="copyright">© 2026 Parts Mtaani.</div>
-      <div class="footer-legal-links"><a href="terms.html">View extended terms</a><a href="privacy.html">Privacy</a></div>
+      <div class="footer-legal-links"><a href="/terms/">Terms &amp; Conditions</a><a href="/privacy/">Privacy</a></div>
     </div>
   </div>
 </footer>
 
+<script>
+  document.getElementById('nav-links') && document.querySelector('.nav-hamburger').addEventListener('click', function() {
+    document.getElementById('nav-links').classList.toggle('open');
+  });
+</script>
 </body>
 </html>

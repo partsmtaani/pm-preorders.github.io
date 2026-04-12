@@ -3,15 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="PartsMtaani refund and returns policy for pre-order sourcing requests.">
-  <title>Refund Policy | PartsMtaani</title>
+  <meta name="description" content="Submit a refund request or review PartsMtaani's refund and returns policy.">
+  <meta property="og:title" content="Refunds | PartsMtaani">
+  <title>Refunds | PartsMtaani</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/css/uikit.min.css">
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/js/uikit.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/js/uikit-icons.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.svg">
+  <link rel="icon" href="../favicon.svg">
   <style>
     :root {
       --orange: #FF4500;
@@ -26,9 +27,9 @@
       --bg: #fafaf9;
       --white: #ffffff;
     }
-    @font-face { font-family: 'BDOGrotesk'; src: url('/assets/webfonts/BDOGrotesk-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; }
-    @font-face { font-family: 'BDOGrotesk'; src: url('/assets/webfonts/BDOGrotesk-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; }
-    @font-face { font-family: 'BDOGrotesk'; src: url('/assets/webfonts/BDOGrotesk-ExtraBold.woff2') format('woff2'); font-weight: 800; font-style: normal; }
+    @font-face { font-family: 'BDOGrotesk'; src: url('../assets/webfonts/BDOGrotesk-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; }
+    @font-face { font-family: 'BDOGrotesk'; src: url('../assets/webfonts/BDOGrotesk-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; }
+    @font-face { font-family: 'BDOGrotesk'; src: url('../assets/webfonts/BDOGrotesk-ExtraBold.woff2') format('woff2'); font-weight: 800; font-style: normal; }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -58,22 +59,23 @@
       .nav-hamburger { display: block; }
     }
 
-    .page-hero { padding: 72px 0 56px; border-bottom: 1px solid var(--line); background: var(--bg); }
+    .page-hero { position: relative; padding: 72px 0 60px; border-bottom: 1px solid var(--line); overflow: hidden; }
+    .page-hero::before { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 48%; background-image: url('../assets/img/hero-bg.jpg'); background-size: cover; background-position: center; pointer-events: none; z-index: 0; }
+    .page-hero::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 48%; background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.55) 40%, rgba(255,255,255,0) 100%); pointer-events: none; z-index: 1; }
+    .page-hero .wrap { position: relative; z-index: 2; }
+    .page-hero .label { margin-bottom: 14px; }
     .page-hero .meta { font-size: 13px; color: var(--muted); margin-top: 14px; }
     .page-hero .meta strong { color: var(--ink); font-weight: 600; }
+    @media (max-width: 860px) {
+      .page-hero::before { width: 100%; opacity: 0.12; }
+      .page-hero::after { width: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.95) 60%); }
+    }
 
-    .doc-layout { display: grid; grid-template-columns: 220px 1fr; gap: 60px; padding: 64px 0 96px; align-items: start; }
-    @media (max-width: 860px) { .doc-layout { grid-template-columns: 1fr; gap: 40px; } }
+    .page-body { padding: 64px 0 96px; }
+    .page-grid { display: grid; grid-template-columns: 1fr 400px; gap: 60px; align-items: start; }
+    @media (max-width: 960px) { .page-grid { grid-template-columns: 1fr; gap: 48px; } }
 
-    .doc-nav { position: sticky; top: 88px; }
-    .doc-nav-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
-    .doc-nav ul { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
-    .doc-nav ul li a { display: block; padding: 7px 16px; font-size: 12px; font-weight: 600; color: var(--muted); text-decoration: none; transition: color 0.2s, border-color 0.2s; border-left: 2px solid transparent; margin-left: -1px; }
-    .doc-nav ul li a:hover { color: var(--orange); border-left-color: var(--orange); }
-    @media (max-width: 860px) { .doc-nav { display: none; } }
-
-    .doc-body { max-width: 720px; }
-    .doc-section { margin-bottom: 52px; }
+    .doc-section { margin-bottom: 44px; }
     .doc-section:last-child { margin-bottom: 0; }
     .doc-section h3 { font-size: 11px; font-weight: 700; letter-spacing: 0.14em; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; }
     .doc-section h4 { font-size: 16px; font-weight: 700; color: var(--black); text-transform: none; letter-spacing: 0; margin-bottom: 16px; border-bottom: 1px solid var(--line); padding-bottom: 12px; }
@@ -84,14 +86,9 @@
     .doc-section ul li::before { content: ""; position: absolute; left: 0; top: 14px; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); opacity: 0.5; }
     .doc-section strong { color: var(--ink); font-weight: 600; }
 
-    .notice-box { background: var(--bg); border: 1px solid var(--line); border-left: 3px solid var(--orange); border-radius: 4px; padding: 16px 20px; margin-bottom: 14px; }
-    .notice-box p { margin: 0; font-size: 13px; }
-    .notice-box.success { border-left-color: var(--success); }
-    .notice-box.success p { color: #1a7a52; }
-
-    .outcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 14px; }
+    .outcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
     @media (max-width: 600px) { .outcome-grid { grid-template-columns: 1fr; } }
-    .outcome-card { border: 1px solid var(--line); border-radius: 6px; padding: 18px 20px; }
+    .outcome-card { border: 1px solid var(--line); border-radius: 6px; padding: 16px 18px; }
     .outcome-card.eligible { border-left: 3px solid var(--success); }
     .outcome-card.ineligible { border-left: 3px solid var(--line); }
     .outcome-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; }
@@ -101,13 +98,26 @@
     .outcome-card ul li::before { opacity: 0.35; }
     .outcome-card.eligible ul li::before { background: var(--success); opacity: 0.6; }
 
-    .process-steps { counter-reset: step; margin-bottom: 14px; }
-    .process-step { display: grid; grid-template-columns: 32px 1fr; gap: 14px; margin-bottom: 20px; align-items: start; }
-    .process-step:last-child { margin-bottom: 0; }
-    .step-num { width: 32px; height: 32px; border-radius: 50%; background: var(--bg); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: var(--orange); flex-shrink: 0; margin-top: 2px; }
-    .step-body { padding-top: 4px; }
-    .step-body strong { display: block; font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
-    .step-body p { font-size: 13px; color: var(--mid); line-height: 1.7; margin: 0; }
+    .form-card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; position: sticky; top: 88px; }
+    .form-card-head { background: var(--bg); border-bottom: 1px solid var(--line); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+    .form-card-num { width: 26px; height: 26px; background: var(--orange); color: #fff; font-size: 12px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .form-card-head h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; margin: 0; color: var(--black); }
+    .form-body { padding: 24px; }
+    .field { margin-bottom: 16px; }
+    .field:last-child { margin-bottom: 0; }
+    .field-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 540px) { .field-2 { grid-template-columns: 1fr; } }
+    label { display: block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 5px; color: var(--ink); }
+    label .req { color: var(--orange); }
+    input[type=text], input[type=email], input[type=tel], select, textarea { width: 100%; border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; font-family: inherit; font-size: 13px; background: var(--white); color: var(--ink); transition: border-color 0.2s, box-shadow 0.2s; }
+    input[type=text]:focus, input[type=email]:focus, input[type=tel]:focus, select:focus, textarea:focus { border-color: var(--orange); outline: none; box-shadow: 0 0 0 3px rgba(255,69,0,0.08); }
+    textarea { resize: vertical; }
+    .divider-line { height: 1px; background: var(--line); margin: 20px 0; }
+    .submit-btn { background: var(--orange); color: #fff; padding: 13px 28px; border: none; border-radius: 4px; font-weight: 700; cursor: pointer; text-transform: uppercase; font-size: 12px; letter-spacing: 0.08em; width: 100%; transition: background 0.2s; }
+    .submit-btn:hover { background: var(--orange-dark); }
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+    .success-msg { display: none; background: #eef6ee; border-left: 4px solid var(--success); padding: 14px 16px; border-radius: 6px; margin-bottom: 20px; font-size: 13px; color: #1e5a1f; }
+    .form-note { font-size: 11px; color: var(--muted); line-height: 1.6; margin-top: 14px; }
 
     footer { background: var(--black); color: #888; padding: 48px 0 32px; }
     .footer-centered { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
@@ -150,7 +160,7 @@
 <nav class="nav">
   <div class="nav-inner">
     <a class="logo" href="/">
-      <img class="logo-img" src="assets/img/logo.svg" alt="PartsMtaani" onerror="this.style.display='none'">
+      <img class="logo-img" src="../assets/img/logo.svg" alt="PartsMtaani" onerror="this.style.display='none'">
       <span class="logo-sub">pre-order<br>portal</span>
     </a>
     <ul class="nav-links" id="nav-links">
@@ -167,158 +177,130 @@
 
 <div class="page-hero">
   <div class="wrap">
-    <div class="label">Legal</div>
-    <h1>Refund Policy</h1>
-    <p class="meta">Last updated: <strong>1 January 2026</strong> &nbsp;·&nbsp; Applies to all pre-orders placed from this date</p>
+    <div class="label">Customer Support</div>
+    <h1>Refund Request</h1>
+    <p class="meta">Review our policy below, then use the form to submit your request. We respond within <strong>3 business days</strong>.</p>
   </div>
 </div>
 
 <div class="wrap">
-  <div class="doc-layout">
+  <div class="page-body">
+    <div class="page-grid">
 
-    <aside class="doc-nav">
-      <div class="doc-nav-label">On this page</div>
-      <ul>
-        <li><a href="#r1">Overview</a></li>
-        <li><a href="#r2">Sourcing Fee Refunds</a></li>
-        <li><a href="#r3">Part Payment Refunds</a></li>
-        <li><a href="#r4">Warranty Returns</a></li>
-        <li><a href="#r5">Non-Refundable Items</a></li>
-        <li><a href="#r6">How to Request</a></li>
-        <li><a href="#r7">Processing Times</a></li>
-        <li><a href="#r8">Contact</a></li>
-      </ul>
-    </aside>
+      <div>
 
-    <div class="doc-body">
-
-      <div class="notice-box success">
-        <p>We stand behind every order. If we cannot source your part, your sourcing fee is refunded in full — no questions asked.</p>
-      </div>
-
-      <div class="doc-section" id="r1">
-        <h3>01</h3>
-        <h4>Overview</h4>
-        <p>This policy covers refunds for the PartsMtaani pre-order sourcing service. There are two distinct payment types associated with each order — the Sourcing Fee and the Part Payment — and each carries different refund terms. Please read both sections carefully before placing an order.</p>
-      </div>
-
-      <div class="doc-section" id="r2">
-        <h3>02</h3>
-        <h4>Sourcing Fee Refunds</h4>
-        <p>The Sourcing Fee is charged upfront to activate your pre-order. It covers research, supplier engagement and verification work carried out on your behalf.</p>
-        <div class="outcome-grid">
-          <div class="outcome-card eligible">
-            <div class="outcome-label">Eligible for refund</div>
-            <ul>
-              <li>PartsMtaani is unable to source the requested part within the agreed lead time</li>
-              <li>PartsMtaani cancels the order for any reason on its side</li>
-            </ul>
-          </div>
-          <div class="outcome-card ineligible">
-            <div class="outcome-label">Not eligible for refund</div>
-            <ul>
-              <li>Customer cancels or withdraws the order after sourcing has commenced</li>
-              <li>Customer declines a sourced part due to price exceeding their stated budget</li>
-              <li>Customer provides incorrect vehicle or part information</li>
-              <li>Customer is unreachable for follow-up within a reasonable period</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="doc-section" id="r3">
-        <h3>03</h3>
-        <h4>Part Payment Refunds</h4>
-        <p>Part payments are made after sourcing is confirmed and a final price is agreed. Refunds on part payments are considered in the following circumstances:</p>
-        <ul>
-          <li><strong>Incorrect part supplied</strong> — where the part delivered does not match the confirmed specification. The customer must notify us within 48 hours of delivery.</li>
-          <li><strong>Part damaged on arrival</strong> — where the part arrives with damage attributable to transit. The customer must document and report damage at the point of delivery.</li>
-          <li><strong>Part cannot be installed</strong> — where a qualified mechanic confirms the sourced part is incompatible with the stated vehicle, and the incompatibility was not disclosed at the time of sourcing.</li>
-        </ul>
-        <p>In eligible cases, PartsMtaani will offer replacement, exchange or full refund of the part value at its discretion. Delivery charges are not refundable.</p>
-      </div>
-
-      <div class="doc-section" id="r4">
-        <h3>04</h3>
-        <h4>Warranty Returns</h4>
-        <p>Parts sourced through PartsMtaani carry a 6-month warranty against manufacturing defects from the date of delivery. Warranty claims may result in repair, replacement or refund of the part value, subject to the following:</p>
-        <ul>
-          <li>The defect must be reported in writing within the warranty period.</li>
-          <li>The part must have been installed by a qualified mechanic.</li>
-          <li>The failure must not be attributable to misuse, accident, improper installation or normal wear and tear.</li>
-          <li>Proof of purchase must be provided.</li>
-        </ul>
-        <p>Warranty assessments are carried out by PartsMtaani or a nominated third party. Our decision on warranty eligibility is final.</p>
-      </div>
-
-      <div class="doc-section" id="r5">
-        <h3>05</h3>
-        <h4>Non-Refundable Items</h4>
-        <p>The following are not covered by this refund policy under any circumstances:</p>
-        <ul>
-          <li>Sourcing fees where sourcing work has already commenced and the customer cancels</li>
-          <li>Delivery and logistics charges</li>
-          <li>Parts that have been installed, modified or tampered with</li>
-          <li>Parts with damage attributable to customer handling after delivery</li>
-          <li>Orders where incorrect information was provided by the customer</li>
-        </ul>
-      </div>
-
-      <div class="doc-section" id="r6">
-        <h3>06</h3>
-        <h4>How to Request a Refund</h4>
-        <div class="process-steps">
-          <div class="process-step">
-            <div class="step-num">1</div>
-            <div class="step-body">
-              <strong>Contact us within the applicable window</strong>
-              <p>Reach out via phone or email within 48 hours of delivery for part issues, or at any point within the warranty period for defect claims.</p>
+        <div class="doc-section">
+          <h3>Sourcing Fee</h3>
+          <h4>When Is the Sourcing Fee Refunded?</h4>
+          <p>The 30% sourcing fee is credited toward your final invoice — it is not an additional charge. It is <strong>fully refundable in one circumstance only</strong>: when PartsMtaani is unable to source the requested part within the agreed lead time.</p>
+          <div class="outcome-grid">
+            <div class="outcome-card eligible">
+              <div class="outcome-label">Eligible</div>
+              <ul>
+                <li>Part cannot be sourced within the agreed timeframe</li>
+                <li>Order cancelled by PartsMtaani</li>
+              </ul>
             </div>
-          </div>
-          <div class="process-step">
-            <div class="step-num">2</div>
-            <div class="step-body">
-              <strong>Provide your order details</strong>
-              <p>Share your pre-order reference number, a description of the issue and supporting evidence such as photographs or a mechanic's report.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-num">3</div>
-            <div class="step-body">
-              <strong>Assessment</strong>
-              <p>We will review your claim and contact you within 3 business days with a decision and proposed resolution.</p>
-            </div>
-          </div>
-          <div class="process-step">
-            <div class="step-num">4</div>
-            <div class="step-body">
-              <strong>Resolution</strong>
-              <p>Approved refunds are processed to the original payment method within the timelines stated below.</p>
+            <div class="outcome-card ineligible">
+              <div class="outcome-label">Not eligible</div>
+              <ul>
+                <li>Customer cancels after sourcing commences</li>
+                <li>Customer declines confirmed price</li>
+                <li>Incorrect information provided by customer</li>
+                <li>Customer unreachable for follow-up</li>
+              </ul>
             </div>
           </div>
         </div>
+
+        <div class="doc-section">
+          <h3>Part Payment</h3>
+          <h4>When Is a Part Payment Refunded?</h4>
+          <p>Part payments may be refunded in the following circumstances, provided the issue is reported within the applicable window:</p>
+          <ul>
+            <li><strong>Incorrect part supplied</strong> — report within 48 hours of delivery.</li>
+            <li><strong>Part damaged in transit</strong> — document at delivery and report immediately.</li>
+            <li><strong>Confirmed incompatibility</strong> — a qualified mechanic must verify the part cannot fit the stated vehicle, and the incompatibility must not have been disclosed at sourcing.</li>
+            <li><strong>Warranty defects</strong> — manufacturing defects reported within 6 months of delivery, with proof of correct installation.</li>
+          </ul>
+          <p>Delivery charges are not refundable. Approved refunds are processed to the original M-Pesa number within 3–5 business days.</p>
+        </div>
+
+        <div class="doc-section">
+          <h3>Policy</h3>
+          <h4>What Is Not Covered</h4>
+          <ul>
+            <li>Parts that have been installed, modified or used</li>
+            <li>Damage caused by customer handling after delivery</li>
+            <li>Normal wear and tear, misuse or incorrect installation</li>
+            <li>Orders where inaccurate vehicle or part information was provided</li>
+          </ul>
+          <p>For the full policy, see our <a href="/terms/" style="color:var(--orange);text-decoration:none;font-weight:600;">Terms &amp; Conditions</a>.</p>
+        </div>
+
       </div>
 
-      <div class="doc-section" id="r7">
-        <h3>07</h3>
-        <h4>Processing Times</h4>
-        <p>Once a refund is approved, processing times are as follows:</p>
-        <ul>
-          <li><strong>M-Pesa refunds</strong> — processed within 3–5 business days.</li>
-          <li><strong>Other payment methods</strong> — timelines communicated at the time of resolution.</li>
-        </ul>
-        <p>PartsMtaani is not responsible for delays caused by mobile money or banking processing on the receiving end.</p>
-      </div>
-
-      <div class="doc-section" id="r8">
-        <h3>08</h3>
-        <h4>Contact</h4>
-        <p>To initiate a refund request or for any questions about this policy:</p>
-        <ul>
-          <li>Phone: <strong>011 987 3011</strong></li>
-          <li>Email: <strong>orders@partsmtaani.com</strong></li>
-        </ul>
-        <p>Please have your pre-order reference number ready when contacting us.</p>
+      <div>
+        <div class="form-card">
+          <div class="form-card-head">
+            <div class="form-card-num">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19 11h-14a2 2 0 1 0 0 4h14a2 2 0 1 0 0 -4"/><path d="M12 5v6"/><path d="M12 19v-6"/></svg>
+            </div>
+            <h4>Submit a Refund Request</h4>
+          </div>
+          <div class="form-body">
+            <div id="refund-success" class="success-msg"><strong>Request submitted.</strong> We'll review and respond within 3 business days.</div>
+            <form id="refund-form" action="https://formspree.io/f/YOUR_REFUND_FORM_ID" method="POST">
+              <input type="hidden" name="_subject" value="Refund Request">
+              <div class="field-2">
+                <div class="field">
+                  <label>Full Name <span class="req">*</span></label>
+                  <input type="text" name="full_name" required>
+                </div>
+                <div class="field">
+                  <label>Phone <span class="req">*</span></label>
+                  <input type="tel" name="phone" required>
+                </div>
+              </div>
+              <div class="field">
+                <label>Email <span class="req">*</span></label>
+                <input type="email" name="email" required>
+              </div>
+              <div class="divider-line"></div>
+              <div class="field">
+                <label>Pre-Order Reference <span class="req">*</span></label>
+                <input type="text" name="order_reference" placeholder="e.g. PM-00412" required>
+              </div>
+              <div class="field">
+                <label>Refund Type <span class="req">*</span></label>
+                <select name="refund_type" required>
+                  <option value="">Select type</option>
+                  <option>Sourcing Fee — Part Not Found</option>
+                  <option>Incorrect Part Supplied</option>
+                  <option>Part Damaged in Transit</option>
+                  <option>Part Incompatibility</option>
+                  <option>Warranty Defect</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>M-Pesa Number for Refund <span class="req">*</span></label>
+                <input type="tel" name="mpesa_number" placeholder="e.g. 0712 345 678" required>
+              </div>
+              <div class="divider-line"></div>
+              <div class="field">
+                <label>Description <span class="req">*</span></label>
+                <textarea name="description" rows="4" placeholder="Describe the issue clearly. Include the part name, what was expected, and what was received or experienced." required></textarea>
+              </div>
+              <div class="field">
+                <label>Supporting Evidence</label>
+                <textarea name="evidence_links" rows="2" placeholder="Paste any image links or describe attachments you can send separately."></textarea>
+              </div>
+              <button type="submit" class="submit-btn" id="refund-submit-btn">Submit Request →</button>
+              <p class="form-note">By submitting this form you confirm the information provided is accurate to the best of your knowledge. Fraudulent claims may result in account restriction.</p>
+            </form>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -352,16 +334,44 @@
       </div>
       <div class="footer-refund-right">
         <div class="refund-link">
-          <a href="refunds.html">Request a refund <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="17" y1="7" x2="7" y2="17"/><polyline points="8 7 17 7 17 16"/></svg></a>
+          <a href="/refunds/">Request a refund <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="17" y1="7" x2="7" y2="17"/><polyline points="8 7 17 7 17 16"/></svg></a>
         </div>
       </div>
     </div>
     <div class="footer-bottom-row">
       <div class="copyright">© 2026 Parts Mtaani.</div>
-      <div class="footer-legal-links"><a href="terms.html">View extended terms</a><a href="privacy.html">Privacy</a></div>
+      <div class="footer-legal-links"><a href="/terms/">Terms &amp; Conditions</a><a href="/privacy/">Privacy</a></div>
     </div>
   </div>
 </footer>
 
+<script>
+  document.getElementById('refund-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('refund-submit-btn');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    try {
+      const res = await fetch(this.action, {
+        method: 'POST',
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('refund-success').style.display = 'block';
+        this.reset();
+        btn.textContent = 'Submitted';
+      } else {
+        btn.textContent = 'Submit Request →';
+        btn.disabled = false;
+        alert('Something went wrong. Please try again or contact us directly.');
+      }
+    } catch (err) {
+      btn.textContent = 'Submit Request →';
+      btn.disabled = false;
+      alert('Network error. Please check your connection and try again.');
+    }
+  });
+</script>
 </body>
 </html>
