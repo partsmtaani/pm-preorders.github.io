@@ -3,360 +3,36 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Pre-order auto parts for multiple vehicles — source genuine OEM & aftermarket parts across Kenya.">
+  <meta name="description" content="Pre-order auto parts for multiple vehicles — source genuine OEM &amp; aftermarket parts across Kenya.">
   <meta property="og:title" content="Pre-Order Auto Parts | PartsMtaani">
   <meta property="og:description" content="Source genuine auto parts for multiple vehicles with quality verification and warranty — delivered across Kenya.">
   <title>Pre-Order Parts | PartsMtaani</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/css/uikit.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/js/uikit.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/js/uikit-icons.min.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.svg">
-  <style>
-    :root {
-      --orange: #FF4500;
-      --orange-dark: #d93b00;
-      --success: #26C485;
-      --info: #118AB2;
-      --black: #0e0e0e;
-      --ink: #1c1c1c;
-      --mid: #444;
-      --muted: #6b6b6b;
-      --line: #e8e8e8;
-      --bg: #fafaf9;
-      --white: #ffffff;
-    }
-    @font-face { font-family: 'BDOGrotesk'; src: url('/assets/webfonts/BDOGrotesk-Regular.woff2') format('woff2'); font-weight: 400; font-style: normal; }
-    @font-face { font-family: 'BDOGrotesk'; src: url('/assets/webfonts/BDOGrotesk-Bold.woff2') format('woff2'); font-weight: 700; font-style: normal; }
-    @font-face { font-family: 'BDOGrotesk'; src: url('/assets/webfonts/BDOGrotesk-ExtraBold.woff2') format('woff2'); font-weight: 800; font-style: normal; }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--white); color: var(--ink); font-family: 'BDOGrotesk', 'Inter', sans-serif; font-size: 16px; line-height: 1.65; }
-    h1, h2 { font-family: 'BDOGrotesk', sans-serif; text-transform: none; font-weight: 700; letter-spacing: 0.01em; }
-    h3, h4, h5, h6 { font-family: 'BDOGrotesk', 'Inter', sans-serif; text-transform: uppercase; letter-spacing: -0.01em; }
-    h1 { font-size: clamp(40px, 5.2vw, 70px); line-height: 1.02; letter-spacing: 0.0em; }
-    h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02em; }
-    .label { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; }
-    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
-    .section { padding: 80px 0; }
-    .section-alt { background: var(--bg); }
-    .divider { height: 1px; background: var(--line); }
-
-    /* NAV */
-    .nav { position: sticky; top: 0; z-index: 100; background: var(--white); border-bottom: 1px solid var(--line); }
-    .nav-inner { max-width: 1140px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 20px; }
-    .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
-    .logo-img { height: 36px; width: auto; display: block; object-fit: contain; }
-    .logo-sub { font-family: 'BDOGrotesk', sans-serif; font-size: 11px; font-weight: 600; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; line-height: 1.2; }
-    .logo-slash { width: 1px; height: 32px; background: var(--line); transform: rotate(20deg); flex-shrink: 0; margin: 0 2px; }
-    .nav-links { display: flex; align-items: center; gap: 28px; padding: 0; margin: 0; list-style: none; }
-    .nav-links li { display: inline-block; }
-    .nav-links a { font-family: 'BDOGrotesk', sans-serif; font-size: 12px; font-weight: 700; color: var(--mid); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; }
-    .nav-links a:hover { color: var(--orange); }
-    .nav-links svg { width: 15px; height: 15px; stroke: currentColor; stroke-width: 1.5; fill: none; flex-shrink: 0; position: relative; top: -1px; }
-    .btn-nav { background: var(--orange) !important; color: #fff !important; padding: 9px 20px !important; font-weight: 700 !important; font-size: 11px !important; border-radius: 0; transition: background 0.2s; white-space: nowrap; }
-    .btn-nav:hover { background: var(--orange-dark) !important; }
-    .nav-hamburger { display: none; background: none; border: 1px solid var(--line); padding: 8px 10px; cursor: pointer; color: var(--ink); border-radius: 0; }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 68px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--line); padding: 18px 24px; gap: 16px; align-items: flex-start; z-index: 99; margin: 0; }
-      .nav-hamburger { display: block; }
-    }
-
-    /* BUTTONS */
-    .btn-primary { background: var(--orange); color: #fff !important; padding: 14px 28px; border: none; border-radius: 0; font-weight: 700; font-size: 12px; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; }
-    .btn-primary:hover { background: var(--orange-dark); color: #fff !important; }
-    .btn-outline { background: transparent; color: var(--ink); border: 2px solid var(--line); padding: 14px 28px; border-radius: 0; font-weight: 700; font-size: 12px; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; }
-    .btn-outline:hover { border-color: var(--orange); color: var(--orange); }
-    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 32px; }
-
-    /* HERO */
-    #hero { position: relative; padding: 80px 0 72px; border-bottom: 1px solid var(--line); overflow: hidden; }
-    #hero::before { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 52%; background-image: url('assets/img/hero-bg.jpg'); background-size: cover; background-position: center; pointer-events: none; z-index: 0; }
-    #hero::after { content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 52%; background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.6) 38%, rgba(255,255,255,0) 100%); pointer-events: none; z-index: 1; }
-    #hero .wrap { position: relative; z-index: 2; }
-    .hero-grid { display: grid; grid-template-columns: 1fr 400px; gap: 60px; align-items: center; }
-    .hero-desc { font-size: 17px; line-height: 1.75; color: var(--mid); margin-top: 20px; }
-    .hero-stats { display: flex; gap: 32px; margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--line); }
-    .hero-stat-num { font-size: 30px; font-weight: 800; color: var(--black); line-height: 1; font-family: 'Outfit', 'BDOGrotesk', sans-serif; letter-spacing: 0.02em; }
-    .hero-stat-label { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; color: var(--muted); text-transform: uppercase; margin-top: 4px; }
-
-    /* HERO CARD — clean, detailed */
-    .hero-card { background: var(--white); border: 1px solid var(--line); border-radius: 0; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.04), 0 12px 40px rgba(0,0,0,0.09); }
-    .hero-card-header { padding: 16px 20px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; background: var(--white); }
-    .hero-card-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
-    .hero-card-id { font-size: 10px; font-weight: 600; color: var(--muted); font-family: 'Outfit', monospace; background: var(--bg); border: 1px solid var(--line); padding: 3px 9px; border-radius: 0; letter-spacing: 0.04em; }
-    .hero-card-body { padding: 16px 20px; display: flex; flex-direction: column; gap: 10px; }
-    .hc-field { display: flex; flex-direction: column; gap: 3px; }
-    .hc-label { font-size: 8px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-    .hc-val { font-size: 13px; font-weight: 600; color: var(--ink); line-height: 1.3; }
-    .hc-divider { height: 1px; background: var(--line); }
-    .hc-meta-row { display: flex; gap: 6px; flex-wrap: wrap; }
-    .hc-meta-pill { font-size: 10px; font-weight: 600; color: var(--muted); background: var(--bg); border: 1px solid var(--line); border-radius: 0; padding: 3px 10px; display: inline-flex; align-items: center; }
-    .hc-meta-pill.orange { color: var(--orange); background: #fff3ee; border-color: #ffd4c4; }
-    .hero-card-footer { border-top: 1px solid var(--line); padding: 13px 20px; display: flex; align-items: center; justify-content: space-between; background: var(--bg); }
-    .hc-status-row { display: flex; align-items: center; gap: 8px; }
-    .hc-status-dot { width: 8px; height: 8px; border-radius: 50%; background: #26C485; flex-shrink: 0; box-shadow: 0 0 0 3px rgba(38,196,133,0.18); }
-    .hc-status-label { font-size: 11px; font-weight: 700; color: #1a7a52; }
-    .hc-eta { font-size: 10px; font-weight: 600; color: var(--muted); background: var(--white); border: 1px solid var(--line); border-radius: 0; padding: 3px 9px; }
-
-    /* CATEGORIES */
-    .categories-section { padding: 40px 0; background: var(--white); }
-    .category-slide { text-align: center; padding: 24px 16px; transition: all 0.2s ease; cursor: pointer; }
-    .category-slide:hover { transform: translateY(-4px); }
-    .category-icon { width: 80px; height: 80px; margin: 0 auto 16px; background: linear-gradient(135deg, #fff5f0 0%, #fff0e8 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); transition: all 0.2s ease; }
-    .category-slide:hover .category-icon { border-color: var(--orange); background: #fff3ee; box-shadow: 0 8px 20px rgba(255,69,0,0.12); }
-    .category-icon svg { width: 32px; height: 32px; stroke: var(--orange); stroke-width: 1.5; fill: none; }
-    .category-name { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink); margin-top: 8px; }
-    .uk-slidenav { width: 36px; height: 36px; background: var(--white); border: 1px solid var(--line); border-radius: 50%; color: var(--ink); transition: all 0.2s; display: flex; align-items: center; justify-content: center; }
-    .uk-slidenav:hover { background: var(--orange); border-color: var(--orange); color: white; }
-    .categories-slider-wrap { position: relative; padding: 0 48px; }
-    .categories-slider-wrap .uk-slidenav-previous { position: absolute; left: 0; top: 50%; transform: translateY(-50%); }
-    .categories-slider-wrap .uk-slidenav-next { position: absolute; right: 0; top: 50%; transform: translateY(-50%); }
-
-    /* FEE BANNER */
-    .fee-banner { background: #1a3330; padding: 80px 0; position: relative; overflow: hidden; }
-    /* bg image — no object-cover, natural sizing anchored to bottom */
-    .fee-banner::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image: url("assets/img/fees-bg.jpg");
-      background-size: cover;
-	  background-position: bottom;
-      pointer-events: none;
-      z-index: 0;
-    }
-    /* #26C485-family gradient — solid dark top, glowing emerald revealed at base */
-    .fee-banner::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-	  background: linear-gradient(to bottom, #000000 0%, #000000 5%, rgba(0, 0, 0, 0.3) 100%);
-      pointer-events: none;
-      z-index: 1;
-    }
-    .fee-banner .wrap { position: relative; z-index: 2; }
-    .fee-inner { display: grid; grid-template-columns: 1fr 1.2fr; gap: 72px; align-items: start; }
-    @media (max-width: 860px) { .fee-inner { grid-template-columns: 1fr; gap: 48px; } }
-    .fee-left h2 { color: #fff; font-size: clamp(26px, 3.4vw, 42px); margin-bottom: 16px; }
-    .fee-left p { font-size: 15px; color: rgba(255,255,255,0.78); line-height: 1.8; }
-    .fee-left p strong { color: #fff; font-weight: 700; }
-    .fee-stats-row { display: flex; gap: 0; margin-top: 36px; border: 1px solid rgba(255,255,255,0.10); border-radius: 0; overflow: hidden; }
-    .fee-stat { flex: 1; padding: 16px 20px; border-right: 1px solid rgba(255,255,255,0.10); }
-    .fee-stat:last-child { border-right: none; }
-    .fee-stat-val { font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 800; color: #fff; line-height: 1; margin-bottom: 4px; }
-    .fee-stat-val span { color: #26C485; }
-    .fee-stat-label { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
-
-    /* Process rail — round bordered icons, transparent bg */
-    .fee-process-rail { display: flex; flex-direction: column; position: relative; }
-    .fee-process-item { display: grid; grid-template-columns: 52px 1fr; gap: 0 16px; position: relative; }
-    /* Connector line — centred under icon column */
-    .fee-process-item:not(:last-child) .fee-proc-num-col::after {
-      content: "";
-      position: absolute;
-      left: 25px;
-      top: 52px;
-      bottom: 0;
-      width: 1px;
-      background: rgba(255,255,255,0.12);
-    }
-    .fee-proc-num-col { position: relative; display: flex; flex-direction: column; align-items: center; padding-top: 2px; overflow: visible; }
-    .fee-proc-circle { width: 50px; height: 50px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.18); background: transparent; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .fee-process-item.is-active .fee-proc-circle { border-color: #26C485; box-shadow: 0 0 0 4px rgba(38,196,133,0.10); }
-    .fee-process-item.is-guarantee .fee-proc-circle { border-color: rgba(91,196,232,0.6); box-shadow: 0 0 0 4px rgba(17,138,178,0.08); }
-    .fee-proc-circle svg { width: 22px; height: 22px; stroke: rgba(255,255,255,0.4); stroke-width: 1.6; fill: none; }
-    .fee-process-item.is-active .fee-proc-circle svg { stroke: #26C485; }
-    .fee-process-item.is-guarantee .fee-proc-circle svg { stroke: #5bc4e8; }
-    .fee-proc-content { padding: 6px 0 28px 0; }
-    .fee-process-item:last-child .fee-proc-content { padding-bottom: 0; }
-    .fee-proc-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.25); margin-bottom: 4px; }
-    .fee-process-item.is-active .fee-proc-eyebrow { color: #26C485; }
-    .fee-process-item.is-guarantee .fee-proc-eyebrow { color: #5bc4e8; }
-    .fee-proc-title { font-size: 14px; font-weight: 700; color: #fff; line-height: 1.3; margin-bottom: 6px; }
-    .fee-proc-desc { font-size: 12px; color: rgba(255,255,255,0.45); line-height: 1.65; margin: 0; }
-    .fee-process-item.is-active .fee-proc-desc, .fee-process-item.is-guarantee .fee-proc-desc { color: rgba(255,255,255,0.62); }
-    .fee-proc-tag { display: inline-block; font-size: 8px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 0; background: rgba(38,196,133,0.1); color: #26C485; border: 1px solid rgba(38,196,133,0.2); }
-    .fee-proc-tag.blue { background: rgba(17,138,178,0.1); color: #5bc4e8; border-color: rgba(17,138,178,0.2); }
-    .step-chip, .step-chip-blue { display: none; }
-    .text-success { color: var(--success); }
-    .text-info { color: var(--info); }
-
-    /* ORDER FORM */
-    .form-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 36px; margin-top: 48px; }
-    @media (max-width: 900px) { .form-layout { grid-template-columns: 1fr; } }
-    .form-card { background: var(--white); border: 1px solid var(--line); border-radius: 0; overflow: hidden; }
-    .form-sec-head { display: flex; align-items: center; gap: 12px; padding: 16px 24px; background: var(--bg); border-bottom: 1px solid var(--line); }
-    .form-sec-num { width: 26px; height: 26px; background: var(--orange); color: #fff; font-size: 12px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-    .form-sec-head h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; margin: 0; color: var(--black); }
-    .form-body { padding: 24px; }
-    .step-indicator { display: flex; gap: 32px; margin-bottom: 24px; padding: 16px 24px 0 24px; border-bottom: 1px solid var(--line); }
-    .step-dot { display: flex; align-items: center; gap: 10px; font-family: 'BDOGrotesk', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.05em; color: var(--muted); text-transform: uppercase; padding-bottom: 12px; border-bottom: 2px solid transparent; }
-    .step-dot.active { color: var(--orange); border-bottom-color: var(--orange); }
-    .step-dot .step-icon { width: 28px; height: 28px; stroke: currentColor; stroke-width: 1.5; fill: none; }
-    .step-dot.completed .step-icon { stroke: var(--success); }
-    .vehicle-card { background: var(--bg); border: 1px solid var(--line); border-radius: 0; margin-bottom: 24px; overflow: hidden; }
-    .vehicle-header { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; background: var(--white); border-bottom: 1px solid var(--line); cursor: pointer; }
-    .vehicle-title { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; }
-    .vehicle-badge { font-size: 10px; color: var(--muted); }
-    .remove-vehicle { background: none; border: none; color: #999; cursor: pointer; font-size: 18px; padding: 0 8px; }
-    .remove-vehicle:hover { color: var(--orange); }
-    .vehicle-content { padding: 20px; display: none; }
-    .vehicle-content.open { display: block; }
-    .part-item { background: var(--white); border: 1px solid var(--line); border-radius: 0; margin-bottom: 16px; padding: 16px; }
-    .part-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
-    .part-title { font-size: 11px; font-weight: 700; text-transform: uppercase; color: var(--orange); }
-    .remove-part { background: none; border: none; color: #999; cursor: pointer; font-size: 16px; }
-    .remove-part:hover { color: var(--orange); }
-    .part-images { margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line); }
-    .image-upload-zone { border: 2px dashed var(--line); border-radius: 0; padding: 12px; text-align: center; background: var(--bg); cursor: pointer; transition: all 0.2s; margin-bottom: 12px; }
-    .image-upload-zone:hover { border-color: var(--orange); background: #fff8f5; }
-    .image-upload-zone svg { width: 24px; height: 24px; stroke: var(--orange); }
-    .image-upload-zone p { font-size: 11px; color: var(--muted); margin-top: 6px; }
-    .image-preview-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
-    .preview-img { position: relative; width: 60px; height: 60px; border-radius: 0; overflow: hidden; border: 2px solid var(--line); }
-    .preview-img img { width: 100%; height: 100%; object-fit: cover; }
-    .delete-img { position: absolute; top: -8px; right: -8px; width: 20px; height: 20px; background: var(--orange); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; cursor: pointer; border: none; }
-    .delete-img:hover { background: var(--orange-dark); }
-    .field { margin-bottom: 14px; }
-    .field-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-    @media (max-width: 540px) { .field-2 { grid-template-columns: 1fr; } }
-    label { display: block; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 4px; color: var(--ink); }
-    label .req { color: var(--orange); }
-    input, select, textarea { width: 100%; border: 1px solid var(--line); border-radius: 0; padding: 10px 12px; font-family: inherit; font-size: 13px; background: var(--white); }
-    input:focus, select:focus, textarea:focus { border-color: var(--orange); outline: none; box-shadow: 0 0 0 3px rgba(255,69,0,0.08); }
-    .add-btn { background: transparent; border: 1px dashed var(--line); border-radius: 0; padding: 10px; width: 100%; text-align: center; cursor: pointer; font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
-    .add-btn:hover { border-color: var(--orange); color: var(--orange); }
-    .submit-btn { background: var(--orange); color: #fff; padding: 14px 28px; border: none; border-radius: 0; font-weight: 700; cursor: pointer; text-transform: uppercase; font-size: 12px; letter-spacing: 0.08em; }
-    .submit-btn:hover { background: var(--orange-dark); }
-    .success-msg { display: none; background: #eef6ee; border-left: 4px solid var(--success); padding: 14px; border-radius: 0; margin-bottom: 20px; font-size: 13px; color: #1e5a1f; }
-
-    /* PAYMENT CARD */
-    .payment-card { background: var(--white); border-radius: 0; overflow: visible; border: 1px solid var(--line); box-shadow: 0 2px 12px rgba(0,0,0,0.06); position: sticky; top: 88px; }
-    .payment-card-header { background: var(--bg); border-bottom: 1px solid var(--line); padding: 14px 20px; display: flex; align-items: center; justify-content: space-between; border-radius: 0; position: relative; overflow: visible; }
-    .payment-card-header-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-    .payment-logos { display: flex; align-items: center; gap: 10px; }
-    .mpesa-logo { height: 22px; width: auto; display: block; }
-    .paypal-logo { height: 18px; width: auto; display: block; opacity: 0.85; cursor: pointer; }
-    .paypal-wrap { position: relative; display: inline-flex; align-items: center; }
-    .paypal-tooltip { display: none; position: fixed; background: var(--black); color: #fff; font-size: 11px; font-weight: 500; line-height: 1.55; padding: 10px 14px; border-radius: 0; width: 200px; white-space: normal; z-index: 9999; box-shadow: 0 4px 20px rgba(0,0,0,0.22); pointer-events: none; transform: translateX(-50%) translateY(calc(-100% - 12px)); }
-    .paypal-tooltip::after { content: ""; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); border: 6px solid transparent; border-top-color: var(--black); }
-    .payment-card-body { padding: 18px 20px 20px; }
-    .payment-step-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
-    .payment-paybill { background: #f4faf8; border: 1px solid #c8eee2; border-radius: 0; padding: 14px 16px; margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; user-select: none; transition: background 0.18s, border-color 0.18s; }
-    .payment-paybill-label { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-    .payment-paybill-value { font-size: 26px; font-weight: 800; color: var(--ink); letter-spacing: 0.04em; font-family: 'Outfit', 'BDOGrotesk', sans-serif; line-height: 1; }
-    .paybill-copy-btn { width: 34px; height: 34px; background: rgba(38,196,133,0.10); border: 1px solid rgba(38,196,133,0.25); border-radius: 0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: background 0.15s; }
-    .paybill-copy-btn svg { width: 15px; height: 15px; stroke: #1aaa72; stroke-width: 1.75; fill: none; }
-    /* Toast */
-    #copy-toast { display: none; position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%); background: var(--black); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: 0.06em; padding: 10px 20px; border-radius: 0; box-shadow: 0 4px 20px rgba(0,0,0,0.25); z-index: 9999; white-space: nowrap; pointer-events: none; transition: opacity 0.3s; }
-    .payment-account { background: #f6f8fb; border: 1px solid var(--line); border-radius: 0; padding: 13px 16px; margin-bottom: 14px; }
-    .payment-account-label { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
-    .payment-account-value-row { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: var(--mid); }
-    .payment-account-value-row svg { width: 14px; height: 14px; stroke: var(--muted); stroke-width: 1.75; fill: none; flex-shrink: 0; }
-    /* Hotline — clean, open */
-    .support-number { border-top: 1px solid var(--line); padding-top: 14px; display: flex; align-items: center; gap: 12px; width: 100%; }
-    .support-number-icon { width: 40px; height: 40px; background: #fff3ee; border: 1px solid #ffd4c4; border-radius: 0; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .support-number-icon svg { width: 17px; height: 17px; stroke: var(--orange); stroke-width: 1.6; fill: none; }
-    .support-number-text { flex: 1; min-width: 0; }
-    .support-number .label-small { font-size: 9px; letter-spacing: 0.14em; color: var(--muted); text-transform: uppercase; display: block; margin-bottom: 2px; font-weight: 700; }
-    .support-number a { font-size: 18px; font-weight: 800; color: var(--ink); text-decoration: none; letter-spacing: 0.01em; font-family: 'Outfit', 'BDOGrotesk', sans-serif; transition: color 0.2s; line-height: 1; display: block; }
-    .support-number a:hover { color: var(--orange); }
-
-    /* FOOTER */
-    footer { background: var(--black); color: #888; padding: 48px 0 32px; }
-    .footer-centered { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
-    .footer-top-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid #222; }
-    .footer-social-left { flex: 1; min-width: 140px; }
-    .footer-social-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 16px; }
-    .social-icons { display: flex; gap: 20px; align-items: center; }
-    .social-icons a { color: #666; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; }
-    .social-icons a:hover { color: var(--orange); transform: translateY(-2px); }
-    .social-icons svg { width: 20px; height: 20px; fill: currentColor; stroke: none; }
-    .footer-contact-center { flex: 2; text-align: center; }
-    .footer-contact-center .contact-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); margin-bottom: 16px; }
-    .contact-item { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; }
-    .contact-item svg { width: 16px; height: 16px; stroke: var(--orange); stroke-width: 1.5; fill: none; flex-shrink: 0; }
-    .contact-item a { color: #888; text-decoration: none; transition: color 0.2s; font-size: 13px; }
-    .contact-item a:hover { color: var(--orange); }
-    .tax-pin { font-size: 11px; color: #555; margin-top: 8px; }
-    .footer-refund-right { flex: 1; text-align: right; min-width: 140px; }
-    .refund-link { font-family: 'BDOGrotesk', sans-serif; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; display: inline-block; }
-    .refund-link a { color: var(--orange); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s; }
-    .refund-link a:hover { gap: 12px; }
-    .refund-link svg { width: 16px; height: 16px; stroke: var(--orange); stroke-width: 2; fill: none; }
-    .footer-bottom-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; font-size: 11px; }
-    .copyright { color: #555; }
-    .footer-legal-links { display: flex; gap: 24px; }
-    .footer-legal-links a { color: #666; text-decoration: none; transition: color 0.2s; font-size: 11px; }
-    .footer-legal-links a:hover { color: var(--orange); }
-
-    /* FAQ */
-    #faq { position: relative; overflow: hidden; background: var(--white); }
-    #faq::before { content: ""; position: absolute; top: 0; left: 0; bottom: 0; width: 42%; background-image: url('assets/img/faq-bg.jpg'); background-size: cover; background-position: center; pointer-events: none; z-index: 0; }
-    #faq::after { content: ""; position: absolute; top: 0; left: 0; bottom: 0; width: 42%; background: linear-gradient(to left, #ffffff 0%, rgba(255,255,255,0.5) 40%, rgba(255,255,255,0) 100%); pointer-events: none; z-index: 1; }
-    #faq .wrap { position: relative; z-index: 2; }
-    .faq-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-    .faq-left { padding-top: 8px; }
-    .faq-left h2 { margin-bottom: 12px; }
-    .faq-left p { font-size: 15px; color: var(--mid); line-height: 1.7; margin-top: 12px; }
-    @media (max-width: 860px) {
-      #faq::before { top: 0; left: 0; right: 0; bottom: 0; width: 100%; opacity: 0.13; }
-      #faq::after { width: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.92) 60%); }
-      .faq-inner { grid-template-columns: 1fr; gap: 32px; }
-    }
-    .faq-list { max-width: 100%; margin: 0; }
-    .faq-item { border-bottom: 1px solid var(--line); }
-    .faq-q { width: 100%; background: none; border: none; padding: 20px 0; display: flex; justify-content: space-between; align-items: center; font-size: 14px; font-weight: 700; color: var(--ink); cursor: pointer; text-align: left; text-transform: uppercase; letter-spacing: 0.03em; font-family: 'BDOGrotesk', 'Inter', sans-serif; transition: color 0.2s; }
-    .faq-q:hover { color: var(--orange); }
-    .faq-icon { flex-shrink: 0; margin-left: 16px; width: 22px; height: 22px; border: 1.5px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; transition: all 0.25s; position: relative; }
-    .faq-icon::before, .faq-icon::after { content: ""; position: absolute; background: var(--orange); border-radius: 0; transition: transform 0.25s, opacity 0.25s; }
-    .faq-icon::before { width: 10px; height: 1.5px; }
-    .faq-icon::after { width: 1.5px; height: 10px; }
-    .faq-item.open .faq-icon { border-color: var(--orange); background: var(--orange); }
-    .faq-item.open .faq-icon::before { background: #fff; }
-    .faq-item.open .faq-icon::after { background: #fff; transform: rotate(90deg); opacity: 0; }
-    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.25s ease; font-size: 14px; color: var(--muted); line-height: 1.75; padding: 0; }
-    .faq-a strong { color: var(--orange); }
-    .faq-item.open .faq-a { max-height: 300px; padding-bottom: 22px; }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } #hero::before, #hero::after { width: 100%; opacity: 0.18; } }
-    @media (max-width: 768px) {
-      .footer-top-row { flex-direction: column; gap: 32px; align-items: center; text-align: center; }
-      .footer-social-left { text-align: center; }
-      .footer-refund-right { text-align: center; }
-      .contact-item { justify-content: center; }
-      .footer-bottom-row { flex-direction: column; text-align: center; }
-      .footer-legal-links { justify-content: center; }
-      .step-indicator { gap: 16px; }
-      .step-dot { font-size: 9px; }
-      .step-dot .step-icon { width: 22px; height: 22px; }
-    }
-    @media (max-width: 700px) { .fee-inner { grid-template-columns: 1fr; } }
-  </style>
+  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="icon" href="/favicon.svg">
 </head>
 <body>
 
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
-    <a class="logo" href="#">
-      <img class="logo-img" src="assets/img/logo.svg" alt="PartsMtaani" onerror="this.style.display='none'">
+    <a class="logo" href="/">
+      <img class="logo-img" src="/assets/img/logo.svg" alt="PartsMtaani" onerror="this.style.display='none'">
       <span class="logo-slash"></span>
       <span class="logo-sub">pre-order<br>portal</span>
     </a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="https://partsmtaani.com/marketplace" target="_blank">Visit Marketplace<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="17" y1="7" x2="7" y2="17"/><polyline points="8 7 17 7 17 16"/></svg></a></li>
+      <li><a href="https://partsmtaani.com/marketplace" target="_blank" rel="noopener">Visit Marketplace
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="17" y1="7" x2="7" y2="17"/><polyline points="8 7 17 7 17 16"/></svg>
+      </a></li>
       <li><a href="#sourcing-fee">Sourcing Fee</a></li>
       <li><a href="#faq">FAQs</a></li>
       <li><a href="#order-form" class="btn-nav">Order Now</a></li>
     </ul>
-    <button class="nav-hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')" aria-label="Menu">
+    <button class="nav-hamburger" aria-label="Menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
     </button>
   </div>
@@ -375,8 +51,8 @@
         </div>
         <div class="hero-stats">
           <div><div class="hero-stat-num">7–14</div><div class="hero-stat-label">Days avg. lead time</div></div>
-		  <div><div class="hero-stat-num">100%</div><div class="hero-stat-label">Genuine parts</div></div>
-          <div><div class="hero-stat-num">15+</div><div class="hero-stat-label">Years of Combined Team experience</div></div>
+          <div><div class="hero-stat-num">100%</div><div class="hero-stat-label">Genuine parts</div></div>
+          <div><div class="hero-stat-num">15+</div><div class="hero-stat-label">Years of combined team experience</div></div>
         </div>
       </div>
       <div class="hero-card">
@@ -400,7 +76,7 @@
           </div>
           <div class="hc-field">
             <div class="hc-label">OEM Reference</div>
-            <div class="hc-val" style="font-family:'Outfit',monospace;font-size:12px;color:var(--muted);letter-spacing:0.03em;">41110-60280</div>
+            <div class="hc-val hc-val-mono">41110-60280</div>
           </div>
         </div>
         <div class="hero-card-footer">
@@ -420,10 +96,10 @@
   <div class="wrap">
     <div class="fee-inner">
       <div class="fee-left">
-        <div class="label" style="color:rgba(255,255,255,0.55); letter-spacing:0.18em;">How The Fee Works</div>
+        <div class="label fee-label">How The Fee Works</div>
         <h2>A Deposit, Not An Extra Cost</h2>
         <p>The <strong>30% sourcing fee</strong> is credited directly toward your final invoice — it is a commitment deposit that funds our sourcing operation and guarantees your place in the queue.</p>
-        <p style="margin-top:14px;color:rgba(255,255,255,0.65);">If we cannot locate your part within the agreed timeframe, you receive a <strong style="color:#fff;">100% full refund</strong> — no deductions, no delays.</p>
+        <p class="fee-left-note">If we cannot locate your part within the agreed timeframe, you receive a <strong>100% full refund</strong> — no deductions, no delays.</p>
         <div class="fee-stats-row">
           <div class="fee-stat"><div class="fee-stat-val"><span>30</span>%</div><div class="fee-stat-label">Deposit rate</div></div>
           <div class="fee-stat"><div class="fee-stat-val"><span>100</span>%</div><div class="fee-stat-label">Refund guarantee</div></div>
@@ -452,7 +128,7 @@
           <div class="fee-proc-content">
             <div class="fee-proc-eyebrow">Step 02</div>
             <div class="fee-proc-title">Pay 30% Sourcing Deposit</div>
-            <p class="fee-proc-desc">Via M-Pesa Paybill <strong style="color:rgba(255,255,255,0.88)">4048209</strong>. This deposit is deducted from your final balance — it is not an additional charge.</p>
+            <p class="fee-proc-desc">Via M-Pesa Paybill <strong class="fee-proc-paybill">4048209</strong>. This deposit is deducted from your final balance — it is not an additional charge.</p>
           </div>
         </div>
         <div class="fee-process-item">
@@ -498,8 +174,14 @@
           <input type="hidden" name="_subject" value="Multi-Vehicle Pre-Order Request">
           <div class="form-card">
             <div class="step-indicator">
-              <div class="step-dot active" id="step1-dot"><svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></svg>Contact</div>
-              <div class="step-dot" id="step2-dot"><svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5"/></svg>Vehicle &amp; Parts</div>
+              <div class="step-dot active" id="step1-dot">
+                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></svg>
+                Contact
+              </div>
+              <div class="step-dot" id="step2-dot">
+                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5"/></svg>
+                Vehicle &amp; Parts
+              </div>
             </div>
             <div id="step-1" class="step-container">
               <div class="form-sec-head"><div class="form-sec-num">1</div><h4>Your Contact Details</h4></div>
@@ -512,7 +194,9 @@
                   <div class="field"><label>Email <span class="req">*</span></label><input type="email" id="email" name="email" required></div>
                   <div class="field"><label>Delivery Location <span class="req">*</span></label><input type="text" id="location" name="delivery_location" required></div>
                 </div>
-                <div class="uk-text-right"><button type="button" onclick="goToStep(2)" style="background:var(--orange);color:#fff;border:none;padding:10px 24px;border-radius:4px;font-weight:700;cursor:pointer;">Continue →</button></div>
+                <div class="uk-text-right">
+                  <button type="button" class="btn-step" onclick="goToStep(2)">Continue →</button>
+                </div>
               </div>
             </div>
             <div id="step-2" class="step-container" style="display:none">
@@ -520,8 +204,8 @@
               <div class="form-body">
                 <div id="vehicles-container"></div>
                 <button type="button" class="add-btn" onclick="addVehicle()">+ Add Another Vehicle</button>
-                <div class="uk-flex uk-flex-between" style="margin-top:24px;">
-                  <button type="button" onclick="goToStep(1)" style="background:transparent;border:1px solid var(--line);padding:10px 24px;border-radius:4px;font-weight:700;cursor:pointer;">← Back</button>
+                <div class="step-actions">
+                  <button type="button" class="btn-step-back" onclick="goToStep(1)">← Back</button>
                   <button type="submit" class="submit-btn">Submit Pre-Order →</button>
                 </div>
               </div>
@@ -534,9 +218,9 @@
           <div class="payment-card-header">
             <span class="payment-card-header-label">Payment Method</span>
             <div class="payment-logos">
-              <img src="assets/img/mpesa.svg" alt="M-Pesa" class="mpesa-logo" onerror="this.style.display='none'">
+              <img src="/assets/img/mpesa.svg" alt="M-Pesa" class="mpesa-logo" onerror="this.style.display='none'">
               <div class="paypal-wrap">
-                <img src="assets/img/paypal.svg" alt="PayPal" class="paypal-logo" onerror="this.style.display='none'">
+                <img src="/assets/img/paypal.svg" alt="PayPal" class="paypal-logo" onerror="this.style.display='none'">
                 <div class="paypal-tooltip">Please contact us first before making a PayPal payment.</div>
               </div>
             </div>
@@ -548,7 +232,7 @@
                 <div class="payment-paybill-label">Paybill Number</div>
                 <div class="payment-paybill-value">4048209</div>
               </div>
-              <div class="paybill-copy-btn" id="paybill-copy-icon">
+              <div class="paybill-copy-btn">
                 <svg id="icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8v-2a2 2 0 0 0 -2 -2h-8a2 2 0 0 0 -2 2v8a2 2 0 0 0 2 2h2"/></svg>
                 <svg id="icon-check" viewBox="0 0 24 24" fill="none" stroke="#1aaa72" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l9 -9"/></svg>
               </div>
@@ -590,7 +274,7 @@
         <div class="faq-list">
           <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does the sourcing fee work?<span class="faq-icon"></span></button><div class="faq-a">The 30% sourcing fee is applied directly toward your final payment — it's not an extra charge. If we can't find your part, you get a 100% refund.</div></div>
           <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I order for multiple vehicles?<span class="faq-icon"></span></button><div class="faq-a">Yes! Add as many vehicles as needed. Each vehicle can have multiple parts with images.</div></div>
-          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Lead times?<span class="faq-icon"></span></button><div class="faq-a">Typically 7–14 business days.</div></div>
+          <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What are your lead times?<span class="faq-icon"></span></button><div class="faq-a">Typically 7–14 business days from confirmation of your pre-order and receipt of the sourcing deposit.</div></div>
           <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What if you can't find my part?<span class="faq-icon"></span></button><div class="faq-a">If we cannot source your part within the agreed timeframe, your entire sourcing fee is fully refunded — no questions asked.</div></div>
         </div>
       </div>
@@ -605,11 +289,11 @@
       <div class="footer-social-left">
         <div class="footer-social-label">Follow Us</div>
         <div class="social-icons">
-          <a href="https://facebook.com/partsmtaani" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-          <a href="https://x.com/@partsmtaani" target="_blank" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-          <a href="https://linkedin.com/company/partsmtaani" target="_blank" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg></a>
-          <a href="https://youtube.com/@partsmtaani" target="_blank" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-          <a href="https://instagram.com/@partsmtaani" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+          <a href="https://facebook.com/partsmtaani" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://x.com/partsmtaani" target="_blank" rel="noopener" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://linkedin.com/company/partsmtaani" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452z"/></svg></a>
+          <a href="https://youtube.com/@partsmtaani" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a href="https://instagram.com/partsmtaani" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
         </div>
       </div>
       <div class="footer-contact-center">
@@ -620,240 +304,32 @@
         </div>
         <div class="contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
-          <a href="/cdn-cgi/l/email-protection#6d05080101022d1d0c1f191e00190c0c0304430e0200"><span class="__cf_email__" data-cfemail="7b131e1717143b0b1a090f08160f1a1a151255181416">[email&#160;protected]</span></a>
+          <a href="mailto:preorders@partsmtaani.com">preorders@partsmtaani.com</a>
         </div>
         <div class="tax-pin">Tax PIN: P051234567Z</div>
       </div>
       <div class="footer-refund-right">
         <div class="refund-link">
-          <a href="/refunds/">Request a refund <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          <a href="/refunds/">Request a refund
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
         </div>
       </div>
     </div>
     <div class="footer-bottom-row">
-      <div class="copyright">© 2026 Parts Mtaani.</div>
-      <div class="footer-legal-links"><a href="/terms/">View extended terms</a><a href="/privacy/">Privacy</a></div>
+      <div class="copyright">&copy; 2026 Parts Mtaani. All rights reserved.</div>
+      <nav class="footer-legal-links">
+        <a href="/terms/">Terms &amp; Conditions</a>
+        <a href="/privacy/">Privacy Policy</a>
+      </nav>
     </div>
   </div>
 </footer>
 
-<!-- Global toast -->
-<div id="copy-toast">✓ Paybill number copied</div>
+<div id="copy-toast">Paybill number copied</div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // ── Copy Paybill ──
-  function copyPaybill() {
-    navigator.clipboard.writeText('4048209').then(showCopyFeedback).catch(() => {
-      const ta = document.createElement('textarea');
-      ta.value = '4048209'; ta.style.cssText = 'position:fixed;opacity:0';
-      document.body.appendChild(ta); ta.focus(); ta.select();
-      document.execCommand('copy'); document.body.removeChild(ta);
-      showCopyFeedback();
-    });
-  }
-  function showCopyFeedback() {
-    const copyIcon  = document.getElementById('icon-copy');
-    const checkIcon = document.getElementById('icon-check');
-    const toast     = document.getElementById('copy-toast');
-    const row       = document.getElementById('paybill-row');
-    // Swap to check icon
-    copyIcon.style.display  = 'none';
-    checkIcon.style.display = 'block';
-    row.style.background    = '#edfaf4';
-    row.style.borderColor   = '#a3e8cc';
-    // Show bottom toast
-    toast.style.display = 'block';
-    toast.style.opacity = '1';
-    clearTimeout(window._copyTimer);
-    window._copyTimer = setTimeout(() => {
-      copyIcon.style.display  = 'block';
-      checkIcon.style.display = 'none';
-      row.style.background    = '';
-      row.style.borderColor   = '';
-      toast.style.opacity     = '0';
-      setTimeout(() => { toast.style.display = 'none'; }, 300);
-    }, 2000);
-  }
-
-  // ── FAQ ──
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const open = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-    if (!open) item.classList.add('open');
-  }
-
-  // ── Form state ──
-  let vehicleCount = 1;
-  let partCounters = {1: 1};
-  let partImages   = {};
-
-  function goToStep(step) {
-    const step1 = document.getElementById('step-1');
-    const step2 = document.getElementById('step-2');
-    const dot1  = document.getElementById('step1-dot');
-    const dot2  = document.getElementById('step2-dot');
-    if (step === 1) {
-      step1.style.display = 'block'; step2.style.display = 'none';
-      dot1.classList.add('active'); dot2.classList.remove('active');
-    } else {
-      const v = ['full_name','phone','email','location'].map(id => document.getElementById(id).value.trim());
-      if (v.some(x => !x)) { alert('Please fill in all required contact fields before continuing.'); return; }
-      step1.style.display = 'none'; step2.style.display = 'block';
-      dot1.classList.remove('active'); dot2.classList.add('active'); dot1.classList.add('completed');
-    }
-    document.getElementById('order-form').scrollIntoView({behavior:'smooth', block:'start'});
-  }
-
-  function addVehicle()  { vehicleCount++; partCounters[vehicleCount] = 1; renderVehicles(); }
-  function removeVehicle(id) {
-    delete partCounters[id];
-    Object.keys(partImages).forEach(k => { if (k.startsWith(id+'_')) delete partImages[k]; });
-    vehicleCount--; renderVehicles();
-  }
-  function addPart(id)   { partCounters[id]++; renderVehicles(); }
-  function removePart(vid, idx) {
-    delete partImages[`${vid}_${idx+1}`];
-    const pc = document.getElementById(`parts-${vid}`);
-    if (pc) {
-      const parts = pc.querySelectorAll('.part-item');
-      if (parts.length > 1) {
-        parts[idx].remove(); partCounters[vid]--;
-        const ni = {}; let ni2 = 1;
-        for (let p = 1; p <= partCounters[vid]+1; p++) {
-          const ok = `${vid}_${p}`;
-          if (p !== idx+1 && partImages[ok]) { ni[`${vid}_${ni2}`] = partImages[ok]; ni2++; }
-        }
-        Object.assign(partImages, ni);
-      }
-    }
-  }
-  function handleImageUpload(vid, pid, input) {
-    const key = `${vid}_${pid}`;
-    if (!partImages[key]) partImages[key] = [];
-    partImages[key] = [...partImages[key], ...Array.from(input.files)];
-    renderImagePreview(vid, pid); input.value = '';
-  }
-  function deleteImage(vid, pid, idx) {
-    const key = `${vid}_${pid}`;
-    if (partImages[key]) {
-      partImages[key].splice(idx, 1);
-      if (!partImages[key].length) delete partImages[key];
-      renderImagePreview(vid, pid);
-    }
-  }
-  function renderImagePreview(vid, pid) {
-    const c = document.getElementById(`preview-${vid}-${pid}`);
-    if (!c) return;
-    const images = partImages[`${vid}_${pid}`] || [];
-    c.innerHTML = '';
-    images.forEach((file, idx) => {
-      const r = new FileReader();
-      r.onload = e => {
-        const d = document.createElement('div'); d.className = 'preview-img';
-        d.innerHTML = `<img src="${e.target.result}" alt="part"><button type="button" class="delete-img" onclick="deleteImage(${vid},${pid},${idx})">&times;</button>`;
-        c.appendChild(d);
-      };
-      r.readAsDataURL(file);
-    });
-  }
-  function renderParts(vid) {
-    let h = '';
-    for (let p = 1; p <= partCounters[vid]; p++) {
-      h += `<div class="part-item" id="part-item-${vid}-${p}">
-        <div class="part-header">
-          <span class="part-title">Part ${p}</span>
-          ${partCounters[vid]>1 ? `<button type="button" class="remove-part" onclick="removePart(${vid},${p-1})">&times;</button>` : ''}
-        </div>
-        <div class="field"><label>Part Name / Description <span class="req">*</span></label><input type="text" name="vehicle_${vid}_part_${p}_name" placeholder="e.g., Front Differential Assembly" required></div>
-        <div class="field-2">
-          <div class="field"><label>OEM Part Number</label><input type="text" name="vehicle_${vid}_part_${p}_number" placeholder="e.g., 41110-60280"></div>
-          <div class="field"><label>Condition</label><select name="vehicle_${vid}_part_${p}_condition"><option value="">Any</option><option>New OEM</option><option>New Aftermarket</option><option>Refurbished</option></select></div>
-        </div>
-        <div class="field-2">
-          <div class="field"><label>Budget (KSh)</label><input type="text" name="vehicle_${vid}_part_${p}_budget" placeholder="e.g., 45000-60000"></div>
-          <div class="field"><label>Urgency</label><select name="vehicle_${vid}_part_${p}_urgency"><option value="">Select</option><option>Urgent (ASAP)</option><option>Within 1 week</option><option>Within 2 weeks</option><option>No rush</option></select></div>
-        </div>
-        <div class="field"><label>Notes / Reference</label><textarea name="vehicle_${vid}_part_${p}_notes" rows="2" placeholder="Any additional details..."></textarea></div>
-        <div class="part-images">
-          <div class="image-upload-zone" onclick="document.getElementById('file-input-${vid}-${p}').click()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg>
-            <p><strong>Upload reference images</strong> (JPG/PNG)</p>
-            <input type="file" id="file-input-${vid}-${p}" accept="image/*" multiple style="display:none" onchange="handleImageUpload(${vid},${p},this)">
-          </div>
-          <div class="image-preview-row" id="preview-${vid}-${p}"></div>
-        </div>
-      </div>`;
-    }
-    return h;
-  }
-  function renderVehicles() {
-    const c = document.getElementById('vehicles-container');
-    if (!c) return;
-    let h = '';
-    for (let v = 1; v <= vehicleCount; v++) {
-      h += `<div class="vehicle-card" data-vehicle="${v}">
-        <div class="vehicle-header" onclick="toggleVehicle(${v})">
-          <div><span class="vehicle-title">Vehicle ${v}</span><span class="vehicle-badge"> — click to expand</span></div>
-          ${v>1 ? `<button type="button" class="remove-vehicle" onclick="event.stopPropagation();removeVehicle(${v})">&times;</button>` : ''}
-        </div>
-        <div class="vehicle-content" id="vehicle-content-${v}">
-          <div class="field-2">
-            <div class="field"><label>Make <span class="req">*</span></label><input type="text" name="vehicle_${v}_make" placeholder="e.g., Toyota" required></div>
-            <div class="field"><label>Model <span class="req">*</span></label><input type="text" name="vehicle_${v}_model" placeholder="e.g., Land Cruiser" required></div>
-          </div>
-          <div class="field-2">
-            <div class="field"><label>Year</label><input type="text" name="vehicle_${v}_year" placeholder="e.g., 2015"></div>
-            <div class="field"><label>Engine Code</label><input type="text" name="vehicle_${v}_engine" placeholder="e.g., 1GR-FE"></div>
-          </div>
-          <div class="field"><label>VIN / Chassis (optional)</label><input type="text" name="vehicle_${v}_vin" placeholder="Helps with accurate matching"></div>
-          <div style="margin-top:16px;margin-bottom:12px;"><span style="font-size:11px;font-weight:700;text-transform:uppercase;">Parts Needed</span></div>
-          <div id="parts-${v}">${renderParts(v)}</div>
-          <button type="button" class="add-btn" onclick="addPart(${v})" style="margin-top:8px;">+ Add Part</button>
-        </div>
-      </div>`;
-    }
-    c.innerHTML = h;
-    const fc = document.getElementById('vehicle-content-1');
-    if (fc) fc.classList.add('open');
-    for (let v = 1; v <= vehicleCount; v++)
-      for (let p = 1; p <= partCounters[v]; p++) renderImagePreview(v, p);
-  }
-  function toggleVehicle(id) {
-    const c = document.getElementById(`vehicle-content-${id}`);
-    if (c) c.classList.toggle('open');
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    renderVehicles();
-
-    // PayPal tooltip — fixed positioning to escape card overflow clipping
-    const pw = document.querySelector('.paypal-wrap');
-    const tt = document.querySelector('.paypal-tooltip');
-    if (pw && tt) {
-      pw.addEventListener('mouseenter', () => {
-        const r = pw.getBoundingClientRect();
-        tt.style.left    = (r.left + r.width / 2) + 'px';
-        tt.style.top     = r.top + 'px';
-        tt.style.display = 'block';
-      });
-      pw.addEventListener('mouseleave', () => { tt.style.display = 'none'; });
-    }
-
-    // Form submit
-    const form = document.getElementById('preorder-form');
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const btn = form.querySelector('.submit-btn');
-      btn.textContent = 'Sending...'; btn.disabled = true;
-      const fd = new FormData(form);
-      for (const [key, files] of Object.entries(partImages))
-        files.forEach((f, i) => fd.append(`images_${key}_${i}`, f));
-      try {
-        const res = await fetch(form.action, {method:'POST', body:fd, headers:{'Accept':'application/json'}});
-        if (res.ok) {
-          document.getElementById('success-msg').style.display = 'block';
-          form.reset(); vehicleCount = 1; partCounters = {1:1}; partImages = {};
-          renderVehicles(); goToStep(1);
-          setTimeout(() => { const m = document.getElementById('success-msg'); if(m) m.style.display='none'; }, 6000);
-        } else { alert('Something went wrong. Please try aga
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/js/uikit-icons.min.js"></script>
+<script src="/assets/js/scripts.js"></script>
+</body>
+</html>
