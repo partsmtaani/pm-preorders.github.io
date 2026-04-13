@@ -5,18 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Submit a refund request or review PartsMtaani's refund and returns policy.">
   <meta property="og:title" content="Refunds | PartsMtaani">
-  <meta property="og:description" content="Submit a refund request or review PartsMtaani's refund and returns policy.">
   <title>Refunds | PartsMtaani</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/css/uikit.min.css">
+  <link rel="stylesheet" href="/assets/css/uikit.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="icon" href="/favicon.svg">
+  <style>
+    /* Page-specific styles */
+    .page-hero::before { background-image: url('/assets/img/refunds-bg.jpg'); }
+
+    /* Outcome eligibility grid */
+    .outcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
+    @media (max-width: 600px) { .outcome-grid { grid-template-columns: 1fr; } }
+    .outcome-card { border: 1px solid var(--line); padding: 16px 18px; border-radius: 4px; }
+    .outcome-card.eligible { border-left: 3px solid var(--success); }
+    .outcome-card.ineligible { border-left: 3px solid var(--line); }
+    .outcome-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; }
+    .outcome-card.eligible .outcome-label { color: var(--success); }
+    .outcome-card.ineligible .outcome-label { color: var(--muted); }
+    .outcome-card ul { list-style: none; padding: 0; margin: 0; }
+    .outcome-card ul li { font-size: 13px; color: var(--mid); line-height: 1.65; padding: 4px 0 4px 16px; position: relative; }
+    .outcome-card ul li::before { content: ""; position: absolute; left: 0; top: 12px; width: 5px; height: 5px; border-radius: 50%; background: var(--line); }
+    .outcome-card.eligible ul li::before { background: var(--success); opacity: 0.7; }
+
+    /* Sticky refund form card */
+    .refund-form-card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; position: sticky; top: 88px; }
+    .refund-form-head { background: var(--bg); border-bottom: 1px solid var(--line); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+    .refund-form-num { width: 26px; height: 26px; background: var(--orange); color: #fff; font-size: 12px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .refund-form-head h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; margin: 0; color: var(--black); }
+    .refund-form-body { padding: 24px; }
+    .divider-line { height: 1px; background: var(--line); margin: 18px 0; }
+    .form-note { font-size: 11px; color: var(--muted); line-height: 1.6; margin-top: 14px; }
+    .refund-success-msg { display: none; background: #f0fbf7; border-left: 4px solid var(--success); padding: 14px 16px; margin-bottom: 18px; font-size: 13px; color: #1e5a1f; border-radius: 0 4px 4px 0; }
+  </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
     <a class="logo" href="/">
@@ -25,9 +51,7 @@
       <span class="logo-sub">pre-order<br>portal</span>
     </a>
     <ul class="nav-links" id="nav-links">
-      <li><a href="https://partsmtaani.com/marketplace" target="_blank" rel="noopener">Visit Marketplace
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="17" y1="7" x2="7" y2="17"/><polyline points="8 7 17 7 17 16"/></svg>
-      </a></li>
+      <li><a href="https://prelaunch.partsmtaani.com" target="_blank" rel="noopener">Visit Marketplace<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="17" y1="7" x2="7" y2="17"/><polyline points="8 7 17 7 17 16"/></svg></a></li>
       <li><a href="/#sourcing-fee">Sourcing Fee</a></li>
       <li><a href="/#faq">FAQs</a></li>
       <li><a href="/#order-form" class="btn-nav">Order Now</a></li>
@@ -38,20 +62,18 @@
   </div>
 </nav>
 
-<!-- PAGE HERO -->
-<div class="page-hero page-hero--refunds">
+<div class="page-hero">
   <div class="wrap">
-    <span class="label">Support</span>
     <h1>Refund Request</h1>
     <p class="meta">Review our policy below, then use the form to submit your request. We respond within <strong>3 business days</strong>.</p>
   </div>
 </div>
 
-<!-- CONTENT -->
 <div class="wrap">
   <div class="page-body">
     <div class="page-grid">
 
+      <!-- Policy content -->
       <div>
         <div class="doc-section">
           <h3>Sourcing Fee</h3>
@@ -60,14 +82,14 @@
           <div class="outcome-grid">
             <div class="outcome-card eligible">
               <div class="outcome-label">Eligible</div>
-              <ul class="doc-section">
+              <ul>
                 <li>Part cannot be sourced within the agreed timeframe</li>
                 <li>Order cancelled by PartsMtaani</li>
               </ul>
             </div>
             <div class="outcome-card ineligible">
               <div class="outcome-label">Not eligible</div>
-              <ul class="doc-section">
+              <ul>
                 <li>Customer cancels after sourcing commences</li>
                 <li>Customer declines confirmed price</li>
                 <li>Incorrect information provided by customer</li>
@@ -99,20 +121,21 @@
             <li>Normal wear and tear, misuse or incorrect installation</li>
             <li>Orders where inaccurate vehicle or part information was provided</li>
           </ul>
-          <p>For the full policy, see our <a href="/terms/" class="terms-link">Terms &amp; Conditions</a>.</p>
+          <p>For the full policy, see our <a href="/terms/" style="color:var(--orange);text-decoration:none;font-weight:600;">Terms &amp; Conditions</a>.</p>
         </div>
       </div>
 
+      <!-- Refund form -->
       <div>
         <div class="refund-form-card">
-          <div class="form-card-head">
-            <div class="form-card-num">
+          <div class="refund-form-head">
+            <div class="refund-form-num">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19 11h-14a2 2 0 1 0 0 4h14a2 2 0 1 0 0 -4"/><path d="M12 5v6"/><path d="M12 19v-6"/></svg>
             </div>
             <h4>Submit a Refund Request</h4>
           </div>
-          <div class="form-body">
-            <div id="refund-success" class="success-msg"><strong>Request submitted.</strong> We'll review and respond within 3 business days.</div>
+          <div class="refund-form-body">
+            <div id="refund-success" class="refund-success-msg"><strong>Request submitted.</strong> We'll review and respond within 3 business days.</div>
             <form id="refund-form" action="https://formspree.io/f/YOUR_REFUND_FORM_ID" method="POST">
               <input type="hidden" name="_subject" value="Refund Request">
               <div class="field-2">
@@ -159,7 +182,7 @@
                 <label>Supporting Evidence</label>
                 <textarea name="evidence_links" rows="2" placeholder="Paste any image links or describe attachments you can send separately."></textarea>
               </div>
-              <button type="submit" class="submit-btn submit-btn-full" id="refund-submit-btn">Submit Request →</button>
+              <button type="submit" class="submit-btn" id="submit-btn">Submit Refund Request →</button>
               <p class="form-note">By submitting this form you confirm the information provided is accurate to the best of your knowledge. Fraudulent claims may result in account restriction.</p>
             </form>
           </div>
@@ -170,7 +193,6 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-centered">
     <div class="footer-top-row">
@@ -192,13 +214,13 @@
         </div>
         <div class="contact-item">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
-          <a href="mailto:preorders@partsmtaani.com">preorders@partsmtaani.com</a>
+          <a href="mailto:orders@partsmtaani.com">orders@partsmtaani.com</a>
         </div>
         <div class="tax-pin">Tax PIN: P051234567Z</div>
       </div>
       <div class="footer-refund-right">
         <div class="refund-link">
-          <a href="/refunds/" aria-current="page">Refund policy
+          <a href="/refunds/">Request a refund
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
@@ -214,8 +236,6 @@
   </div>
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/js/uikit.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/uikit@3.23.11/dist/js/uikit-icons.min.js"></script>
 <script src="/assets/js/scripts.js"></script>
 </body>
 </html>
