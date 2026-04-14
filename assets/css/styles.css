@@ -212,30 +212,33 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   position: relative;
   overflow: hidden;
 }
-/* Decorative dot-grid background on the right half */
+/* Right-side background image — same pattern as subpage .page-hero::before */
 #hero::before {
   content: "";
   position: absolute;
   top: 0; right: 0; bottom: 0;
-  width: 55%;
-  background-image: radial-gradient(circle, #e0e0de 1px, transparent 1px);
-  background-size: 22px 22px;
-  background-position: 0 0;
-  opacity: 0.55;
+  width: 48%;
+  background-image: url('/assets/img/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
   pointer-events: none;
   z-index: 0;
 }
-/* Fade the dot pattern back into white on the left edge */
+/* Fade image back into white on the left edge */
 #hero::after {
   content: "";
   position: absolute;
   top: 0; right: 0; bottom: 0;
-  width: 55%;
-  background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0) 28%);
+  width: 48%;
+  background: linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.55) 40%, rgba(255,255,255,0) 100%);
   pointer-events: none;
   z-index: 1;
 }
 #hero .wrap { position: relative; z-index: 2; }
+@media (max-width: 980px) {
+  #hero::before { width: 100%; opacity: 0.12; }
+  #hero::after { width: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.95) 60%); }
+}
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 420px;
@@ -356,7 +359,32 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 /* ============================================
    HOMEPAGE — SOURCING FEE SECTION
    ============================================ */
-.fee-banner { padding: 80px 0; }
+.fee-banner {
+  padding: 80px 0;
+  background: var(--success);
+  position: relative;
+}
+/* Ensure text colours work on green background */
+.fee-banner .fee-label { color: rgba(255,255,255,0.75); }
+.fee-banner h2 { color: #fff; }
+.fee-banner .fee-left p,
+.fee-banner .fee-left-note { color: rgba(255,255,255,0.82); }
+.fee-banner .fee-left-note strong,
+.fee-banner .fee-left p strong { color: #fff; }
+.fee-banner .fee-stats-row { border-top-color: rgba(255,255,255,0.25); }
+.fee-banner .fee-stat-val { color: #fff; }
+.fee-banner .fee-stat-label { color: rgba(255,255,255,0.75); }
+.fee-banner .fee-process-item { border-bottom-color: rgba(255,255,255,0.18); }
+.fee-banner .fee-proc-circle { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.3); }
+.fee-banner .fee-proc-circle svg { stroke: #fff; }
+.fee-banner .fee-process-item.is-active .fee-proc-circle { background: #fff; border-color: #fff; }
+.fee-banner .fee-process-item.is-active .fee-proc-circle svg { stroke: var(--success); }
+.fee-banner .fee-process-item.is-guarantee .fee-proc-circle { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.4); }
+.fee-banner .fee-process-item.is-guarantee .fee-proc-circle svg { stroke: #fff; }
+.fee-banner .fee-proc-eyebrow { color: rgba(255,255,255,0.6); }
+.fee-banner .fee-proc-title { color: #fff; }
+.fee-banner .fee-proc-desc { color: rgba(255,255,255,0.78); }
+.fee-banner .fee-proc-paybill { color: #fff; font-weight: 800; }
 .fee-inner {
   display: grid;
   grid-template-columns: 1fr 380px;
@@ -591,6 +619,22 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 /* ============================================
    HOMEPAGE — FAQ
    ============================================ */
+#faq {
+  position: relative;
+  overflow: hidden;
+}
+/* Soft radial glow centered at the top */
+#faq::before {
+  content: "";
+  position: absolute;
+  top: -60px; left: 50%;
+  transform: translateX(-50%);
+  width: 700px; height: 400px;
+  background: radial-gradient(ellipse at center top, rgba(38,196,133,0.10) 0%, rgba(38,196,133,0.04) 45%, transparent 72%);
+  pointer-events: none;
+  z-index: 0;
+}
+#faq .wrap { position: relative; z-index: 1; }
 .faq-inner {
   display: grid;
   grid-template-columns: 280px 1fr;
