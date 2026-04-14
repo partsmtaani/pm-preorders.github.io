@@ -13,32 +13,7 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link rel="icon" href="/favicon.svg">
   <style>
-    /* Page-specific styles */
     .page-hero::before { background-image: url('/assets/img/refunds-bg.jpg'); }
-
-    /* Outcome eligibility grid */
-    .outcome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0; }
-    @media (max-width: 600px) { .outcome-grid { grid-template-columns: 1fr; } }
-    .outcome-card { border: 1px solid var(--line); padding: 16px 18px; border-radius: 4px; }
-    .outcome-card.eligible { border-left: 3px solid var(--success); }
-    .outcome-card.ineligible { border-left: 3px solid var(--line); }
-    .outcome-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 10px; }
-    .outcome-card.eligible .outcome-label { color: var(--success); }
-    .outcome-card.ineligible .outcome-label { color: var(--muted); }
-    .outcome-card ul { list-style: none; padding: 0; margin: 0; }
-    .outcome-card ul li { font-size: 13px; color: var(--mid); line-height: 1.65; padding: 4px 0 4px 16px; position: relative; }
-    .outcome-card ul li::before { content: ""; position: absolute; left: 0; top: 12px; width: 5px; height: 5px; border-radius: 50%; background: var(--line); }
-    .outcome-card.eligible ul li::before { background: var(--success); opacity: 0.7; }
-
-    /* Sticky refund form card */
-    .refund-form-card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; position: sticky; top: 88px; }
-    .refund-form-head { background: var(--bg); border-bottom: 1px solid var(--line); padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
-    .refund-form-num { width: 26px; height: 26px; background: var(--orange); color: #fff; font-size: 12px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .refund-form-head h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; margin: 0; color: var(--black); }
-    .refund-form-body { padding: 24px; }
-    .divider-line { height: 1px; background: var(--line); margin: 18px 0; }
-    .form-note { font-size: 11px; color: var(--muted); line-height: 1.6; margin-top: 14px; }
-    .refund-success-msg { display: none; background: #f0fbf7; border-left: 4px solid var(--success); padding: 14px 16px; margin-bottom: 18px; font-size: 13px; color: #1e5a1f; border-radius: 0 4px 4px 0; }
   </style>
 </head>
 <body>
@@ -65,7 +40,7 @@
 <div class="page-hero">
   <div class="wrap">
     <h1>Refund Request</h1>
-    <p class="meta">Review our policy below, then use the form to submit your request. We respond within <strong>3 business days</strong>.</p>
+    <p class="meta">Review the policy below, then submit your request. We respond within <strong>3 business days</strong>.</p>
   </div>
 </div>
 
@@ -73,66 +48,109 @@
   <div class="page-body">
     <div class="page-grid">
 
-      <!-- Policy content -->
-      <div>
-        <div class="doc-section">
-          <h3>Sourcing Fee</h3>
-          <h4>When Is the Sourcing Fee Refunded?</h4>
-          <p>The 30% sourcing fee is credited toward your final invoice — it is not an additional charge. It is <strong>fully refundable in one circumstance only</strong>: when PartsMtaani is unable to source the requested part within the agreed lead time.</p>
-          <div class="outcome-grid">
-            <div class="outcome-card eligible">
-              <div class="outcome-label">Eligible</div>
-              <ul>
-                <li>Part cannot be sourced within the agreed timeframe</li>
-                <li>Order cancelled by PartsMtaani</li>
-              </ul>
-            </div>
-            <div class="outcome-card ineligible">
-              <div class="outcome-label">Not eligible</div>
-              <ul>
-                <li>Customer cancels after sourcing commences</li>
-                <li>Customer declines confirmed price</li>
-                <li>Incorrect information provided by customer</li>
-                <li>Customer unreachable for follow-up</li>
-              </ul>
-            </div>
+      <!-- Policy -->
+      <div class="refund-policy">
+
+        <div class="refund-rule-block">
+          <div class="refund-rule-head">
+            <span class="refund-rule-label">01</span>
+            <span class="refund-rule-title">Sourcing Fee Refunds</span>
+          </div>
+          <div class="refund-rule-body">
+            <p>The 30% sourcing fee is a commitment deposit credited toward your final invoice — not an additional charge. It is <strong>refundable in one circumstance only</strong>: when PartsMtaani cannot source the requested part within the agreed lead time.</p>
+            <table class="eligibility-table">
+              <thead>
+                <tr>
+                  <th>Situation</th>
+                  <th>Eligible</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Part cannot be sourced within the agreed timeframe</td>
+                  <td><span class="eligibility-badge yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l9 -9"/></svg>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>Order cancelled by PartsMtaani</td>
+                  <td><span class="eligibility-badge yes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5l9 -9"/></svg>Yes</span></td>
+                </tr>
+                <tr>
+                  <td>Customer cancels after sourcing has commenced</td>
+                  <td><span class="eligibility-badge no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>No</span></td>
+                </tr>
+                <tr>
+                  <td>Customer declines the confirmed sourced price</td>
+                  <td><span class="eligibility-badge no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>No</span></td>
+                </tr>
+                <tr>
+                  <td>Inaccurate information was provided by the customer</td>
+                  <td><span class="eligibility-badge no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>No</span></td>
+                </tr>
+                <tr>
+                  <td>Customer was unreachable during the follow-up period</td>
+                  <td><span class="eligibility-badge no"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>No</span></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
-        <div class="doc-section">
-          <h3>Part Payment</h3>
-          <h4>When Is a Part Payment Refunded?</h4>
-          <p>Part payments may be refunded in the following circumstances, provided the issue is reported within the applicable window:</p>
-          <ul>
-            <li><strong>Incorrect part supplied</strong> — report within 48 hours of delivery.</li>
-            <li><strong>Part damaged in transit</strong> — document at delivery and report immediately.</li>
-            <li><strong>Confirmed incompatibility</strong> — a qualified mechanic must verify the part cannot fit the stated vehicle, and the incompatibility must not have been disclosed at sourcing.</li>
-            <li><strong>Warranty defects</strong> — manufacturing defects reported within 6 months of delivery, with proof of correct installation.</li>
-          </ul>
-          <p>Delivery charges are not refundable. Approved refunds are processed to the original M-Pesa number within 3–5 business days.</p>
+        <div class="refund-rule-block">
+          <div class="refund-rule-head">
+            <span class="refund-rule-label">02</span>
+            <span class="refund-rule-title">Part Payment Refunds</span>
+          </div>
+          <div class="refund-rule-body">
+            <p>Part payments may be refunded where the issue is reported within the applicable window and the part has not been installed or used.</p>
+            <table class="eligibility-table">
+              <thead>
+                <tr>
+                  <th>Reason</th>
+                  <th>Reporting Window</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Incorrect part supplied</td>
+                  <td>48 hours of delivery</td>
+                </tr>
+                <tr>
+                  <td>Part damaged in transit</td>
+                  <td>At point of delivery — document before accepting</td>
+                </tr>
+                <tr>
+                  <td>Confirmed incompatibility (verified by qualified mechanic)</td>
+                  <td>7 days of delivery</td>
+                </tr>
+                <tr>
+                  <td>Warranty defect with proof of correct installation</td>
+                  <td>Within 6-month warranty period</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="margin-top:14px;">Delivery charges are not refundable. Approved refunds are processed to the original M-Pesa number within 3–5 business days.</p>
+          </div>
         </div>
 
-        <div class="doc-section">
-          <h3>Policy</h3>
-          <h4>What Is Not Covered</h4>
-          <ul>
-            <li>Parts that have been installed, modified or used</li>
-            <li>Damage caused by customer handling after delivery</li>
-            <li>Normal wear and tear, misuse or incorrect installation</li>
-            <li>Orders where inaccurate vehicle or part information was provided</li>
-          </ul>
-          <p>For the full policy, see our <a href="/terms/" style="color:var(--orange);text-decoration:none;font-weight:600;">Terms &amp; Conditions</a>.</p>
+        <div class="refund-rule-block">
+          <div class="refund-rule-head">
+            <span class="refund-rule-label">03</span>
+            <span class="refund-rule-title">What Is Not Covered</span>
+          </div>
+          <div class="refund-rule-body">
+            <p>No refund or return is available for parts that have been installed, modified or used; damage caused by the customer after delivery; normal wear and tear, misuse or incorrect installation; or orders where inaccurate vehicle or part information was provided at the time of ordering.</p>
+            <p>For the full policy, see our <a href="/terms/">Terms &amp; Conditions</a>.</p>
+          </div>
         </div>
+
       </div>
 
-      <!-- Refund form -->
+      <!-- Form -->
       <div>
         <div class="refund-form-card">
           <div class="refund-form-head">
-            <div class="refund-form-num">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M19 11h-14a2 2 0 1 0 0 4h14a2 2 0 1 0 0 -4"/><path d="M12 5v6"/><path d="M12 19v-6"/></svg>
-            </div>
             <h4>Submit a Refund Request</h4>
+            <p>All fields marked <span style="color:var(--orange);">*</span> are required.</p>
           </div>
           <div class="refund-form-body">
             <div id="refund-success" class="refund-success-msg"><strong>Request submitted.</strong> We'll review and respond within 3 business days.</div>
@@ -153,21 +171,23 @@
                 <input type="email" name="email" required>
               </div>
               <div class="divider-line"></div>
-              <div class="field">
-                <label>Pre-Order Reference <span class="req">*</span></label>
-                <input type="text" name="order_reference" placeholder="e.g. PM-00412" required>
-              </div>
-              <div class="field">
-                <label>Refund Type <span class="req">*</span></label>
-                <select name="refund_type" required>
-                  <option value="">Select type</option>
-                  <option>Sourcing Fee — Part Not Found</option>
-                  <option>Incorrect Part Supplied</option>
-                  <option>Part Damaged in Transit</option>
-                  <option>Part Incompatibility</option>
-                  <option>Warranty Defect</option>
-                  <option>Other</option>
-                </select>
+              <div class="field-2">
+                <div class="field">
+                  <label>Order Reference <span class="req">*</span></label>
+                  <input type="text" name="order_reference" placeholder="e.g. PM-00412" required>
+                </div>
+                <div class="field">
+                  <label>Refund Type <span class="req">*</span></label>
+                  <select name="refund_type" required>
+                    <option value="">Select</option>
+                    <option>Sourcing Fee — Part Not Found</option>
+                    <option>Incorrect Part Supplied</option>
+                    <option>Part Damaged in Transit</option>
+                    <option>Part Incompatibility</option>
+                    <option>Warranty Defect</option>
+                    <option>Other</option>
+                  </select>
+                </div>
               </div>
               <div class="field">
                 <label>M-Pesa Number for Refund <span class="req">*</span></label>
@@ -176,14 +196,14 @@
               <div class="divider-line"></div>
               <div class="field">
                 <label>Description <span class="req">*</span></label>
-                <textarea name="description" rows="4" placeholder="Describe the issue clearly. Include the part name, what was expected, and what was received or experienced." required></textarea>
+                <textarea name="description" rows="4" placeholder="Describe the issue clearly — include the part name, what was expected, and what was received or experienced." required></textarea>
               </div>
               <div class="field">
                 <label>Supporting Evidence</label>
                 <textarea name="evidence_links" rows="2" placeholder="Paste any image links or describe attachments you can send separately."></textarea>
               </div>
               <button type="submit" class="submit-btn" id="submit-btn">Submit Refund Request →</button>
-              <p class="form-note">By submitting this form you confirm the information provided is accurate to the best of your knowledge. Fraudulent claims may result in account restriction.</p>
+              <p class="form-note">By submitting you confirm the information is accurate to the best of your knowledge. Fraudulent claims may result in account restriction.</p>
             </form>
           </div>
         </div>
