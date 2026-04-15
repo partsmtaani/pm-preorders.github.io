@@ -817,12 +817,13 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
 .doc-section strong { color: var(--ink); font-weight: 600; }
 .doc-section a { color: var(--orange); text-decoration: none; }
 .doc-section a:hover { text-decoration: underline; }
-.notice-box { background: var(--bg); border: 1px solid var(--line); border-left: 3px solid var(--orange); padding: 16px 20px; margin-bottom: 32px; }
+.notice-box { background: var(--bg); border: 1px solid var(--line); padding: 16px 20px; margin-bottom: 32px; }
 .notice-box p { margin: 0; font-size: 13px; color: var(--mid); }
 .data-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; font-size: 13px; }
-.data-table th { text-align: left; font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding: 10px 12px; background: var(--bg); border: 1px solid var(--line); }
-.data-table td { padding: 11px 12px; border: 1px solid var(--line); color: var(--mid); line-height: 1.6; vertical-align: top; }
-.data-table tr:hover td { background: var(--bg); }
+.data-table th { text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 0 0 10px; border-bottom: 2px solid var(--ink); }
+.data-table td { padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--mid); line-height: 1.6; vertical-align: top; }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table td:first-child { padding-right: 24px; }
 
 /* ============================================
    PROSE CONTENT (Terms / Privacy)
@@ -906,10 +907,12 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
 .refund-rule-body p:last-child { margin-bottom: 0; }
 
 /* Eligibility rows */
-.eligibility-table { width: 100%; border-collapse: collapse; margin: 14px 0 0; }
-.eligibility-table thead tr th { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding: 8px 12px; background: var(--bg); border: 1px solid var(--line); text-align: left; }
-.eligibility-table tbody tr td { font-size: 13px; color: var(--mid); padding: 10px 12px; border: 1px solid var(--line); vertical-align: top; line-height: 1.6; }
-.eligibility-table tbody tr:hover td { background: var(--bg); }
+.eligibility-table { width: 100%; border-collapse: collapse; margin: 14px 0 0; font-size: 13px; }
+.eligibility-table thead tr th { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 0 0 10px; border-bottom: 2px solid var(--ink); text-align: left; }
+.eligibility-table thead tr th:last-child { width: 80px; }
+.eligibility-table tbody tr td { padding: 11px 0; border-bottom: 1px solid var(--line); color: var(--mid); vertical-align: middle; line-height: 1.6; }
+.eligibility-table tbody tr:last-child td { border-bottom: none; }
+.eligibility-table tbody tr td:first-child { padding-right: 24px; }
 .eligibility-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
 .eligibility-badge.yes { color: var(--success); }
 .eligibility-badge.no { color: var(--muted); }
