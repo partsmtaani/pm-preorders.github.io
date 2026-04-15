@@ -236,8 +236,8 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 }
 #hero .wrap { position: relative; z-index: 2; }
 @media (max-width: 980px) {
-  #hero::before { width: 100%; opacity: 0.12; }
-  #hero::after { width: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.95) 60%); }
+  #hero::before { width: 100%; opacity: 0.18; }
+  #hero::after { width: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.88) 60%); }
 }
 .hero-grid {
   display: grid;
@@ -360,63 +360,112 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
    HOMEPAGE — SOURCING FEE SECTION
    ============================================ */
 .fee-banner {
-  padding: 80px 0;
+  padding: 88px 0;
   background: var(--success);
   position: relative;
 }
-/* Ensure text colours work on green background */
-.fee-banner .fee-label { color: rgba(255,255,255,0.75); }
+/* ── Fee section — colour overrides on green bg ── */
+.fee-banner .fee-label { color: rgba(255,255,255,0.7); }
 .fee-banner h2 { color: #fff; }
-.fee-banner .fee-left p,
-.fee-banner .fee-left-note { color: rgba(255,255,255,0.82); }
-.fee-banner .fee-left-note strong,
-.fee-banner .fee-left p strong { color: #fff; }
-.fee-banner .fee-stats-row { border-top-color: rgba(255,255,255,0.25); }
-.fee-banner .fee-stat-val { color: #fff; }
-.fee-banner .fee-stat-label { color: rgba(255,255,255,0.75); }
-.fee-banner .fee-process-item { border-bottom-color: rgba(255,255,255,0.18); }
-.fee-banner .fee-proc-circle { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,0.3); }
-.fee-banner .fee-proc-circle svg { stroke: #fff; }
-.fee-banner .fee-process-item.is-active .fee-proc-circle { background: #fff; border-color: #fff; }
-.fee-banner .fee-process-item.is-active .fee-proc-circle svg { stroke: var(--success); }
-.fee-banner .fee-process-item.is-guarantee .fee-proc-circle { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.4); }
-.fee-banner .fee-process-item.is-guarantee .fee-proc-circle svg { stroke: #fff; }
-.fee-banner .fee-proc-eyebrow { color: rgba(255,255,255,0.6); }
-.fee-banner .fee-proc-title { color: #fff; }
-.fee-banner .fee-proc-desc { color: rgba(255,255,255,0.78); }
+.fee-banner .fee-intro { color: rgba(255,255,255,0.85); }
+.fee-banner .fee-intro strong { color: #fff; }
 .fee-banner .fee-proc-paybill { color: #fff; font-weight: 800; }
-.fee-inner {
+
+/* ── Layout ── */
+.fee-header { margin-bottom: 48px; }
+.fee-header h2 { margin-top: 0; }
+
+.fee-body {
   display: grid;
-  grid-template-columns: 1fr 380px;
+  grid-template-columns: 1fr 420px;
   gap: 64px;
   align-items: start;
 }
+@media (max-width: 980px) { .fee-body { grid-template-columns: 1fr; gap: 48px; } }
+
+/* ── Left: intro + tally + guarantee ── */
+.fee-intro { font-size: 16px; line-height: 1.75; margin-bottom: 32px; }
+
+.fee-tally { margin-bottom: 28px; }
+.fee-tally-row {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 0 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  align-items: start;
+}
+.fee-tally-row:first-child { border-top: 1px solid rgba(255,255,255,0.18); }
+.fee-tally-divider { display: none; }
+.fee-tally-label {
+  font-size: 13px; font-weight: 700; color: #fff;
+  letter-spacing: 0.01em;
+}
+.fee-tally-amount {
+  font-size: 15px; font-weight: 700; color: #fff;
+  margin-bottom: 3px;
+}
+.fee-tally-note {
+  font-size: 12px; color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+  grid-column: 2;
+}
+@media (max-width: 600px) {
+  .fee-tally-row { grid-template-columns: 1fr; gap: 4px; }
+  .fee-tally-note { grid-column: 1; }
+}
+
+.fee-guarantee-strip {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 6px;
+  padding: 16px 20px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.65;
+}
+.fee-guarantee-strip svg { width: 18px; height: 18px; stroke: #fff; flex-shrink: 0; margin-top: 1px; }
+.fee-guarantee-strip strong { color: #fff; }
+
+/* ── Right: step list ── */
+.fee-steps { display: flex; flex-direction: column; gap: 0; }
+.fee-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+.fee-step:last-child { border-bottom: none; }
+.fee-step-marker {
+  width: 34px; height: 34px; flex-shrink: 0;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.28);
+  display: flex; align-items: center; justify-content: center;
+}
+.fee-step-marker svg { width: 15px; height: 15px; stroke: #fff; fill: none; }
+.fee-step-active .fee-step-marker {
+  background: #fff;
+  border-color: #fff;
+}
+.fee-step-active .fee-step-marker svg { stroke: var(--success); }
+.fee-step-text { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.82); padding-top: 6px; }
+.fee-step-text strong { display: block; font-size: 13px; color: #fff; margin-bottom: 3px; font-weight: 700; }
+
+/* ── Keep old layout classes alive (unused but safe) ── */
+.fee-inner { display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: start; }
 @media (max-width: 980px) { .fee-inner { grid-template-columns: 1fr; gap: 48px; } }
-.fee-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; display: inline-block; }
 .fee-left p { font-size: 15px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; margin-top: 16px; }
 .fee-left-note { font-size: 13px; color: var(--muted); line-height: 1.7; }
-.fee-stats-row {
-  display: flex; gap: 32px; margin-top: 32px; padding-top: 28px;
-  border-top: 1px solid var(--line); flex-wrap: wrap;
-}
-.fee-stat-val { font-size: 30px; font-weight: 800; color: var(--black); line-height: 1; }
-.fee-stat-val span { font-size: 30px; }
-.fee-stat-label { font-size: 11px; color: var(--muted); margin-top: 4px; }
 .fee-process-rail { display: flex; flex-direction: column; }
-.fee-process-item {
-  display: flex; gap: 16px;
-  padding: 18px 0;
-  border-bottom: 1px solid var(--line);
-}
+.fee-process-item { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
 .fee-process-item:last-child { border-bottom: none; }
 .fee-proc-num-col { flex-shrink: 0; }
-.fee-proc-circle {
-  width: 36px; height: 36px;
-  border: 1px solid var(--line);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  background: var(--white);
-}
+.fee-proc-circle { width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--white); }
 .fee-proc-circle svg { width: 16px; height: 16px; stroke: var(--muted); fill: none; }
 .fee-process-item.is-active .fee-proc-circle { background: var(--orange); border-color: var(--orange); }
 .fee-process-item.is-active .fee-proc-circle svg { stroke: #fff; }
@@ -426,6 +475,7 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 .fee-proc-title { font-size: 13px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
 .fee-proc-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0; }
 .fee-proc-paybill { color: var(--orange); font-weight: 700; }
+.fee-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; display: inline-block; }
 
 /* ============================================
    HOMEPAGE — ORDER FORM
@@ -549,41 +599,55 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   display: flex; align-items: center; justify-content: center;
 }
 
-/* Payment card */
-.payment-card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
-.payment-card-header {
-  padding: 14px 20px; background: var(--bg); border-bottom: 1px solid var(--line);
-  display: flex; align-items: center; justify-content: space-between;
+/* ── Payment aside (natural layout) ── */
+.payment-aside {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 28px;
 }
-.payment-card-header-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
-.payment-logos { display: flex; align-items: center; gap: 10px; }
-.mpesa-logo { height: 22px; width: auto; }
-.paypal-wrap { position: relative; }
-.paypal-logo { height: 18px; width: auto; opacity: 0.6; cursor: help; }
-.paypal-tooltip {
-  display: none;
-  position: absolute; right: 0; top: calc(100% + 8px);
-  background: var(--black); color: #fff;
-  font-size: 11px; padding: 8px 12px; border-radius: 4px;
-  z-index: 10; pointer-events: none;
-  width: 240px; white-space: normal; line-height: 1.5;
+.payment-aside-title {
+  font-size: 15px; font-weight: 700; color: var(--black);
+  margin-bottom: 8px;
 }
-.paypal-wrap:hover .paypal-tooltip { display: block; }
-.payment-card-body { padding: 18px 20px; }
-.payment-step-label { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.payment-aside-desc {
+  font-size: 13px; color: var(--muted); line-height: 1.65;
+  margin-bottom: 22px;
+}
 .payment-paybill {
   display: flex; align-items: center; justify-content: space-between;
-  background: var(--bg); border: 1px solid var(--line); border-radius: 6px;
-  padding: 12px 16px; cursor: pointer; transition: all 0.2s; margin-bottom: 14px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 14px 16px;
+  cursor: pointer; transition: border-color 0.2s;
+  margin-bottom: 14px;
 }
 .payment-paybill:hover { border-color: var(--orange); }
-.payment-paybill-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 2px; }
-.payment-paybill-value { font-size: 20px; font-weight: 800; color: var(--black); letter-spacing: 0.04em; }
-.paybill-copy-btn svg { width: 18px; height: 18px; stroke: var(--muted); }
-.payment-account { margin-bottom: 14px; }
-.payment-account-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 6px; }
-.payment-account-value-row { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); }
-.payment-account-value-row svg { width: 16px; height: 16px; stroke: var(--muted); flex-shrink: 0; }
+.payment-paybill-inner {}
+.payment-paybill-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 3px; }
+.payment-paybill-value { font-size: 24px; font-weight: 800; color: var(--black); letter-spacing: 0.04em; line-height: 1; }
+.paybill-copy-btn {
+  background: none; border: none; cursor: pointer;
+  color: var(--muted); padding: 4px;
+  display: flex; align-items: center;
+}
+.paybill-copy-btn svg { width: 18px; height: 18px; }
+.payment-account-natural {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; margin-bottom: 20px; padding: 0 2px;
+}
+.payment-account-key { color: var(--muted); font-weight: 600; }
+.payment-account-val { color: var(--ink); font-weight: 600; }
+.payment-divider { height: 1px; background: var(--line); margin: 18px 0; }
+.payment-mpesa-logo-row { margin-bottom: 18px; }
+.payment-mpesa-logo-row .mpesa-logo { height: 24px; }
+.payment-support-row {
+  display: flex; align-items: center; gap: 12px;
+}
+.payment-support-row > svg { width: 16px; height: 16px; stroke: var(--orange); flex-shrink: 0; }
+.payment-support-label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+.payment-support-number { font-size: 15px; font-weight: 700; color: var(--black); text-decoration: none; }
+.payment-support-number:hover { color: var(--orange); }
 .support-number {
   display: flex; align-items: center; gap: 12px;
   background: var(--bg); border: 1px solid var(--line); border-radius: 6px;
@@ -623,32 +687,32 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   position: relative;
   overflow: hidden;
 }
-/* Bottom image background — same pattern as hero / page-hero */
+/* Left-side background image — mirrors hero pattern but on left */
 #faq::before {
   content: "";
   position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 52%;
+  top: 0; left: 0; bottom: 0;
+  width: 44%;
   background-image: url('/assets/img/faq-bg.jpg');
   background-size: cover;
-  background-position: center top;
+  background-position: center;
   pointer-events: none;
   z-index: 0;
 }
-/* Fade the image into the white section above */
+/* Fade image out to the right */
 #faq::after {
   content: "";
   position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 52%;
-  background: linear-gradient(to bottom, #ffffff 0%, rgba(255,255,255,0.6) 35%, rgba(255,255,255,0) 100%);
+  top: 0; left: 0; bottom: 0;
+  width: 44%;
+  background: linear-gradient(to left, #ffffff 0%, rgba(255,255,255,0.55) 40%, rgba(255,255,255,0) 100%);
   pointer-events: none;
   z-index: 1;
 }
 #faq .wrap { position: relative; z-index: 2; }
 @media (max-width: 860px) {
-  #faq::before { height: 60%; opacity: 0.13; }
-  #faq::after { height: 60%; background: linear-gradient(to bottom, #ffffff 0%, rgba(255,255,255,0.85) 100%); }
+  #faq::before { width: 100%; opacity: 0.15; }
+  #faq::after { width: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.88) 55%, #ffffff 100%); }
 }
 .faq-inner {
   display: grid;
@@ -789,8 +853,8 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
 .page-hero .meta strong { color: var(--ink); font-weight: 700; }
 @media (max-width: 860px) {
   .page-hero { padding: 72px 0 60px; }
-  .page-hero::before { width: 100%; opacity: 0.12; }
-  .page-hero::after { width: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.95) 60%); }
+  .page-hero::before { width: 100%; opacity: 0.18; }
+  .page-hero::after { width: 100%; background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.88) 60%); }
 }
 
 /* ============================================
@@ -898,11 +962,9 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
 
 /* Refund page — policy side */
 .refund-policy { max-width: 100%; }
-.refund-rule-block { border: 1px solid var(--line); border-radius: 6px; margin-bottom: 16px; overflow: hidden; }
-.refund-rule-head { display: flex; align-items: center; gap: 14px; padding: 14px 20px; background: var(--bg); border-bottom: 1px solid var(--line); }
-.refund-rule-label { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); flex-shrink: 0; min-width: 28px; }
-.refund-rule-title { font-size: 13px; font-weight: 700; color: var(--black); }
-.refund-rule-body { padding: 18px 20px; }
+.refund-rule-block { margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--line); }
+.refund-rule-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+.refund-rule-title { font-size: 17px; font-weight: 700; color: var(--black); text-transform: none; letter-spacing: -0.01em; margin-bottom: 14px; }
 .refund-rule-body p { font-size: 13px; color: var(--mid); line-height: 1.75; margin: 0 0 14px; }
 .refund-rule-body p:last-child { margin-bottom: 0; }
 
