@@ -142,65 +142,65 @@
 
       <!-- Form -->
       <div>
-        <div class="refund-form-card">
-          <div class="refund-form-head">
-            <h4>Submit a Refund Request</h4>
-            <p>All fields marked <span style="color:var(--orange);">*</span> are required.</p>
-          </div>
-          <div class="refund-form-body">
-            <div id="refund-success" class="refund-success-msg"><strong>Request submitted.</strong> We'll review and respond within 3 business days.</div>
-            <form id="refund-form" action="https://formspree.io/f/YOUR_REFUND_FORM_ID" method="POST">
-              <input type="hidden" name="_subject" value="Refund Request">
-              <div class="field-2">
-                <div class="field">
-                  <label>Full Name <span class="req">*</span></label>
-                  <input type="text" name="full_name" required>
-                </div>
-                <div class="field">
-                  <label>Phone <span class="req">*</span></label>
-                  <input type="tel" name="phone" required>
-                </div>
+        <div class="refund-form-natural">
+          <div class="refund-form-natural-title">Submit a refund request</div>
+          <div id="refund-success" class="refund-success-msg"><strong>Request submitted.</strong> We'll review and respond within 3 business days.</div>
+          <form id="refund-form" action="https://formspree.io/f/YOUR_REFUND_FORM_ID" method="POST">
+            <input type="hidden" name="_subject" value="Refund Request">
+
+            <div class="form-group-title">Your details</div>
+            <div class="field-2">
+              <div class="field">
+                <label>Full Name <span class="req">*</span></label>
+                <input type="text" name="full_name" required>
               </div>
               <div class="field">
-                <label>Email <span class="req">*</span></label>
-                <input type="email" name="email" required>
+                <label>Phone <span class="req">*</span></label>
+                <input type="tel" name="phone" required>
               </div>
-              <div class="divider-line"></div>
-              <div class="field-2">
-                <div class="field">
-                  <label>Order Reference <span class="req">*</span></label>
-                  <input type="text" name="order_reference" placeholder="e.g. PM-00412" required>
-                </div>
-                <div class="field">
-                  <label>Refund Type <span class="req">*</span></label>
-                  <select name="refund_type" required>
-                    <option value="">Select</option>
-                    <option>Sourcing Fee — Part Not Found</option>
-                    <option>Incorrect Part Supplied</option>
-                    <option>Part Damaged in Transit</option>
-                    <option>Part Incompatibility</option>
-                    <option>Warranty Defect</option>
-                    <option>Other</option>
-                  </select>
-                </div>
+            </div>
+            <div class="field">
+              <label>Email <span class="req">*</span></label>
+              <input type="email" name="email" required>
+            </div>
+
+            <div class="form-group-title" style="margin-top:28px;">Order &amp; refund details</div>
+            <div class="field-2">
+              <div class="field">
+                <label>Order Reference <span class="req">*</span></label>
+                <input type="text" name="order_reference" placeholder="e.g. PM-00412" required>
               </div>
               <div class="field">
-                <label>M-Pesa Number for Refund <span class="req">*</span></label>
-                <input type="tel" name="mpesa_number" placeholder="e.g. 0712 345 678" required>
+                <label>Reason <span class="req">*</span></label>
+                <select name="refund_type" required>
+                  <option value="">Select reason</option>
+                  <option>Sourcing Fee — Part Not Found</option>
+                  <option>Incorrect Part Supplied</option>
+                  <option>Part Damaged in Transit</option>
+                  <option>Part Incompatibility</option>
+                  <option>Warranty Defect</option>
+                  <option>Other</option>
+                </select>
               </div>
-              <div class="divider-line"></div>
-              <div class="field">
-                <label>Description <span class="req">*</span></label>
-                <textarea name="description" rows="4" placeholder="Describe the issue clearly — include the part name, what was expected, and what was received or experienced." required></textarea>
-              </div>
-              <div class="field">
-                <label>Supporting Evidence</label>
-                <textarea name="evidence_links" rows="2" placeholder="Paste any image links or describe attachments you can send separately."></textarea>
-              </div>
-              <button type="submit" class="submit-btn" id="submit-btn">Submit Refund Request →</button>
-              <p class="form-note">By submitting you confirm the information is accurate to the best of your knowledge. Fraudulent claims may result in account restriction.</p>
-            </form>
-          </div>
+            </div>
+            <div class="field">
+              <label>M-Pesa Number for Refund <span class="req">*</span></label>
+              <input type="tel" name="mpesa_number" placeholder="e.g. 0712 345 678" required>
+            </div>
+
+            <div class="form-group-title" style="margin-top:28px;">Tell us what happened</div>
+            <div class="field">
+              <label>Description <span class="req">*</span></label>
+              <textarea name="description" rows="4" placeholder="Include the part name, what you expected, and what you received or experienced." required></textarea>
+            </div>
+            <div class="field">
+              <label>Supporting evidence</label>
+              <textarea name="evidence_links" rows="2" placeholder="Paste image links or describe any attachments you can send separately."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submit-btn">Submit request →</button>
+            <p class="form-note">By submitting, you confirm this information is accurate. Fraudulent claims may result in account restriction.</p>
+          </form>
         </div>
       </div>
 

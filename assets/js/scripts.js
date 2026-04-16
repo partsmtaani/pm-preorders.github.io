@@ -1,4 +1,4 @@
-/* site.js — Parts Mtaani shared scripts */
+/* site.js — PartsMtaani shared scripts */
 
 // ── Hamburger nav toggle ──────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
@@ -243,7 +243,7 @@ function renderParts(vehicleId) {
     partsHtml += `<div class="part-item" id="part-item-${vehicleId}-${p}">
       <div class="part-header">
         <span class="part-title">Part ${p}</span>
-        ${partCounters[vehicleId] > 1 ? `<button type="button" class="remove-part" onclick="removePart(${vehicleId}, ${p-1})">&times;</button>` : ''}
+        ${partCounters[vehicleId] > 1 ? `<button type="button" class="remove-part" onclick="removePart(${vehicleId}, ${p-1})">Remove</button>` : ''}
       </div>
       <div class="field"><label>Part Name / Description <span class="req">*</span></label><input type="text" name="vehicle_${vehicleId}_part_${p}_name" placeholder="e.g., Front Differential Assembly" required></div>
       <div class="field-2">
@@ -275,8 +275,8 @@ function renderVehicles() {
   for (let v = 1; v <= vehicleCount; v++) {
     html += `<div class="vehicle-card" data-vehicle="${v}">
       <div class="vehicle-header" onclick="toggleVehicle(${v})">
-        <div><span class="vehicle-title">Vehicle ${v}</span><span class="vehicle-badge"> — click to expand</span></div>
-        ${v > 1 ? `<button type="button" class="remove-vehicle" onclick="event.stopPropagation(); removeVehicle(${v})">&times;</button>` : ''}
+        <div><span class="vehicle-title">Vehicle ${v}</span></div>
+        ${v > 1 ? `<button type="button" class="remove-vehicle" onclick="event.stopPropagation(); removeVehicle(${v})">Remove</button>` : ''}
       </div>
       <div class="vehicle-content" id="vehicle-content-${v}">
         <div class="field-2">
@@ -288,9 +288,9 @@ function renderVehicles() {
           <div class="field"><label>Engine Code</label><input type="text" name="vehicle_${v}_engine" placeholder="e.g., 1GR-FE"></div>
         </div>
         <div class="field"><label>VIN / Chassis (optional)</label><input type="text" name="vehicle_${v}_vin" placeholder="Helps with accurate matching"></div>
-        <div style="margin-top:16px;margin-bottom:12px;"><span style="font-size:11px;font-weight:700;text-transform:uppercase;">Parts Needed</span></div>
+        <div style="margin-top:16px;margin-bottom:12px;"><span style="font-size:12px;font-weight:600;color:#6b6b6b;">Parts needed</span></div>
         <div id="parts-${v}">${renderParts(v)}</div>
-        <button type="button" class="add-btn" onclick="addPart(${v})" style="margin-top:8px;">+ Add Part</button>
+        <button type="button" class="add-btn" onclick="addPart(${v})">+ Add another part</button>
       </div>
     </div>`;
   }

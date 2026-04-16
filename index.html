@@ -95,33 +95,33 @@
 <section id="sourcing-fee" class="fee-banner">
   <div class="wrap">
 
-      <div class="fee-header">
-        <div class="label fee-label">Transparent Pricing</div>
-        <h2>How the Sourcing Deposit Works</h2>
-      </div>
+    <div class="fee-header">
+      <div class="label fee-label">Transparent Pricing</div>
+      <h2>How the Sourcing Deposit Works</h2>
+    </div>
 
     <div class="fee-body">
 
       <div class="fee-body-left">
-        <p class="fee-intro">The <strong>30% deposit</strong> is not a service charge — it is applied in full toward your final invoice. It covers the cost of sourcing activity and reserves your place. You pay only the balance — the confirmed price minus your deposit — after we find the part and you approve it.</p>
+        <p class="fee-intro">The <strong>30% deposit</strong> is not a service charge — it is applied in full toward your final invoice. It covers the cost of sourcing activity and reserves your place. You pay the remaining 70% only after we find the part and you approve the price.</p>
 
         <div class="fee-tally">
           <div class="fee-tally-row">
             <div class="fee-tally-label">Sourcing Deposit</div>
-            <div class="fee-tally-amount">30% of estimated price</div>
-            <div class="fee-tally-note">Paid upfront — credited to final invoice</div>
+            <div class="fee-tally-amount">30% of our price estimate</div>
+            <div class="fee-tally-note">Paid upfront. Credited in full — deducted from your final invoice, not an added cost.</div>
           </div>
           <div class="fee-tally-divider"></div>
           <div class="fee-tally-row">
-            <div class="fee-tally-label">Final Balance</div>
+            <div class="fee-tally-label">Balance Payment</div>
             <div class="fee-tally-amount">Confirmed price minus deposit</div>
-            <div class="fee-tally-note">Paid after you approve — part then ships</div>
+            <div class="fee-tally-note">Once you approve the part, you top up the difference. Deposit already counts.</div>
           </div>
         </div>
 
         <div class="fee-guarantee-strip">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/><path d="M9 12l2 2l4 -4"/></svg>
-          <span>Can't find your part? <strong>Full deposit refunded within 3 days.</strong> If the confirmed price comes back more than 20% above the estimate, same rule applies.</span>
+          <span>Can't find your part? <strong>Full deposit refunded within 3 days.</strong> If the confirmed price comes back significantly above our estimate, you're not penalised — full refund applies.</span>
         </div>
       </div>
 
@@ -160,7 +160,7 @@
             </div>
             <div class="fee-step-text">
               <strong>You approve, then pay balance</strong>
-              <span>We share photos, condition grade and confirmed price. You decide. If you proceed, pay the balance — confirmed price minus your deposit — and the part ships.</span>
+              <span>We share photos, condition grade and confirmed price. You decide. If you proceed, pay the remaining balance — confirmed price minus deposit already paid — and the part ships.</span>
             </div>
           </div>
         </div>
@@ -176,51 +176,42 @@
   <div class="wrap">
     <div class="label">Submit Your Request</div>
     <h2>Place a Pre-Order</h2>
-    <p style="color:var(--muted);margin-top:10px;">Add one or multiple vehicles. For each vehicle, add the parts you need. You can upload images for each part.</p>
+    <p style="color:var(--muted);margin-top:10px;">Fill in your contact details, then add your vehicle and the parts you need. You can include images and add multiple vehicles.</p>
     <div class="form-layout">
       <div>
-        <div id="success-msg" class="success-msg"><strong>Request received!</strong> We'll contact you within 4 hours.</div>
+        <div id="success-msg" class="success-msg"><strong>Request received.</strong> We'll be in touch within 4 business hours.</div>
         <form id="preorder-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="_subject" value="Multi-Vehicle Pre-Order Request">
-          <div class="form-card">
-            <div class="step-indicator">
-              <div class="step-dot active" id="step1-dot">
-                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><circle cx="12" cy="7" r="4"/><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"/></svg>
-                Contact
+
+          <div id="step-1" class="step-container">
+            <div class="form-group-title">Your contact details</div>
+            <div class="form-body-plain">
+              <div class="field-2">
+                <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" id="full_name" name="full_name" required></div>
+                <div class="field"><label>Phone <span class="req">*</span></label><input type="tel" id="phone" name="phone" required></div>
               </div>
-              <div class="step-dot" id="step2-dot">
-                <svg class="step-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M7 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M17 17m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0"/><path d="M5 17h-2v-6l2 -5h9l4 5h1a2 2 0 0 1 2 2v4h-2m-4 0h-6m-6 -6h15m-6 0v-5"/></svg>
-                Vehicle &amp; Parts
+              <div class="field-2">
+                <div class="field"><label>Email <span class="req">*</span></label><input type="email" id="email" name="email" required></div>
+                <div class="field"><label>Delivery Location <span class="req">*</span></label><input type="text" id="location" name="delivery_location" required></div>
               </div>
-            </div>
-            <div id="step-1" class="step-container">
-              <div class="form-sec-head"><div class="form-sec-num">1</div><h4>Your Contact Details</h4></div>
-              <div class="form-body">
-                <div class="field-2">
-                  <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" id="full_name" name="full_name" required></div>
-                  <div class="field"><label>Phone <span class="req">*</span></label><input type="tel" id="phone" name="phone" required></div>
-                </div>
-                <div class="field-2">
-                  <div class="field"><label>Email <span class="req">*</span></label><input type="email" id="email" name="email" required></div>
-                  <div class="field"><label>Delivery Location <span class="req">*</span></label><input type="text" id="location" name="delivery_location" required></div>
-                </div>
-                <div style="text-align:right">
-                  <button type="button" class="btn-step" onclick="goToStep(2)">Continue →</button>
-                </div>
-              </div>
-            </div>
-            <div id="step-2" class="step-container" style="display:none">
-              <div class="form-sec-head"><div class="form-sec-num">2</div><h4>Vehicles &amp; Parts</h4></div>
-              <div class="form-body">
-                <div id="vehicles-container"></div>
-                <button type="button" class="add-btn" onclick="addVehicle()">+ Add Another Vehicle</button>
-                <div class="step-actions">
-                  <button type="button" class="btn-step-back" onclick="goToStep(1)">← Back</button>
-                  <button type="submit" class="submit-btn">Submit Pre-Order →</button>
-                </div>
+              <div class="form-step-action">
+                <button type="button" class="btn-step" onclick="goToStep(2)">Continue to vehicles &amp; parts →</button>
               </div>
             </div>
           </div>
+
+          <div id="step-2" class="step-container" style="display:none">
+            <div class="form-group-title">Vehicles &amp; parts needed</div>
+            <div class="form-body-plain">
+              <div id="vehicles-container"></div>
+              <button type="button" class="add-btn" onclick="addVehicle()">+ Add another vehicle</button>
+              <div class="step-actions">
+                <button type="button" class="btn-step-back" onclick="goToStep(1)">← Back</button>
+                <button type="submit" class="submit-btn">Submit Pre-Order →</button>
+              </div>
+            </div>
+          </div>
+
         </form>
       </div>
       <div>
@@ -328,8 +319,8 @@
 
 <div id="copy-toast">Paybill number copied</div>
 
-<script src="assets/js/uikit.min.js"></script>
-<script src="assets/js/uikit-icons.min.js"></script>
+<script src="/assets/js/uikit.min.js"></script>
+<script src="/assets/js/uikit-icons.min.js"></script>
 <script src="assets/js/scripts.js"></script>
 </body>
 </html>
