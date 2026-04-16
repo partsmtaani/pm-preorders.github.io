@@ -240,29 +240,30 @@ function renderImagePreview(vehicleId, partId) {
 function renderParts(vehicleId) {
   let partsHtml = '';
   for (let p = 1; p <= partCounters[vehicleId]; p++) {
-    partsHtml += `<div class="part-item" id="part-item-${vehicleId}-${p}">
-      <div class="part-header">
-        <span class="part-title">Part ${p}</span>
-        ${partCounters[vehicleId] > 1 ? `<button type="button" class="remove-part" onclick="removePart(${vehicleId}, ${p-1})">Remove</button>` : ''}
+    partsHtml += `<div class="az-part-item" id="part-item-${vehicleId}-${p}">
+      <div class="az-part-header">
+        <span class="az-part-label">Part ${p}</span>
+        ${partCounters[vehicleId] > 1 ? `<button type="button" class="az-remove-part" onclick="removePart(${vehicleId}, ${p-1})">Remove</button>` : ''}
       </div>
-      <div class="field"><label>Part Name / Description <span class="req">*</span></label><input type="text" name="vehicle_${vehicleId}_part_${p}_name" placeholder="e.g., Front Differential Assembly" required></div>
-      <div class="field-2">
-        <div class="field"><label>OEM Part Number</label><input type="text" name="vehicle_${vehicleId}_part_${p}_number" placeholder="e.g., 41110-60280"></div>
-        <div class="field"><label>Condition</label><select name="vehicle_${vehicleId}_part_${p}_condition"><option value="">Any</option><option>New OEM</option><option>New Aftermarket</option><option>Refurbished</option></select></div>
+      <div class="az-field">
+        <label>Part name or description <span class="req">*</span></label>
+        <input type="text" name="vehicle_${vehicleId}_part_${p}_name" placeholder="e.g. Front differential assembly" required>
       </div>
-      <div class="field-2">
-        <div class="field"><label>Budget (KSh)</label><input type="text" name="vehicle_${vehicleId}_part_${p}_budget" placeholder="e.g., 45000-60000"></div>
-        <div class="field"><label>Urgency</label><select name="vehicle_${vehicleId}_part_${p}_urgency"><option value="">Select</option><option>Urgent (ASAP)</option><option>Within 1 week</option><option>Within 2 weeks</option><option>No rush</option></select></div>
+      <div class="az-field-row">
+        <div class="az-field"><label>OEM part number</label><input type="text" name="vehicle_${vehicleId}_part_${p}_number" placeholder="e.g. 41110-60280"></div>
+        <div class="az-field"><label>Condition preference</label><select name="vehicle_${vehicleId}_part_${p}_condition"><option value="">No preference</option><option>New OEM</option><option>New Aftermarket</option><option>Used / Reconditioned</option></select></div>
       </div>
-      <div class="field"><label>Notes / Reference</label><textarea name="vehicle_${vehicleId}_part_${p}_notes" rows="2" placeholder="Any additional details..."></textarea></div>
-      <div class="part-images">
-        <div class="image-upload-zone" onclick="document.getElementById('file-input-${vehicleId}-${p}').click()">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg>
-          <p><strong>Upload reference images</strong> (JPG/PNG)</p>
-          <input type="file" id="file-input-${vehicleId}-${p}" accept="image/*" multiple style="display:none" onchange="handleImageUpload(${vehicleId}, ${p}, this)">
-        </div>
-        <div class="image-preview-row" id="preview-${vehicleId}-${p}"></div>
+      <div class="az-field-row">
+        <div class="az-field"><label>Budget (KSh)</label><input type="text" name="vehicle_${vehicleId}_part_${p}_budget" placeholder="e.g. 45,000 – 60,000"></div>
+        <div class="az-field"><label>Urgency</label><select name="vehicle_${vehicleId}_part_${p}_urgency"><option value="">Select</option><option>Urgent — ASAP</option><option>Within 1 week</option><option>Within 2 weeks</option><option>No rush</option></select></div>
       </div>
+      <div class="az-field"><label>Additional notes</label><textarea name="vehicle_${vehicleId}_part_${p}_notes" rows="2" placeholder="Any other details that might help us source the right part"></textarea></div>
+      <div class="az-upload-zone" onclick="document.getElementById('file-input-${vehicleId}-${p}').click()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        <span>Attach reference images <em>(optional, JPG/PNG)</em></span>
+        <input type="file" id="file-input-${vehicleId}-${p}" accept="image/*" multiple style="display:none" onchange="handleImageUpload(${vehicleId}, ${p}, this)">
+      </div>
+      <div class="image-preview-row" id="preview-${vehicleId}-${p}"></div>
     </div>`;
   }
   return partsHtml;
@@ -273,24 +274,27 @@ function renderVehicles() {
   if (!container) return;
   let html = '';
   for (let v = 1; v <= vehicleCount; v++) {
-    html += `<div class="vehicle-card" data-vehicle="${v}">
-      <div class="vehicle-header" onclick="toggleVehicle(${v})">
-        <div><span class="vehicle-title">Vehicle ${v}</span></div>
-        ${v > 1 ? `<button type="button" class="remove-vehicle" onclick="event.stopPropagation(); removeVehicle(${v})">Remove</button>` : ''}
+    html += `<div class="az-vehicle-block" data-vehicle="${v}">
+      <div class="az-vehicle-header" onclick="toggleVehicle(${v})">
+        <span class="az-vehicle-title">Vehicle ${v}</span>
+        ${v > 1 ? `<button type="button" class="az-remove-vehicle" onclick="event.stopPropagation(); removeVehicle(${v})">Remove</button>` : ''}
       </div>
-      <div class="vehicle-content" id="vehicle-content-${v}">
-        <div class="field-2">
-          <div class="field"><label>Make <span class="req">*</span></label><input type="text" name="vehicle_${v}_make" placeholder="e.g., Toyota" required></div>
-          <div class="field"><label>Model <span class="req">*</span></label><input type="text" name="vehicle_${v}_model" placeholder="e.g., Land Cruiser" required></div>
+      <div class="az-vehicle-body" id="vehicle-content-${v}">
+        <div class="az-field-row">
+          <div class="az-field"><label>Make <span class="req">*</span></label><input type="text" name="vehicle_${v}_make" placeholder="e.g. Toyota" required></div>
+          <div class="az-field"><label>Model <span class="req">*</span></label><input type="text" name="vehicle_${v}_model" placeholder="e.g. Land Cruiser" required></div>
         </div>
-        <div class="field-2">
-          <div class="field"><label>Year</label><input type="text" name="vehicle_${v}_year" placeholder="e.g., 2015"></div>
-          <div class="field"><label>Engine Code</label><input type="text" name="vehicle_${v}_engine" placeholder="e.g., 1GR-FE"></div>
+        <div class="az-field-row">
+          <div class="az-field"><label>Year</label><input type="text" name="vehicle_${v}_year" placeholder="e.g. 2015"></div>
+          <div class="az-field"><label>Engine code</label><input type="text" name="vehicle_${v}_engine" placeholder="e.g. 1GR-FE"></div>
         </div>
-        <div class="field"><label>VIN / Chassis (optional)</label><input type="text" name="vehicle_${v}_vin" placeholder="Helps with accurate matching"></div>
-        <div style="margin-top:16px;margin-bottom:12px;"><span style="font-size:12px;font-weight:600;color:#6b6b6b;">Parts needed</span></div>
+        <div class="az-field">
+          <label>VIN / Chassis number <span class="az-field-hint">(required — helps us match the correct part)</span></label>
+          <input type="text" name="vehicle_${v}_vin" placeholder="e.g. JTMBD31V385112345" required>
+        </div>
+        <div class="az-parts-label">Parts needed for this vehicle</div>
         <div id="parts-${v}">${renderParts(v)}</div>
-        <button type="button" class="add-btn" onclick="addPart(${v})">+ Add another part</button>
+        <button type="button" class="az-btn-add-part" onclick="addPart(${v})">+ Add another part</button>
       </div>
     </div>`;
   }

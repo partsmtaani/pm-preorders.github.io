@@ -491,11 +491,249 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 .fee-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; display: inline-block; }
 
 /* ============================================
-   HOMEPAGE — ORDER FORM
+   ORDER FORM + REFUND FORM — AutoZone-style
    ============================================ */
-/* ============================================
-   ORDER FORM — natural layout
-   ============================================ */
+
+/* ── Outer layout ── */
+.az-form-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 64px;
+  align-items: start;
+  margin-top: 40px;
+}
+@media (max-width: 960px) { .az-form-layout { grid-template-columns: 1fr; gap: 40px; } }
+
+.az-form-header { margin-bottom: 36px; }
+.az-form-header h2 { margin-bottom: 10px; }
+.az-form-header p { font-size: 15px; color: var(--mid); line-height: 1.7; }
+
+/* ── Section label ── */
+.az-form-section-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
+}
+
+/* ── Core field ── */
+.az-field {
+  margin-bottom: 22px;
+}
+.az-field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 7px;
+}
+.az-field-hint {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 13px;
+}
+.az-field input,
+.az-field select,
+.az-field textarea {
+  width: 100%;
+  padding: 11px 0;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  font-size: 15px;
+  color: var(--ink);
+  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+  background: transparent;
+  outline: none;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+}
+.az-field input:focus,
+.az-field select:focus,
+.az-field textarea:focus {
+  border-bottom-color: var(--orange);
+}
+.az-field input::placeholder,
+.az-field textarea::placeholder { color: #bbb; }
+.az-field textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
+.az-field select { cursor: pointer; }
+
+/* ── Two-column row ── */
+.az-field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+@media (max-width: 600px) { .az-field-row { grid-template-columns: 1fr; gap: 0; } }
+
+/* ── Buttons ── */
+.az-btn-continue,
+.az-btn-submit {
+  display: inline-block;
+  background: var(--orange);
+  color: #fff;
+  border: none;
+  padding: 14px 36px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+  transition: background 0.2s;
+  margin-top: 8px;
+}
+.az-btn-continue:hover,
+.az-btn-submit:hover { background: var(--orange-dark); }
+
+.az-btn-back {
+  background: transparent;
+  color: var(--mid);
+  border: none;
+  padding: 14px 0;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+  transition: color 0.2s;
+}
+.az-btn-back:hover { color: var(--ink); }
+
+.az-form-nav { margin-top: 12px; }
+.az-form-submit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+@media (max-width: 600px) {
+  .az-form-submit-row { flex-direction: column-reverse; gap: 14px; align-items: flex-start; }
+  .az-btn-submit, .az-btn-continue { width: 100%; text-align: center; }
+}
+
+/* ── Vehicle block ── */
+.az-vehicle-block {
+  border-top: 2px solid var(--ink);
+  margin-bottom: 0;
+}
+.az-vehicle-block + .az-vehicle-block { margin-top: 0; }
+.az-vehicle-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  cursor: pointer;
+}
+.az-vehicle-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+}
+.az-remove-vehicle {
+  background: none; border: none;
+  font-size: 12px; font-weight: 600;
+  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+  color: var(--muted); cursor: pointer;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 0; transition: color 0.15s;
+}
+.az-remove-vehicle:hover { color: #cc2200; }
+.az-vehicle-body { display: none; padding: 4px 0 24px; }
+.az-vehicle-body.open { display: block; }
+
+/* ── VIN hint ── */
+.az-parts-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--black);
+  margin: 24px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* ── Part item ── */
+.az-part-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.az-part-item:last-child { border-bottom: none; }
+.az-part-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+.az-part-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.az-remove-part {
+  background: none; border: none;
+  font-size: 12px; font-weight: 600;
+  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+  color: var(--muted); cursor: pointer;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 0; transition: color 0.15s;
+}
+.az-remove-part:hover { color: #cc2200; }
+
+/* ── Add buttons ── */
+.az-btn-add-vehicle,
+.az-btn-add-part {
+  background: none; border: none;
+  color: var(--orange); cursor: pointer;
+  font-size: 13px; font-weight: 600;
+  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+  padding: 12px 0;
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+}
+.az-btn-add-vehicle:hover,
+.az-btn-add-part:hover { border-bottom-color: var(--orange); }
+.az-btn-add-vehicle { margin-top: 16px; }
+
+/* ── Upload zone ── */
+.az-upload-zone {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 13px;
+  border-top: 1px dashed var(--line);
+  margin-top: 4px;
+  transition: color 0.15s;
+}
+.az-upload-zone:hover { color: var(--orange); }
+.az-upload-zone svg { flex-shrink: 0; stroke: currentColor; }
+.az-upload-zone em { font-style: normal; color: var(--muted); }
+
+/* ── Refund form specific ── */
+.az-refund-form-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--black);
+  text-transform: none;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.az-refund-form-intro {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 28px;
+}
+
+/* ── Keep old field/form-layout for compatibility ── */
 .form-layout {
   display: grid;
   grid-template-columns: 1fr 360px;
@@ -504,29 +742,15 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   margin-top: 32px;
 }
 @media (max-width: 980px) { .form-layout { grid-template-columns: 1fr; } }
-
-/* Natural group title — like a document heading */
 .form-group-title {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--muted);
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--line);
-  margin-bottom: 20px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); padding-bottom: 10px; border-bottom: 1px solid var(--line); margin-bottom: 20px;
 }
-
 .form-body-plain { }
 .form-step-action { display: flex; justify-content: flex-end; margin-top: 8px; }
-
 .step-container { }
-
-/* Keep step-dot for JS state, visually hidden */
 .step-indicator { display: none; }
 .step-dot { display: none; }
-.step-dot.active, .step-dot.completed { display: none; }
-.step-icon { display: none; }
 .form-sec-head { display: none; }
 .form-sec-num { display: none; }
 .form-body { padding: 24px; }

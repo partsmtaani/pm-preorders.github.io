@@ -174,41 +174,52 @@
 <!-- ORDER FORM -->
 <section id="order-form" class="section section-alt">
   <div class="wrap">
-    <div class="label">Submit Your Request</div>
-    <h2>Place a Pre-Order</h2>
-    <p style="color:var(--muted);margin-top:10px;">Fill in your contact details, then add your vehicle and the parts you need. You can include images and add multiple vehicles.</p>
-    <div class="form-layout">
-      <div>
+    <div class="az-form-header">
+      <h2>Place a Pre-Order</h2>
+      <p>Fill in your details below. We will confirm receipt and send you a sourcing estimate within 24 hours. Fields marked <span class="req">*</span> are required.</p>
+    </div>
+    <div class="az-form-layout">
+      <div class="az-form-main">
         <div id="success-msg" class="success-msg"><strong>Request received.</strong> We'll be in touch within 4 business hours.</div>
         <form id="preorder-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data">
-          <input type="hidden" name="_subject" value="Multi-Vehicle Pre-Order Request">
+          <input type="hidden" name="_subject" value="Pre-Order Request">
 
           <div id="step-1" class="step-container">
-            <div class="form-group-title">Your contact details</div>
-            <div class="form-body-plain">
-              <div class="field-2">
-                <div class="field"><label>Full Name <span class="req">*</span></label><input type="text" id="full_name" name="full_name" required></div>
-                <div class="field"><label>Phone <span class="req">*</span></label><input type="tel" id="phone" name="phone" required></div>
+            <div class="az-form-section-label">Your details</div>
+
+            <div class="az-field-row">
+              <div class="az-field">
+                <label for="full_name">Full Name <span class="req">*</span></label>
+                <input type="text" id="full_name" name="full_name" required>
               </div>
-              <div class="field-2">
-                <div class="field"><label>Email <span class="req">*</span></label><input type="email" id="email" name="email" required></div>
-                <div class="field"><label>Delivery Location <span class="req">*</span></label><input type="text" id="location" name="delivery_location" required></div>
+              <div class="az-field">
+                <label for="phone">Phone (WhatsApp preferred) <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" required>
               </div>
-              <div class="form-step-action">
-                <button type="button" class="btn-step" onclick="goToStep(2)">Continue to vehicles &amp; parts →</button>
+            </div>
+            <div class="az-field-row">
+              <div class="az-field">
+                <label for="email">Email Address <span class="req">*</span></label>
+                <input type="email" id="email" name="email" required>
               </div>
+              <div class="az-field">
+                <label for="location">Delivery Location <span class="req">*</span></label>
+                <input type="text" id="location" name="delivery_location" placeholder="Town or area in Kenya" required>
+              </div>
+            </div>
+
+            <div class="az-form-nav">
+              <button type="button" class="az-btn-continue" onclick="goToStep(2)">Next — Add vehicles &amp; parts</button>
             </div>
           </div>
 
           <div id="step-2" class="step-container" style="display:none">
-            <div class="form-group-title">Vehicles &amp; parts needed</div>
-            <div class="form-body-plain">
-              <div id="vehicles-container"></div>
-              <button type="button" class="add-btn" onclick="addVehicle()">+ Add another vehicle</button>
-              <div class="step-actions">
-                <button type="button" class="btn-step-back" onclick="goToStep(1)">← Back</button>
-                <button type="submit" class="submit-btn">Submit Pre-Order →</button>
-              </div>
+            <div class="az-form-section-label">Vehicles &amp; parts</div>
+            <div id="vehicles-container"></div>
+            <button type="button" class="az-btn-add-vehicle" onclick="addVehicle()">+ Add another vehicle</button>
+            <div class="az-form-submit-row">
+              <button type="button" class="az-btn-back" onclick="goToStep(1)">← Back</button>
+              <button type="submit" class="az-btn-submit">Submit pre-order</button>
             </div>
           </div>
 
