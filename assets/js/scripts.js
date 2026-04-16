@@ -1,4 +1,4 @@
-/* site.js — PartsMtaani shared scripts */
+/* site.js — Parts Mtaani shared scripts */
 
 // ── Hamburger nav toggle ──────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
