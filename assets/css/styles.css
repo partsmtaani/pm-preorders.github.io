@@ -491,109 +491,82 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 .fee-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; display: inline-block; }
 
 /* ============================================
-/* ============================================
-   ORDER FORM + REFUND FORM — AutoZone field style
+   ORDER FORM + REFUND FORM — AutoZone-style
    ============================================ */
 
-/* ── Page layout ── */
+/* ── Outer layout ── */
 .az-form-layout {
   display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 72px;
+  grid-template-columns: 1fr 320px;
+  gap: 64px;
   align-items: start;
   margin-top: 40px;
 }
 @media (max-width: 960px) { .az-form-layout { grid-template-columns: 1fr; gap: 40px; } }
-.az-form-main { min-width: 0; }
-.az-form-header { margin-bottom: 40px; }
+
+.az-form-header { margin-bottom: 36px; }
 .az-form-header h2 { margin-bottom: 10px; }
-.az-form-header p { font-size: 15px; color: var(--mid); line-height: 1.65; }
+.az-form-header p { font-size: 15px; color: var(--mid); line-height: 1.7; }
 
 /* ── Section label ── */
 .az-form-section-label {
-  font-size: 10px;
+  font-size: 13px;
   font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 8px;
+  color: var(--black);
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--ink);
 }
 
-/* ── AutoZone-style floating label field ── */
-.az-field-wrap {
-  position: relative;
-  margin-bottom: 24px;
+/* ── Core field ── */
+.az-field {
+  margin-bottom: 22px;
 }
-
-/* The label floats above when field has content or focus */
-.az-field-wrap label {
-  position: absolute;
-  top: 18px;
-  left: 0;
-  font-size: 15px;
-  font-weight: 400;
-  color: #6e6e6e;
-  pointer-events: none;
-  transform-origin: top left;
-  transition: transform 0.15s cubic-bezier(0.4,0,0.2,1),
-              font-size 0.15s cubic-bezier(0.4,0,0.2,1),
-              color 0.15s cubic-bezier(0.4,0,0.2,1);
-  font-family: 'BDOGrotesk', 'Inter', sans-serif;
-}
-
-/* Label floated state — via JS class .az-has-value or :focus-within */
-.az-field-wrap:focus-within label,
-.az-field-wrap.az-has-value label {
-  transform: translateY(-14px) scale(0.78);
-  color: var(--muted);
-  font-size: 15px;
-}
-
-.az-field-wrap:focus-within label {
-  color: var(--orange);
-}
-
-/* The input/select/textarea itself */
-.az-field-wrap input,
-.az-field-wrap select,
-.az-field-wrap textarea {
-  width: 100%;
-  padding: 20px 0 6px;
-  border: none;
-  border-bottom: 1px solid #a9aaa8;
-  background: transparent;
-  font-size: 15px;
-  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+.az-field label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--ink);
-  outline: none;
+  margin-bottom: 7px;
+}
+.az-field-hint {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 13px;
+}
+.az-field input,
+.az-field select,
+.az-field textarea {
+  width: 100%;
+  padding: 11px 0;
+  border: none;
+  border-bottom: 1px solid var(--line);
   border-radius: 0;
+  font-size: 15px;
+  color: var(--ink);
+  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+  background: transparent;
+  outline: none;
+  transition: border-color 0.15s;
   -webkit-appearance: none;
-  line-height: 1.4;
-  transition: border-bottom-color 0.2s;
 }
-.az-field-wrap input:focus,
-.az-field-wrap select:focus,
-.az-field-wrap textarea:focus {
-  border-bottom: 2px solid #202124;
-  margin-bottom: -1px;
+.az-field input:focus,
+.az-field select:focus,
+.az-field textarea:focus {
+  border-bottom-color: var(--orange);
 }
-.az-field-wrap textarea {
-  resize: none;
-  min-height: 96px;
-  padding-top: 22px;
-  line-height: 1.6;
-}
-.az-field-wrap select { cursor: pointer; }
-.az-field-wrap input::placeholder { color: transparent; }
-.az-field-wrap .az-req { color: var(--orange); }
+.az-field input::placeholder,
+.az-field textarea::placeholder { color: #bbb; }
+.az-field textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
+.az-field select { cursor: pointer; }
 
-/* Two-column row */
+/* ── Two-column row ── */
 .az-field-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  gap: 28px;
 }
-@media (max-width: 600px) { .az-field-row { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { .az-field-row { grid-template-columns: 1fr; gap: 0; } }
 
 /* ── Buttons ── */
 .az-btn-continue,
@@ -602,7 +575,7 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   background: var(--orange);
   color: #fff;
   border: none;
-  padding: 17px 36px;
+  padding: 14px 36px;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.05em;
@@ -610,31 +583,36 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   cursor: pointer;
   font-family: 'BDOGrotesk', 'Inter', sans-serif;
   transition: background 0.2s;
-  margin-top: 20px;
-  border-radius: 2px;
+  margin-top: 8px;
 }
 .az-btn-continue:hover,
 .az-btn-submit:hover { background: var(--orange-dark); }
-.az-btn-submit { display: block; width: 100%; margin-top: 28px; text-align: center; }
 
 .az-btn-back {
-  background: transparent; border: none;
-  color: var(--mid); padding: 17px 0;
-  font-size: 13px; font-weight: 600;
-  cursor: pointer; font-family: 'BDOGrotesk','Inter',sans-serif;
-  transition: color 0.2s; text-transform: uppercase; letter-spacing: 0.04em;
+  background: transparent;
+  color: var(--mid);
+  border: none;
+  padding: 14px 0;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+  transition: color 0.2s;
 }
 .az-btn-back:hover { color: var(--ink); }
 
-.az-form-nav { margin-top: 4px; }
+.az-form-nav { margin-top: 12px; }
 .az-form-submit-row {
-  display: flex; align-items: center; justify-content: space-between;
-  margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
 }
 @media (max-width: 600px) {
-  .az-form-submit-row { flex-direction: column-reverse; gap: 12px; align-items: flex-start; }
-  .az-btn-submit { width: 100%; }
-  .az-btn-continue { width: 100%; text-align: center; }
+  .az-form-submit-row { flex-direction: column-reverse; gap: 14px; align-items: flex-start; }
+  .az-btn-submit, .az-btn-continue { width: 100%; text-align: center; }
 }
 
 /* ── Vehicle block ── */
@@ -642,56 +620,81 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   border-top: 2px solid var(--ink);
   margin-bottom: 0;
 }
+.az-vehicle-block + .az-vehicle-block { margin-top: 0; }
 .az-vehicle-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 0; cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  cursor: pointer;
 }
-.az-vehicle-title { font-size: 14px; font-weight: 700; color: var(--black); }
+.az-vehicle-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--black);
+}
 .az-remove-vehicle {
   background: none; border: none;
-  font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  font-family: 'BDOGrotesk','Inter',sans-serif;
-  color: var(--muted); cursor: pointer; padding: 0; transition: color 0.15s;
+  font-size: 12px; font-weight: 600;
+  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+  color: var(--muted); cursor: pointer;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 0; transition: color 0.15s;
 }
-.az-remove-vehicle:hover { color: #b30000; }
-.az-vehicle-body { display: none; padding: 4px 0 28px; }
+.az-remove-vehicle:hover { color: #cc2200; }
+.az-vehicle-body { display: none; padding: 4px 0 24px; }
 .az-vehicle-body.open { display: block; }
 
-/* VIN field note */
-.az-field-hint { font-size: 11px; font-weight: 400; color: var(--muted); }
-
-/* Parts sub-label */
+/* ── VIN hint ── */
 .az-parts-label {
-  font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--muted); margin: 28px 0 4px; padding-bottom: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--black);
+  margin: 24px 0 16px;
+  padding-bottom: 8px;
   border-bottom: 1px solid var(--line);
 }
 
 /* ── Part item ── */
-.az-part-item { padding: 20px 0; border-bottom: 1px solid var(--line); }
+.az-part-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
 .az-part-item:last-child { border-bottom: none; }
 .az-part-header {
-  display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
 }
 .az-part-label {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
   color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
 }
 .az-remove-part {
-  background: none; border: none; font-size: 11px; font-weight: 700;
-  letter-spacing: 0.06em; text-transform: uppercase;
-  font-family: 'BDOGrotesk','Inter',sans-serif;
-  color: var(--muted); cursor: pointer; padding: 0; transition: color 0.15s;
+  background: none; border: none;
+  font-size: 12px; font-weight: 600;
+  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+  color: var(--muted); cursor: pointer;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 0; transition: color 0.15s;
 }
-.az-remove-part:hover { color: #b30000; }
+.az-remove-part:hover { color: #cc2200; }
 
 /* ── Add buttons ── */
 .az-btn-add-vehicle,
 .az-btn-add-part {
-  background: none; border: none; color: var(--orange);
-  font-size: 13px; font-weight: 600; font-family: 'BDOGrotesk','Inter',sans-serif;
-  padding: 12px 0; cursor: pointer; display: inline-block;
-  border-bottom: 1px solid transparent; transition: border-color 0.15s;
+  background: none; border: none;
+  color: var(--orange); cursor: pointer;
+  font-size: 13px; font-weight: 600;
+  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+  padding: 12px 0;
+  display: inline-block;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
 }
 .az-btn-add-vehicle:hover,
 .az-btn-add-part:hover { border-bottom-color: var(--orange); }
@@ -699,34 +702,50 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 
 /* ── Upload zone ── */
 .az-upload-zone {
-  display: flex; align-items: center; gap: 10px;
-  padding: 8px 0; cursor: pointer; color: var(--muted);
-  font-size: 13px; border-top: 1px dashed var(--line); margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 13px;
+  border-top: 1px dashed var(--line);
+  margin-top: 4px;
   transition: color 0.15s;
 }
 .az-upload-zone:hover { color: var(--orange); }
 .az-upload-zone svg { flex-shrink: 0; stroke: currentColor; }
-.az-upload-zone em { font-style: normal; }
-
-/* ── Char counter (textarea) ── */
-.az-char-count {
-  font-size: 11px; color: var(--muted); text-align: right;
-  margin-top: 4px; display: block;
-}
+.az-upload-zone em { font-style: normal; color: var(--muted); }
 
 /* ── Refund form specific ── */
 .az-refund-form-title {
-  font-size: 20px; font-weight: 700; color: var(--black);
-  text-transform: none; letter-spacing: -0.01em; margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--black);
+  text-transform: none;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
 }
 .az-refund-form-intro {
-  font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 32px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-bottom: 28px;
 }
 
-/* ── Compat stubs ── */
-.form-layout { display: grid; grid-template-columns: 1fr 360px; gap: 48px; align-items: start; margin-top: 32px; }
+/* ── Keep old field/form-layout for compatibility ── */
+.form-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 48px;
+  align-items: start;
+  margin-top: 32px;
+}
 @media (max-width: 980px) { .form-layout { grid-template-columns: 1fr; } }
-.form-group-title { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding-bottom: 10px; border-bottom: 1px solid var(--line); margin-bottom: 20px; }
+.form-group-title {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); padding-bottom: 10px; border-bottom: 1px solid var(--line); margin-bottom: 20px;
+}
 .form-body-plain { }
 .form-step-action { display: flex; justify-content: flex-end; margin-top: 8px; }
 .step-container { }
@@ -734,26 +753,165 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 .step-dot { display: none; }
 .form-sec-head { display: none; }
 .form-sec-num { display: none; }
-.form-body { padding: 0; }
+.form-body { padding: 24px; }
+.btn-step {
+  background: var(--orange); color: #fff; border: none;
+  padding: 12px 28px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  border-radius: 2px; cursor: pointer; transition: background 0.2s;
+  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+}
+.btn-step:hover { background: var(--orange-dark); }
+.btn-step-back {
+  background: transparent; color: var(--mid);
+  border: 1px solid var(--line);
+  padding: 12px 20px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  border-radius: 2px; cursor: pointer; transition: all 0.2s;
+  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+}
+.btn-step-back:hover { border-color: var(--mid); color: var(--ink); }
+.step-actions {
+  display: flex; gap: 12px; align-items: center;
+  justify-content: space-between;
+  margin-top: 24px; padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+@media (max-width: 600px) {
+  .step-actions { flex-direction: column; }
+  .step-actions .submit-btn, .step-actions .btn-step-back { width: 100%; text-align: center; }
+}
+.vehicle-card { border: 1px solid var(--line); margin-bottom: 12px; }
+.vehicle-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px; background: var(--bg); cursor: pointer; transition: background 0.15s;
+}
+.vehicle-header:hover { background: #eeeeec; }
+.vehicle-title { font-size: 13px; font-weight: 700; color: var(--black); }
+.vehicle-badge { font-size: 12px; color: var(--muted); font-weight: 400; }
+.remove-vehicle {
+  background: none; border: none;
+  cursor: pointer; color: var(--muted); font-size: 11px;
+  font-family: 'BDOGrotesk','Inter',sans-serif; font-weight: 600;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 2px 0; flex-shrink: 0; transition: color 0.15s;
+}
+.remove-vehicle:hover { color: #cc2200; }
+.vehicle-content { display: none; padding: 24px 20px; border-top: 1px solid var(--line); }
+.vehicle-content.open { display: block; }
+.part-item { background: var(--bg); border-top: 1px solid var(--line); padding: 16px; margin-bottom: 0; }
+.part-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.part-title { font-size: 12px; font-weight: 600; color: var(--muted); }
+.remove-part { background: none; border: none; cursor: pointer; color: var(--muted); font-size: 11px; font-weight: 600; font-family: 'BDOGrotesk','Inter',sans-serif; letter-spacing: 0.04em; text-transform: uppercase; padding: 0; transition: color 0.15s; }
+.remove-part:hover { color: #cc2200; }
+.add-btn {
+  background: none; color: var(--orange);
+  border: none; border-bottom: 1px solid transparent;
+  padding: 10px 0;
+  font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: border-color 0.15s;
+  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+  display: inline-block; margin-top: 4px;
+}
+.add-btn:hover { border-bottom-color: var(--orange); }
+.image-upload-zone {
+  border: 1px dashed var(--line);
+  padding: 14px 18px; text-align: center; cursor: pointer;
+  transition: border-color 0.2s; margin-top: 10px;
+}
+.image-upload-zone:hover { border-color: var(--orange); }
+.image-upload-zone svg { width: 22px; height: 22px; stroke: var(--muted); margin-bottom: 6px; }
+.image-upload-zone p { font-size: 12px; color: var(--muted); margin: 0; }
+.image-preview-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.preview-img { position: relative; width: 64px; height: 64px; overflow: hidden; border: 1px solid var(--line); }
+.preview-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.delete-img {
+  position: absolute; top: 2px; right: 2px;
+  background: rgba(0,0,0,0.55); color: #fff; border: none;
+  width: 18px; height: 18px; border-radius: 50%;
+  font-size: 12px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
 
-/* Success / error messages */
+/* ── Payment aside (natural layout) ── */
+.payment-aside {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 28px;
+}
+.payment-aside-title {
+  font-size: 15px; font-weight: 700; color: var(--black);
+  margin-bottom: 8px;
+}
+.payment-aside-desc {
+  font-size: 13px; color: var(--muted); line-height: 1.65;
+  margin-bottom: 22px;
+}
+.payment-paybill {
+  display: flex; align-items: center; justify-content: space-between;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 14px 16px;
+  cursor: pointer; transition: border-color 0.2s;
+  margin-bottom: 14px;
+}
+.payment-paybill:hover { border-color: var(--orange); }
+.payment-paybill-inner {}
+.payment-paybill-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 3px; }
+.payment-paybill-value { font-size: 24px; font-weight: 800; color: var(--black); letter-spacing: 0.04em; line-height: 1; }
+.paybill-copy-btn {
+  background: none; border: none; cursor: pointer;
+  color: var(--muted); padding: 4px;
+  display: flex; align-items: center;
+}
+.paybill-copy-btn svg { width: 18px; height: 18px; }
+.payment-account-natural {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; margin-bottom: 20px; padding: 0 2px;
+}
+.payment-account-key { color: var(--muted); font-weight: 600; }
+.payment-account-val { color: var(--ink); font-weight: 600; }
+.payment-divider { height: 1px; background: var(--line); margin: 18px 0; }
+.payment-mpesa-logo-row { margin-bottom: 18px; }
+.payment-mpesa-logo-row .mpesa-logo { height: 24px; }
+.payment-support-row {
+  display: flex; align-items: center; gap: 12px;
+}
+.payment-support-row > svg { width: 16px; height: 16px; stroke: var(--orange); flex-shrink: 0; }
+.payment-support-label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+.payment-support-number { font-size: 15px; font-weight: 700; color: var(--black); text-decoration: none; }
+.payment-support-number:hover { color: var(--orange); }
+.support-number {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 6px;
+  padding: 10px 14px; margin-top: 10px;
+}
+.support-number-icon { width: 30px; height: 30px; background: var(--white); border: 1px solid var(--line); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.support-number-icon svg { width: 14px; height: 14px; stroke: var(--orange); }
+.label-small { display: block; font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+.support-number-text a { font-size: 14px; font-weight: 700; color: var(--ink); text-decoration: none; }
+.support-number-text a:hover { color: var(--orange); }
+
+/* Toast */
+#copy-toast {
+  display: none;
+  position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+  background: var(--black); color: #fff;
+  padding: 10px 20px; border-radius: 20px;
+  font-size: 13px; font-weight: 600;
+  z-index: 9999; pointer-events: none;
+}
+
+/* Success message */
 .success-msg {
   display: none;
   background: #f0fbf7;
   border-left: 3px solid var(--success);
   padding: 12px 16px;
   font-size: 14px; color: var(--success);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
-.refund-success-msg {
-  display: none;
-  background: #f0fbf7;
-  border-left: 3px solid var(--success);
-  padding: 12px 16px;
-  margin-bottom: 20px;
-  font-size: 13px; color: var(--success);
-}
-.form-note { font-size: 12px; color: var(--muted); line-height: 1.65; margin-top: 16px; }
 
 /* ============================================
    HOMEPAGE — FAQ

@@ -185,26 +185,29 @@
           <input type="hidden" name="_subject" value="Pre-Order Request">
 
           <div id="step-1" class="step-container">
+            <div class="az-form-section-label">Your details</div>
+
             <div class="az-field-row">
-              <div class="az-field-wrap">
-                <label for="full_name">Full Name <span class="az-req">*</span></label>
-                <input type="text" id="full_name" name="full_name" required oninput="azFieldCheck(this)">
+              <div class="az-field">
+                <label for="full_name">Full Name <span class="req">*</span></label>
+                <input type="text" id="full_name" name="full_name" required>
               </div>
-              <div class="az-field-wrap">
-                <label for="phone">Phone (WhatsApp) <span class="az-req">*</span></label>
-                <input type="tel" id="phone" name="phone" required oninput="azFieldCheck(this)">
+              <div class="az-field">
+                <label for="phone">Phone (WhatsApp preferred) <span class="req">*</span></label>
+                <input type="tel" id="phone" name="phone" required>
               </div>
             </div>
             <div class="az-field-row">
-              <div class="az-field-wrap">
-                <label for="email">Email Address <span class="az-req">*</span></label>
-                <input type="email" id="email" name="email" required oninput="azFieldCheck(this)">
+              <div class="az-field">
+                <label for="email">Email Address <span class="req">*</span></label>
+                <input type="email" id="email" name="email" required>
               </div>
-              <div class="az-field-wrap">
-                <label for="location">Delivery Location <span class="az-req">*</span></label>
-                <input type="text" id="location" name="delivery_location" required oninput="azFieldCheck(this)">
+              <div class="az-field">
+                <label for="location">Delivery Location <span class="req">*</span></label>
+                <input type="text" id="location" name="delivery_location" placeholder="Town or area in Kenya" required>
               </div>
             </div>
+
             <div class="az-form-nav">
               <button type="button" class="az-btn-continue" onclick="goToStep(2)">Next — Add vehicles &amp; parts</button>
             </div>
