@@ -27,7 +27,7 @@
     </a>
     <ul class="nav-links" id="nav-links">
       <li><a href="https://prelaunch.partsmtaani.com" target="_blank" rel="noopener">Visit Marketplace<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><line x1="17" y1="7" x2="7" y2="17"/><polyline points="8 7 17 7 17 16"/></svg></a></li>
-      <li><a href="/#sourcing-fee">Deposit &amp; Fees</a></li>
+      <li><a href="/#sourcing-fee">Sourcing Fee</a></li>
       <li><a href="/#faq">FAQs</a></li>
       <li><a href="/#order-form" class="btn-nav">Order Now</a></li>
     </ul>
@@ -142,60 +142,66 @@
 
       <!-- Form -->
       <div>
-        <h3 class="az-refund-form-title">Submit a refund request</h3>
-        <p class="az-refund-form-intro">Fill in the form below and we will respond within 3 business days. Fields marked <span class="req">*</span> are required.</p>
-        <div id="refund-success" class="refund-success-msg"><strong>Request submitted.</strong> We'll review and respond within 3 business days.</div>
-        <form id="refund-form" action="https://formspree.io/f/YOUR_REFUND_FORM_ID" method="POST">
-          <input type="hidden" name="_subject" value="Refund Request">
+        <div class="refund-form-natural">
+          <div class="refund-form-natural-title">Submit a refund request</div>
+          <div id="refund-success" class="refund-success-msg"><strong>Request submitted.</strong> We'll review and respond within 3 business days.</div>
+          <form id="refund-form" action="https://formspree.io/f/YOUR_REFUND_FORM_ID" method="POST">
+            <input type="hidden" name="_subject" value="Refund Request">
 
-          <div class="az-field-row">
-            <div class="az-field">
-              <label for="rf_name">Full Name <span class="req">*</span></label>
-              <input type="text" id="rf_name" name="full_name" required>
+            <div class="form-group-title">Your details</div>
+            <div class="field-2">
+              <div class="field">
+                <label>Full Name <span class="req">*</span></label>
+                <input type="text" name="full_name" required>
+              </div>
+              <div class="field">
+                <label>Phone <span class="req">*</span></label>
+                <input type="tel" name="phone" required>
+              </div>
             </div>
-            <div class="az-field">
-              <label for="rf_phone">Phone <span class="req">*</span></label>
-              <input type="tel" id="rf_phone" name="phone" required>
+            <div class="field">
+              <label>Email <span class="req">*</span></label>
+              <input type="email" name="email" required>
             </div>
-          </div>
-          <div class="az-field">
-            <label for="rf_email">Email Address <span class="req">*</span></label>
-            <input type="email" id="rf_email" name="email" required>
-          </div>
-          <div class="az-field-row">
-            <div class="az-field">
-              <label for="rf_ref">Order Reference <span class="req">*</span></label>
-              <input type="text" id="rf_ref" name="order_reference" placeholder="e.g. PM-00412" required>
-            </div>
-            <div class="az-field">
-              <label for="rf_type">Reason for refund <span class="req">*</span></label>
-              <select id="rf_type" name="refund_type" required>
-                <option value="">Select</option>
-                <option>Sourcing Deposit — Part Not Found</option>
-                <option>Incorrect Part Supplied</option>
-                <option>Part Damaged in Transit</option>
-                <option>Part Incompatibility</option>
-                <option>Warranty Defect</option>
-                <option>Other</option>
-              </select>
-            </div>
-          </div>
-          <div class="az-field">
-            <label for="rf_mpesa">M-Pesa number to receive refund <span class="req">*</span></label>
-            <input type="tel" id="rf_mpesa" name="mpesa_number" placeholder="e.g. 0712 345 678" required>
-          </div>
-          <div class="az-field">
-            <label for="rf_desc">Describe the issue <span class="req">*</span></label>
-            <textarea id="rf_desc" name="description" rows="5" placeholder="Include the part name, what you expected, and what you received or experienced." required></textarea>
-          </div>
-          <div class="az-field">
-            <label for="rf_evidence">Supporting evidence <span class="az-field-hint">(optional)</span></label>
-            <textarea id="rf_evidence" name="evidence_links" rows="2" placeholder="Paste image links, or describe any photos or documents you can send by email."></textarea>
-          </div>
 
-          <button type="submit" class="az-btn-submit" id="submit-btn">Submit refund request</button>
-          <p class="form-note">By submitting this form you confirm the information provided is accurate. Fraudulent claims may result in account suspension.</p>
-        </form>
+            <div class="form-group-title" style="margin-top:28px;">Order &amp; refund details</div>
+            <div class="field-2">
+              <div class="field">
+                <label>Order Reference <span class="req">*</span></label>
+                <input type="text" name="order_reference" placeholder="e.g. PM-00412" required>
+              </div>
+              <div class="field">
+                <label>Reason <span class="req">*</span></label>
+                <select name="refund_type" required>
+                  <option value="">Select reason</option>
+                  <option>Sourcing Fee — Part Not Found</option>
+                  <option>Incorrect Part Supplied</option>
+                  <option>Part Damaged in Transit</option>
+                  <option>Part Incompatibility</option>
+                  <option>Warranty Defect</option>
+                  <option>Other</option>
+                </select>
+              </div>
+            </div>
+            <div class="field">
+              <label>M-Pesa Number for Refund <span class="req">*</span></label>
+              <input type="tel" name="mpesa_number" placeholder="e.g. 0712 345 678" required>
+            </div>
+
+            <div class="form-group-title" style="margin-top:28px;">Tell us what happened</div>
+            <div class="field">
+              <label>Description <span class="req">*</span></label>
+              <textarea name="description" rows="4" placeholder="Include the part name, what you expected, and what you received or experienced." required></textarea>
+            </div>
+            <div class="field">
+              <label>Supporting evidence</label>
+              <textarea name="evidence_links" rows="2" placeholder="Paste image links or describe any attachments you can send separately."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn" id="submit-btn">Submit request →</button>
+            <p class="form-note">By submitting, you confirm this information is accurate. Fraudulent claims may result in account restriction.</p>
+          </form>
+        </div>
       </div>
 
     </div>
