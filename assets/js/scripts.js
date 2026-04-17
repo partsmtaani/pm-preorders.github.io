@@ -1,5 +1,24 @@
 /* site.js — PartsMtaani shared scripts */
 
+// ── AutoZone floating label helper ─────────────────────────────
+function azFieldCheck(el) {
+  const wrap = el.closest('.az-field-wrap');
+  if (!wrap) return;
+  if (el.value && el.value !== '') {
+    wrap.classList.add('az-has-value');
+  } else {
+    wrap.classList.remove('az-has-value');
+  }
+}
+
+// Also run on page load for any pre-filled fields and selects
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.az-field-wrap input, .az-field-wrap select, .az-field-wrap textarea').forEach(el => {
+    azFieldCheck(el);
+    el.addEventListener('change', function() { azFieldCheck(this); });
+  });
+});
+
 // ── Hamburger nav toggle ──────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
   const hamburger = document.querySelector('.nav-hamburger');
@@ -245,19 +264,45 @@ function renderParts(vehicleId) {
         <span class="az-part-label">Part ${p}</span>
         ${partCounters[vehicleId] > 1 ? `<button type="button" class="az-remove-part" onclick="removePart(${vehicleId}, ${p-1})">Remove</button>` : ''}
       </div>
-      <div class="az-field">
-        <label>Part name or description <span class="req">*</span></label>
-        <input type="text" name="vehicle_${vehicleId}_part_${p}_name" placeholder="e.g. Front differential assembly" required>
+      <div class="az-field-wrap">
+        <label>Part name or description <span class="az-req">*</span></label>
+        <input type="text" name="vehicle_${vehicleId}_part_${p}_name" required oninput="azFieldCheck(this)">
       </div>
       <div class="az-field-row">
-        <div class="az-field"><label>OEM part number</label><input type="text" name="vehicle_${vehicleId}_part_${p}_number" placeholder="e.g. 41110-60280"></div>
-        <div class="az-field"><label>Condition preference</label><select name="vehicle_${vehicleId}_part_${p}_condition"><option value="">No preference</option><option>New OEM</option><option>New Aftermarket</option><option>Used / Reconditioned</option></select></div>
+        <div class="az-field-wrap">
+          <label>OEM part number</label>
+          <input type="text" name="vehicle_${vehicleId}_part_${p}_number" oninput="azFieldCheck(this)">
+        </div>
+        <div class="az-field-wrap az-has-value">
+          <label>Condition preference</label>
+          <select name="vehicle_${vehicleId}_part_${p}_condition" onchange="azFieldCheck(this)">
+            <option value="">No preference</option>
+            <option>New OEM</option>
+            <option>New Aftermarket</option>
+            <option>Used / Reconditioned</option>
+          </select>
+        </div>
       </div>
       <div class="az-field-row">
-        <div class="az-field"><label>Budget (KSh)</label><input type="text" name="vehicle_${vehicleId}_part_${p}_budget" placeholder="e.g. 45,000 – 60,000"></div>
-        <div class="az-field"><label>Urgency</label><select name="vehicle_${vehicleId}_part_${p}_urgency"><option value="">Select</option><option>Urgent — ASAP</option><option>Within 1 week</option><option>Within 2 weeks</option><option>No rush</option></select></div>
+        <div class="az-field-wrap">
+          <label>Budget (KSh)</label>
+          <input type="text" name="vehicle_${vehicleId}_part_${p}_budget" oninput="azFieldCheck(this)">
+        </div>
+        <div class="az-field-wrap az-has-value">
+          <label>Urgency</label>
+          <select name="vehicle_${vehicleId}_part_${p}_urgency" onchange="azFieldCheck(this)">
+            <option value="">Select</option>
+            <option>Urgent — ASAP</option>
+            <option>Within 1 week</option>
+            <option>Within 2 weeks</option>
+            <option>No rush</option>
+          </select>
+        </div>
       </div>
-      <div class="az-field"><label>Additional notes</label><textarea name="vehicle_${vehicleId}_part_${p}_notes" rows="2" placeholder="Any other details that might help us source the right part"></textarea></div>
+      <div class="az-field-wrap">
+        <label>Additional notes</label>
+        <textarea name="vehicle_${vehicleId}_part_${p}_notes" rows="2" oninput="azFieldCheck(this)"></textarea>
+      </div>
       <div class="az-upload-zone" onclick="document.getElementById('file-input-${vehicleId}-${p}').click()">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
         <span>Attach reference images <em>(optional, JPG/PNG)</em></span>
@@ -281,16 +326,28 @@ function renderVehicles() {
       </div>
       <div class="az-vehicle-body" id="vehicle-content-${v}">
         <div class="az-field-row">
-          <div class="az-field"><label>Make <span class="req">*</span></label><input type="text" name="vehicle_${v}_make" placeholder="e.g. Toyota" required></div>
-          <div class="az-field"><label>Model <span class="req">*</span></label><input type="text" name="vehicle_${v}_model" placeholder="e.g. Land Cruiser" required></div>
+          <div class="az-field-wrap">
+            <label>Make <span class="az-req">*</span></label>
+            <input type="text" name="vehicle_${v}_make" required oninput="azFieldCheck(this)">
+          </div>
+          <div class="az-field-wrap">
+            <label>Model <span class="az-req">*</span></label>
+            <input type="text" name="vehicle_${v}_model" required oninput="azFieldCheck(this)">
+          </div>
         </div>
         <div class="az-field-row">
-          <div class="az-field"><label>Year</label><input type="text" name="vehicle_${v}_year" placeholder="e.g. 2015"></div>
-          <div class="az-field"><label>Engine code</label><input type="text" name="vehicle_${v}_engine" placeholder="e.g. 1GR-FE"></div>
+          <div class="az-field-wrap">
+            <label>Year</label>
+            <input type="text" name="vehicle_${v}_year" oninput="azFieldCheck(this)">
+          </div>
+          <div class="az-field-wrap">
+            <label>Engine code</label>
+            <input type="text" name="vehicle_${v}_engine" oninput="azFieldCheck(this)">
+          </div>
         </div>
-        <div class="az-field">
-          <label>VIN / Chassis number <span class="az-field-hint">(required — helps us match the correct part)</span></label>
-          <input type="text" name="vehicle_${v}_vin" placeholder="e.g. JTMBD31V385112345" required>
+        <div class="az-field-wrap">
+          <label>VIN / Chassis number <span class="az-req">*</span></label>
+          <input type="text" name="vehicle_${v}_vin" required oninput="azFieldCheck(this)">
         </div>
         <div class="az-parts-label">Parts needed for this vehicle</div>
         <div id="parts-${v}">${renderParts(v)}</div>
@@ -435,3 +492,4 @@ window.handleImageUpload = handleImageUpload;
 window.deleteImage = deleteImage;
 window.toggleVehicle = toggleVehicle;
 window.toggleRefundFields = toggleRefundFields;
+window.azFieldCheck = azFieldCheck;
