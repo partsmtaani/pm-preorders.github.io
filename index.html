@@ -13,7 +13,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="icon" href="favicon.svg">
-</head>
+  <style>
+    @media (max-width: 860px) {
+      #sourcing-fee .sf-stat-bar { grid-template-columns: 1fr !important; }
+      #sourcing-fee .sf-main-grid { grid-template-columns: 1fr !important; }
+      #sourcing-fee .sf-right-col { flex-direction: column; }
+      #sourcing-fee .sf-payment-row { flex-direction: column; gap: 2px !important; }
+      #sourcing-fee .sf-payment-row > div { flex: 1 !important; }
+      #sourcing-fee .sf-plus { display: none !important; }
+      #sourcing-fee .sf-cta { flex-direction: column; align-items: flex-start !important; }
+    }
+    @media (max-width: 600px) {
+      #sourcing-fee .sf-header-row { flex-direction: column !important; align-items: flex-start !important; }
+    }
+  </style>
 <body>
 
 <!-- NAV -->
@@ -93,63 +106,152 @@
 </section>
 
 <!-- SOURCING FEE – New background -->
-<section id="sourcing-fee" class="section fee-section">
-  <div class="wrap">
-    <div class="fee-header">
-      <div class="label fee-label">Transparent Pricing</div>
-      <h2>How the Sourcing Deposit Works</h2>
-    </div>
-    <div class="fee-grid">
-      <div class="fee-content">
-        <p class="fee-lead">The <strong>30% deposit</strong> is not a service charge — it is applied in full toward your final invoice. It covers the cost of sourcing activity and reserves your place. You pay the remaining 70% only after we find the part and you approve the price.</p>
-        <div class="fee-breakdown">
-          <div class="fee-item">
-            <span class="fee-item-title">Sourcing Deposit</span>
-            <span class="fee-item-amount">30% of estimate</span>
-            <span class="fee-item-note">Paid upfront, credited in full.</span>
-          </div>
-          <div class="fee-item">
-            <span class="fee-item-title">Balance Payment</span>
-            <span class="fee-item-amount">Confirmed price – deposit</span>
-            <span class="fee-item-note">Only after you approve the part.</span>
-          </div>
-        </div>
-        <div class="fee-guarantee">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/><path d="M9 12l2 2l4 -4"/></svg>
-          <span><strong>Your deposit is protected.</strong> Full refund if we can't find your part, or if the confirmed price comes in more than 20% above our estimate. Changed your mind after we've started sourcing? We'll refund everything less documented expenses, capped at USD 18.</span>
-        </div>
-      </div>
-      <div class="fee-steps">
-        <div class="fee-step-item">
-          <div class="step-marker">1</div>
-          <div class="step-content">
-            <strong>Submit your request</strong>
-            <span>Tell us your vehicle, VIN and the part you need. We research market pricing and reply with an estimate range within 24 hours.</span>
-          </div>
-        </div>
-        <div class="fee-step-item active">
-          <div class="step-marker">2</div>
-          <div class="step-content">
-            <strong>Pay the 30% deposit</strong>
-            <span>M‑Pesa Paybill <strong>4048209</strong>. This triggers active sourcing.</span>
-          </div>
-        </div>
-        <div class="fee-step-item">
-          <div class="step-marker">3</div>
-          <div class="step-content">
-            <strong>We source & update you</strong>
-            <span>Our team contacts supplier networks and requests photos and a firm price.</span>
-          </div>
-        </div>
-        <div class="fee-step-item">
-          <div class="step-marker">4</div>
-          <div class="step-content">
-            <strong>You approve, then pay balance</strong>
-            <span>We share photos, condition grade and confirmed price. Pay the remaining balance and the part ships.</span>
-          </div>
-        </div>
+<section id="sourcing-fee" style="background:#0e0e0e;padding:96px 0;position:relative;overflow:hidden;">
+
+  <!-- Subtle grid texture -->
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.028) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.028) 1px,transparent 1px);background-size:64px 64px;pointer-events:none;"></div>
+
+  <div class="wrap" style="position:relative;z-index:1;">
+
+    <!-- Section header -->
+    <div style="margin-bottom:64px;">
+      <div class="label" style="color:var(--orange);margin-bottom:14px;">Transparent Pricing</div>
+      <div class="sf-header-row" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:24px;">
+        <h2 style="color:#ffffff;font-size:clamp(28px,3.6vw,46px);line-height:1.08;max-width:520px;margin:0;">How the sourcing deposit works</h2>
+        <p style="color:#888;font-size:15px;line-height:1.7;max-width:340px;margin:0;">A commitment deposit — not a fee. It is credited in full toward your final invoice and only activates once you approve the estimate.</p>
       </div>
     </div>
+
+    <!-- Top stat bar -->
+    <div class="sf-stat-bar" style="display:grid;grid-template-columns:repeat(3,1fr);border:1px solid #2a2a2a;margin-bottom:2px;">
+      <div style="padding:28px 32px;border-right:1px solid #2a2a2a;">
+        <div style="font-size:42px;font-weight:800;color:#ffffff;line-height:1;font-family:'BDOGrotesk',sans-serif;">30%</div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#555;margin-top:10px;">Deposit required</div>
+        <div style="font-size:13px;color:#777;margin-top:6px;line-height:1.6;">Calculated on the mid-point of your estimate. Applied in full to your invoice.</div>
+      </div>
+      <div style="padding:28px 32px;border-right:1px solid #2a2a2a;">
+        <div style="font-size:42px;font-weight:800;color:#ffffff;line-height:1;font-family:'BDOGrotesk',sans-serif;">24 hrs</div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#555;margin-top:10px;">Estimate turnaround</div>
+        <div style="font-size:13px;color:#777;margin-top:6px;line-height:1.6;">We research live market prices and reply with a range before you commit.</div>
+      </div>
+      <div style="padding:28px 32px;">
+        <div style="font-size:42px;font-weight:800;color:#ffffff;line-height:1;font-family:'BDOGrotesk',sans-serif;">7–14</div>
+        <div style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#555;margin-top:10px;">Day average lead time</div>
+        <div style="font-size:13px;color:#777;margin-top:6px;line-height:1.6;">From deposit received to part delivered, across Kenya.</div>
+      </div>
+    </div>
+
+    <!-- Main content grid -->
+    <div class="sf-main-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:2px;">
+
+      <!-- Left: Process steps -->
+      <div style="background:#141414;padding:40px 36px;">
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#555;margin-bottom:32px;">How it works</div>
+
+        <div style="display:flex;flex-direction:column;gap:0;">
+
+          <div style="display:flex;gap:20px;padding-bottom:32px;border-bottom:1px solid #222;">
+            <div style="width:36px;height:36px;border:1px solid #333;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;font-weight:700;color:#555;font-family:'BDOGrotesk',sans-serif;">01</div>
+            <div>
+              <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;font-family:'BDOGrotesk',sans-serif;">Submit your request</div>
+              <div style="font-size:13px;color:#666;line-height:1.7;">Tell us your vehicle, engine code and the part you need. We research live market pricing across our supplier network.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:20px;padding:32px 0;border-bottom:1px solid #222;">
+            <div style="width:36px;height:36px;border:1px solid var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;font-weight:700;color:var(--orange);font-family:'BDOGrotesk',sans-serif;">02</div>
+            <div>
+              <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;font-family:'BDOGrotesk',sans-serif;">Pay the 30% deposit</div>
+              <div style="font-size:13px;color:#666;line-height:1.7;">M‑Pesa Paybill <strong style="color:#aaa;">4048209</strong> — account number is your invoice reference. This triggers active sourcing.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:20px;padding:32px 0;border-bottom:1px solid #222;">
+            <div style="width:36px;height:36px;border:1px solid #333;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;font-weight:700;color:#555;font-family:'BDOGrotesk',sans-serif;">03</div>
+            <div>
+              <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;font-family:'BDOGrotesk',sans-serif;">We source and update you</div>
+              <div style="font-size:13px;color:#666;line-height:1.7;">Our team contacts verified supplier yards, requests photos, condition grades and a firm confirmed price.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:20px;padding-top:32px;">
+            <div style="width:36px;height:36px;border:1px solid #333;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:12px;font-weight:700;color:#555;font-family:'BDOGrotesk',sans-serif;">04</div>
+            <div>
+              <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:6px;font-family:'BDOGrotesk',sans-serif;">You approve, then pay balance</div>
+              <div style="font-size:13px;color:#666;line-height:1.7;">Review photos and confirmed price. Approve and pay the remaining 70% — the deposit you already paid is deducted automatically.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Right: Deposit protection + pricing breakdown -->
+      <div class="sf-right-col" style="display:flex;flex-direction:column;gap:2px;">
+
+        <!-- Deposit protection card -->
+        <div style="background:#141414;padding:36px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#555;margin-bottom:24px;">Deposit protection</div>
+          <div style="display:flex;flex-direction:column;gap:0;">
+
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid #1e1e1e;">
+              <span style="font-size:13px;color:#777;line-height:1.6;flex:1;">Part cannot be sourced within lead time</span>
+              <span style="font-size:12px;font-weight:700;color:var(--success);white-space:nowrap;letter-spacing:0.04em;display:flex;align-items:center;gap:6px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5l9 -9"/></svg>Full refund</span>
+            </div>
+
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid #1e1e1e;">
+              <span style="font-size:13px;color:#777;line-height:1.6;flex:1;">Confirmed price exceeds estimate by more than 20%</span>
+              <span style="font-size:12px;font-weight:700;color:var(--success);white-space:nowrap;letter-spacing:0.04em;display:flex;align-items:center;gap:6px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5l9 -9"/></svg>Full refund</span>
+            </div>
+
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:16px 0;border-bottom:1px solid #1e1e1e;">
+              <span style="font-size:13px;color:#777;line-height:1.6;flex:1;">You cancel after sourcing starts (change of mind)</span>
+              <span style="font-size:12px;font-weight:700;color:#e67e22;white-space:nowrap;letter-spacing:0.04em;">Refund less<br>max USD 18</span>
+            </div>
+
+            <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:16px 0;">
+              <span style="font-size:13px;color:#777;line-height:1.6;flex:1;">You decline a confirmed price within 20% of estimate</span>
+              <span style="font-size:12px;font-weight:700;color:#444;white-space:nowrap;letter-spacing:0.04em;">No refund</span>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Payment breakdown card -->
+        <div style="background:#141414;padding:36px;flex:1;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:0.13em;text-transform:uppercase;color:#555;margin-bottom:24px;">Payment structure</div>
+
+          <div class="sf-payment-row" style="display:flex;align-items:stretch;gap:0;margin-bottom:28px;">
+            <div style="flex:3;background:#1a1a1a;border:1px solid #2a2a2a;padding:20px 22px;">
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#444;margin-bottom:8px;">Deposit</div>
+              <div style="font-size:28px;font-weight:800;color:var(--orange);line-height:1;font-family:'BDOGrotesk',sans-serif;">30%</div>
+              <div style="font-size:12px;color:#555;margin-top:8px;line-height:1.5;">Due now. Triggers sourcing. Credited to invoice.</div>
+            </div>
+            <div class="sf-plus" style="display:flex;align-items:center;padding:0 14px;color:#333;font-size:18px;font-weight:300;">+</div>
+            <div style="flex:7;background:#1a1a1a;border:1px solid #2a2a2a;padding:20px 22px;">
+              <div style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#444;margin-bottom:8px;">Balance</div>
+              <div style="font-size:28px;font-weight:800;color:#fff;line-height:1;font-family:'BDOGrotesk',sans-serif;">Confirmed price<span style="font-size:18px;color:#444;"> – deposit</span></div>
+              <div style="font-size:12px;color:#555;margin-top:8px;line-height:1.5;">Due only after you review and approve the sourced part.</div>
+            </div>
+          </div>
+
+          <div style="background:#0a0a0a;border:1px solid #1e1e1e;border-left:3px solid var(--orange);padding:16px 20px;display:flex;gap:14px;align-items:flex-start;">
+            <svg style="width:18px;height:18px;stroke:var(--orange);flex-shrink:0;margin-top:2px;" viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/><path d="M9 12l2 2l4 -4"/></svg>
+            <p style="font-size:13px;color:#666;line-height:1.7;margin:0;">You are never locked in. If the confirmed price is more than 20% above our estimate, you receive a full refund automatically — no questions, no deductions.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Bottom CTA strip -->
+    <div class="sf-cta" style="background:#141414;border:1px solid #2a2a2a;padding:28px 36px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;">
+      <div>
+        <div style="font-size:15px;font-weight:700;color:#fff;font-family:'BDOGrotesk',sans-serif;margin-bottom:4px;">Ready to source your part?</div>
+        <div style="font-size:13px;color:#555;">Submit a request — no deposit required until you've seen and approved our estimate.</div>
+      </div>
+      <a href="#order-form" style="background:var(--orange);color:#fff;padding:13px 28px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;white-space:nowrap;font-family:'BDOGrotesk',sans-serif;transition:background 0.2s;" onmouseover="this.style.background='#d93b00'" onmouseout="this.style.background='var(--orange)'">Place a pre-order →</a>
+    </div>
+
   </div>
 </section>
 <div class="divider"></div>
