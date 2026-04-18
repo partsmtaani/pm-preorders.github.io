@@ -1,22 +1,30 @@
 /* site.js — PartsMtaani shared scripts */
 
 (function() {
-  // ── Hamburger nav ──────────────────────────────────────────
+  // ── Hamburger nav with X toggle ─────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
-    const hamburger = document.querySelector('.nav-hamburger');
-    const navLinks  = document.querySelector('.nav-links');
+    const hamburger = document.getElementById('nav-hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const hamburgerIcon = document.querySelector('.hamburger-icon');
+    const closeIcon = document.querySelector('.close-icon');
+
     if (hamburger && navLinks) {
       hamburger.addEventListener('click', function () {
         navLinks.classList.toggle('open');
+        const isOpen = navLinks.classList.contains('open');
+        if (hamburgerIcon) hamburgerIcon.style.display = isOpen ? 'none' : 'block';
+        if (closeIcon) closeIcon.style.display = isOpen ? 'block' : 'none';
+      });
+      document.addEventListener('click', function (e) {
+        if (!navLinks.contains(e.target) && !hamburger.contains(e.target) && navLinks.classList.contains('open')) {
+          navLinks.classList.remove('open');
+          if (hamburgerIcon) hamburgerIcon.style.display = 'block';
+          if (closeIcon) closeIcon.style.display = 'none';
+        }
       });
     }
-    document.addEventListener('click', function (e) {
-      if (navLinks && hamburger && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
-        navLinks.classList.remove('open');
-      }
-    });
 
-    // ── TOC active state (fix for doc-nav and prose-toc) ─────
+    // ── TOC active state ─────────────────────────────────────
     const tocLinks = document.querySelectorAll('.doc-nav ul li a, .prose-toc ul li a');
     if (tocLinks.length > 0) {
       const sections = Array.from(document.querySelectorAll('[id]')).filter(el =>
@@ -116,7 +124,7 @@
     if (!isOpen) item.classList.add('open');
   };
 
-  // ── Field Validation ───────────────────────────────────────
+  // ── Field Validation with descriptive messages ─────────────
   function validateField(id) {
     const input = document.getElementById(id);
     const errorEl = document.querySelector(`.field-error[data-for="${id}"]`);
@@ -127,13 +135,14 @@
 
     if (input.hasAttribute('required') && val === '') {
       isValid = false;
-      message = 'This field is required.';
-    } else if (input.dataset.validate === 'email' && val && !/^\S+@\S+\.\S+$/.test(val)) {
+      const label = input.closest('.field')?.querySelector('label')?.textContent.replace('*','').trim() || 'This field';
+      message = `${label} is required.`;
+    } else if (input.type === 'email' && val && !/^\S+@\S+\.\S+$/.test(val)) {
       isValid = false;
-      message = 'Enter a valid email address.';
+      message = 'Please enter a valid email address (e.g., name@example.com).';
     } else if (input.dataset.validate === 'phone' && val && !/^[0-9+\-\s]{9,}$/.test(val)) {
       isValid = false;
-      message = 'Enter a valid phone number.';
+      message = 'Enter a valid phone number (at least 9 digits).';
     }
 
     input.classList.toggle('error', !isValid);
@@ -141,7 +150,7 @@
     return isValid;
   }
 
-  // Attach live validation to inputs
+  // Attach live validation
   document.addEventListener('input', function(e) {
     if (e.target.matches('input, select, textarea')) {
       validateField(e.target.id);
@@ -303,7 +312,7 @@
             <div class="field"><label>Engine Code</label><input type="text" name="vehicle_${v}_engine" placeholder="e.g., 1GR-FE"></div>
           </div>
           <div class="field"><label>VIN / Chassis (optional)</label><input type="text" name="vehicle_${v}_vin" placeholder="Helps with accurate matching"></div>
-          <div style="margin-top:16px;margin-bottom:12px;"><span style="font-size:12px;font-weight:600;color:#6b6b6b;">Parts needed</span></div>
+          <div style="margin-top:16px;margin-bottom:12px;"><span style="font-size:13px;font-weight:600;color:#6b6b6b;">Parts needed</span></div>
           <div id="parts-${v}">${renderParts(v)}</div>
           <button type="button" class="add-btn" onclick="addPart(${v})">+ Add another part</button>
         </div>
@@ -337,7 +346,6 @@
         goToStep(2);
         return;
       }
-      // Validate all visible fields
       const inputs = form.querySelectorAll('input:not([type=file]), select, textarea');
       let allValid = true;
       inputs.forEach(inp => {

@@ -32,8 +32,9 @@
       <li><a href="#faq">FAQs</a></li>
       <li><a href="#order-form" class="btn-nav">Order Now</a></li>
     </ul>
-    <button class="nav-hamburger" aria-label="Menu">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+    <button class="nav-hamburger" id="nav-hamburger" aria-label="Menu">
+      <svg class="hamburger-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/></svg>
+      <svg class="close-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><path d="M18 6L6 18M6 6l12 12"/></svg>
     </button>
   </div>
 </nav>
@@ -55,6 +56,7 @@
           <div><div class="hero-stat-num">30%</div><div class="hero-stat-label">Deposit — credited to final price</div></div>
         </div>
       </div>
+      <!-- Hero card mimics form card styling; keep in sync with .payment-aside or .vehicle-card -->
       <div class="hero-card">
         <div class="hero-card-header">
           <span class="hero-card-eyebrow">Sample Pre-Order</span>
