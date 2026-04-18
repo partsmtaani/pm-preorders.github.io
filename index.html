@@ -19,7 +19,6 @@
       #sourcing-fee .sf-stat-bar > div { border-right: none !important; border-bottom: 1px solid #1e1e1e; }
       #sourcing-fee .sf-header-inner { flex-direction: column !important; align-items: flex-start !important; }
       #sourcing-fee .sf-steps-row { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
-      #order-form .of-header-grid { grid-template-columns: 1fr !important; gap: 24px !important; align-items: start !important; }
     }
     @media (max-width: 600px) {
       #sourcing-fee .sf-stat-num { font-size: 36px !important; }
@@ -27,6 +26,9 @@
       #sourcing-fee .sf-steps-row > div { flex-direction: row !important; align-items: flex-start !important; text-align: left !important; gap: 16px !important; }
       #sourcing-fee .sf-steps-row > div svg { width: 28px !important; height: 28px !important; margin-top: 2px; }
     }
+    /* Border unification */
+    .form-fieldset { border-color: var(--line) !important; }
+    .payment-aside { border-color: var(--line) !important; }
   </style>
 <body>
 
@@ -207,29 +209,11 @@
 <section id="order-form" class="section section-alt">
   <div class="wrap">
 
-    <!-- Section header — split layout -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;padding-bottom:40px;border-bottom:1px solid var(--line);margin-bottom:48px;" class="of-header-grid">
-      <div>
-        <div class="label">Submit Your Request</div>
-        <h2 style="margin-bottom:0;">Place a Pre-Order</h2>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:20px;">
-        <p style="color:var(--muted);font-size:14px;line-height:1.75;margin:0;">Fill in your contact details, then add your vehicle and the parts you need. You can include images and add multiple vehicles.</p>
-        <div style="display:flex;gap:32px;">
-          <div>
-            <div style="font-size:22px;font-weight:800;color:var(--ink);line-height:1;letter-spacing:-0.02em;">4 hrs</div>
-            <div style="font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase;">Response time</div>
-          </div>
-          <div>
-            <div style="font-size:22px;font-weight:800;color:var(--ink);line-height:1;letter-spacing:-0.02em;">24 hrs</div>
-            <div style="font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase;">Price estimate</div>
-          </div>
-          <div>
-            <div style="font-size:22px;font-weight:800;color:var(--ink);line-height:1;letter-spacing:-0.02em;">7–14</div>
-            <div style="font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase;">Days delivery</div>
-          </div>
-        </div>
-      </div>
+    <!-- Section header -->
+    <div style="margin-bottom:48px;padding-bottom:40px;border-bottom:1px solid var(--line);">
+      <div class="label">Submit Your Request</div>
+      <h2 style="margin-bottom:12px;">Place a Pre-Order</h2>
+      <p style="color:var(--muted);font-size:15px;line-height:1.7;max-width:540px;margin:0;">Fill in your contact details, then add your vehicle and the parts you need. You can include images and add multiple vehicles.</p>
     </div>
 
     <div class="form-layout">
