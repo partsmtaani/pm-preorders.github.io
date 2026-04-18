@@ -48,7 +48,7 @@
 <div class="wrap">
   <div class="page-body refund-page-body">
     <div class="refund-layout">
-      <!-- Left column: Plain text policy (no card) -->
+      <!-- Left column: Plain text policy -->
       <div class="refund-policy-plain">
         <h3 class="refund-section-title">Refund & Returns Policy</h3>
         
@@ -91,7 +91,7 @@
         </div>
       </div>
       
-      <!-- Right column: Form card (using #D7CDCC background) -->
+      <!-- Right column: Form card with floating labels -->
       <div class="refund-form-card">
         <h3 class="card-title">Submit a Refund Request</h3>
         <div id="refund-success" class="refund-success-msg"><strong>Request submitted.</strong> We'll review and respond within 3 business days.</div>
@@ -101,20 +101,20 @@
           <div class="form-section">
             <div class="form-section-title">Your details</div>
             <div class="field-2">
-              <div class="field">
-                <label>Full Name <span class="req">*</span></label>
-                <input type="text" name="full_name" id="refund_name" required>
+              <div class="field float-field">
+                <input type="text" name="full_name" id="refund_name" placeholder=" " required>
+                <label for="refund_name">Full Name <span class="req">*</span></label>
                 <div class="field-error" data-for="refund_name"></div>
               </div>
-              <div class="field">
-                <label>Phone <span class="req">*</span></label>
-                <input type="tel" name="phone" id="refund_phone" required data-validate="phone">
+              <div class="field float-field">
+                <input type="tel" name="phone" id="refund_phone" placeholder=" " required data-validate="phone">
+                <label for="refund_phone">Phone <span class="req">*</span></label>
                 <div class="field-error" data-for="refund_phone"></div>
               </div>
             </div>
-            <div class="field">
-              <label>Email <span class="req">*</span></label>
-              <input type="email" name="email" id="refund_email" required>
+            <div class="field float-field">
+              <input type="email" name="email" id="refund_email" placeholder=" " required>
+              <label for="refund_email">Email <span class="req">*</span></label>
               <div class="field-error" data-for="refund_email"></div>
             </div>
           </div>
@@ -122,15 +122,14 @@
           <div class="form-section">
             <div class="form-section-title">Order & refund details</div>
             <div class="field-2">
-              <div class="field">
-                <label>Order Reference <span class="req">*</span></label>
-                <input type="text" name="order_reference" id="order_ref" placeholder="e.g. PM-00412" required>
+              <div class="field float-field">
+                <input type="text" name="order_reference" id="order_ref" placeholder=" " required>
+                <label for="order_ref">Order Reference <span class="req">*</span></label>
                 <div class="field-error" data-for="order_ref"></div>
               </div>
-              <div class="field">
-                <label>Reason <span class="req">*</span></label>
-                <select name="refund_type" required>
-                  <option value="">Select reason</option>
+              <div class="field float-field">
+                <select name="refund_type" id="refund_type" required>
+                  <option value=""></option>
                   <option>Sourcing Fee — Part Not Found</option>
                   <option>Incorrect Part Supplied</option>
                   <option>Part Damaged in Transit</option>
@@ -138,25 +137,26 @@
                   <option>Warranty Defect</option>
                   <option>Other</option>
                 </select>
+                <label for="refund_type">Reason <span class="req">*</span></label>
               </div>
             </div>
-            <div class="field">
-              <label>M‑Pesa Number for Refund <span class="req">*</span></label>
-              <input type="tel" name="mpesa_number" id="mpesa_num" placeholder="e.g. 0712 345 678" required>
+            <div class="field float-field">
+              <input type="tel" name="mpesa_number" id="mpesa_num" placeholder=" " required>
+              <label for="mpesa_num">M‑Pesa Number for Refund <span class="req">*</span></label>
               <div class="field-error" data-for="mpesa_num"></div>
             </div>
           </div>
           
           <div class="form-section">
             <div class="form-section-title">Tell us what happened</div>
-            <div class="field">
-              <label>Description <span class="req">*</span></label>
-              <textarea name="description" id="desc" rows="4" placeholder="Include the part name, what you expected, and what you received or experienced." required></textarea>
+            <div class="field float-field">
+              <textarea name="description" id="desc" rows="4" placeholder=" " required></textarea>
+              <label for="desc">Description <span class="req">*</span></label>
               <div class="field-error" data-for="desc"></div>
             </div>
-            <div class="field">
-              <label>Supporting evidence</label>
-              <textarea name="evidence_links" rows="2" placeholder="Paste image links or describe any attachments you can send separately."></textarea>
+            <div class="field float-field">
+              <textarea name="evidence_links" id="evidence" rows="2" placeholder=" "></textarea>
+              <label for="evidence">Supporting evidence (optional)</label>
             </div>
           </div>
           

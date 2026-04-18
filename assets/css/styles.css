@@ -16,7 +16,7 @@
   --white: #ffffff;
   --error: #dc2626;
   /* Form card and field colors */
-  --card-bg: #D7CDCC;
+  --card-bg: #E8DFDD;      /* lighter shade of #D7CDCC */
   --field-border: #293132;
   --field-border-hover: #1a1f20;
   --field-border-focus: #0d1112;
@@ -285,7 +285,7 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   line-height: 1.4;
 }
 
-/* Hero card: white, no border radius, matches payment aside */
+/* Hero card: white, no border radius */
 .hero-card {
   background: var(--white);
   border: 1.5px solid var(--line);
@@ -536,46 +536,72 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 }
 
 /* ============================================
-   FORM FIELDS – Enterprise with #293132 borders
+   FORM FIELDS – Floating Labels
    ============================================ */
-.field { margin-bottom: 22px; }
-.field label {
-  display: block;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 6px;
+.field {
+  margin-bottom: 22px;
 }
-.field input,
-.field select,
-.field textarea {
+.float-field {
+  position: relative;
+  margin-bottom: 28px;
+}
+.float-field input,
+.float-field select,
+.float-field textarea {
   width: 100%;
-  padding: 12px 16px;
+  height: 56px;
+  padding: 20px 16px 8px 16px;
   border: 1.5px solid var(--field-border);
   border-radius: 4px;
-  font-size: 15px;
+  font-size: 16px;
   color: var(--ink);
   font-family: inherit;
   background: var(--white);
   transition: border-color 0.15s, box-shadow 0.15s;
   outline: none;
 }
-.field input:hover,
-.field select:hover,
-.field textarea:hover {
-  border-color: var(--field-border-hover);
+.float-field textarea {
+  height: auto;
+  min-height: 100px;
+  padding-top: 24px;
 }
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
+.float-field label {
+  position: absolute;
+  left: 16px;
+  top: 18px;
+  font-size: 16px;
+  color: var(--muted);
+  pointer-events: none;
+  transition: all 0.15s ease;
+  background: transparent;
+  padding: 0 2px;
+  transform-origin: left top;
+}
+.float-field input:focus,
+.float-field select:focus,
+.float-field textarea:focus {
   border-color: var(--field-border-focus);
   box-shadow: 0 0 0 2px rgba(41,49,50,0.1);
 }
-.field input.error,
-.field select.error,
-.field textarea.error {
+.float-field input:focus + label,
+.float-field input:not(:placeholder-shown) + label,
+.float-field select:focus + label,
+.float-field select:not([value=""]):valid + label,
+.float-field textarea:focus + label,
+.float-field textarea:not(:placeholder-shown) + label {
+  transform: translateY(-12px) scale(0.75);
+  color: var(--field-border-focus);
+  background: var(--white);
+  padding: 0 6px;
+  left: 12px;
+}
+.float-field input:not(:placeholder-shown) + label,
+.float-field textarea:not(:placeholder-shown) + label {
+  color: var(--muted);
+}
+.float-field input.error,
+.float-field select.error,
+.float-field textarea.error {
   border-color: var(--error);
 }
 .field-error {
@@ -584,14 +610,17 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   margin-top: 5px;
   min-height: 20px;
 }
-.req { color: var(--orange); }
+.req {
+  color: var(--orange);
+  margin-left: 2px;
+}
 
-/* Form cards have #D7CDCC background */
+/* Form cards: light background, no border, no radius */
 .form-card {
   background: var(--card-bg);
-  border: 1.5px solid var(--field-border);
+  border: none;
   border-radius: 0;
-  padding: 28px;
+  padding: 32px;
   margin-bottom: 24px;
   box-shadow: 0 8px 18px rgba(0,0,0,0.02);
 }
@@ -700,10 +729,10 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   display: flex; align-items: center; justify-content: center;
 }
 
-/* Payment aside: white, no border radius */
+/* Payment aside: white, no border, no radius */
 .payment-aside {
   background: var(--white);
-  border: 1.5px solid var(--field-border);
+  border: none;
   border-radius: 0;
   padding: 30px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.04);
@@ -1053,10 +1082,10 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
   margin-top: 12px;
 }
 
-/* Form card (right column) */
+/* Refund form card: light background, no border, no radius */
 .refund-form-card {
   background: var(--card-bg);
-  border: 1.5px solid var(--field-border);
+  border: none;
   border-radius: 0;
   padding: 32px;
   box-shadow: 0 8px 18px rgba(0,0,0,0.02);
