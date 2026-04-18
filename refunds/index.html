@@ -91,15 +91,14 @@
         </div>
       </div>
       
-      <!-- Right column: Form card with floating labels -->
-      <div class="refund-form-card">
-        <h3 class="card-title">Submit a Refund Request</h3>
+      <!-- Right column: Fieldset-based refund form -->
+      <div class="refund-form-wrap">
         <div id="refund-success" class="refund-success-msg"><strong>Request submitted.</strong> We'll review and respond within 3 business days.</div>
         <form id="refund-form" action="https://formspree.io/f/YOUR_REFUND_FORM_ID" method="POST">
           <input type="hidden" name="_subject" value="Refund Request">
-          
-          <div class="form-section">
-            <div class="form-section-title">Your details</div>
+
+          <fieldset class="refund-fieldset">
+            <legend class="refund-legend">Your details</legend>
             <div class="field-2">
               <div class="field float-field">
                 <input type="text" name="full_name" id="refund_name" placeholder=" " required>
@@ -117,10 +116,10 @@
               <label for="refund_email">Email <span class="req">*</span></label>
               <div class="field-error" data-for="refund_email"></div>
             </div>
-          </div>
-          
-          <div class="form-section">
-            <div class="form-section-title">Order & refund details</div>
+          </fieldset>
+
+          <fieldset class="refund-fieldset">
+            <legend class="refund-legend">Order &amp; refund details</legend>
             <div class="field-2">
               <div class="field float-field">
                 <input type="text" name="order_reference" id="order_ref" placeholder=" " required>
@@ -145,10 +144,10 @@
               <label for="mpesa_num">M‑Pesa Number for Refund <span class="req">*</span></label>
               <div class="field-error" data-for="mpesa_num"></div>
             </div>
-          </div>
-          
-          <div class="form-section">
-            <div class="form-section-title">Tell us what happened</div>
+          </fieldset>
+
+          <fieldset class="refund-fieldset">
+            <legend class="refund-legend">Tell us what happened</legend>
             <div class="field float-field">
               <textarea name="description" id="desc" rows="4" placeholder=" " required></textarea>
               <label for="desc">Description <span class="req">*</span></label>
@@ -158,8 +157,8 @@
               <textarea name="evidence_links" id="evidence" rows="2" placeholder=" "></textarea>
               <label for="evidence">Supporting evidence (optional)</label>
             </div>
-          </div>
-          
+          </fieldset>
+
           <button type="submit" class="submit-btn" id="submit-btn">Submit request →</button>
           <p class="form-note">By submitting, you confirm this information is accurate. Fraudulent claims may result in account restriction.</p>
         </form>
