@@ -15,7 +15,7 @@
   --bg: #fafaf9;
   --white: #ffffff;
   --error: #dc2626;
-  --card-bg: #E8DFDD;
+  --card-bg: #E8DFDD; /* kept for other potential uses */
   --field-border: #293132;
   --field-border-hover: #1a1f20;
   --field-border-focus: #0d1112;
@@ -610,118 +610,42 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   margin-left: 2px;
 }
 
-/* Form cards */
+/* ============================================
+   FORM CARDS – Bordered with split title
+   ============================================ */
 .form-card {
-  background: var(--card-bg);
-  border: none;
+  background: transparent;
+  border: 1.5px solid var(--field-border);
   border-radius: 0;
-  padding: 28px;
+  padding: 32px 28px 28px 28px;
   margin-bottom: 24px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.02);
-}
-.step-container.form-card {
-  margin-bottom: 0;
+  box-shadow: none;
+  position: relative;
 }
 
-.form-layout {
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 48px;
-  align-items: start;
-  margin-top: 32px;
-}
-@media (max-width: 980px) { .form-layout { grid-template-columns: 1fr; } }
-.form-group-title {
+.form-card .form-group-title {
+  position: absolute;
+  top: -12px;
+  left: 20px;
+  background: var(--bg);
+  padding: 0 12px;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--line);
-  margin-bottom: 20px;
+  border: none;
+  margin: 0;
+  line-height: 1;
 }
-.form-step-action { display: flex; justify-content: flex-end; margin-top: 8px; }
-.btn-step {
-  background: var(--orange); color: #fff; border: none;
-  padding: 14px 32px;
-  font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  border-radius: 2px; cursor: pointer; transition: background 0.2s;
-  font-family: 'BDOGrotesk', 'Inter', sans-serif;
+
+.section-alt .form-card .form-group-title {
+  background: var(--bg);
 }
-.btn-step:hover { background: var(--orange-dark); }
-.btn-step-back {
-  background: transparent; color: var(--mid);
-  border: 1px solid var(--line);
-  padding: 14px 24px;
-  font-size: 13px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
-  border-radius: 2px; cursor: pointer; transition: all 0.2s;
-  font-family: 'BDOGrotesk', 'Inter', sans-serif;
-}
-.btn-step-back:hover { border-color: var(--mid); color: var(--ink); }
-.step-actions {
-  display: flex; gap: 12px; align-items: center;
-  justify-content: space-between;
-  margin-top: 24px; padding-top: 20px;
-  border-top: 1px solid var(--line);
-}
-@media (max-width: 600px) {
-  .step-actions { flex-direction: column; }
-  .step-actions .submit-btn, .step-actions .btn-step-back { width: 100%; text-align: center; }
-}
-.vehicle-card {
-  border: 1px solid var(--line);
-  margin-bottom: 12px;
-  background: var(--white);
-}
-.vehicle-header {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 18px; background: var(--bg); cursor: pointer; transition: background 0.15s;
-}
-.vehicle-header:hover { background: #eeeeec; }
-.vehicle-title { font-size: 14px; font-weight: 700; color: var(--black); }
-.remove-vehicle {
-  background: none; border: none;
-  cursor: pointer; color: var(--muted); font-size: 12px;
-  font-family: 'BDOGrotesk','Inter',sans-serif; font-weight: 600;
-  letter-spacing: 0.04em; text-transform: uppercase;
-  padding: 2px 0; flex-shrink: 0; transition: color 0.15s;
-}
-.remove-vehicle:hover { color: #cc2200; }
-.vehicle-content { display: none; padding: 24px 20px; border-top: 1px solid var(--line); }
-.vehicle-content.open { display: block; }
-.part-item { background: var(--bg); border-top: 1px solid var(--line); padding: 18px; margin-bottom: 0; }
-.part-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
-.part-title { font-size: 13px; font-weight: 600; color: var(--muted); }
-.remove-part { background: none; border: none; cursor: pointer; color: var(--muted); font-size: 12px; font-weight: 600; font-family: 'BDOGrotesk','Inter',sans-serif; letter-spacing: 0.04em; text-transform: uppercase; padding: 0; transition: color 0.15s; }
-.remove-part:hover { color: #cc2200; }
-.add-btn {
-  background: none; color: var(--orange);
-  border: none; border-bottom: 1px solid transparent;
-  padding: 12px 0;
-  font-size: 14px; font-weight: 600;
-  cursor: pointer; transition: border-color 0.15s;
-  font-family: 'BDOGrotesk', 'Inter', sans-serif;
-  display: inline-block; margin-top: 6px;
-}
-.add-btn:hover { border-bottom-color: var(--orange); }
-.image-upload-zone {
-  border: 1px dashed var(--line);
-  padding: 16px 20px; text-align: center; cursor: pointer;
-  transition: border-color 0.2s; margin-top: 10px;
-}
-.image-upload-zone:hover { border-color: var(--orange); }
-.image-upload-zone svg { width: 24px; height: 24px; stroke: var(--muted); margin-bottom: 6px; }
-.image-upload-zone p { font-size: 13px; color: var(--muted); margin: 0; }
-.image-preview-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
-.preview-img { position: relative; width: 70px; height: 70px; overflow: hidden; border: 1px solid var(--line); }
-.preview-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.delete-img {
-  position: absolute; top: 2px; right: 2px;
-  background: rgba(0,0,0,0.55); color: #fff; border: none;
-  width: 20px; height: 20px; border-radius: 50%;
-  font-size: 14px; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
+
+.step-container.form-card {
+  margin-bottom: 0;
+  background: transparent;
 }
 
 /* Payment aside */
@@ -1016,7 +940,7 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
 .data-table td:first-child { padding-right: 24px; }
 
 /* ============================================
-   REFUNDS PAGE – Plain left column, form card right
+   REFUNDS PAGE – Plain left column, bordered form card right
    ============================================ */
 .refund-page-body {
   padding: 64px 0 96px;
@@ -1102,22 +1026,29 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
   margin-top: 12px;
 }
 
-/* Refund form card */
+/* Refund form card – bordered with split title */
 .refund-form-card {
-  background: var(--card-bg);
-  border: none;
+  background: transparent;
+  border: 1.5px solid var(--field-border);
   border-radius: 0;
-  padding: 28px;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.02);
+  padding: 40px 28px 28px 28px;
+  box-shadow: none;
+  position: relative;
 }
-.card-title {
-  font-size: 22px;
+.refund-form-card .card-title {
+  position: absolute;
+  top: -14px;
+  left: 20px;
+  background: var(--white);
+  padding: 0 12px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--black);
-  margin-bottom: 28px;
-  padding-bottom: 16px;
-  border-bottom: 2px solid var(--field-border);
+  border: none;
+  margin: 0;
+  line-height: 1;
   letter-spacing: -0.01em;
+  border-bottom: none;
 }
 .form-section {
   margin-bottom: 32px;
