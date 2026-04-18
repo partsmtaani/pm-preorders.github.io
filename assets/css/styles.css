@@ -15,7 +15,7 @@
   --bg: #fafaf9;
   --white: #ffffff;
   --error: #dc2626;
-  /* New form card and field colors */
+  /* Form card and field colors */
   --card-bg: #D7CDCC;
   --field-border: #293132;
   --field-border-hover: #1a1f20;
@@ -590,9 +590,10 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 .form-card {
   background: var(--card-bg);
   border: 1.5px solid var(--field-border);
-  border-radius: 8px;
+  border-radius: 0;
   padding: 28px;
   margin-bottom: 24px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.02);
 }
 .step-container.form-card {
   margin-bottom: 0;
@@ -932,7 +933,7 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
 }
 
 /* ============================================
-   DOCUMENT / LEGAL PAGES (unchanged)
+   DOCUMENT / LEGAL PAGES
    ============================================ */
 .doc-layout { display: grid; grid-template-columns: 240px 1fr; gap: 60px; padding: 64px 0 96px; align-items: start; }
 @media (max-width: 860px) { .doc-layout { grid-template-columns: 1fr; gap: 40px; } }
@@ -966,34 +967,33 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
 .data-table td:first-child { padding-right: 24px; }
 
 /* ============================================
-   REFUNDS PAGE – Form cards with #D7CDCC
+   REFUNDS PAGE – Plain left column, form card right
    ============================================ */
+.refund-page-body {
+  padding: 64px 0 96px;
+}
 .refund-layout {
   display: grid;
   grid-template-columns: 1fr 440px;
-  gap: 48px;
+  gap: 64px;
   align-items: start;
 }
 @media (max-width: 1000px) {
   .refund-layout {
     grid-template-columns: 1fr;
+    gap: 48px;
   }
 }
-.refund-policy-card,
-.refund-form-card {
-  background: var(--card-bg);
-  border: 1.5px solid var(--field-border);
-  border-radius: 0;
-  padding: 32px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+.refund-policy-plain {
+  /* No background, no border – like legal pages */
 }
-.card-title {
+.refund-section-title {
   font-size: 22px;
   font-weight: 700;
   color: var(--black);
   margin-bottom: 28px;
   padding-bottom: 16px;
-  border-bottom: 2px solid var(--field-border);
+  border-bottom: 2px solid var(--line);
   letter-spacing: -0.01em;
 }
 .policy-block {
@@ -1003,7 +1003,7 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
   margin-bottom: 0;
 }
 .policy-heading {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--ink);
   margin-bottom: 14px;
@@ -1012,7 +1012,7 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
 .eligibility-table {
   width: 100%;
   border-collapse: collapse;
-  margin: 16px 0;
+  margin: 20px 0;
   font-size: 14px;
 }
 .eligibility-table th {
@@ -1051,6 +1051,24 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
   font-size: 13px;
   color: var(--muted);
   margin-top: 12px;
+}
+
+/* Form card (right column) */
+.refund-form-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--field-border);
+  border-radius: 0;
+  padding: 32px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+}
+.card-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--field-border);
+  letter-spacing: -0.01em;
 }
 .form-section {
   margin-bottom: 32px;
