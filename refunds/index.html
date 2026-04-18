@@ -48,10 +48,11 @@
 <div class="wrap">
   <div class="page-body refund-page-body">
     <div class="refund-layout">
-      <!-- Left column: Plain text policy -->
+
+      <!-- Left column: Policy -->
       <div class="refund-policy-plain">
-        <h3 class="refund-section-title">Refund & Returns Policy</h3>
-        
+        <h3 class="refund-section-title">Refund &amp; Returns Policy</h3>
+
         <div class="policy-block">
           <h4 class="policy-heading">Sourcing Fee Refunds</h4>
           <p>The 30% sourcing deposit is credited toward your final invoice — not an additional charge. It is <strong>refundable in one circumstance only</strong>: when Parts Mtaani cannot source the requested part within the agreed lead time. If you cancel after we have located the part, only our actual out‑of‑pocket expenses (calls and yard visit fees) are deducted and the balance is refunded.</p>
@@ -68,7 +69,7 @@
             </tbody>
           </table>
         </div>
-        
+
         <div class="policy-block">
           <h4 class="policy-heading">Part Payment Refunds</h4>
           <p>Part payments may be refunded where the issue is reported within the applicable window and the part has not been installed or used.</p>
@@ -83,22 +84,24 @@
           </table>
           <p class="note">Delivery charges are not refundable. Approved refunds are processed to the original M‑Pesa number within 3–5 business days.</p>
         </div>
-        
+
         <div class="policy-block">
           <h4 class="policy-heading">What Is Not Covered</h4>
           <p>No refund or return is available for parts that have been installed, modified or used; damage caused by the customer after delivery; normal wear and tear, misuse or incorrect installation; or orders where inaccurate vehicle or part information was provided at the time of ordering.</p>
           <p>For the full policy, see our <a href="/terms/">Terms &amp; Conditions</a>.</p>
         </div>
       </div>
-      
-      <!-- Right column: Fieldset-based refund form -->
+
+      <!-- Right column: Single-fieldset refund form -->
       <div class="refund-form-wrap">
         <div id="refund-success" class="refund-success-msg"><strong>Request submitted.</strong> We'll review and respond within 3 business days.</div>
         <form id="refund-form" action="https://formspree.io/f/YOUR_REFUND_FORM_ID" method="POST">
           <input type="hidden" name="_subject" value="Refund Request">
 
-          <fieldset class="refund-fieldset">
-            <legend class="refund-legend">Your details</legend>
+          <fieldset class="form-fieldset">
+            <legend class="form-legend">Request a Refund</legend>
+
+            <!-- Row 1: Name + Phone -->
             <div class="field-2">
               <div class="field float-field">
                 <input type="text" name="full_name" id="refund_name" placeholder=" " required>
@@ -111,15 +114,15 @@
                 <div class="field-error" data-for="refund_phone"></div>
               </div>
             </div>
+
+            <!-- Row 2: Email (full width) -->
             <div class="field float-field">
               <input type="email" name="email" id="refund_email" placeholder=" " required>
-              <label for="refund_email">Email <span class="req">*</span></label>
+              <label for="refund_email">Email Address <span class="req">*</span></label>
               <div class="field-error" data-for="refund_email"></div>
             </div>
-          </fieldset>
 
-          <fieldset class="refund-fieldset">
-            <legend class="refund-legend">Order &amp; refund details</legend>
+            <!-- Row 3: Order ref + Reason -->
             <div class="field-2">
               <div class="field float-field">
                 <input type="text" name="order_reference" id="order_ref" placeholder=" " required>
@@ -136,33 +139,36 @@
                   <option>Warranty Defect</option>
                   <option>Other</option>
                 </select>
-                <label for="refund_type">Reason <span class="req">*</span></label>
+                <label for="refund_type">Refund Reason <span class="req">*</span></label>
               </div>
             </div>
+
+            <!-- Row 4: M-Pesa (full width) -->
             <div class="field float-field">
               <input type="tel" name="mpesa_number" id="mpesa_num" placeholder=" " required>
               <label for="mpesa_num">M‑Pesa Number for Refund <span class="req">*</span></label>
               <div class="field-error" data-for="mpesa_num"></div>
             </div>
-          </fieldset>
 
-          <fieldset class="refund-fieldset">
-            <legend class="refund-legend">Tell us what happened</legend>
+            <!-- Row 5: Description -->
             <div class="field float-field">
               <textarea name="description" id="desc" rows="4" placeholder=" " required></textarea>
-              <label for="desc">Description <span class="req">*</span></label>
+              <label for="desc">Description of Issue <span class="req">*</span></label>
               <div class="field-error" data-for="desc"></div>
             </div>
-            <div class="field float-field">
+
+            <!-- Row 6: Evidence links (optional) -->
+            <div class="field float-field" style="margin-bottom: 0;">
               <textarea name="evidence_links" id="evidence" rows="2" placeholder=" "></textarea>
-              <label for="evidence">Supporting evidence (optional)</label>
+              <label for="evidence">Supporting Evidence — links or reference numbers (optional)</label>
             </div>
           </fieldset>
 
-          <button type="submit" class="submit-btn" id="submit-btn">Submit request →</button>
-          <p class="form-note">By submitting, you confirm this information is accurate. Fraudulent claims may result in account restriction.</p>
+          <button type="submit" class="submit-btn" id="submit-btn">Submit Refund Request →</button>
+          <p class="form-note">By submitting this form you confirm that all information provided is accurate. Fraudulent or duplicate claims may result in account restriction.</p>
         </form>
       </div>
+
     </div>
   </div>
 </div>
