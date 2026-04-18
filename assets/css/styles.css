@@ -49,7 +49,7 @@ body {
   background: var(--white);
   color: var(--ink);
   font-family: 'BDOGrotesk', 'Inter', sans-serif;
-  font-size: 17px; /* Slightly larger base */
+  font-size: 17px; /* slightly larger base */
   line-height: 1.65;
 }
 
@@ -69,7 +69,7 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 
 .label {
   display: inline-block;
-  font-size: 11px; /* slightly larger */
+  font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
   color: var(--orange);
@@ -279,26 +279,31 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   max-width: 100px;
   line-height: 1.4;
 }
-/* Hero card mimics form card styling; keep in sync with .payment-aside or .vehicle-card */
+
+/* Hero card matches form card styling */
 .hero-card {
   background: var(--white);
   border: 1.5px solid var(--line);
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+  transition: box-shadow 0.2s;
+}
+.hero-card:hover {
+  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
 }
 .hero-card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
+  padding: 16px 22px;
   background: var(--bg);
   border-bottom: 1px solid var(--line);
 }
 .hero-card-eyebrow {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
 }
@@ -308,40 +313,73 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   color: var(--orange);
   letter-spacing: 0.06em;
 }
-.hero-card-body { padding: 20px; }
-.hc-field { margin-bottom: 14px; }
-.hc-label {
-  font-size: 10px;
+.hero-card-body {
+  padding: 24px;
+}
+.hero-card-body .field {
+  margin-bottom: 16px;
+}
+.hero-card-body .hc-label {
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
-.hc-val { font-size: 15px; font-weight: 600; color: var(--ink); }
-.hc-val-mono { font-family: 'Courier New', monospace; font-size: 14px; letter-spacing: 0.04em; }
-.hc-meta-row { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.hc-val {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.hc-val-mono {
+  font-family: 'SF Mono', 'Menlo', 'Monaco', 'Cascadia Code', 'Consolas', monospace;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+.hc-meta-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
 .hc-meta-pill {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 12px;
   background: var(--bg);
   border: 1px solid var(--line);
-  border-radius: 20px;
+  border-radius: 30px;
   color: var(--mid);
 }
-.hc-meta-pill.orange { background: #fff2ed; border-color: #ffd0bf; color: var(--orange); }
-.hc-divider { height: 1px; background: var(--line); margin: 14px 0; }
+.hc-meta-pill.orange {
+  background: #fff2ed;
+  border-color: #ffd0bf;
+  color: var(--orange);
+}
+.hc-divider {
+  margin: 16px 0;
+  border: 0;
+  border-top: 1px solid var(--line);
+}
 .hero-card-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 20px;
+  padding: 14px 22px;
   background: var(--bg);
   border-top: 1px solid var(--line);
 }
-.hc-status-row { display: flex; align-items: center; gap: 8px; }
+.hc-status-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .hc-status-dot {
-  width: 8px; height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: var(--success);
   animation: pulse-dot 2s infinite;
@@ -350,102 +388,160 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
-.hc-status-label { font-size: 12px; font-weight: 700; color: var(--success); letter-spacing: 0.04em; }
-.hc-eta { font-size: 12px; color: var(--muted); }
+.hc-status-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--success);
+  letter-spacing: 0.02em;
+}
+.hc-eta {
+  font-size: 13px;
+  color: var(--muted);
+}
 
 /* ============================================
-   HOMEPAGE — SOURCING FEE (clean natural)
+   HOMEPAGE — SOURCING FEE (modern enterprise)
    ============================================ */
 .fee-section {
   background: var(--white);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
-.fee-header { margin-bottom: 40px; }
+.fee-header {
+  margin-bottom: 48px;
+}
 .fee-grid {
   display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 56px;
-  align-items: start;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
 }
-@media (max-width: 900px) { .fee-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) {
+  .fee-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+.fee-card {
+  background: var(--white);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 28px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+}
 .fee-lead {
   font-size: 17px;
-  line-height: 1.7;
+  line-height: 1.65;
   color: var(--mid);
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 .fee-breakdown {
-  border-top: 1px solid var(--line);
   margin-bottom: 28px;
 }
 .fee-item {
-  display: grid;
-  grid-template-columns: 160px 1fr;
-  gap: 8px 24px;
-  padding: 18px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  padding: 16px 0;
   border-bottom: 1px solid var(--line);
 }
+.fee-item:last-child {
+  border-bottom: none;
+}
 .fee-item-title {
-  font-size: 14px;
+  width: 140px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--ink);
 }
 .fee-item-amount {
+  width: 140px;
   font-size: 16px;
   font-weight: 700;
   color: var(--black);
 }
 .fee-item-note {
+  flex: 1;
   font-size: 13px;
   color: var(--muted);
-  grid-column: 2;
+  margin-top: 4px;
+}
+@media (max-width: 500px) {
+  .fee-item {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .fee-item-title,
+  .fee-item-amount {
+    width: auto;
+  }
 }
 .fee-guarantee {
   display: flex;
-  gap: 14px;
-  background: #f8f8f7;
+  gap: 16px;
+  background: #f9f9f7;
   border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 18px 22px;
+  border-radius: 8px;
+  padding: 20px 22px;
   font-size: 14px;
   color: var(--mid);
+  line-height: 1.6;
 }
-.fee-guarantee svg { width: 20px; height: 20px; stroke: var(--orange); flex-shrink: 0; }
-.fee-steps { display: flex; flex-direction: column; }
-.fee-step {
+.fee-guarantee svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--orange);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.fee-steps-card {
+  background: var(--bg);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  padding: 24px;
+}
+.fee-step-item {
   display: flex;
-  gap: 18px;
-  align-items: flex-start;
+  gap: 20px;
   padding: 20px 0;
   border-bottom: 1px solid var(--line);
 }
-.fee-step:last-child { border-bottom: none; }
+.fee-step-item:last-child {
+  border-bottom: none;
+}
 .step-marker {
-  width: 36px; height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  background: var(--bg);
+  background: var(--white);
   border: 1.5px solid var(--line);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
   color: var(--mid);
   flex-shrink: 0;
 }
-.fee-step.active .step-marker {
+.fee-step-item.active .step-marker {
   background: var(--orange);
   border-color: var(--orange);
   color: #fff;
 }
-.step-text {
-  font-size: 14px;
-  line-height: 1.6;
-  color: var(--mid);
-  padding-top: 4px;
+.step-content {
+  flex: 1;
 }
-.step-text strong { display: block; color: var(--ink); margin-bottom: 4px; font-size: 15px; }
+.step-content strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.step-content span {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
 
 /* ============================================
    FORM FIELDS (enterprise upgrade)
@@ -861,43 +957,54 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
 .data-table td:first-child { padding-right: 24px; }
 
 /* ============================================
-   REFUNDS PAGE (natural layout)
+   REFUNDS PAGE (modern enterprise cards)
    ============================================ */
-.page-body { padding: 64px 0 96px; }
-.page-grid {
+.refund-layout {
   display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 64px;
+  grid-template-columns: 1fr 440px;
+  gap: 48px;
   align-items: start;
 }
-@media (max-width: 960px) { .page-grid { grid-template-columns: 1fr; } }
-.refund-policy {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  padding: 30px;
+@media (max-width: 1000px) {
+  .refund-layout {
+    grid-template-columns: 1fr;
+  }
 }
-.refund-rule-block { margin-bottom: 32px; }
-.refund-rule-block:last-child { margin-bottom: 0; }
-.refund-rule-title {
-  font-size: 18px;
+.refund-policy-card,
+.refund-form-card {
+  background: var(--white);
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+}
+.card-title {
+  font-size: 22px;
   font-weight: 700;
   color: var(--black);
-  margin-bottom: 14px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--line);
+  margin-bottom: 28px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--line);
+  letter-spacing: -0.01em;
 }
-.refund-rule-body p {
-  font-size: 15px;
-  color: var(--mid);
-  line-height: 1.75;
-  margin-bottom: 16px;
+.policy-block {
+  margin-bottom: 36px;
+}
+.policy-block:last-child {
+  margin-bottom: 0;
+}
+.policy-heading {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
 }
 .eligibility-table {
   width: 100%;
   border-collapse: collapse;
+  margin: 16px 0;
   font-size: 14px;
-  margin: 20px 0;
 }
 .eligibility-table th {
   text-align: left;
@@ -906,58 +1013,62 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--muted);
-  padding: 0 0 12px;
+  padding-bottom: 10px;
   border-bottom: 2px solid var(--ink);
 }
 .eligibility-table td {
   padding: 12px 0;
   border-bottom: 1px solid var(--line);
   color: var(--mid);
-  line-height: 1.6;
+  vertical-align: middle;
 }
-.eligibility-table tbody tr:last-child td { border-bottom: none; }
 .eligibility-badge {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
-  font-size: 11px;
+  gap: 6px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.08em;
   text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 .eligibility-badge.yes { color: var(--success); }
 .eligibility-badge.no { color: var(--muted); }
-.eligibility-badge svg { width: 14px; height: 14px; flex-shrink: 0; }
-.refund-form-natural {
-  position: sticky;
-  top: 88px;
+.eligibility-badge.partial { color: #e67e22; }
+.eligibility-badge svg {
+  width: 14px;
+  height: 14px;
 }
-.refund-form-natural-title {
-  font-size: 18px;
+.note {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 12px;
+}
+.form-section {
+  margin-bottom: 32px;
+}
+.form-section-title {
+  font-size: 14px;
   font-weight: 700;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 20px;
+  padding-bottom: 8px;
   border-bottom: 1px solid var(--line);
+}
+.refund-form-card .submit-btn {
+  margin-top: 8px;
 }
 .refund-success-msg {
   display: none;
   background: #f0fbf7;
-  border-left: 3px solid var(--success);
+  border-left: 4px solid var(--success);
   padding: 14px 18px;
-  margin-bottom: 18px;
+  margin-bottom: 24px;
+  border-radius: 4px;
   font-size: 14px;
   color: var(--success);
 }
-.submit-btn {
-  background: var(--orange); color: #fff; border: none;
-  padding: 16px 32px;
-  font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
-  border-radius: 2px; cursor: pointer; transition: background 0.2s;
-  width: 100%; font-family: 'BDOGrotesk', 'Inter', sans-serif;
-}
-.submit-btn:hover { background: var(--orange-dark); }
-.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-.form-note { font-size: 13px; color: var(--muted); line-height: 1.65; margin-top: 16px; }
 
 #copy-toast {
   display: none;

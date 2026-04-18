@@ -59,31 +59,31 @@
       <!-- Hero card mimics form card styling; keep in sync with .payment-aside or .vehicle-card -->
       <div class="hero-card">
         <div class="hero-card-header">
-          <span class="hero-card-eyebrow">Sample Pre-Order</span>
+          <span class="hero-card-eyebrow">Sample Pre‑Order</span>
           <span class="hero-card-id">#PM-00412</span>
         </div>
         <div class="hero-card-body">
-          <div class="hc-field">
-            <div class="hc-label">Vehicle</div>
+          <div class="field">
+            <label class="hc-label">Vehicle</label>
             <div class="hc-val">Toyota Land Cruiser Prado · 2015</div>
           </div>
           <div class="hc-meta-row">
-            <span class="hc-meta-pill">1GR-FE Engine</span>
+            <span class="hc-meta-pill">1GR‑FE Engine</span>
             <span class="hc-meta-pill orange">Grade A Used</span>
           </div>
-          <div class="hc-divider"></div>
-          <div class="hc-field">
-            <div class="hc-label">Part Requested</div>
+          <hr class="hc-divider">
+          <div class="field">
+            <label class="hc-label">Part Requested</label>
             <div class="hc-val">Front Differential Assembly</div>
           </div>
-          <div class="hc-field">
-            <div class="hc-label">OEM Reference</div>
-            <div class="hc-val hc-val-mono">41110-60280</div>
+          <div class="field">
+            <label class="hc-label">OEM Reference</label>
+            <div class="hc-val hc-val-mono">41110‑60280</div>
           </div>
         </div>
         <div class="hero-card-footer">
           <div class="hc-status-row">
-            <div class="hc-status-dot"></div>
+            <span class="hc-status-dot"></span>
             <span class="hc-status-label">OEM Part Available</span>
           </div>
           <span class="hc-eta">Est. 7–10 days</span>
@@ -101,41 +101,53 @@
       <h2>How the Sourcing Deposit Works</h2>
     </div>
     <div class="fee-grid">
-      <div class="fee-content">
+      <div class="fee-card">
         <p class="fee-lead">The <strong>30% deposit</strong> is not a service charge — it is applied in full toward your final invoice. It covers the cost of sourcing activity and reserves your place. You pay the remaining 70% only after we find the part and you approve the price.</p>
         <div class="fee-breakdown">
           <div class="fee-item">
-            <div class="fee-item-title">Sourcing Deposit</div>
-            <div class="fee-item-amount">30% of our price estimate</div>
-            <div class="fee-item-note">Paid upfront. Credited in full — deducted from your final invoice, not an added cost.</div>
+            <span class="fee-item-title">Sourcing Deposit</span>
+            <span class="fee-item-amount">30% of estimate</span>
+            <span class="fee-item-note">Paid upfront, credited in full.</span>
           </div>
           <div class="fee-item">
-            <div class="fee-item-title">Balance Payment</div>
-            <div class="fee-item-amount">Confirmed price minus deposit</div>
-            <div class="fee-item-note">Once you approve the part, you top up the difference. Deposit already counts.</div>
+            <span class="fee-item-title">Balance Payment</span>
+            <span class="fee-item-amount">Confirmed price – deposit</span>
+            <span class="fee-item-note">Only after you approve the part.</span>
           </div>
         </div>
         <div class="fee-guarantee">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/><path d="M9 12l2 2l4 -4"/></svg>
-          <span>Can't find your part? <strong>Full deposit refunded within 3 days.</strong> If the confirmed price comes back significantly above our estimate, you're not penalised — full refund applies.</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3"/><path d="M9 12l2 2l4 -4"/></svg>
+          <span><strong>Can't find your part?</strong> Full deposit refunded within 3 days. If the confirmed price is significantly above estimate, you get a full refund — no penalty.</span>
         </div>
       </div>
-      <div class="fee-steps">
-        <div class="fee-step">
+      <div class="fee-steps-card">
+        <div class="fee-step-item">
           <div class="step-marker">1</div>
-          <div class="step-text"><strong>Submit your request</strong> Tell us your vehicle, VIN and the part you need. We research market pricing and reply with an estimate range within 24 hours.</div>
+          <div class="step-content">
+            <strong>Submit your request</strong>
+            <span>Tell us your vehicle, VIN and the part you need. We research market pricing and reply with an estimate range within 24 hours.</span>
+          </div>
         </div>
-        <div class="fee-step active">
+        <div class="fee-step-item active">
           <div class="step-marker">2</div>
-          <div class="step-text"><strong>Pay the 30% deposit</strong> M‑Pesa Paybill <strong class="fee-proc-paybill">4048209</strong>. This triggers active sourcing.</div>
+          <div class="step-content">
+            <strong>Pay the 30% deposit</strong>
+            <span>M‑Pesa Paybill <strong>4048209</strong>. This triggers active sourcing.</span>
+          </div>
         </div>
-        <div class="fee-step">
+        <div class="fee-step-item">
           <div class="step-marker">3</div>
-          <div class="step-text"><strong>We source &amp; update you</strong> Our team contacts supplier networks and requests photos and a firm price.</div>
+          <div class="step-content">
+            <strong>We source & update you</strong>
+            <span>Our team contacts supplier networks and requests photos and a firm price.</span>
+          </div>
         </div>
-        <div class="fee-step">
+        <div class="fee-step-item">
           <div class="step-marker">4</div>
-          <div class="step-text"><strong>You approve, then pay balance</strong> We share photos, condition grade and confirmed price. Pay the remaining balance and the part ships.</div>
+          <div class="step-content">
+            <strong>You approve, then pay balance</strong>
+            <span>We share photos, condition grade and confirmed price. Pay the remaining balance and the part ships.</span>
+          </div>
         </div>
       </div>
     </div>
