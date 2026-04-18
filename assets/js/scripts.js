@@ -312,7 +312,7 @@
             <div class="field"><label>Engine Code</label><input type="text" name="vehicle_${v}_engine" placeholder="e.g., 1GR-FE"></div>
           </div>
           <div class="field"><label>VIN / Chassis (optional)</label><input type="text" name="vehicle_${v}_vin" placeholder="Helps with accurate matching"></div>
-          <div style="margin-top:16px;margin-bottom:12px;"><span style="font-size:13px;font-weight:600;color:#6b6b6b;">Parts needed</span></div>
+          <div class="parts-sub-header">Parts needed</div>
           <div id="parts-${v}">${renderParts(v)}</div>
           <button type="button" class="add-btn" onclick="addPart(${v})">+ Add another part</button>
         </div>
