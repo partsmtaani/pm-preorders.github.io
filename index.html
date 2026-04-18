@@ -56,7 +56,7 @@
           <div><div class="hero-stat-num">30%</div><div class="hero-stat-label">Deposit — credited to final price</div></div>
         </div>
       </div>
-      <!-- Hero card mimics form card styling; keep in sync with .payment-aside or .vehicle-card -->
+      <!-- Hero card: white background, no border radius -->
       <div class="hero-card">
         <div class="hero-card-header">
           <span class="hero-card-eyebrow">Sample Pre‑Order</span>
@@ -93,7 +93,7 @@
   </div>
 </section>
 
-<!-- FEE SECTION – Clean natural redesign -->
+<!-- SOURCING FEE – No cards, clean layout -->
 <section id="sourcing-fee" class="section fee-section">
   <div class="wrap">
     <div class="fee-header">
@@ -101,7 +101,7 @@
       <h2>How the Sourcing Deposit Works</h2>
     </div>
     <div class="fee-grid">
-      <div class="fee-card">
+      <div class="fee-content">
         <p class="fee-lead">The <strong>30% deposit</strong> is not a service charge — it is applied in full toward your final invoice. It covers the cost of sourcing activity and reserves your place. You pay the remaining 70% only after we find the part and you approve the price.</p>
         <div class="fee-breakdown">
           <div class="fee-item">
@@ -120,7 +120,7 @@
           <span><strong>Can't find your part?</strong> Full deposit refunded within 3 days. If the confirmed price is significantly above estimate, you get a full refund — no penalty.</span>
         </div>
       </div>
-      <div class="fee-steps-card">
+      <div class="fee-steps">
         <div class="fee-step-item">
           <div class="step-marker">1</div>
           <div class="step-content">
@@ -155,7 +155,7 @@
 </section>
 <div class="divider"></div>
 
-<!-- ORDER FORM -->
+<!-- ORDER FORM – Form cards use #D7CDCC background -->
 <section id="order-form" class="section section-alt">
   <div class="wrap">
     <div class="label">Submit Your Request</div>
@@ -167,7 +167,7 @@
         <form id="preorder-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" enctype="multipart/form-data" novalidate>
           <input type="hidden" name="_subject" value="Multi-Vehicle Pre-Order Request">
 
-          <div id="step-1" class="step-container">
+          <div id="step-1" class="step-container form-card">
             <div class="form-group-title">Your contact details</div>
             <div class="form-body-plain">
               <div class="field-2">
@@ -200,7 +200,7 @@
             </div>
           </div>
 
-          <div id="step-2" class="step-container" style="display:none">
+          <div id="step-2" class="step-container form-card" style="display:none">
             <div class="form-group-title">Vehicles &amp; parts needed</div>
             <div class="form-body-plain">
               <div id="vehicles-container"></div>
@@ -214,6 +214,7 @@
         </form>
       </div>
       <div>
+        <!-- Payment aside: white background, no border radius -->
         <div class="payment-aside">
           <div class="payment-aside-title">Pay via M‑Pesa</div>
           <p class="payment-aside-desc">Send the 30% deposit to our Paybill. Your invoice number is your account reference.</p>

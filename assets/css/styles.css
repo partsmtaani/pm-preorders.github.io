@@ -15,6 +15,11 @@
   --bg: #fafaf9;
   --white: #ffffff;
   --error: #dc2626;
+  /* New form card and field colors */
+  --card-bg: #D7CDCC;
+  --field-border: #293132;
+  --field-border-hover: #1a1f20;
+  --field-border-focus: #0d1112;
 }
 
 /* ============================================
@@ -49,7 +54,7 @@ body {
   background: var(--white);
   color: var(--ink);
   font-family: 'BDOGrotesk', 'Inter', sans-serif;
-  font-size: 17px; /* slightly larger base */
+  font-size: 17px;
   line-height: 1.65;
 }
 
@@ -280,17 +285,13 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   line-height: 1.4;
 }
 
-/* Hero card matches form card styling */
+/* Hero card: white, no border radius, matches payment aside */
 .hero-card {
   background: var(--white);
   border: 1.5px solid var(--line);
-  border-radius: 8px;
+  border-radius: 0;
   overflow: hidden;
   box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-  transition: box-shadow 0.2s;
-}
-.hero-card:hover {
-  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
 }
 .hero-card-header {
   display: flex;
@@ -400,7 +401,7 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 }
 
 /* ============================================
-   HOMEPAGE — SOURCING FEE (modern enterprise)
+   SOURCING FEE – Clean, no cards
    ============================================ */
 .fee-section {
   background: var(--white);
@@ -413,7 +414,7 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 .fee-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
+  gap: 56px;
 }
 @media (max-width: 900px) {
   .fee-grid {
@@ -421,21 +422,14 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
     gap: 40px;
   }
 }
-.fee-card {
-  background: var(--white);
-  border: 1.5px solid var(--line);
-  border-radius: 10px;
-  padding: 28px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-}
 .fee-lead {
   font-size: 17px;
-  line-height: 1.65;
+  line-height: 1.7;
   color: var(--mid);
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 .fee-breakdown {
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 .fee-item {
   display: flex;
@@ -448,13 +442,13 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   border-bottom: none;
 }
 .fee-item-title {
-  width: 140px;
+  width: 150px;
   font-size: 15px;
   font-weight: 700;
   color: var(--ink);
 }
 .fee-item-amount {
-  width: 140px;
+  width: 160px;
   font-size: 16px;
   font-weight: 700;
   color: var(--black);
@@ -480,7 +474,7 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   gap: 16px;
   background: #f9f9f7;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 20px 22px;
   font-size: 14px;
   color: var(--mid);
@@ -493,11 +487,9 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   flex-shrink: 0;
   margin-top: 2px;
 }
-.fee-steps-card {
-  background: var(--bg);
-  border: 1.5px solid var(--line);
-  border-radius: 10px;
-  padding: 24px;
+.fee-steps {
+  display: flex;
+  flex-direction: column;
 }
 .fee-step-item {
   display: flex;
@@ -512,7 +504,7 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: var(--white);
+  background: var(--bg);
   border: 1.5px solid var(--line);
   display: flex;
   align-items: center;
@@ -544,7 +536,7 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 }
 
 /* ============================================
-   FORM FIELDS (enterprise upgrade)
+   FORM FIELDS – Enterprise with #293132 borders
    ============================================ */
 .field { margin-bottom: 22px; }
 .field label {
@@ -561,7 +553,7 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 .field textarea {
   width: 100%;
   padding: 12px 16px;
-  border: 1.5px solid var(--line);
+  border: 1.5px solid var(--field-border);
   border-radius: 4px;
   font-size: 15px;
   color: var(--ink);
@@ -573,13 +565,13 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 .field input:hover,
 .field select:hover,
 .field textarea:hover {
-  border-color: #999;
+  border-color: var(--field-border-hover);
 }
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
-  border-color: var(--ink);
-  box-shadow: 0 0 0 2px rgba(28,28,28,0.08);
+  border-color: var(--field-border-focus);
+  box-shadow: 0 0 0 2px rgba(41,49,50,0.1);
 }
 .field input.error,
 .field select.error,
@@ -593,6 +585,18 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   min-height: 20px;
 }
 .req { color: var(--orange); }
+
+/* Form cards have #D7CDCC background */
+.form-card {
+  background: var(--card-bg);
+  border: 1.5px solid var(--field-border);
+  border-radius: 8px;
+  padding: 28px;
+  margin-bottom: 24px;
+}
+.step-container.form-card {
+  margin-bottom: 0;
+}
 
 .form-layout {
   display: grid;
@@ -640,14 +644,17 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   .step-actions { flex-direction: column; }
   .step-actions .submit-btn, .step-actions .btn-step-back { width: 100%; text-align: center; }
 }
-.vehicle-card { border: 1px solid var(--line); margin-bottom: 12px; }
+.vehicle-card {
+  border: 1px solid var(--line);
+  margin-bottom: 12px;
+  background: var(--white);
+}
 .vehicle-header {
   display: flex; align-items: center; justify-content: space-between;
   padding: 14px 18px; background: var(--bg); cursor: pointer; transition: background 0.15s;
 }
 .vehicle-header:hover { background: #eeeeec; }
 .vehicle-title { font-size: 14px; font-weight: 700; color: var(--black); }
-.vehicle-badge { font-size: 13px; color: var(--muted); font-weight: 400; }
 .remove-vehicle {
   background: none; border: none;
   cursor: pointer; color: var(--muted); font-size: 12px;
@@ -692,11 +699,13 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   display: flex; align-items: center; justify-content: center;
 }
 
+/* Payment aside: white, no border radius */
 .payment-aside {
   background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 6px;
+  border: 1.5px solid var(--field-border);
+  border-radius: 0;
   padding: 30px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
 }
 .payment-aside-title {
   font-size: 16px; font-weight: 700; color: var(--black);
@@ -923,7 +932,7 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
 }
 
 /* ============================================
-   DOCUMENT / LEGAL PAGES
+   DOCUMENT / LEGAL PAGES (unchanged)
    ============================================ */
 .doc-layout { display: grid; grid-template-columns: 240px 1fr; gap: 60px; padding: 64px 0 96px; align-items: start; }
 @media (max-width: 860px) { .doc-layout { grid-template-columns: 1fr; gap: 40px; } }
@@ -957,7 +966,7 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
 .data-table td:first-child { padding-right: 24px; }
 
 /* ============================================
-   REFUNDS PAGE (modern enterprise cards)
+   REFUNDS PAGE – Form cards with #D7CDCC
    ============================================ */
 .refund-layout {
   display: grid;
@@ -972,9 +981,9 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
 }
 .refund-policy-card,
 .refund-form-card {
-  background: var(--white);
-  border: 1.5px solid var(--line);
-  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1.5px solid var(--field-border);
+  border-radius: 0;
   padding: 32px;
   box-shadow: 0 8px 18px rgba(0,0,0,0.02);
 }
@@ -984,7 +993,7 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
   color: var(--black);
   margin-bottom: 28px;
   padding-bottom: 16px;
-  border-bottom: 2px solid var(--line);
+  border-bottom: 2px solid var(--field-border);
   letter-spacing: -0.01em;
 }
 .policy-block {
