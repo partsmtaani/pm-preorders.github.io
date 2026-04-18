@@ -1,5 +1,5 @@
 /* ============================================
-   ROOT VARIABLES (Design System)
+   ROOT VARIABLES
    ============================================ */
 :root {
   --orange: #FF4500;
@@ -10,9 +10,11 @@
   --ink: #1c1c1c;
   --mid: #444;
   --muted: #6b6b6b;
-  --line: #e8e8e8;
+  --line: #d4d4d4;
+  --line-light: #e8e8e8;
   --bg: #fafaf9;
   --white: #ffffff;
+  --error: #dc2626;
 }
 
 /* ============================================
@@ -38,7 +40,7 @@
 }
 
 /* ============================================
-   GLOBAL RESET & BASE STYLES
+   GLOBAL RESET & BASE
    ============================================ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -96,7 +98,6 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   height: 68px;
   gap: 20px;
 }
-/* Fix: no underline ever on the logo anchor */
 .logo {
   display: flex;
   align-items: center;
@@ -104,11 +105,8 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   text-decoration: none;
   flex-shrink: 0;
 }
-.logo:hover,
-.logo:focus,
-.logo:active { text-decoration: none; }
+.logo:hover, .logo:focus, .logo:active { text-decoration: none; }
 .logo-img { height: 36px; width: auto; display: block; object-fit: contain; }
-/* Fix: no blue underline on logo-sub */
 .logo-sub {
   font-family: 'BDOGrotesk', sans-serif;
   font-size: 11px;
@@ -212,7 +210,6 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   position: relative;
   overflow: hidden;
 }
-/* Right-side background image — same pattern as subpage .page-hero::before */
 #hero::before {
   content: "";
   position: absolute;
@@ -224,7 +221,6 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   pointer-events: none;
   z-index: 0;
 }
-/* Fade image back into white on the left edge */
 #hero::after {
   content: "";
   position: absolute;
@@ -282,7 +278,6 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   max-width: 100px;
   line-height: 1.4;
 }
-/* Hero sample card */
 .hero-card {
   background: var(--white);
   border: 1px solid var(--line);
@@ -357,145 +352,150 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 .hc-eta { font-size: 11px; color: var(--muted); }
 
 /* ============================================
-   HOMEPAGE — SOURCING FEE SECTION
+   HOMEPAGE — SOURCING FEE (clean natural)
    ============================================ */
-.fee-banner {
-  padding: 88px 0;
-  background-color: var(--success);
-  position: relative;
+.fee-section {
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
-/* Subtle SVG gear/grid pattern overlay */
-.fee-banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: url('/assets/img/fee-pattern.svg');
-  background-size: 320px 320px;
-  background-repeat: repeat;
-  opacity: 0.07;
-  pointer-events: none;
-  z-index: 0;
-}
-.fee-banner .wrap { position: relative; z-index: 1; }
-/* ── Fee section — colour overrides on green bg ── */
-.fee-banner .fee-label { color: rgba(255,255,255,0.7); }
-.fee-banner h2 { color: #fff; }
-.fee-banner .fee-intro { color: rgba(255,255,255,0.85); }
-.fee-banner .fee-intro strong { color: #fff; }
-.fee-banner .fee-proc-paybill { color: #fff; font-weight: 800; }
-
-/* ── Layout ── */
-.fee-header { margin-bottom: 48px; }
-.fee-header h2 { margin-top: 0; }
-
-.fee-body {
+.fee-header { margin-bottom: 40px; }
+.fee-grid {
   display: grid;
-  grid-template-columns: 1fr 420px;
-  gap: 64px;
+  grid-template-columns: 1fr 380px;
+  gap: 56px;
   align-items: start;
 }
-@media (max-width: 980px) { .fee-body { grid-template-columns: 1fr; gap: 48px; } }
-
-/* ── Left: intro + tally + guarantee ── */
-.fee-intro { font-size: 16px; line-height: 1.75; margin-bottom: 32px; }
-
-.fee-tally { margin-bottom: 28px; }
-.fee-tally-row {
+@media (max-width: 900px) { .fee-grid { grid-template-columns: 1fr; } }
+.fee-lead {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--mid);
+  margin-bottom: 32px;
+}
+.fee-breakdown {
+  border-top: 1px solid var(--line);
+  margin-bottom: 28px;
+}
+.fee-item {
   display: grid;
   grid-template-columns: 140px 1fr;
-  gap: 0 24px;
+  gap: 8px 24px;
   padding: 16px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.18);
-  align-items: start;
+  border-bottom: 1px solid var(--line);
 }
-.fee-tally-row:first-child { border-top: 1px solid rgba(255,255,255,0.18); }
-.fee-tally-divider { display: none; }
-.fee-tally-label {
-  font-size: 13px; font-weight: 700; color: #fff;
-  letter-spacing: 0.01em;
+.fee-item-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--ink);
 }
-.fee-tally-amount {
-  font-size: 15px; font-weight: 700; color: #fff;
-  margin-bottom: 3px;
+.fee-item-amount {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--black);
 }
-.fee-tally-note {
-  font-size: 12px; color: rgba(255,255,255,0.65);
-  line-height: 1.5;
+.fee-item-note {
+  font-size: 12px;
+  color: var(--muted);
   grid-column: 2;
 }
-@media (max-width: 600px) {
-  .fee-tally-row { grid-template-columns: 1fr; gap: 4px; }
-  .fee-tally-note { grid-column: 1; }
-}
-
-.fee-guarantee-strip {
+.fee-guarantee {
   display: flex;
-  align-items: flex-start;
   gap: 14px;
-  background: rgba(255,255,255,0.12);
-  border: 1px solid rgba(255,255,255,0.22);
+  background: #f8f8f7;
+  border: 1px solid var(--line);
   border-radius: 6px;
   padding: 16px 20px;
   font-size: 13px;
-  color: rgba(255,255,255,0.88);
-  line-height: 1.65;
+  color: var(--mid);
 }
-.fee-guarantee-strip svg { width: 18px; height: 18px; stroke: #fff; flex-shrink: 0; margin-top: 1px; }
-.fee-guarantee-strip strong { color: #fff; }
-
-/* ── Right: step list ── */
-.fee-steps { display: flex; flex-direction: column; gap: 0; }
+.fee-guarantee svg { width: 18px; height: 18px; stroke: var(--orange); flex-shrink: 0; }
+.fee-steps { display: flex; flex-direction: column; }
 .fee-step {
   display: flex;
   gap: 16px;
   align-items: flex-start;
   padding: 18px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.15);
+  border-bottom: 1px solid var(--line);
 }
 .fee-step:last-child { border-bottom: none; }
-.fee-step-marker {
-  width: 34px; height: 34px; flex-shrink: 0;
+.step-marker {
+  width: 32px; height: 32px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.15);
-  border: 1px solid rgba(255,255,255,0.28);
-  display: flex; align-items: center; justify-content: center;
+  background: var(--bg);
+  border: 1.5px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--mid);
+  flex-shrink: 0;
 }
-.fee-step-marker svg { width: 15px; height: 15px; stroke: #fff; fill: none; }
-.fee-step-active .fee-step-marker {
-  background: #fff;
-  border-color: #fff;
+.fee-step.active .step-marker {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: #fff;
 }
-.fee-step-active .fee-step-marker svg { stroke: var(--success); }
-.fee-step-text { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,0.82); padding-top: 6px; }
-.fee-step-text strong { display: block; font-size: 13px; color: #fff; margin-bottom: 3px; font-weight: 700; }
-
-/* ── Keep old layout classes alive (unused but safe) ── */
-.fee-inner { display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: start; }
-@media (max-width: 980px) { .fee-inner { grid-template-columns: 1fr; gap: 48px; } }
-.fee-left p { font-size: 15px; color: var(--mid); line-height: 1.75; margin-bottom: 12px; margin-top: 16px; }
-.fee-left-note { font-size: 13px; color: var(--muted); line-height: 1.7; }
-.fee-process-rail { display: flex; flex-direction: column; }
-.fee-process-item { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--line); }
-.fee-process-item:last-child { border-bottom: none; }
-.fee-proc-num-col { flex-shrink: 0; }
-.fee-proc-circle { width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--white); }
-.fee-proc-circle svg { width: 16px; height: 16px; stroke: var(--muted); fill: none; }
-.fee-process-item.is-active .fee-proc-circle { background: var(--orange); border-color: var(--orange); }
-.fee-process-item.is-active .fee-proc-circle svg { stroke: #fff; }
-.fee-process-item.is-guarantee .fee-proc-circle { background: #f0fbf7; border-color: rgba(38,196,133,0.3); }
-.fee-process-item.is-guarantee .fee-proc-circle svg { stroke: var(--success); }
-.fee-proc-eyebrow { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
-.fee-proc-title { font-size: 13px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
-.fee-proc-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0; }
-.fee-proc-paybill { color: var(--orange); font-weight: 700; }
-.fee-label { font-size: 10px; font-weight: 700; letter-spacing: 0.14em; color: var(--orange); text-transform: uppercase; margin-bottom: 12px; display: inline-block; }
+.step-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--mid);
+  padding-top: 4px;
+}
+.step-text strong { display: block; color: var(--ink); margin-bottom: 3px; }
 
 /* ============================================
-   HOMEPAGE — ORDER FORM
+   FORM FIELDS (enterprise upgrade)
    ============================================ */
-/* ============================================
-   ORDER FORM — natural layout
-   ============================================ */
+.field { margin-bottom: 20px; }
+.field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  font-size: 14px;
+  color: var(--ink);
+  font-family: inherit;
+  background: var(--white);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+}
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  border-color: #999;
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--ink);
+  box-shadow: 0 0 0 2px rgba(28,28,28,0.08);
+}
+.field input.error,
+.field select.error,
+.field textarea.error {
+  border-color: var(--error);
+}
+.field-error {
+  font-size: 12px;
+  color: var(--error);
+  margin-top: 4px;
+  min-height: 18px;
+}
+.req { color: var(--orange); }
+
 .form-layout {
   display: grid;
   grid-template-columns: 1fr 360px;
@@ -504,8 +504,6 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   margin-top: 32px;
 }
 @media (max-width: 980px) { .form-layout { grid-template-columns: 1fr; } }
-
-/* Natural group title — like a document heading */
 .form-group-title {
   font-size: 11px;
   font-weight: 700;
@@ -516,20 +514,7 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   border-bottom: 1px solid var(--line);
   margin-bottom: 20px;
 }
-
-.form-body-plain { }
 .form-step-action { display: flex; justify-content: flex-end; margin-top: 8px; }
-
-.step-container { }
-
-/* Keep step-dot for JS state, visually hidden */
-.step-indicator { display: none; }
-.step-dot { display: none; }
-.step-dot.active, .step-dot.completed { display: none; }
-.step-icon { display: none; }
-.form-sec-head { display: none; }
-.form-sec-num { display: none; }
-.form-body { padding: 24px; }
 .btn-step {
   background: var(--orange); color: #fff; border: none;
   padding: 12px 28px;
@@ -609,7 +594,6 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   display: flex; align-items: center; justify-content: center;
 }
 
-/* ── Payment aside (natural layout) ── */
 .payment-aside {
   background: var(--white);
   border: 1px solid var(--line);
@@ -633,7 +617,6 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   margin-bottom: 14px;
 }
 .payment-paybill:hover { border-color: var(--orange); }
-.payment-paybill-inner {}
 .payment-paybill-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 3px; }
 .payment-paybill-value { font-size: 24px; font-weight: 800; color: var(--black); letter-spacing: 0.04em; line-height: 1; }
 .paybill-copy-btn {
@@ -658,28 +641,6 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 .payment-support-label { display: block; font-size: 11px; color: var(--muted); margin-bottom: 2px; }
 .payment-support-number { font-size: 15px; font-weight: 700; color: var(--black); text-decoration: none; }
 .payment-support-number:hover { color: var(--orange); }
-.support-number {
-  display: flex; align-items: center; gap: 12px;
-  background: var(--bg); border: 1px solid var(--line); border-radius: 6px;
-  padding: 10px 14px; margin-top: 10px;
-}
-.support-number-icon { width: 30px; height: 30px; background: var(--white); border: 1px solid var(--line); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.support-number-icon svg { width: 14px; height: 14px; stroke: var(--orange); }
-.label-small { display: block; font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
-.support-number-text a { font-size: 14px; font-weight: 700; color: var(--ink); text-decoration: none; }
-.support-number-text a:hover { color: var(--orange); }
-
-/* Toast */
-#copy-toast {
-  display: none;
-  position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
-  background: var(--black); color: #fff;
-  padding: 10px 20px; border-radius: 20px;
-  font-size: 13px; font-weight: 600;
-  z-index: 9999; pointer-events: none;
-}
-
-/* Success message */
 .success-msg {
   display: none;
   background: #f0fbf7;
@@ -690,13 +651,12 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 }
 
 /* ============================================
-   HOMEPAGE — FAQ
+   FAQ
    ============================================ */
 #faq {
   position: relative;
   overflow: hidden;
 }
-/* Left-side background image — mirrors hero pattern but on left */
 #faq::before {
   content: "";
   position: absolute;
@@ -708,7 +668,6 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   pointer-events: none;
   z-index: 0;
 }
-/* Fade image out to the right */
 #faq::after {
   content: "";
   position: absolute;
@@ -835,8 +794,7 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
 .footer-legal-links a:hover { color: var(--orange); }
 
 /* ============================================
-   SUBPAGE HERO (Privacy, Terms, Refunds)
-   — Taller than original
+   SUBPAGE HERO
    ============================================ */
 .page-hero {
   position: relative;
@@ -901,98 +859,73 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
 .data-table td:first-child { padding-right: 24px; }
 
 /* ============================================
-   PROSE CONTENT (Terms / Privacy)
-   ============================================ */
-.prose-layout { display: grid; grid-template-columns: 220px 1fr; gap: 60px; align-items: start; padding: 60px 0 80px; }
-@media (max-width: 860px) { .prose-layout { grid-template-columns: 1fr; gap: 32px; } .prose-toc { display: none; } }
-.prose-toc { position: sticky; top: 88px; }
-.prose-toc-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
-.prose-toc ul { list-style: none; padding: 0; margin: 0; border-left: 2px solid var(--line); }
-.prose-toc ul li a { display: block; padding: 6px 0 6px 16px; font-size: 12px; font-weight: 600; color: var(--muted); text-decoration: none; transition: color 0.15s; letter-spacing: 0.02em; }
-.prose-toc ul li a:hover { color: var(--orange); }
-.prose-toc ul li.active a { color: var(--orange); border-left: 2px solid var(--orange); margin-left: -2px; }
-.prose { max-width: 720px; }
-.prose-section { margin-bottom: 52px; }
-.prose-section:last-child { margin-bottom: 0; }
-.prose h2 { font-size: 20px; font-weight: 700; letter-spacing: 0; text-transform: none; color: var(--black); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
-.prose h3 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink); margin: 24px 0 10px; }
-.prose p { font-size: 15px; line-height: 1.8; color: var(--mid); margin-bottom: 16px; }
-.prose p:last-child { margin-bottom: 0; }
-.prose ul, .prose ol { padding-left: 0; margin: 0 0 16px; list-style: none; }
-.prose ul li, .prose ol li { font-size: 15px; line-height: 1.75; color: var(--mid); padding: 5px 0 5px 22px; position: relative; }
-.prose ul li::before { content: "—"; position: absolute; left: 0; color: var(--orange); font-weight: 700; font-size: 12px; }
-.prose ol { counter-reset: prose-counter; }
-.prose ol li { counter-increment: prose-counter; }
-.prose ol li::before { content: counter(prose-counter) "."; position: absolute; left: 0; color: var(--orange); font-weight: 700; font-size: 12px; }
-.prose a { color: var(--orange); text-decoration: none; }
-.prose a:hover { text-decoration: underline; }
-.prose strong { color: var(--ink); font-weight: 700; }
-.callout { border-left: 3px solid var(--orange); background: #fff8f5; padding: 16px 20px; border-radius: 0 4px 4px 0; margin: 24px 0; }
-.callout p { font-size: 14px; color: var(--mid); margin: 0; }
-.callout.blue { border-left-color: var(--info); background: #f0f8fc; }
-.callout.green { border-left-color: var(--success); background: #f0fbf7; }
-.restricted-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; margin: 20px 0; }
-.restricted-tag { display: flex; align-items: center; gap: 8px; padding: 10px 14px; background: var(--bg); border: 1px solid var(--line); border-radius: 4px; font-size: 12px; font-weight: 600; color: var(--mid); }
-.restricted-tag svg { width: 14px; height: 14px; stroke: #cc2200; stroke-width: 1.75; fill: none; flex-shrink: 0; }
-
-/* ============================================
-   REFUND PAGE
+   REFUNDS PAGE (natural layout)
    ============================================ */
 .page-body { padding: 64px 0 96px; }
-.page-grid { display: grid; grid-template-columns: 1fr 400px; gap: 60px; align-items: start; }
-@media (max-width: 960px) { .page-grid { grid-template-columns: 1fr; gap: 48px; } }
-.form-card { background: var(--white); border: 1px solid var(--line); }
-.form-card-head { padding: 16px 24px; background: var(--bg); border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 12px; }
-.form-card-head h3 { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; margin: 0; color: var(--black); }
-.form-card-num { width: 26px; height: 26px; background: var(--orange); color: #fff; font-size: 12px; font-weight: 700; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.form-card-body { padding: 28px; }
-.field { margin-bottom: 20px; }
-.field label { display: block; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); margin-bottom: 6px; }
-.field input, .field select, .field textarea { width: 100%; padding: 11px 14px; border: 1px solid var(--line); border-radius: 4px; font-size: 14px; color: var(--ink); font-family: 'BDOGrotesk', 'Inter', sans-serif; background: var(--white); transition: border-color 0.15s; outline: none; }
-.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--orange); }
-.field textarea { resize: vertical; min-height: 90px; }
-.field-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-@media (max-width: 600px) { .field-2 { grid-template-columns: 1fr; } }
-.req { color: var(--orange); }
-.submit-btn { background: var(--orange); color: #fff; border: none; padding: 14px 32px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; cursor: pointer; transition: background 0.2s; width: 100%; font-family: 'BDOGrotesk', 'Inter', sans-serif; }
-.submit-btn:hover { background: var(--orange-dark); }
-.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
-.refund-sidebar { display: flex; flex-direction: column; gap: 16px; }
-.info-card { background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 20px; }
-.info-card-label { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
-.info-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
-.info-item:last-child { margin-bottom: 0; }
-.info-item-icon { width: 32px; height: 32px; background: var(--white); border: 1px solid var(--line); border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.info-item-icon svg { width: 15px; height: 15px; stroke: var(--orange); stroke-width: 1.75; fill: none; }
-.info-item-text { font-size: 13px; color: var(--mid); line-height: 1.6; }
-.info-item-text strong { display: block; font-size: 12px; color: var(--ink); margin-bottom: 2px; }
-.success-banner { display: none; background: #f0fbf7; border: 1px solid rgba(38,196,133,0.3); border-radius: 8px; padding: 24px 28px; text-align: center; margin-bottom: 24px; }
-.success-banner svg { width: 40px; height: 40px; stroke: var(--success); stroke-width: 1.5; fill: none; margin-bottom: 12px; }
-.success-banner h3 { font-size: 16px; color: var(--black); text-transform: none; letter-spacing: 0; margin-bottom: 6px; }
-.success-banner p { font-size: 14px; color: var(--mid); margin: 0; }
-
-/* Refund page — policy side */
-.refund-policy { max-width: 100%; }
-.refund-rule-block { margin-bottom: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--line); }
-.refund-rule-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-.refund-rule-title { font-size: 17px; font-weight: 700; color: var(--black); text-transform: none; letter-spacing: -0.01em; margin-bottom: 14px; }
-.refund-rule-body p { font-size: 13px; color: var(--mid); line-height: 1.75; margin: 0 0 14px; }
-.refund-rule-body p:last-child { margin-bottom: 0; }
-
-/* Eligibility rows */
-.eligibility-table { width: 100%; border-collapse: collapse; margin: 14px 0 0; font-size: 13px; }
-.eligibility-table thead tr th { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); padding: 0 0 10px; border-bottom: 2px solid var(--ink); text-align: left; }
-.eligibility-table thead tr th:last-child { width: 80px; }
-.eligibility-table tbody tr td { padding: 11px 0; border-bottom: 1px solid var(--line); color: var(--mid); vertical-align: middle; line-height: 1.6; }
+.page-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 64px;
+  align-items: start;
+}
+@media (max-width: 960px) { .page-grid { grid-template-columns: 1fr; } }
+.refund-policy {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 28px;
+}
+.refund-rule-block { margin-bottom: 32px; }
+.refund-rule-block:last-child { margin-bottom: 0; }
+.refund-rule-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.refund-rule-body p {
+  font-size: 14px;
+  color: var(--mid);
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+.eligibility-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 20px 0;
+}
+.eligibility-table th {
+  text-align: left;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 0 12px;
+  border-bottom: 2px solid var(--ink);
+}
+.eligibility-table td {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+  color: var(--mid);
+  line-height: 1.6;
+}
 .eligibility-table tbody tr:last-child td { border-bottom: none; }
-.eligibility-table tbody tr td:first-child { padding-right: 24px; }
-.eligibility-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+.eligibility-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
 .eligibility-badge.yes { color: var(--success); }
 .eligibility-badge.no { color: var(--muted); }
 .eligibility-badge svg { width: 12px; height: 12px; flex-shrink: 0; }
-
-/* Refund form card (sticky right column) */
-/* ── Refund form — natural layout ── */
 .refund-form-natural {
   position: sticky;
   top: 88px;
@@ -1000,17 +933,35 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
 .refund-form-natural-title {
   font-size: 17px;
   font-weight: 700;
-  color: var(--black);
   margin-bottom: 24px;
   padding-bottom: 16px;
   border-bottom: 1px solid var(--line);
-  letter-spacing: -0.01em;
 }
-.refund-form-card { background: var(--white); border: 1px solid var(--line); border-radius: 8px; overflow: hidden; position: sticky; top: 88px; }
-.refund-form-head { background: var(--bg); border-bottom: 1px solid var(--line); padding: 16px 24px; }
-.refund-form-head h4 { font-size: 13px; font-weight: 700; letter-spacing: 0; text-transform: none; color: var(--black); margin: 0 0 2px; }
-.refund-form-head p { font-size: 11px; color: var(--muted); margin: 0; }
-.refund-form-body { padding: 24px; }
-.divider-line { height: 1px; background: var(--line); margin: 18px 0; }
+.refund-success-msg {
+  display: none;
+  background: #f0fbf7;
+  border-left: 3px solid var(--success);
+  padding: 12px 16px;
+  margin-bottom: 18px;
+  font-size: 13px;
+  color: var(--success);
+}
+.submit-btn {
+  background: var(--orange); color: #fff; border: none;
+  padding: 14px 32px;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  border-radius: 2px; cursor: pointer; transition: background 0.2s;
+  width: 100%; font-family: 'BDOGrotesk', 'Inter', sans-serif;
+}
+.submit-btn:hover { background: var(--orange-dark); }
+.submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 .form-note { font-size: 12px; color: var(--muted); line-height: 1.65; margin-top: 16px; }
-.refund-success-msg { display: none; background: #f0fbf7; border-left: 3px solid var(--success); padding: 12px 16px; margin-bottom: 18px; font-size: 13px; color: var(--success); }
+
+#copy-toast {
+  display: none;
+  position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+  background: var(--black); color: #fff;
+  padding: 10px 20px; border-radius: 20px;
+  font-size: 13px; font-weight: 600;
+  z-index: 9999; pointer-events: none;
+}
