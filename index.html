@@ -19,7 +19,7 @@
       #sourcing-fee .sf-stat-bar > div { border-right: none !important; border-bottom: 1px solid #1e1e1e; }
       #sourcing-fee .sf-header-inner { flex-direction: column !important; align-items: flex-start !important; }
       #sourcing-fee .sf-steps-row { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
-      #order-form .of-trust-bar { grid-template-columns: 1fr !important; }
+      #order-form .of-header-grid { grid-template-columns: 1fr !important; gap: 24px !important; align-items: start !important; }
     }
     @media (max-width: 600px) {
       #sourcing-fee .sf-stat-num { font-size: 36px !important; }
@@ -207,41 +207,27 @@
 <section id="order-form" class="section section-alt">
   <div class="wrap">
 
-    <!-- Section header — centred -->
-    <div style="text-align:center;max-width:600px;margin:0 auto 48px;">
-      <div class="label">Submit Your Request</div>
-      <h2 style="margin-bottom:14px;">Place a Pre-Order</h2>
-      <p style="color:var(--muted);font-size:15px;line-height:1.75;margin:0;">Fill in your contact details, then add your vehicle and the parts you need. You can include images and add multiple vehicles.</p>
-    </div>
-
-    <!-- Trust bar -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:48px;" class="of-trust-bar">
-      <div style="background:var(--bg);padding:20px 24px;display:flex;align-items:center;gap:14px;">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="var(--orange)" style="width:22px;height:22px;flex-shrink:0;">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" />
-        </svg>
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--ink);letter-spacing:0.02em;">No deposit until you approve</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:2px;">We price it first. You commit second.</div>
-        </div>
+    <!-- Section header — split layout -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:end;padding-bottom:40px;border-bottom:1px solid var(--line);margin-bottom:48px;" class="of-header-grid">
+      <div>
+        <div class="label">Submit Your Request</div>
+        <h2 style="margin-bottom:0;">Place a Pre-Order</h2>
       </div>
-      <div style="background:var(--bg);padding:20px 24px;display:flex;align-items:center;gap:14px;">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="var(--orange)" style="width:22px;height:22px;flex-shrink:0;">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
-        </svg>
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--ink);letter-spacing:0.02em;">Full refund if we can't source</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:2px;">Returned to M‑Pesa within 3 business days.</div>
-        </div>
-      </div>
-      <div style="background:var(--bg);padding:20px 24px;display:flex;align-items:center;gap:14px;">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="var(--orange)" style="width:22px;height:22px;flex-shrink:0;">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
-        </svg>
-        <div>
-          <div style="font-size:12px;font-weight:700;color:var(--ink);letter-spacing:0.02em;">Delivered anywhere in Kenya</div>
-          <div style="font-size:12px;color:var(--muted);margin-top:2px;">Air and sea freight. 7–14 days avg. lead time.</div>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <p style="color:var(--muted);font-size:14px;line-height:1.75;margin:0;">Fill in your contact details, then add your vehicle and the parts you need. You can include images and add multiple vehicles.</p>
+        <div style="display:flex;gap:32px;">
+          <div>
+            <div style="font-size:22px;font-weight:800;color:var(--ink);line-height:1;letter-spacing:-0.02em;">4 hrs</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase;">Response time</div>
+          </div>
+          <div>
+            <div style="font-size:22px;font-weight:800;color:var(--ink);line-height:1;letter-spacing:-0.02em;">24 hrs</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase;">Price estimate</div>
+          </div>
+          <div>
+            <div style="font-size:22px;font-weight:800;color:var(--ink);line-height:1;letter-spacing:-0.02em;">7–14</div>
+            <div style="font-size:11px;color:var(--muted);margin-top:4px;letter-spacing:0.04em;text-transform:uppercase;">Days delivery</div>
+          </div>
         </div>
       </div>
     </div>
