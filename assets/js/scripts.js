@@ -1,6 +1,7 @@
 /* site.js — PartsMtaani shared scripts */
 
 (function() {
+
   // ── Hamburger nav with X toggle ─────────────────────────────
   document.addEventListener('DOMContentLoaded', function () {
     const hamburger = document.getElementById('nav-hamburger');
@@ -33,17 +34,13 @@
       function setActive() {
         let current = '';
         sections.forEach(section => {
-          if (window.scrollY >= section.offsetTop - 120) {
-            current = section.id;
-          }
+          if (window.scrollY >= section.offsetTop - 120) current = section.id;
         });
         tocLinks.forEach(link => {
           const li = link.closest('li');
           if (li) {
             li.classList.remove('active');
-            if (link.getAttribute('href') === '#' + current) {
-              li.classList.add('active');
-            }
+            if (link.getAttribute('href') === '#' + current) li.classList.add('active');
           }
         });
       }
@@ -100,18 +97,12 @@
     if (copyIcon) copyIcon.style.display = 'none';
     if (checkIcon) checkIcon.style.display = 'block';
     if (toast) toast.style.display = 'block';
-    if (row) {
-      row.style.background = '#edfaf4';
-      row.style.borderColor = '#a3e8cc';
-    }
+    if (row) { row.style.background = '#edfaf4'; row.style.borderColor = '#a3e8cc'; }
     setTimeout(() => {
       if (copyIcon) copyIcon.style.display = 'block';
       if (checkIcon) checkIcon.style.display = 'none';
       if (toast) toast.style.display = 'none';
-      if (row) {
-        row.style.background = '';
-        row.style.borderColor = '';
-      }
+      if (row) { row.style.background = ''; row.style.borderColor = ''; }
     }, 2200);
   }
 
@@ -124,7 +115,7 @@
     if (!isOpen) item.classList.add('open');
   };
 
-  // ── Field Validation with descriptive messages ─────────────
+  // ── Field Validation ──────────────────────────────────────
   function validateField(id) {
     const input = document.getElementById(id);
     const errorEl = document.querySelector(`.field-error[data-for="${id}"]`);
@@ -150,92 +141,210 @@
     return isValid;
   }
 
-  // Attach live validation
   document.addEventListener('input', function(e) {
-    if (e.target.matches('input, select, textarea')) {
-      validateField(e.target.id);
-    }
+    if (e.target.matches('input, select, textarea')) validateField(e.target.id);
   });
 
-  // ── Multi-Vehicle Order Form ───────────────────────────────
-  let vehicleCount = 1;
-  let partCounters = {1: 1};
-  let partImages = {};
+
+  // ══════════════════════════════════════════════════════════
+  //  AUTO-SAVE HELPERS
+  //  Keys: pm_draft_preorder / pm_draft_refund
+  // ══════════════════════════════════════════════════════════
+  var PREORDER_KEY = 'pm_draft_preorder';
+  var REFUND_KEY   = 'pm_draft_refund';
+
+  function loadDraft(key) {
+    try { return JSON.parse(localStorage.getItem(key)) || {}; }
+    catch(e) { return {}; }
+  }
+
+  function saveDraft(key, data) {
+    try { localStorage.setItem(key, JSON.stringify(data)); }
+    catch(e) { /* storage full — fail silently */ }
+  }
+
+  function clearDraft(key) {
+    try { localStorage.removeItem(key); }
+    catch(e) {}
+  }
+
+  // Collect all named field values from a form into a flat object
+  function collectFields(form) {
+    var data = {};
+    form.querySelectorAll('input:not([type=file]):not([type=hidden]), select, textarea').forEach(function(el) {
+      if (el.name) data[el.name] = el.value;
+    });
+    return data;
+  }
+
+  // Write saved values back into rendered fields
+  function restoreFields(form, savedFields) {
+    if (!savedFields) return;
+    Object.keys(savedFields).forEach(function(name) {
+      var el = form.querySelector('[name="' + name + '"]');
+      if (el && el.type !== 'file') el.value = savedFields[name];
+    });
+  }
+
+  function debounce(fn, ms) {
+    var t;
+    return function() {
+      var args = arguments;
+      clearTimeout(t);
+      t = setTimeout(function() { fn.apply(null, args); }, ms);
+    };
+  }
+
+
+  // ══════════════════════════════════════════════════════════
+  //  MULTI-VEHICLE ORDER FORM
+  // ══════════════════════════════════════════════════════════
+  var vehicleCount = 1;
+  var partCounters = {1: 1};
+  var partImages = {};
 
   window.goToStep = function(step) {
-    const step1 = document.getElementById('step-1');
-    const step2 = document.getElementById('step-2');
+    var step1 = document.getElementById('step-1');
+    var step2 = document.getElementById('step-2');
     if (!step1 || !step2) return;
 
     if (step === 1) {
       step1.style.display = 'block';
       step2.style.display = 'none';
     } else {
-      const fields = ['full_name', 'phone', 'email', 'location'];
-      let allValid = true;
-      fields.forEach(id => { if (!validateField(id)) allValid = false; });
+      var fields = ['full_name', 'phone', 'email', 'location'];
+      var allValid = true;
+      fields.forEach(function(id) { if (!validateField(id)) allValid = false; });
       if (!allValid) return;
       step1.style.display = 'none';
       step2.style.display = 'block';
     }
-    document.getElementById('order-form')?.scrollIntoView({behavior: 'smooth', block: 'start'});
+    var orderSection = document.getElementById('order-form');
+    if (orderSection) orderSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
   window.addVehicle = function() {
+    var form = document.getElementById('preorder-form');
+    if (form) savePreorderDraft(form);
     vehicleCount++;
     partCounters[vehicleCount] = 1;
     renderVehicles();
+    if (form) restorePreorderFields(form);
+    var newContent = document.getElementById('vehicle-content-' + vehicleCount);
+    if (newContent) newContent.classList.add('open');
   };
 
   window.removeVehicle = function(vehicleId) {
     if (vehicleCount <= 1) return;
-    delete partCounters[vehicleId];
-    Object.keys(partImages).forEach(key => {
-      if (key.startsWith(vehicleId + '_')) delete partImages[key];
-    });
+    var form = document.getElementById('preorder-form');
+    if (form) savePreorderDraft(form);
+
+    // Renumber partCounters and partImages, dropping the removed vehicle
+    var newPartCounters = {};
+    var newImages = {};
+    var newIdx = 1;
+    for (var v = 1; v <= vehicleCount; v++) {
+      if (v === vehicleId) continue;
+      newPartCounters[newIdx] = partCounters[v] || 1;
+      for (var p = 1; p <= (partCounters[v] || 1); p++) {
+        var oldKey = v + '_' + p;
+        if (partImages[oldKey]) newImages[newIdx + '_' + p] = partImages[oldKey];
+      }
+      newIdx++;
+    }
+    partCounters = newPartCounters;
+    partImages = newImages;
     vehicleCount--;
+
+    // Renumber field names in saved draft
+    var draft = loadDraft(PREORDER_KEY);
+    var fields = draft.fields || {};
+    var renum = {};
+    Object.keys(fields).forEach(function(name) {
+      var match = name.match(/^vehicle_(\d+)_(.+)$/);
+      if (!match) { renum[name] = fields[name]; return; }
+      var vNum = parseInt(match[1]);
+      if (vNum === vehicleId) return; // drop
+      var newV = vNum < vehicleId ? vNum : vNum - 1;
+      renum['vehicle_' + newV + '_' + match[2]] = fields[name];
+    });
+    draft.fields = renum;
+    draft.vehicleCount = vehicleCount;
+    draft.partCounters = partCounters;
+    saveDraft(PREORDER_KEY, draft);
+
     renderVehicles();
+    if (form) restorePreorderFields(form);
   };
 
   window.addPart = function(vehicleId) {
+    var form = document.getElementById('preorder-form');
+    if (form) savePreorderDraft(form);
     partCounters[vehicleId]++;
     renderVehicles();
+    if (form) restorePreorderFields(form);
+    var content = document.getElementById('vehicle-content-' + vehicleId);
+    if (content) content.classList.add('open');
   };
 
   window.removePart = function(vehicleId, partIdx) {
-    const key = `${vehicleId}_${partIdx + 1}`;
-    delete partImages[key];
-    const partsContainer = document.getElementById(`parts-${vehicleId}`);
-    if (partsContainer) {
-      const parts = partsContainer.querySelectorAll('.part-item');
-      if (parts.length > 1) {
-        parts[partIdx].remove();
-        partCounters[vehicleId]--;
-        const newImages = {};
-        let newIdx = 1;
-        for (let p = 1; p <= partCounters[vehicleId] + 1; p++) {
-          const oldKey = `${vehicleId}_${p}`;
-          if (p !== partIdx + 1 && partImages[oldKey]) {
-            newImages[`${vehicleId}_${newIdx}`] = partImages[oldKey];
-            newIdx++;
-          }
-        }
-        Object.assign(partImages, newImages);
+    var removedP = partIdx + 1;
+    var form = document.getElementById('preorder-form');
+    if (form) savePreorderDraft(form);
+
+    delete partImages[vehicleId + '_' + removedP];
+
+    if (partCounters[vehicleId] > 1) {
+      var draft = loadDraft(PREORDER_KEY);
+      var fields = draft.fields || {};
+      var renum = {};
+      var partRe = new RegExp('^vehicle_' + vehicleId + '_part_(\\d+)_(.+)$');
+      Object.keys(fields).forEach(function(name) {
+        var match = name.match(partRe);
+        if (!match) { renum[name] = fields[name]; return; }
+        var pNum = parseInt(match[1]);
+        if (pNum === removedP) return; // drop
+        var newP = pNum < removedP ? pNum : pNum - 1;
+        renum['vehicle_' + vehicleId + '_part_' + newP + '_' + match[2]] = fields[name];
+      });
+      partCounters[vehicleId]--;
+
+      // Renumber partImages for this vehicle
+      var newImages = {};
+      for (var p = 1; p <= partCounters[vehicleId] + 1; p++) {
+        if (p === removedP) continue;
+        var newP2 = p < removedP ? p : p - 1;
+        var imgKey = vehicleId + '_' + p;
+        if (partImages[imgKey]) newImages[vehicleId + '_' + newP2] = partImages[imgKey];
       }
+      // Merge back (only update keys for this vehicle)
+      Object.keys(partImages).forEach(function(k) {
+        if (!k.startsWith(vehicleId + '_')) newImages[k] = partImages[k];
+      });
+      partImages = newImages;
+
+      draft.fields = renum;
+      draft.partCounters = partCounters;
+      saveDraft(PREORDER_KEY, draft);
     }
+
+    renderVehicles();
+    if (form) restorePreorderFields(form);
+    var content = document.getElementById('vehicle-content-' + vehicleId);
+    if (content) content.classList.add('open');
   };
 
   window.handleImageUpload = function(vehicleId, partId, input) {
-    const files = Array.from(input.files);
-    const key = `${vehicleId}_${partId}`;
+    var files = Array.from(input.files);
+    var key = vehicleId + '_' + partId;
     if (!partImages[key]) partImages[key] = [];
-    partImages[key] = [...partImages[key], ...files];
+    partImages[key] = partImages[key].concat(files);
     renderImagePreview(vehicleId, partId);
     input.value = '';
   };
 
   window.deleteImage = function(vehicleId, partId, imgIndex) {
-    const key = `${vehicleId}_${partId}`;
+    var key = vehicleId + '_' + partId;
     if (partImages[key]) {
       partImages[key].splice(imgIndex, 1);
       if (partImages[key].length === 0) delete partImages[key];
@@ -244,136 +353,210 @@
   };
 
   function renderImagePreview(vehicleId, partId) {
-    const container = document.getElementById(`preview-${vehicleId}-${partId}`);
+    var container = document.getElementById('preview-' + vehicleId + '-' + partId);
     if (!container) return;
-    const key = `${vehicleId}_${partId}`;
-    const images = partImages[key] || [];
+    var key = vehicleId + '_' + partId;
+    var images = partImages[key] || [];
     container.innerHTML = '';
-    images.forEach((file, idx) => {
-      const reader = new FileReader();
-      reader.onload = (e) => {
-        const div = document.createElement('div');
+    images.forEach(function(file, idx) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var div = document.createElement('div');
         div.className = 'preview-img';
-        div.innerHTML = `<img src="${e.target.result}" alt="part image"><button type="button" class="delete-img" onclick="deleteImage(${vehicleId}, ${partId}, ${idx})">&times;</button>`;
+        div.innerHTML = '<img src="' + e.target.result + '" alt="part image"><button type="button" class="delete-img" onclick="deleteImage(' + vehicleId + ', ' + partId + ', ' + idx + ')">&times;</button>';
         container.appendChild(div);
       };
       reader.readAsDataURL(file);
     });
   }
 
+  // ── Live title updates ───────────────────────────────────
+
+  function updateVehicleTitle(vehicleId) {
+    var make  = (document.querySelector('[name="vehicle_' + vehicleId + '_make"]')?.value  || '').trim();
+    var model = (document.querySelector('[name="vehicle_' + vehicleId + '_model"]')?.value || '').trim();
+    var year  = (document.querySelector('[name="vehicle_' + vehicleId + '_year"]')?.value  || '').trim();
+    var titleEl = document.querySelector('.vehicle-card[data-vehicle="' + vehicleId + '"] .vehicle-title');
+    if (!titleEl) return;
+    var parts = [make, model, year].filter(Boolean);
+    titleEl.textContent = parts.length ? parts.join(' · ') : 'Vehicle ' + vehicleId;
+  }
+
+  function updatePartTitle(vehicleId, partId) {
+    var nameEl = document.querySelector('[name="vehicle_' + vehicleId + '_part_' + partId + '_name"]');
+    var name = nameEl ? nameEl.value.trim() : '';
+    var titleEl = document.querySelector('#part-item-' + vehicleId + '-' + partId + ' .part-title');
+    if (!titleEl) return;
+    titleEl.textContent = name || 'Part ' + partId;
+  }
+
   function renderParts(vehicleId) {
-    let partsHtml = '';
-    for (let p = 1; p <= partCounters[vehicleId]; p++) {
-      partsHtml += `<div class="part-item" id="part-item-${vehicleId}-${p}">
-        <div class="part-header">
-          <span class="part-title">Part ${p}</span>
-          ${partCounters[vehicleId] > 1 ? `<button type="button" class="remove-part" onclick="removePart(${vehicleId}, ${p-1})">Remove</button>` : ''}
-        </div>
-        <div class="field"><label>Part Name / Description <span class="req">*</span></label><input type="text" name="vehicle_${vehicleId}_part_${p}_name" placeholder="e.g., Front Differential Assembly" required></div>
-        <div class="field-2">
-          <div class="field"><label>OEM Part Number</label><input type="text" name="vehicle_${vehicleId}_part_${p}_number" placeholder="e.g., 41110-60280"></div>
-          <div class="field"><label>Condition</label><select name="vehicle_${vehicleId}_part_${p}_condition"><option value="">Any</option><option>New OEM</option><option>New Aftermarket</option><option>Refurbished</option></select></div>
-        </div>
-        <div class="field-2">
-          <div class="field"><label>Budget (KSh)</label><input type="text" name="vehicle_${vehicleId}_part_${p}_budget" placeholder="e.g., 45000-60000"></div>
-          <div class="field"><label>Urgency</label><select name="vehicle_${vehicleId}_part_${p}_urgency"><option value="">Select</option><option>Urgent (ASAP)</option><option>Within 1 week</option><option>Within 2 weeks</option><option>No rush</option></select></div>
-        </div>
-        <div class="field"><label>Notes / Reference</label><textarea name="vehicle_${vehicleId}_part_${p}_notes" rows="2" placeholder="Any additional details..."></textarea></div>
-        <div class="part-images">
-          <div class="image-upload-zone" onclick="document.getElementById('file-input-${vehicleId}-${p}').click()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg>
-            <p><strong>Upload reference images</strong> (JPG/PNG)</p>
-            <input type="file" id="file-input-${vehicleId}-${p}" accept="image/*" multiple style="display:none" onchange="handleImageUpload(${vehicleId}, ${p}, this)">
-          </div>
-          <div class="image-preview-row" id="preview-${vehicleId}-${p}"></div>
-        </div>
-      </div>`;
+    var partsHtml = '';
+    for (var p = 1; p <= partCounters[vehicleId]; p++) {
+      partsHtml += '<div class="part-item" id="part-item-' + vehicleId + '-' + p + '">' +
+        '<div class="part-header">' +
+          '<span class="part-title">Part ' + p + '</span>' +
+          (partCounters[vehicleId] > 1 ? '<button type="button" class="remove-part" onclick="removePart(' + vehicleId + ', ' + (p-1) + ')">Remove</button>' : '') +
+        '</div>' +
+        '<div class="field"><label>Part Name / Description <span class="req">*</span></label><input type="text" name="vehicle_' + vehicleId + '_part_' + p + '_name" placeholder="e.g., Front Differential Assembly" required></div>' +
+        '<div class="field-2">' +
+          '<div class="field"><label>OEM Part Number</label><input type="text" name="vehicle_' + vehicleId + '_part_' + p + '_number" placeholder="e.g., 41110-60280"></div>' +
+          '<div class="field"><label>Condition</label><select name="vehicle_' + vehicleId + '_part_' + p + '_condition"><option value="">Any</option><option>New OEM</option><option>New Aftermarket</option><option>Refurbished</option></select></div>' +
+        '</div>' +
+        '<div class="field-2">' +
+          '<div class="field"><label>Budget (KSh)</label><input type="text" name="vehicle_' + vehicleId + '_part_' + p + '_budget" placeholder="e.g., 45000-60000"></div>' +
+          '<div class="field"><label>Urgency</label><select name="vehicle_' + vehicleId + '_part_' + p + '_urgency"><option value="">Select</option><option>Urgent (ASAP)</option><option>Within 1 week</option><option>Within 2 weeks</option><option>No rush</option></select></div>' +
+        '</div>' +
+        '<div class="field"><label>Notes / Reference</label><textarea name="vehicle_' + vehicleId + '_part_' + p + '_notes" rows="2" placeholder="Any additional details..."></textarea></div>' +
+        '<div class="part-images">' +
+          '<div class="image-upload-zone" onclick="document.getElementById(\'file-input-' + vehicleId + '-' + p + '\').click()">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m2.25 15.75 5.159-5.159a2.25 2.25 0 0 1 3.182 0l5.159 5.159m-1.5-1.5 1.409-1.409a2.25 2.25 0 0 1 3.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5H3.75A1.5 1.5 0 0 0 2.25 6v12a1.5 1.5 0 0 0 1.5 1.5Zm10.5-11.25h.008v.008h-.008V8.25Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"/></svg>' +
+            '<p><strong>Upload reference images</strong> (JPG/PNG)</p>' +
+            '<input type="file" id="file-input-' + vehicleId + '-' + p + '" accept="image/*" multiple style="display:none" onchange="handleImageUpload(' + vehicleId + ', ' + p + ', this)">' +
+          '</div>' +
+          '<div class="image-preview-row" id="preview-' + vehicleId + '-' + p + '"></div>' +
+        '</div>' +
+      '</div>';
     }
     return partsHtml;
   }
 
   function renderVehicles() {
-    const container = document.getElementById('vehicles-container');
+    var container = document.getElementById('vehicles-container');
     if (!container) return;
-    let html = '';
-    for (let v = 1; v <= vehicleCount; v++) {
-      html += `<div class="vehicle-card" data-vehicle="${v}">
-        <div class="vehicle-header" onclick="toggleVehicle(${v})">
-          <div><span class="vehicle-title">Vehicle ${v}</span></div>
-          ${v > 1 ? `<button type="button" class="remove-vehicle" onclick="event.stopPropagation(); removeVehicle(${v})">Remove</button>` : ''}
-        </div>
-        <div class="vehicle-content" id="vehicle-content-${v}">
-          <div class="field-2">
-            <div class="field"><label>Make <span class="req">*</span></label><input type="text" name="vehicle_${v}_make" placeholder="e.g., Toyota" required></div>
-            <div class="field"><label>Model <span class="req">*</span></label><input type="text" name="vehicle_${v}_model" placeholder="e.g., Land Cruiser" required></div>
-          </div>
-          <div class="field-2">
-            <div class="field"><label>Year</label><input type="text" name="vehicle_${v}_year" placeholder="e.g., 2015"></div>
-            <div class="field"><label>Engine Code</label><input type="text" name="vehicle_${v}_engine" placeholder="e.g., 1GR-FE"></div>
-          </div>
-          <div class="field"><label>VIN / Chassis (optional)</label><input type="text" name="vehicle_${v}_vin" placeholder="Helps with accurate matching"></div>
-          <div class="parts-sub-header">Parts needed</div>
-          <div id="parts-${v}">${renderParts(v)}</div>
-          <button type="button" class="add-btn" onclick="addPart(${v})">+ Add another part</button>
-        </div>
-      </div>`;
+    var html = '';
+    for (var v = 1; v <= vehicleCount; v++) {
+      html += '<div class="vehicle-card" data-vehicle="' + v + '">' +
+        '<div class="vehicle-header" onclick="toggleVehicle(' + v + ')">' +
+          '<div><span class="vehicle-title">Vehicle ' + v + '</span></div>' +
+          (v > 1 ? '<button type="button" class="remove-vehicle" onclick="event.stopPropagation(); removeVehicle(' + v + ')">Remove</button>' : '') +
+        '</div>' +
+        '<div class="vehicle-content" id="vehicle-content-' + v + '">' +
+          '<div class="field-2">' +
+            '<div class="field"><label>Make <span class="req">*</span></label><input type="text" name="vehicle_' + v + '_make" placeholder="e.g., Toyota" required></div>' +
+            '<div class="field"><label>Model <span class="req">*</span></label><input type="text" name="vehicle_' + v + '_model" placeholder="e.g., Land Cruiser" required></div>' +
+          '</div>' +
+          '<div class="field-2">' +
+            '<div class="field"><label>Year</label><input type="text" name="vehicle_' + v + '_year" placeholder="e.g., 2015"></div>' +
+            '<div class="field"><label>Engine Code</label><input type="text" name="vehicle_' + v + '_engine" placeholder="e.g., 1GR-FE"></div>' +
+          '</div>' +
+          '<div class="field"><label>VIN / Chassis (optional)</label><input type="text" name="vehicle_' + v + '_vin" placeholder="Helps with accurate matching"></div>' +
+          '<div class="parts-sub-header">Parts needed</div>' +
+          '<div id="parts-' + v + '">' + renderParts(v) + '</div>' +
+          '<button type="button" class="add-btn" onclick="addPart(' + v + ')">+ Add another part</button>' +
+        '</div>' +
+      '</div>';
     }
     container.innerHTML = html;
-    const firstContent = document.getElementById('vehicle-content-1');
+    var firstContent = document.getElementById('vehicle-content-1');
     if (firstContent) firstContent.classList.add('open');
-    for (let v = 1; v <= vehicleCount; v++) {
-      for (let p = 1; p <= partCounters[v]; p++) {
-        renderImagePreview(v, p);
+    for (var v2 = 1; v2 <= vehicleCount; v2++) {
+      for (var p2 = 1; p2 <= partCounters[v2]; p2++) {
+        renderImagePreview(v2, p2);
       }
     }
   }
 
   window.toggleVehicle = function(vehicleId) {
-    const content = document.getElementById(`vehicle-content-${vehicleId}`);
+    var content = document.getElementById('vehicle-content-' + vehicleId);
     if (content) content.classList.toggle('open');
   };
 
-  // ── Form Submission Handlers ───────────────────────────────
+  // ── Preorder draft save / restore ───────────────────────
+
+  function savePreorderDraft(form) {
+    saveDraft(PREORDER_KEY, {
+      vehicleCount: vehicleCount,
+      partCounters: Object.assign({}, partCounters),
+      fields: collectFields(form)
+    });
+  }
+
+  function restorePreorderFields(form) {
+    var draft = loadDraft(PREORDER_KEY);
+    if (!draft || !draft.fields) return;
+    restoreFields(form, draft.fields);
+    // Sync live titles after values are back in the DOM
+    for (var v = 1; v <= vehicleCount; v++) {
+      updateVehicleTitle(v);
+      for (var p = 1; p <= (partCounters[v] || 1); p++) {
+        updatePartTitle(v, p);
+      }
+    }
+  }
+
+  // ── Preorder form init ───────────────────────────────────
+
   function initPreorderForm() {
-    const form = document.getElementById('preorder-form');
+    var form = document.getElementById('preorder-form');
     if (!form) return;
+
+    // Restore vehicle/part structure from draft before rendering
+    var draft = loadDraft(PREORDER_KEY);
+    if (draft && draft.vehicleCount) {
+      vehicleCount = draft.vehicleCount;
+      partCounters = draft.partCounters || { 1: 1 };
+    }
+
     renderVehicles();
+    restorePreorderFields(form);
+
+    var debouncedSave = debounce(function() { savePreorderDraft(form); }, 400);
+
+    form.addEventListener('input', function(e) {
+      debouncedSave();
+
+      var name = e.target.name || '';
+
+      // Vehicle title: watch make / model / year
+      var vmatch = name.match(/^vehicle_(\d+)_(make|model|year)$/);
+      if (vmatch) updateVehicleTitle(parseInt(vmatch[1]));
+
+      // Part title: watch part name field
+      var pmatch = name.match(/^vehicle_(\d+)_part_(\d+)_name$/);
+      if (pmatch) updatePartTitle(parseInt(pmatch[1]), parseInt(pmatch[2]));
+    });
+
+    form.addEventListener('change', debouncedSave);
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
-      const step2 = document.getElementById('step-2');
-      if (step2 && step2.style.display !== 'block') {
-        goToStep(2);
-        return;
-      }
-      const inputs = form.querySelectorAll('input:not([type=file]), select, textarea');
-      let allValid = true;
-      inputs.forEach(inp => {
-        if (inp.closest('.step-container')?.style.display !== 'none' && !validateField(inp.id)) {
-          allValid = false;
+      var step2 = document.getElementById('step-2');
+      if (step2 && step2.style.display !== 'block') { goToStep(2); return; }
+
+      var inputs = form.querySelectorAll('input:not([type=file]), select, textarea');
+      var allValid = true;
+      inputs.forEach(function(inp) {
+        if (inp.closest('.step-container') && inp.closest('.step-container').style.display !== 'none') {
+          if (!validateField(inp.id)) allValid = false;
         }
       });
       if (!allValid) return;
 
-      const btn = form.querySelector('.submit-btn');
+      var btn = form.querySelector('.submit-btn');
       btn.textContent = 'Sending...';
       btn.disabled = true;
-      const formData = new FormData(form);
-      for (const [key, files] of Object.entries(partImages)) {
-        files.forEach((file, idx) => formData.append(`images_${key}_${idx}`, file));
-      }
+
+      var formData = new FormData(form);
+      Object.keys(partImages).forEach(function(key) {
+        partImages[key].forEach(function(file, idx) {
+          formData.append('images_' + key + '_' + idx, file);
+        });
+      });
+
       try {
-        const res = await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
+        var res = await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
         if (res.ok) {
-          const successMsg = document.getElementById('success-msg');
+          clearDraft(PREORDER_KEY);
+          var successMsg = document.getElementById('success-msg');
           if (successMsg) successMsg.style.display = 'block';
           form.reset();
           vehicleCount = 1;
-          partCounters = {1: 1};
+          partCounters = { 1: 1 };
           partImages = {};
           renderVehicles();
           goToStep(1);
-          setTimeout(() => { if (successMsg) successMsg.style.display = 'none'; }, 6000);
+          setTimeout(function() { if (successMsg) successMsg.style.display = 'none'; }, 6000);
         } else {
           alert('Something went wrong. Please try again or contact us directly.');
         }
@@ -386,30 +569,38 @@
     });
   }
 
+  // ── Refund form init ─────────────────────────────────────
+
   function initRefundForm() {
-    const form = document.getElementById('refund-form');
+    var form = document.getElementById('refund-form');
     if (!form) return;
+
+    // Restore saved values on load
+    var draft = loadDraft(REFUND_KEY);
+    if (draft && draft.fields) restoreFields(form, draft.fields);
+
+    var debouncedSave = debounce(function() {
+      saveDraft(REFUND_KEY, { fields: collectFields(form) });
+    }, 400);
+
+    form.addEventListener('input', debouncedSave);
+    form.addEventListener('change', debouncedSave);
 
     form.addEventListener('submit', async function(e) {
       e.preventDefault();
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-      const btn = document.getElementById('submit-btn');
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      var btn = document.getElementById('submit-btn');
       btn.textContent = 'Submitting…';
       btn.disabled = true;
-      const formData = new FormData(form);
 
+      var formData = new FormData(form);
       try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        });
+        var res = await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
         if (res.ok) {
+          clearDraft(REFUND_KEY);
           form.style.display = 'none';
-          const banner = document.getElementById('refund-success');
+          var banner = document.getElementById('refund-success');
           if (banner) {
             banner.style.display = 'block';
             window.scrollTo({ top: banner.offsetTop - 100, behavior: 'smooth' });
@@ -428,16 +619,16 @@
   }
 
   window.toggleRefundFields = function(value) {
-    const mpesaFields = document.getElementById('mpesa-fields');
-    const bankFields = document.getElementById('bank-fields');
+    var mpesaFields = document.getElementById('mpesa-fields');
+    var bankFields = document.getElementById('bank-fields');
     if (mpesaFields) mpesaFields.style.display = value === 'mpesa' ? 'block' : 'none';
     if (bankFields) bankFields.style.display = value === 'bank' ? 'block' : 'none';
-    ['mpesa_number', 'mpesa_name'].forEach(id => {
-      const el = document.getElementById(id);
+    ['mpesa_number', 'mpesa_name'].forEach(function(id) {
+      var el = document.getElementById(id);
       if (el) el.required = (value === 'mpesa');
     });
-    ['bank_name', 'account_name', 'account_number'].forEach(id => {
-      const el = document.getElementById(id);
+    ['bank_name', 'account_name', 'account_number'].forEach(function(id) {
+      var el = document.getElementById(id);
       if (el) el.required = (value === 'bank');
     });
   };
@@ -446,4 +637,5 @@
     initPreorderForm();
     initRefundForm();
   });
+
 })();
