@@ -644,10 +644,10 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   margin-bottom: 0;
 }
 
-/* Payment aside */
+/* Payment aside — dark context */
 .payment-aside {
-  background: #D7CDCC;
-  border: none;
+  background: #161616;
+  border: 1px solid #1e1e1e;
   border-radius: 0;
   padding: 26px;
   box-shadow: none;
@@ -657,30 +657,30 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   font-weight: 700;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: #555;
   margin-bottom: 14px;
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid #1e1e1e;
 }
 .payment-aside-desc {
-  font-size: 13px; color: var(--muted); line-height: 1.65;
+  font-size: 13px; color: #555; line-height: 1.65;
   margin-bottom: 20px;
 }
 .payment-paybill {
   display: flex; align-items: center; justify-content: space-between;
-  border: 1px solid rgba(41,49,50,0.2);
-  border-radius: 4px;
+  border: 1px solid #2a2a2a;
+  border-radius: 0;
   padding: 16px 18px;
   cursor: pointer; transition: border-color 0.2s;
   margin-bottom: 14px;
-  background: rgba(255,255,255,0.45);
+  background: #1a1a1a;
 }
 .payment-paybill:hover { border-color: var(--orange); }
-.payment-paybill-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 3px; }
-.payment-paybill-value { font-size: 26px; font-weight: 800; color: var(--black); letter-spacing: 0.04em; line-height: 1; }
+.payment-paybill-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: #555; margin-bottom: 3px; }
+.payment-paybill-value { font-size: 26px; font-weight: 800; color: #fff; letter-spacing: 0.04em; line-height: 1; }
 .paybill-copy-btn {
   background: none; border: none; cursor: pointer;
-  color: var(--muted); padding: 4px;
+  color: #555; padding: 4px;
   display: flex; align-items: center;
 }
 .paybill-copy-btn svg { width: 20px; height: 20px; }
@@ -688,18 +688,20 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
   display: flex; justify-content: space-between; align-items: center;
   font-size: 13px; margin-bottom: 20px; padding: 0 2px;
 }
-.payment-account-key { color: var(--muted); font-weight: 600; }
-.payment-account-val { color: var(--ink); font-weight: 600; }
-.payment-divider { height: 1px; background: var(--line); margin: 18px 0; }
+.payment-account-key { color: #555; font-weight: 600; }
+.payment-account-val { color: #ccc; font-weight: 600; }
+.payment-divider { height: 1px; background: #1e1e1e; margin: 18px 0; }
 .payment-mpesa-logo-row { margin-bottom: 18px; }
 .payment-mpesa-logo-row .mpesa-logo { height: 26px; }
 .payment-support-row {
   display: flex; align-items: center; gap: 12px;
 }
 .payment-support-row > svg { width: 18px; height: 18px; stroke: var(--orange); flex-shrink: 0; }
-.payment-support-label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 2px; }
-.payment-support-number { font-size: 16px; font-weight: 700; color: var(--black); text-decoration: none; }
+.payment-support-label { display: block; font-size: 12px; color: #555; margin-bottom: 2px; }
+.payment-support-number { font-size: 16px; font-weight: 700; color: #fff; text-decoration: none; }
 .payment-support-number:hover { color: var(--orange); }
+/* M-Pesa logo in the support row — larger */
+.payment-support-row .mpesa-logo { height: 40px; flex-shrink: 0; }
 .success-msg {
   display: none;
   background: #f0fbf7;
@@ -1094,6 +1096,95 @@ footer { background: var(--black); color: #888; padding: 48px 0 32px; }
     grid-template-columns: 1fr;
     gap: 36px;
   }
+}
+
+/* Dark-bg overrides — form section now lives on #0e0e0e */
+#order-form .form-fieldset {
+  border-color: #2a2a2a;
+  background: transparent;
+}
+#order-form .form-legend {
+  color: #555;
+}
+#order-form .float-field input,
+#order-form .float-field select,
+#order-form .float-field textarea {
+  background: #161616;
+  border-color: #2a2a2a;
+  color: #e0e0e0;
+}
+#order-form .float-field input:focus,
+#order-form .float-field select:focus,
+#order-form .float-field textarea:focus {
+  border-color: #555;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.04);
+}
+#order-form .float-field label {
+  color: #555;
+}
+#order-form .float-field input:focus + label,
+#order-form .float-field input:not(:placeholder-shown) + label,
+#order-form .float-field textarea:focus + label,
+#order-form .float-field textarea:not(:placeholder-shown) + label {
+  background: #161616;
+  color: #888;
+}
+#order-form .vehicle-content .field input,
+#order-form .vehicle-content .field select,
+#order-form .vehicle-content .field textarea,
+#order-form .part-item .field input,
+#order-form .part-item .field select,
+#order-form .part-item .field textarea {
+  background: #161616;
+  border-color: #2a2a2a;
+  color: #e0e0e0;
+}
+#order-form .vehicle-content .field label,
+#order-form .part-item .field label {
+  color: #555;
+}
+#order-form .vehicle-content {
+  background: #0e0e0e;
+}
+#order-form .part-item {
+  background: #141414;
+  border-color: #2a2a2a;
+  border-left-color: #2a2a2a;
+}
+#order-form .part-item:focus-within {
+  border-left-color: var(--orange);
+}
+#order-form .parts-sub-header {
+  border-top-color: #2a2a2a;
+  color: #555;
+}
+#order-form .image-upload-zone {
+  border-color: #2a2a2a;
+}
+#order-form .image-upload-zone:hover {
+  background: #1a1a1a;
+  border-color: var(--orange);
+}
+#order-form .btn-step-back {
+  border-color: #2a2a2a;
+  color: #666;
+}
+#order-form .btn-step-back:hover {
+  border-color: #888;
+  color: #ccc;
+}
+#order-form .add-btn {
+  border-color: var(--orange);
+  color: var(--orange);
+  background: transparent;
+}
+#order-form .add-btn:hover {
+  background: rgba(255,69,0,0.08);
+}
+#order-form .success-msg {
+  background: #0a1a14;
+  border-left-color: var(--success);
+  color: var(--success);
 }
 
 /* Step buttons */
