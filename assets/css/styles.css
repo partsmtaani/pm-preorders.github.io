@@ -646,8 +646,8 @@ h2 { font-size: clamp(26px, 3.2vw, 42px); line-height: 1.1; letter-spacing: 0.02
 
 /* Payment aside */
 .payment-aside {
-  background: var(--white);
-  border: 1.5px solid var(--field-border);
+  background: #D7CDCC;
+  border: none;
   border-radius: 0;
   padding: 26px;
   box-shadow: none;
