@@ -569,6 +569,39 @@
     });
   }
 
+  // ── Refund form image upload ──────────────────────────────
+  var refundImages = [];
+
+  window.handleRefundImageUpload = function(input) {
+    var files = Array.from(input.files);
+    refundImages = refundImages.concat(files);
+    renderRefundImagePreview();
+    input.value = '';
+  };
+
+  window.deleteRefundImage = function(idx) {
+    refundImages.splice(idx, 1);
+    renderRefundImagePreview();
+  };
+
+  function renderRefundImagePreview() {
+    var container = document.getElementById('refund-image-preview');
+    if (!container) return;
+    container.innerHTML = '';
+    refundImages.forEach(function(file, idx) {
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var div = document.createElement('div');
+        div.className = 'preview-img';
+        div.innerHTML =
+          '<img src="' + e.target.result + '" alt="evidence image">' +
+          '<button type="button" class="delete-img" onclick="deleteRefundImage(' + idx + ')">&times;</button>';
+        container.appendChild(div);
+      };
+      reader.readAsDataURL(file);
+    });
+  }
+
   // ── Refund form init ─────────────────────────────────────
 
   function initRefundForm() {
@@ -595,10 +628,15 @@
       btn.disabled = true;
 
       var formData = new FormData(form);
+      refundImages.forEach(function(file, idx) {
+        formData.append('evidence_image_' + idx, file);
+      });
       try {
         var res = await fetch(form.action, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
         if (res.ok) {
           clearDraft(REFUND_KEY);
+          refundImages = [];
+          renderRefundImagePreview();
           form.style.display = 'none';
           var banner = document.getElementById('refund-success');
           if (banner) {
