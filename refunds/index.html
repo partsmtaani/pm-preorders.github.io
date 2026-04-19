@@ -49,113 +49,87 @@
   <div class="page-body refund-page-body">
     <div class="refund-layout">
 
-      <!-- Left column: Policy — enterprise table-free layout -->
+      <!-- Left column: Policy -->
       <div class="refund-policy-plain">
         <h3 class="refund-section-title" style="text-transform:none;letter-spacing:0;">Refund &amp; returns policy</h3>
 
-        <!-- Sourcing deposit block -->
         <div class="policy-block">
           <h4 class="policy-heading" style="text-transform:none;letter-spacing:0;font-size:17px;">Sourcing deposit</h4>
-          <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:24px;">The 30% deposit triggers active sourcing and is credited in full toward your final invoice. Two situations entitle you to a full refund, no questions asked.</p>
+          <p>The 30% deposit triggers active sourcing and is credited in full toward your final invoice — not an additional fee. Your eligibility for a refund depends on the scenario below.</p>
 
-          <!-- Ruled scenario list -->
-          <div style="border-top:1px solid var(--line);">
+          <!-- Enterprise ruled scenario list -->
+          <div style="margin:24px 0 0;">
 
-            <div style="display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);">
-              <div>
-                <div style="font-size:13px;font-weight:700;color:var(--black);margin-bottom:3px;">Part not found within agreed lead time</div>
-                <div style="font-size:12px;color:var(--muted);">We exhaust our supplier network without result</div>
-              </div>
-              <div style="display:flex;align-items:center;gap:7px;white-space:nowrap;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2.5" style="width:14px;height:14px;flex-shrink:0;"><path d="M5 12l5 5 9-9"/></svg>
-                <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--success);">Full refund</span>
-              </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:13px 0;border-top:2px solid var(--ink);">
+              <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Situation</span>
+              <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);flex-shrink:0;">Outcome</span>
             </div>
 
-            <div style="display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);">
-              <div>
-                <div style="font-size:13px;font-weight:700;color:var(--black);margin-bottom:3px;">Confirmed price exceeds estimate by &gt;20%</div>
-                <div style="font-size:12px;color:var(--muted);">We own the pricing error — no deductions</div>
-              </div>
-              <div style="display:flex;align-items:center;gap:7px;white-space:nowrap;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="var(--success)" stroke-width="2.5" style="width:14px;height:14px;flex-shrink:0;"><path d="M5 12l5 5 9-9"/></svg>
-                <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--success);">Full refund</span>
-              </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:14px 0;border-top:1px solid var(--line);">
+              <span style="font-size:14px;color:var(--mid);line-height:1.55;">We cannot source the part within the agreed lead time</span>
+              <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--success);flex-shrink:0;">Full refund</span>
             </div>
 
-            <div style="display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);">
-              <div>
-                <div style="font-size:13px;font-weight:700;color:var(--black);margin-bottom:3px;">Cancellation after sourcing has started</div>
-                <div style="font-size:12px;color:var(--muted);">Refund less documented expenses (max USD 18) — or full store credit</div>
-              </div>
-              <div style="display:flex;align-items:center;gap:7px;white-space:nowrap;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#e67e22" stroke-width="2.5" style="width:14px;height:14px;flex-shrink:0;"><path d="M5 12l5 5 9-9"/></svg>
-                <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#e67e22;">Partial</span>
-              </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:14px 0;border-top:1px solid var(--line);">
+              <span style="font-size:14px;color:var(--mid);line-height:1.55;">Confirmed price exceeds our estimate by more than 20%</span>
+              <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--success);flex-shrink:0;">Full refund</span>
             </div>
 
-            <div style="display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:16px 0;border-bottom:1px solid var(--line);">
-              <div>
-                <div style="font-size:13px;font-weight:700;color:var(--black);margin-bottom:3px;">Declining a price within 20% of estimate</div>
-                <div style="font-size:12px;color:var(--muted);">Price is within the agreed tolerance band</div>
-              </div>
-              <div style="display:flex;align-items:center;gap:7px;white-space:nowrap;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2.5" style="width:14px;height:14px;flex-shrink:0;"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">No refund</span>
-              </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:14px 0;border-top:1px solid var(--line);">
+              <span style="font-size:14px;color:var(--mid);line-height:1.55;">You cancel after sourcing has started</span>
+              <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#b45309;flex-shrink:0;text-align:right;max-width:160px;line-height:1.4;">Less expenses (max USD 18) or store credit</span>
             </div>
 
-            <div style="display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;padding:16px 0;">
-              <div>
-                <div style="font-size:13px;font-weight:700;color:var(--black);margin-bottom:3px;">Inaccurate vehicle or part information</div>
-                <div style="font-size:12px;color:var(--muted);">Sourcing costs incurred based on provided details</div>
-              </div>
-              <div style="display:flex;align-items:center;gap:7px;white-space:nowrap;">
-                <svg viewBox="0 0 24 24" fill="none" stroke="var(--muted)" stroke-width="2.5" style="width:14px;height:14px;flex-shrink:0;"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                <span style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);">No refund</span>
-              </div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:14px 0;border-top:1px solid var(--line);">
+              <span style="font-size:14px;color:var(--mid);line-height:1.55;">You decline a confirmed price within 20% of the estimate</span>
+              <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);flex-shrink:0;">No refund</span>
+            </div>
+
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+              <span style="font-size:14px;color:var(--mid);line-height:1.55;">Inaccurate vehicle or part information was provided</span>
+              <span style="font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);flex-shrink:0;">No refund</span>
             </div>
 
           </div>
 
-          <p class="note" style="margin-top:16px;">Where expenses are deducted, we provide receipts on request. The balance is returned to your M‑Pesa within 3 business days.</p>
+          <p class="note">Where expenses are deducted, we provide receipts on request. The balance is returned to your M‑Pesa within 3 business days.</p>
         </div>
 
-        <!-- Faulty parts block -->
         <div class="policy-block">
           <h4 class="policy-heading" style="text-transform:none;letter-spacing:0;font-size:17px;">Faulty parts</h4>
-          <p style="font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:24px;">Applies to <strong style="color:var(--ink);">new and OEM parts only.</strong> Used and graded parts are sold as-is with no warranty or right of return.</p>
+          <p>Applies to <strong>new and OEM parts only.</strong> Used and graded parts are sold as-is — no warranty or right of return.</p>
 
-          <!-- 2x2 condition grid -->
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:16px;">
+          <!-- Enterprise ruled conditions list -->
+          <div style="margin:24px 0 0;">
 
-            <div style="background:var(--white);padding:18px 20px;">
-              <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Reporting window</div>
-              <div style="font-size:15px;font-weight:700;color:var(--black);">14 days</div>
-              <div style="font-size:12px;color:var(--muted);margin-top:3px;">from delivery date</div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:13px 0;border-top:2px solid var(--ink);">
+              <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);">Condition</span>
+              <span style="font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);flex-shrink:0;">Requirement</span>
             </div>
 
-            <div style="background:var(--white);padding:18px 20px;">
-              <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Installation</div>
-              <div style="font-size:15px;font-weight:700;color:var(--black);">Certified mechanic</div>
-              <div style="font-size:12px;color:var(--muted);margin-top:3px;">proof may be requested</div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:14px 0;border-top:1px solid var(--line);">
+              <span style="font-size:14px;color:var(--mid);">Reporting window</span>
+              <span style="font-size:14px;font-weight:700;color:var(--ink);flex-shrink:0;">Within 14 days of delivery</span>
             </div>
 
-            <div style="background:var(--white);padding:18px 20px;">
-              <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Return shipping</div>
-              <div style="font-size:15px;font-weight:700;color:var(--black);">Customer's cost</div>
-              <div style="font-size:12px;color:var(--muted);margin-top:3px;">on return journey</div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:14px 0;border-top:1px solid var(--line);">
+              <span style="font-size:14px;color:var(--mid);">Installation</span>
+              <span style="font-size:14px;font-weight:700;color:var(--ink);flex-shrink:0;text-align:right;max-width:200px;line-height:1.4;">Certified or qualified mechanic</span>
             </div>
 
-            <div style="background:var(--white);padding:18px 20px;">
-              <div style="font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;">Remedy</div>
-              <div style="font-size:15px;font-weight:700;color:var(--black);">Replacement first</div>
-              <div style="font-size:12px;color:var(--muted);margin-top:3px;">refund if unavailable</div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:14px 0;border-top:1px solid var(--line);">
+              <span style="font-size:14px;color:var(--mid);">Return shipping</span>
+              <span style="font-size:14px;font-weight:700;color:var(--ink);flex-shrink:0;">At the customer's cost</span>
+            </div>
+
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+              <span style="font-size:14px;color:var(--mid);">Remedy</span>
+              <span style="font-size:14px;font-weight:700;color:var(--ink);flex-shrink:0;text-align:right;max-width:200px;line-height:1.4;">Replacement first; refund if unavailable</span>
             </div>
 
           </div>
 
-          <p class="note">Delivery charges are not refundable. Refunds are processed to the original M‑Pesa number within 3–5 business days. For the full policy, see our <a href="/terms/" style="color:var(--orange);text-decoration:none;">Terms &amp; Conditions</a>.</p>
+          <p class="note">Delivery charges are not refundable. Refunds are processed to the original M‑Pesa number within 3–5 business days. For the full policy, see our <a href="/terms/">Terms &amp; Conditions</a>.</p>
         </div>
       </div>
 
